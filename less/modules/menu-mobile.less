@@ -1,0 +1,53 @@
+/**
+ * ===================================================================
+ * - MOBILE-MENU - #mobile_menu.
+ * ===================================================================
+ */
+
+.ps-mobile-menu {
+	position: fixed;
+	width: 240px;
+	height: 100vh;
+	top: 0;
+	z-index: 20000;
+	background-color: #141414;
+	transform: translateX(-100%);
+	.trans( transform, .3s, ease-out );
+	.menu {
+		color: #fff;
+		li {
+			display: block;
+			width: 100%;
+			a {
+				color: #fff;
+				display: block;
+				font-weight: 300;
+				opacity: .8;
+				&:hover {
+					color: @activeColor;
+					opacity: 1;
+				}
+			}
+		}
+	}
+	.sub-menu {
+		display: block;
+		width: 100%;
+	}
+}
+.close-mobile-menu-full-screen {
+	position: fixed;
+	top: 0; bottom: 0;
+	left: 0; right: 0;
+	z-index: 15000;
+	display: none;
+	cursor: pointer;
+}
+body.mobile-menu-open {
+	.ps-mobile-menu {
+		transform: translateX(0%);
+	}
+	.close-mobile-menu-full-screen {
+		display: block;
+	}
+}

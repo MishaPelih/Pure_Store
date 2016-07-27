@@ -1,0 +1,29 @@
+/**
+ * ========================================================================================
+ * - BREADCRUMBS - #breadcrumbs.
+ * ========================================================================================
+ */
+
+.breadcrumbs {
+	padding: 30px 0;
+	font-size: 12px;
+	font-weight: 500;
+	text-transform: uppercase;
+	background-color: @bgColor;
+	color: @lightColor;
+	a, span {
+		display: inline-block;
+	}
+	.parent {
+		a {
+			.extra_light_link();
+		}
+	}
+	.current {
+		color: @activeColor;
+	}
+	.sep {
+		color: @extraLightColor;
+		margin: 0 7px;
+	}
+}

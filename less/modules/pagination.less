@@ -1,0 +1,114 @@
+/**
+ * ========================================================================================
+ * - PAGINATION - #pagination.
+ * ========================================================================================
+ */
+
+
+/* ==============================
+ - Base.
+============================== */
+.pagination-wrap, .filter-wrap {
+	text-align: center;
+	padding: 13px 14px 12px 14px;
+	background-color: #fff;
+	border: 1px solid @borderColor;
+	margin-bottom: 30px;
+	clear: both;
+	display: block;
+	width: 100%;
+	&:last-child {
+		margin-bottom: 0;
+	}
+	.page-numbers {
+		display: inline-block;
+		.clear_after();
+		li {
+			display: inline-block;
+			margin-right: 8px;
+			float: left;
+			&:last-child {
+				margin-right: 0;
+			}
+			span, a {
+				display: block;
+				padding: 0 10px;
+				height: 30px;
+				min-width: 30px;
+				border: 1px solid @borderColor;
+				line-height: 30px;
+			}
+			&.current {
+				a, span {
+					background-color: @activeColor;
+					border-color: @activeColor;
+					color: #fff;
+				}
+			}
+		}
+	}
+	.switch {
+		.clear_after();
+	}
+	.switch-option {
+		display: inline-block;
+		float: left;
+		margin-right: 4px;
+		a {
+			padding: 0 5px;
+			height: 30px;
+			border: 1px solid transparent;
+			color: @extraLightColor;
+			.trans( all, .2s );
+			text-align: center;
+			display: block;
+			line-height: 1;
+			font-size: 27px;
+			&:hover {
+				color: @activeColor;
+			}
+		}
+		&.active {
+			a {
+				color: @activeColor;
+				border-color: @activeColor;
+			}
+		}
+	}
+	label {
+		color: @lightColor;
+		font-weight: 500;
+		text-transform: uppercase;
+		margin-right: 2px;
+	}
+	.products-per-page {
+		.wild-select.wild-area {
+			.icon {
+				margin-left: 12px;
+			}
+		}
+	}
+	.products-per-page, .woocommerce-ordering {
+		&:last-child {
+			.wild-options {
+				right: 0;
+			}
+		}
+	}
+}
+
+/* ==============================
+ - In woocommerce page.
+============================== */
+.woocommerce-page {
+	.pagination-wrap, .filter-wrap {
+		&.bottom {
+			margin-bottom: 90px;
+		}
+	}
+	.filter-content {
+    	.flex_center_Y();
+    	flex-flow: row nowrap;
+    	justify-content: space-between;
+	}
+}

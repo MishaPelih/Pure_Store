@@ -1,0 +1,30 @@
+/**
+ * ========================================================================================
+ * - BUTTONS - #buttons.
+ * ========================================================================================
+ */
+
+@buttonColor: #fff;
+@buttonBgColor: @activeColor;
+@buttonHoverColor: #fff;
+@buttonHoverBgColor: darken( @buttonBgColor , 6% );
+
+.button,
+button {
+	color: @buttonColor;
+	background-color: @activeColor;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 14px;
+	border: 0;
+	letter-spacing: 1px;
+    padding: 12px 28px 10px;
+    text-transform: uppercase;
+    .trans( all, .2s );
+	.disable_focus();
+	&:hover, &:focus, &:active {
+		color: @buttonHoverColor;
+		background-color: @buttonHoverBgColor; 
+		text-decoration: none;
+	}
+}

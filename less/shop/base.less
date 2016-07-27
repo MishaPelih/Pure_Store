@@ -1,0 +1,82 @@
+/**
+ * ========================================================================================
+ * - SHOP-DEFAULTS - #shop_defaults.
+ * ========================================================================================
+ */
+
+.woocommerce-message {
+	text-align: center;
+    width: 100%;
+    padding: 30px;
+    margin: 0 0 2em;
+    position: relative;
+    background-color: #f7f6f7;
+    color: #515151;
+    color: #999;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    word-wrap: break-word;
+}
+
+.up-sells, .upsells {
+	padding: 90px 0;
+	background-color: #fff;
+	h2  {
+		padding-bottom: 15px;
+	    margin-bottom: 50px;
+	    display: block;
+	    position: relative;
+	    text-align: center;
+	    &:after {
+	    	content: '';
+		    position: absolute;
+		    width: 60px;
+		    height: 1px;
+		    background-color: #ddd;
+		    top: 100%;
+		    left: 50%;
+		    transform: translateX(-50%);
+	    }
+	}
+}
+
+.quantity {
+	display: block;
+	.clear_after();
+	.quantity-content {
+		display: inline-flex;
+		border: 1px solid @borderColor;
+		background-color: #fff;
+	}
+	.qty-btn-wrap {
+		width: 28px;
+		text-align: center;
+	}
+	span.plus, span.minus {
+		display: table;
+		width: 100%;
+		height: 50%;
+		cursor: pointer;
+		-webkit-user-select: none;
+		.trans( all, .1s );
+		&:hover {
+			color: @activeColor;
+		}
+		i {
+			display: table-cell;
+			vertical-align: middle;
+		}
+	}
+	input {
+		height: 37px;
+		width: 55px;
+		padding: 0 10px;
+		text-align: center;
+		border: 0;
+		border-right: 1px solid @borderColor;
+		&:focus {
+			border-color: @borderColor;
+		}
+	}
+}

@@ -1,0 +1,261 @@
+/**
+ * ========================================================================================
+ * - GLOBAL-STYLESHEETS - #global_stylesheets.
+ * ========================================================================================
+ */
+
+/* ==============================
+ - Site Content.
+============================== */
+.site-content {
+	&:not(.home) {
+		background-color: @bgColor;
+	}
+	&.sidebar-position-left {
+		.content-page {
+			float: right;
+		}
+	}
+}
+
+
+/* ==============================
+ - Headings.
+============================== */
+.heading-block {
+	text-align: center;
+	h2 {
+		padding-bottom: 15px;
+		margin-bottom: 30px;
+		display: inline-block;
+		position: relative;
+		&:after {
+			content: '';
+			position: absolute;
+			width: 60px;
+			height: 1px;
+			background-color: #ddd;
+			top: 100%;
+		    left: 50%;
+		    transform: translateX( -50% );
+		}
+	}
+}
+
+
+/* ==============================
+ - Nav Tabs.
+============================== */
+.nav-tabs-wrap {
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    .clear_after();
+}
+.tab-content {
+	display: inline-block;
+	width: 100%;
+}
+.nav.nav-tabs {
+	border: 0;
+	li {
+		a {
+			border: 0;
+			&:hover {
+				background-color: transparent;
+			}
+		}
+		&.active {
+			a {
+				border: 0;
+				&:hover {
+					border: 0;
+				}
+			}
+		}
+	}
+}
+
+
+/* ==============================
+ - Dropdown.
+============================== */
+.dropdown,
+.menu-parent-item,
+.menu-item-has-children {
+	position: relative;
+	.sub-menu {
+		opacity: 0;
+		position: absolute;
+		visibility: hidden;
+		z-index: -1;
+		left: 0;
+		top: 100%;
+		.trans( all, .1s );
+		a {
+			display: block;
+		}
+	}
+	&:before {
+	    content: '';
+	    display: none;
+	    position: absolute;
+	    width: 110%;
+	    transform: translateX( -5% );
+	    height: 25px;
+	    left: 0;
+	    top: 100%;
+	}
+	&:hover {
+		&:before {
+			display: block;
+		}
+		.sub-menu {
+			opacity: 1;
+			visibility: visible;
+			z-index: 100;
+		}
+	}
+	a {
+		display: inline-block;
+	}
+	> a {
+		&:after {
+			font-family: Material-Design-Iconic-Font;
+			content: '\f2f9';
+			margin-left: 4px;
+		}
+	}
+}
+
+
+/* ==============================
+ - Star Rating.
+============================== */
+.star-rating {
+	float: right;
+	overflow: hidden;
+	position: relative;
+	margin-left: auto;
+	height: 1em;
+	line-height: 1;
+	font-size: 1em;
+	width: 5.4em;
+	font-size: 16px;
+	span {
+		overflow: hidden;
+		float: left;
+		top: 0;
+		left: 0;
+		position: absolute;
+		padding-top: 1.5em;
+		&:before{
+			content: "\f27d\f27d\f27d\f27d\f27d";
+			font-family: Material-Design-Iconic-Font;
+			top: 0;
+			position: absolute;
+			left: 0;
+			letter-spacing: 3px;
+			font-size: 16px;
+		}
+	}
+	&:before{
+		content: "\f27c\f27c\f27c\f27c\f27c";
+		color: #d3ced2 ;
+		font-family: Material-Design-Iconic-Font;
+		float: left;
+		top: 0;
+		left: 0;
+		position: absolute;
+		letter-spacing: 3px;
+		color: @lightColor;
+		font-size: 16px;
+	}
+}
+
+/* ==============================
+ - Social Icons.
+============================== */
+.social-icons {
+	margin: 0 -5px;
+	cursor: pointer;
+	li {
+		display: inline-block;
+	}
+	a {
+		padding: 5px;
+	}
+	i {
+		font-size: 20px;
+	}
+	.facebook {
+        a:hover, a:focus {
+            color: #3b5998 ;
+        }
+    }
+    .twitter {
+        a:hover, a:focus {
+            color: #1da1f2 ;
+        }
+    }
+    .vimeo {
+        a:hover, a:focus {
+            color: #4bf;
+        }
+    }
+    .google {
+        a:hover, a:focus {
+            color: #c53929 ;
+        }
+    }
+    .tumblr {
+        a:hover, a:focus {
+            color: #36465d ;
+        }
+    }
+    .pinterest {
+        a:hover, a:focus {
+            color: #ab171e ;
+        }
+    }
+}
+
+
+/* ==============================
+ - Owl Carousel.
+============================== */
+.owl-carousel.owl-loaded {
+	display: inline-block;
+}
+
+
+/* ==============================
+ - Common classes.
+============================== */
+.uppercase {
+	text-transform: uppercase;
+}
+
+.semi-bold {
+	font-weight: 500;
+}
+
+.active-color {
+	color: @activeColor;
+}
+
+.cbalink {
+	display: none;
+}
+
+
+/* =========================================================
+ - RESPONSIVE - .
+========================================================= */
+@media only screen and ( min-width: 1200px )
+{
+	.container {
+		width: 1200px;
+	}
+}

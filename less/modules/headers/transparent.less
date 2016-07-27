@@ -1,0 +1,38 @@
+/* ==============================
+ - Header Transparent.
+============================== */
+.header-wrapper.transparent {
+	position: absolute;
+    top: 0;
+    width: 100%;
+
+   /* Top-bar.
+   ---------------------------------------*/
+    .top-bar {
+    	border-bottom: 1px solid rgba( 69, 69, 69, .5 );
+    }
+    .top-bar-widget {
+		.menu {
+			> .menu-parent-item {
+				.sub-menu {
+					background-color: #f1f1f1;
+					.menu-item {
+						color: @darkColor;
+					}
+				}
+			}
+		}
+	}
+
+	/* Header Transparent.
+	---------------------------------------*/
+	header.header {
+		.menu {
+			> li {
+				> a {
+					.white_link();
+				}
+			}	
+		}
+	}
+}

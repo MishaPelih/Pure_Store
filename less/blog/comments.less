@@ -1,0 +1,153 @@
+/**
+ * ========================================================================================
+ * - COMMENTS-BLOG - #comments_blog.
+ * ========================================================================================
+ */
+
+
+/* ==============================
+ - Comments.
+============================== */
+#comments {
+	.comments {
+		margin-bottom: 47px;
+	}
+	.comment-body {
+		position: relative;
+		background-color: #fff;
+		padding: 18px 26px;
+    	margin-bottom: 20px;
+    	width: 84%;
+    	.clear_after();
+	}
+	.comment-meta {
+		display: block;
+		margin-bottom: 12px;
+		text-align: right;
+		font-size: 13px;
+		font-weight: 300; 
+		line-height: 1.6;
+		.clear_after();
+		a {
+			display: inline-block;		}
+	}
+	.comment-author {
+		display: inline-block;
+		margin-right: 12px;
+		float: left;
+		cite {
+			font-size: 16px;
+		}
+		img {
+			float: left;
+			margin-right: 12px;
+		}
+		a {
+			display: block;
+			.dark_link();
+		}
+		.says {
+			display: none !important;
+		}
+	}
+	.reply {
+		// font-size: 20px;
+		float: right;
+		font-size: 13px;
+		text-transform: uppercase;
+		a {
+			// .extra_light_link();
+			.dark_link();
+			display: inline-block;
+			&:before {
+				content: '\f193';
+				font-family: Material-Design-Iconic-Font;
+				display: inline-block;
+				margin-right: 5px;
+			}
+		}
+	}
+	.comment-body {
+		border: 1px solid @borderColor;
+		p {
+			margin-bottom: 12px;
+			font-size: 13px;
+		}
+	}
+	
+	.children {
+		.comment-body {
+			margin-left: 40px;
+		}
+		.children {
+			.comment-body {
+				margin-left: 80px;
+			}
+			.children {
+				.comment-body {
+					margin-left: 120px;
+				}
+			}
+		}
+	}
+}
+
+
+/* ==============================
+ - Comment Form.
+============================== */
+#respond {
+	.comment-reply-title {
+		color: @darkColor;
+		text-transform: uppercase;
+		line-height: 1.1;
+		margin-bottom: 22px;
+		padding-bottom: 4px;
+		position: relative;
+		font-size: 20px;
+		font-weight: 500;
+		&:after {
+			content: '';
+			position: absolute;
+			left: 0;
+			width: 25px;
+			height: 1px;
+			background-color: @extraLightColor;
+			top: 100%;
+		}
+	}
+	form {
+		width: 77%;
+		label {
+			margin-bottom: 5px;
+		}
+		p {
+			margin-bottom: 18px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		input, textarea {
+			width: 100%;
+			padding: 16px 18px;
+			// background-color: @bgColor;
+		}
+		input {
+			height: 44px;
+		}
+		input[type='submit'] {
+			height: 42px;
+			padding: 0;
+			border: 0;
+			background-color: @activeColor;
+			color: #fff;
+			font-size: 12px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+			.trans( all, .2s );
+			&:hover {
+				background-color: darken( @activeColor, 6% );
+			}
+		}
+	}
+}

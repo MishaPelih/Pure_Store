@@ -1,0 +1,348 @@
+/* ==============================
+ - Common Styles.
+============================== */
+.banner {
+	position: relative;
+	overflow: hidden;
+	h2, .h2 {
+		letter-spacing: 7px;
+		display: block;
+		-webkit-user-select: none;
+	}
+	.mask {
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		padding: 9%;
+		transform: translateY( -50% );
+	}
+	p {
+		font-size: 14px;
+		font-weight: 300;
+		color: @lightColor;
+		line-height: 1.6;
+		margin-bottom: 25px;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	&.top {
+		.mask {
+			top: 0;
+		}
+	}
+	&.middle {
+		.mask {
+			top: 50%;
+			transform: translateY( -50% );
+		}
+	}
+	&.bottom {
+		.mask {
+			bottom: 0;
+		}
+	}
+	&.left {
+		.msak {
+			text-align: left;
+			left: 0;
+		}
+	}
+	&.right {
+		.mask {
+			text-align: right;
+			right: 0;
+		}
+	}
+	&.center {
+		.mask {
+			left: 50%;
+			transform: translateX(-50%);
+			text-align: center;
+		}
+	}
+	&.middle.center {
+		.mask {
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
+
+
+/* ==============================
+ - Small Banner.
+============================== */
+.small-banner {
+	img {
+		.trans( all, .3s );
+		display: block;
+	}
+	&:before {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: @activeColor;
+		opacity: 0.6;
+		z-index: 1;
+	}
+	&:hover {
+		img {
+			transform: scale( 1.1 );
+		}
+		.mask {
+			&:before {
+				background-color: #000;
+				opacity: 0.38;
+			}
+		}
+	}
+	.mask {
+		color: #fff;
+		padding: 7% 9%;
+		z-index: 10;
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			background-color: transparent;
+			.trans( all, .3s );
+		}
+	}
+	.content {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+
+/* ==============================
+ - Medium Banner.
+============================== */
+.medium-banner {
+	background-color: @bgColor;
+	h2, .h2 {
+		color: @darkColor;
+	}
+	img {
+		display: flex;
+		margin-left: auto;
+		margin-right: 0;
+	}
+	.mask {
+		padding: 3%;
+	}
+	&.right {
+		img {
+			margin-right: auto;
+			margin-left: 0;
+		}
+	}
+}
+
+
+
+/* ==============================
+ - Advert Banner.
+============================== */
+.advert-banner {
+	color: #fff;
+	background-color: @activeColor;
+	opacity: 1;
+	a {
+		display: block;
+	}
+	img {
+		display: block;
+		width: 100%;
+	}
+	h3, .h3 {
+		color: #fff;
+		letter-spacing: 6px;
+		line-height: 1.4;
+	}
+}
+
+
+/* ==============================
+ - Fullscreen Slider.
+============================== */
+.fullscreen-slider {
+	margin-bottom: 90px;
+	cursor: move;
+	background-color: @bgColor;
+	.banner {
+		> img {
+			width: initial;
+		}
+	}
+	.mask {
+		padding: 15px;
+	}
+	.timing {
+		position: absolute;
+		top: 50%;
+		left: 35%;
+		transform: translateY( -50% );
+		.dash {
+			display: flex;
+		    flex-wrap: wrap;
+		    align-items: center;
+		    align-content: center;
+			border: 1px solid @darkBorderColor;
+			width: 90px;
+			height: 90px;
+			margin-bottom: 20px;
+			background-color: #fff;
+		}
+		.dash-title, .digit {
+			text-align: center;
+			width: 100%;
+			display: block;
+		}
+		.digit {
+			font-size: 18px;
+			font-weight: 500;
+			margin-bottom: 5px;
+			color: @darkColor;
+		}
+		.dash-title {
+			font-size: 14px;
+			font-weight: 300;
+			color: @lightColor;
+			text-transform: capitalize;
+		}
+	}
+
+	.owl-controls {
+		.owl-dot, .owl-dot.active {
+			span {
+				border-color: @darkBorderColor;	
+			}
+		}
+	}
+}
+
+
+/* ==============================
+ - Sliders.
+============================== */
+.slider.site-slider {
+	margin-bottom: 30px;
+	.slide {
+		position: relative;
+	}
+	.mask {
+		position: absolute;
+	    top: 55%;
+	    width: 100%;
+	    transform: translateY(-50%);
+	    text-align: center;
+	    color: #fff;
+	}
+	.content {
+		span {
+			display: block;
+		}
+		h1, .h1 {
+			font-size: 80px;
+			font-weight: 800;
+			letter-spacing: 2.5px;
+			line-height: 1;
+			margin-bottom: 0;
+		}
+		h4, .h4 {
+			font-size: 40px;
+			font-weight: 300;
+			letter-spacing: 6px;
+			margin-bottom: 20px;
+		}
+		p {
+			font-size: 16px;
+			font-weight: 400;
+			margin-bottom: 30px;
+			letter-spacing: 1.5px;
+			line-height: 1.5;
+			color: #fff;
+		}
+		.button {
+			letter-spacing: 1.5px;
+			&:hover {
+				color: #fff;
+			}
+		}
+	}
+}
+
+
+/* ==============================
+ - OWL controls.
+============================== */
+.owl-controls {
+	.owl-nav {
+		.owl-prev, .owl-next {
+			position: absolute;
+			top: 50%;
+			transform: translateY( -50% );
+			display: inline-block;
+			padding: 0 14px;
+			font-size: 48px;
+			.trans( all, .2s );
+			.white_link();
+		}
+		.owl-prev {
+			float: left;
+			margin-left: 3%;
+			left: 0;
+		}
+		.owl-next {
+			float: right;
+			margin-right: 3%;
+			right: 0;
+		}
+	}
+	.owl-dots {
+		position: absolute;
+	    bottom: 5%;
+	    width: 100%;
+	    text-align: center;
+	}
+	.owl-dot {
+		display: inline-block;
+		span {
+			position: relative;
+			background-color: transparent;
+			border-radius: 20px; 
+			display: block; 
+			margin: 5px;
+			height: 10px; 
+			width: 10px; 
+			border: 1px solid @borderColor;
+			&:before {
+				content: '';
+				left: 50%;
+			    top: 50%;
+			    transform: translate( -50%, -50% );
+				display: none;
+				height: 16px; 
+				width: 16px;
+				border-radius: 50%;
+				position: absolute;
+				border: 1px solid @borderColor; 
+			}	
+		}
+		&.active {
+			span {
+				border-color: transparent;
+				background-color: @activeColor;
+				&:before {
+					display: block;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,227 @@
+/**
+ * ========================================================================================
+ * - BODY - #body.
+ * ========================================================================================
+ */
+
+
+/* ==============================
+ - Reset Styles.
+============================== */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* ==============================
+ - PS Defaults.
+============================== */
+html {
+	font-size: @fontSize;
+}
+
+body {
+	overflow-x: hidden;
+	font-family: @mainFont;
+}
+
+a {
+	color: @lightColor;
+	outline: 0;
+	box-shadow: none;
+	.trans( all, .3s );
+	text-decoration: none;
+	&:hover, &:focus {
+		color: inherit;
+		outline: 0;
+		box-shadow: none;
+		text-decoration: none;
+	}
+	&:hover {
+		color: @activeColor;
+	}
+}
+
+p {
+	color: @lightColor;
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 1.7;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+ins {
+	text-decoration: none;
+}
+
+mark {
+	background-color: transparent;
+}
+
+
+/* ==============================
+ - Inputs.
+============================== */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="search"],
+input[type="password"],
+input[type="tel"],
+textarea {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	outline: none;
+	border: 1px solid @borderColor;
+	border-radius: 0;
+	color: @darkColor;
+	.trans( all, .2s );
+	&:focus {
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		outline:none;
+		border-color: @activeColor;
+	}
+	&::-webkit-input-placeholder {
+		color: @extraLightColor;
+	}
+}
+
+textarea {
+	max-width: 100%;
+}
+
+input[type="number"] {
+	&::-webkit-outer-spin-button, 
+	&::-webkit-inner-spin-button { 
+		-webkit-appearance: none; 
+		margin: 0; 
+	}
+}
+
+input[type=radio] {
+	display: none;
+	& + label {
+		padding-left: 20px;
+		position:relative;
+		&:before {
+			content: '';
+			border: 1px solid #606060;
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			top: 48%;
+			transform: translateY( -50% );
+		}
+	}
+	&[checked='checked'] {
+		& + label {
+			&:after {
+				content: '';
+				background-color: #000;
+				border-radius: 50%;
+				width: 4px;
+				height: 4px;
+				display: inline-block;
+				position: absolute;
+				left: 3px;
+				top: 48%;
+				transform: translateY( -50% );
+			}
+		}
+	}
+}
+
+
+/* ==============================
+ - Headings.
+============================== */
+h1, .h1, 
+h2, .h2, 
+h3, .h3 {
+	text-transform: uppercase;
+}
+
+h1, .h1, 
+h2, .h2, 
+h3, .h3
+h4, .h4, 
+h5, .h5, 
+h6, .h6 {
+	margin-top: 0;
+}
+
+h2,
+.h2 {
+	font-size: 36px; 
+	font-weight: 600;
+	letter-spacing: 3px;
+	margin-bottom: 10px;
+}
+
+h3,
+.h3 {
+	font-size: 30px; 
+}
+
+h4,
+.h4 {
+	font-size: 20px; 
+}
+
+h5,
+.h5 {
+	font-size: 18px; 
+}
+
+h6,
+.h6 {
+	font-size: 16px; 
+	line-height: 1.2;
+}
