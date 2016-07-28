@@ -13,7 +13,7 @@
 
 		<!-- ====| Main Content |==== -->
 		<div class="content-page blog col-md-9" role="main">
-			<div class="blog-post">
+			<div class="entry-content">
 
 				<div class="row row-count-2">
 					<?php if ( have_posts() ): ?>
@@ -31,8 +31,8 @@
 					<?php endif ?>
 					
 				</div><!-- /.row -->
-			</div><!-- /.blog-post -->
-		</div><!-- /.main-content -->
+			</div><!-- /.entry-content -->
+		</div><!-- /.content-page -->
 
 		<?php get_sidebar(); ?>
 

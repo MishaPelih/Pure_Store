@@ -42,7 +42,7 @@
 
 
 	if ( !function_exists( 'pure_get_static_blocks' ) ) {
-	    function pure_get_static_blocks () 
+	    function pure_get_static_blocks() 
 	   	{
 	        $return_array = array();
 	        $args = array( 
@@ -56,9 +56,7 @@
 				$i++;
 	            $return_array[$i]['static_block_id'] = $post->ID;
 	            $return_array[$i]['static_block_title'] = get_the_title($post->ID);
-	        } 
-	        
-	        wp_reset_postdata();
+	        }
 
 	        return $return_array;
 	    }
@@ -85,14 +83,12 @@
 		        $my_posts = get_posts( $args );
 
 		        foreach ( $my_posts as $post ) {
-		        	setup_postdata( $post );
-		        	$output .= do_shortcode( get_the_content( $post->ID ) );
-		        } 
+		        	$output = do_shortcode( $post->post_content );
+		        }
 
-		        wp_reset_postdata();
 		        wp_cache_add( $id, $output, 'pure_get_block' );
 		    }
-		    
+
 	        return $output;
 	   }
 	}

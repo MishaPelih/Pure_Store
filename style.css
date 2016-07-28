@@ -2169,6 +2169,15 @@ aside.sidebar .widget .widget-title {
 .widget .wpb_video_widget {
   margin-bottom: 0;
 }
+.widget .vc_column_container {
+  float: none;
+}
+.widget .vc_column_container:after {
+  content: '';
+  display: block;
+  clear: both;
+  height: 0;
+}
 .widget.widget_text img {
   display: block;
 }

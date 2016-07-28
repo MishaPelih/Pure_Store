@@ -25,19 +25,17 @@
 		function pure_static_block_VC()
 		{
 			$static_blocks = pure_get_static_blocks();
-			$all_elems = array();
+		    $all_elems = array();
 
-			foreach ($static_blocks as $key => $value) {
-				$current_elem = array(
-					$key[$value]['static_block_title'] => $key[$value]['static_block_id']
-				);
-				array_merge( $all_elems, $current_elem );
-			}
-
-			// print_r( $all_elems );
+		    foreach ( $static_blocks as $key => $value ) {
+		        $current_elem = array(
+		            $value['static_block_title'] => $value['static_block_id']
+		        );
+		        $all_elems = array_merge( $all_elems, $current_elem );
+		    }
 
 			vc_map( array(
-				"name" => __( "Pure: Static", "pure" ),
+				"name" => __( "[Pure] Static Block", "pure" ),
 				"base" => "pure_static_block",
 				"category" => __( "Pure", "pure"),
 				"params" => array(
@@ -48,12 +46,6 @@
 						"param_name" => "block_id",
 						"value" => $all_elems,
 						'save_always' => true,
-						// "value" => array(
-						// 	// __( '--', 'pure' ) => '',
-						// 	__( 'Left', 'pure' ) => 'left',
-						// 	__( 'Center', 'pure' ) =>'center',
-						// 	__( 'Right', 'pure' ) => 'right'
-						// ),
 					),
 				)
 			) );
