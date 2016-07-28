@@ -67,7 +67,7 @@
         {
             extract( $args );
 
-            $title = apply_filters( 'widget_title', $instance['title'] );
+            $title = $instance['title'];
 
             echo $before_widget; 
             ?>
