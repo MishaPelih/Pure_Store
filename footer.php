@@ -16,15 +16,11 @@
 	-->
 	<footer class="site-footer">
 		<div class="footer-wrapper container">
+			<div class="row">
 
-			<!-- *======#| Sidebar-footer. |#======* -->
-			<aside class="sidebar-footer">
-				<div class="row">
+				<?php get_sidebar( 'footer' ); ?>
 
-					<?php // get_sidebar( 'footer' ); ?>
-
-				</div><!-- /.row -->
-			</aside><!-- /.sidebar-footer -->
+			</div><!-- /.row -->
 
 		</div><!-- /.footer-wrapper -->
 	</footer><!-- /.site-footer -->
@@ -35,18 +31,11 @@
 	======================================================================
 	-->
 	<div class="footer-bottom">
-		<div class="container">
+		<div class="container copyright">
 			<div class="row">
-				<div class="col-md-6">
-					<div class="copyright">
-						<?php // get_sidebar( 'copyright' ); ?>
-					</div>
-				</div>
-				<div class="col-md-6 payment-methods">
-					<div class="widget widget_text">
-						<img src="<?php echo PURE_IMAGES_DIR; ?>/pay-pal.jpg" alt="">
-					</div>
-				</div>
+
+				<?php get_sidebar( 'copyright' ); ?>
+				
 			</div><!-- /.row -->
 		</div><!-- /.container -->
 	</div><!-- /.footer-bottom -->

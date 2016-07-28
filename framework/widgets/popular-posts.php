@@ -17,7 +17,7 @@
 		function __construct()
 		{
 			parent::__construct(
-                'pure_info_widget',
+                'pure_popular_posts_widget',
                 __( 'Pure: Popular Posts', 'pure' ),
                 array(
                     'classname' => 'pure_widget_posts',
@@ -37,9 +37,9 @@
 
             $title = apply_filters( 'widget_title', $instance['title'] );
             
-            if ($instance['posts_count'] <= 0 ) {
+            if ( $instance['posts_count'] <= 0 ) {
                $posts_count = 1;
-            }else{
+            } else {
                 $posts_count = $instance['posts_count'];
             }
 

@@ -9,12 +9,13 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<?php if ( has_post_thumbnail() && !post_password_required() ): ?>
+	<?php if ( !post_password_required() ): ?>
 
 		<!-- Post header -->
 		<header class="entry-header">
 			<div class="entry-thumbnail post-thumbnail">
-				<?php 
+
+				<?php
 				$video_src = pure_get_cmb2_option( 'pure_post_video_file', 'post_format_video_group' );
 
 				if ( $video_src ) :
@@ -31,13 +32,16 @@
 
 				else : ?>
 
-					<a href="<?php the_permalink(); ?>">
-						<?php if ( is_single() ): ?>
-							<?php the_post_thumbnail( 'large' ); ?>
-						<?php else: ?>
-							<?php the_post_thumbnail( 'medium_large' ); ?>
-						<?php endif ?>
-					</a>
+					<?php if ( has_post_thumbnail() ): ?>
+						<a href="<?php the_permalink(); ?>">
+							<?php if ( is_single() ): 
+								the_post_thumbnail( 'large' );
+							else: 
+								 the_post_thumbnail( 'medium_large' );
+							endif; ?>
+						</a>
+					<?php endif; ?>
+
 					<div class="date-mask">
 						<div class="meta-date">
 							<span class="day"><?php echo get_the_date('d'); ?></span>

@@ -10,6 +10,21 @@
 <?php
 	 
     /**
+     * Get redux option.
+     */
+    if ( !function_exists( 'pure_get_redux_option' ) ) {
+        function pure_get_redux_option( $id, $type = null )
+        {
+            global $redux_pure;
+
+            if ( !$type ) {
+                return !empty( $redux_pure ) ? $redux_pure[$id] : false;
+            }
+            return !empty( $redux_pure ) ? $redux_pure[$id][$type] : false;
+        }
+    }
+
+    /**
      * Get cmb2 option.
      */
     if ( !function_exists( 'pure_get_cmb2_option' ) ) {

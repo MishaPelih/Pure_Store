@@ -112,7 +112,8 @@ aside.sidebar {
 	}
 
 	&.widget_mc4wp_form_widget {
-		input {
+		input[type='email'],
+		input[type='text'] {
 			border: 1px solid transparent;
 			border-right: 0;
 			padding: 10px 14px;
@@ -126,13 +127,19 @@ aside.sidebar {
     			border-color: @activeColor;
     		}
 		}
-		button {
+		input[type='submit'],
+		input[type='button'] {
+			color: @buttonColor;
+			background-color: @activeColor;
 			text-transform: none;
-			padding: 12px 9px;
+			font-size: 14px;
+			border: 0;
+		    padding: 7px 9px 8px;
 			float: right;
     		width: 37%;
     		letter-spacing: 0;
     		.trans( all, .2s );
+    		.disable_focus();
 		}
 	}
 

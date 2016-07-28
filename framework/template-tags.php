@@ -26,6 +26,13 @@
 				 		</a>
 					</li>
 
+					<?php if ( has_post_format( 'video' ) ): ?>
+						<li class="meta-date">
+							<i class="zmdi zmdi-calendar"></i>
+							<?php echo get_the_date('d F'); ?>
+						</li>
+					<?php endif; ?>
+
 					<?php if ( comments_open() ): ?>
 						<li class="meta-comment">
 							<div class="meta-reply">
@@ -46,6 +53,7 @@
 						<i class="zmdi zmdi-eye"></i>
 						(<?php echo pure_get_post_views() ?>)
 					</li>
+
 				<?php endif; ?>
 			</ul>
 			<?php

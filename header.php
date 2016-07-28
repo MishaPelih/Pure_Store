@@ -26,68 +26,39 @@
 			<!-- *======#| Top-bar menu |#======* -->
 			<div class="top-bar">
 				<div class="container">
+					<div class="top-bar-content">
 
-					<div class="languages-area">
+						<div class="top-bar-left top-bar-part">
 
-		                <div class="top-bar-widget">
-		                    <ul class="menu menu-languages">
-		                        <li class="menu-item menu-parent-item">
-		                            <a href="#">ENG</a>
-		                            <ul class="sub-menu">
-		                                <li><a href="#">UA</a></li>
-		                            </ul>
-		                        </li>
-		                    </ul>
-		                </div>
+			                <?php if ( is_active_sidebar( 'widgetarea-topbar-left' ) ): ?>
+			                	<?php dynamic_sidebar( 'widgetarea-topbar-left' ); ?>
+			                <?php endif; ?>
 
-		                <div class="top-bar-widget">
-		                	<ul class="menu menu-currencies">
-		                        <li class="menu-item menu-parent-item">
-		                            <a href="#">USD</a>
-		                            <ul class="sub-menu">
-		                                <li><a href="#">EUR</a></li>
-		                            </ul>
-		                        </li>
-		                    </ul>
-		                </div>
+						</div><!-- /.languages-area -->
 
-					</div><!-- /.languages-area -->
+						<div class="top-bar-right top-bar-part">
 
-					<div class="top-links">
+							<?php if ( is_active_sidebar( 'widgetarea-topbar-right' ) ): ?>
+			                	<?php dynamic_sidebar( 'widgetarea-topbar-right' ); ?>
+			                <?php endif; ?>
 
-						<div class="top-bar-widget">
-							<ul class="menu menu-top-bar">
-								<li class="menu-item menu-parent-item">
-									<a href="#">My Account</a>
-									<ul class="sub-menu">
-			                            <li><a href="#">Item</a></li>
-			                        </ul>
-								</li>
-								<li class="menu-item menu-parent-item">
-									<a href="#">Login</a>
-									<ul class="sub-menu">
-			                            <li><a href="#">Item</a></li>
-			                        </ul>
-								</li>
-							</ul>
-						</div>
+							<div class="site-header-cart">
+								<?php if ( pure_is_woo_exists() ): ?>
+									<div class="site-header-cart-content-wrap">
+										<a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
+											<i class="zmdi zmdi-shopping-basket"></i>
+											<span class="cart-count">3</span>
+										</a>
+										<?php if ( !is_cart() ): ?>
+											<!-- <div class="widget_shopping_cart_content shopping-cart-content"></div> -->
+										<?php endif; ?>
+									</div>
+								<?php endif; ?>
+							</div><!-- /.site-header-cart -->
 
-						<div class="site-header-cart">
-							<?php if ( pure_is_woo_exists() ): ?>
-								<div class="site-header-cart-content-wrap">
-									<a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
-										<i class="zmdi zmdi-shopping-basket"></i>
-										<span class="cart-count">3</span>
-									</a>
-									<?php if ( !is_cart() ): ?>
-										<!-- <div class="widget_shopping_cart_content shopping-cart-content"></div> -->
-									<?php endif; ?>
-								</div>
-							<?php endif; ?>
-						</div><!-- /.site-header-cart -->
+						</div><!-- /.top-links -->
 
-					</div><!-- /.top-links -->
-
+					</div><!-- /.top-bar-content -->
 				</div><!-- /.container -->
 			</div><!-- /.top-bar -->
 

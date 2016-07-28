@@ -88,7 +88,6 @@
 					array(
 						'name' => __( 'Main sidebar', 'pure' ),
 						'id' => 'sidebar-main',
-						'class' => 'sidebar-main',
 						'description' => __( 'Appears on pages', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
@@ -100,7 +99,6 @@
 					array(
 						'name' => __( 'Blog sidebar', 'pure' ),
 						'id' => 'sidebar-blog',
-						'class' => 'sidebar-blog',
 						'description' => __( 'Appears on blog page', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
@@ -112,7 +110,6 @@
 					array(
 						'name' => __( 'Shop sidebar', 'pure' ),
 						'id' => 'sidebar-shop',
-						'class' => 'sidebar-shop',
 						'description' => __( 'Appears on blog page', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
@@ -122,9 +119,30 @@
 				);
 				register_sidebar(
 					array(
+						'name' => __( 'Topbar widget area left', 'pure' ),
+						'id' => 'widgetarea-topbar-left',
+						'description' => __( 'Appears in topbar', 'pure' ),
+						'before_widget' => '<div id="%1$s" class="top-bar-widget %2$s">',
+						'after_widget' => '</div><!-- /widget -->',
+						'before_title' => '<h5 class="widget-title">',
+						'after_title' => '</h5>'
+					)
+				);
+				register_sidebar(
+					array(
+						'name' => __( 'Topbar widget area right', 'pure' ),
+						'id' => 'widgetarea-topbar-right',
+						'description' => __( 'Appears in topbar', 'pure' ),
+						'before_widget' => '<div id="%1$s" class="top-bar-widget %2$s">',
+						'after_widget' => '</div><!-- /widget -->',
+						'before_title' => '<h5 class="widget-title">',
+						'after_title' => '</h5>'
+					)
+				);
+				register_sidebar(
+					array(
 						'name' => __( 'Footer widget 1', 'pure' ),
 						'id' => 'widgetarea-footer-1',
-						'class' => 'widgetarea-footer',
 						'description' => __( 'Appears in footer', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
@@ -136,7 +154,6 @@
 					array(
 						'name' => __( 'Footer widget 2', 'pure' ),
 						'id' => 'widgetarea-footer-2',
-						'class' => 'widgetarea-footer',
 						'description' => __( 'Appears in footer', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
@@ -148,7 +165,6 @@
 					array(
 						'name' => __( 'Footer widget 3', 'pure' ),
 						'id' => 'widgetarea-footer-3',
-						'class' => 'widgetarea-footer',
 						'description' => __( 'Appears in footer', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
@@ -160,7 +176,6 @@
 					array(
 						'name' => __( 'Footer widget 4', 'pure' ),
 						'id' => 'widgetarea-footer-4',
-						'class' => 'widgetarea-footer',
 						'description' => __( 'Appears in footer', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
@@ -170,10 +185,20 @@
 				);
 				register_sidebar(
 					array(
-						'name' => __( 'Copyright widget area', 'pure' ),
-						'id' => 'widgetarea-copyright',
-						'class' => 'widgetarea-copyright',
-						'description' => __( 'Appears in the site copyright', 'blanc' ),
+						'name' => __( 'Copyright widget left', 'pure' ),
+						'id' => 'widgetarea-copyright-left',
+						'description' => __( 'Appears in the site copyright', 'pure' ),
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget' => '</div><!-- /widget -->',
+						'before_title' => '<h5 class="widget-title">',
+						'after_title' => '</h5>'
+					)
+				);
+				register_sidebar(
+					array(
+						'name' => __( 'Copyright widget right', 'pure' ),
+						'id' => 'widgetarea-copyright-right',
+						'description' => __( 'Appears in the site copyright', 'pure' ),
 						'before_widget' => '<div id="%1$s" class="widget %2$s">',
 						'after_widget' => '</div><!-- /widget -->',
 						'before_title' => '<h5 class="widget-title">',
