@@ -33,11 +33,11 @@
         public function form( $instance )
         {
             $title = 'My Account';
-        
-            if ( !empty( $instance['title'] ) ) {     
-                $title = esc_attr( $instance['title'] ); 
+
+            if ( !empty( $instance['title'] ) ) {
+                $title = esc_attr( $instance['title'] );
             }
-             
+
              ?>
             <!-- Title -->
             <p>
@@ -69,13 +69,13 @@
 
             $title = $instance['title'];
 
-            echo $before_widget; 
+            echo $before_widget;
             ?>
                 <ul class="menu menu-top-bar">
                     <li class="menu-item menu-parent-item">
-                        <a href="#"><?php echo $title; ?></a>
+                        <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>"><?php echo $title; ?></a>
                         <ul class="sub-menu">
-                           <?php 
+                           <?php
                             woocommerce_login_form();
                             if ( is_user_logged_in() ): ?>
                                 <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>

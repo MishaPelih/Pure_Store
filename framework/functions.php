@@ -8,7 +8,7 @@
 ?>
 
 <?php
-	 
+
     /**
      * Get redux option.
      */
@@ -39,6 +39,25 @@
         }
     }
 
+	/**
+	 * Get the logo URL.
+	 */
+	if ( !function_exists( 'pure_get_logo_url' ) ) {
+        function pure_get_logo_url( $option = null )
+        {
+            if ( !$option ) {
+                $option = 'main';
+            }
+
+			$option = 'header_' . $option . '_logo';
+
+            if ( !empty( pure_get_redux_option( $option, 'url' ) ) ) {
+                return esc_url( pure_get_redux_option( $option, 'url' ) );
+			}
+			return esc_url( PURE_IMAGES_DIR . '/logo-main.png' );
+        }
+	}
+
     /**
      * Post Views Counter.
      */
@@ -49,7 +68,7 @@
             <?php $post_id = get_the_ID(); ?>
 
             <script>
-                jQuery(document).ready(function($) 
+                jQuery(document).ready(function($)
                 {
                     var cname = 'pure_post_view';
                     var cvalue = true;
@@ -71,7 +90,7 @@
                 });
             </script>
 
-            <?php 
+            <?php
             $post_meta = get_post_meta( $post_id );
 
             if ( !$post_meta['_post_views'] ) {
@@ -125,4 +144,4 @@
         {
             return is_plugin_active('woocommerce/woocommerce.php');
         }
-    } 
+    }

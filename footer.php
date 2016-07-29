@@ -6,7 +6,6 @@
  * ============================================ *
  */
 ?>
-		</div><!-- /.container -->
 	</div><!-- /.site-content -->
 
 	<!--
@@ -35,7 +34,7 @@
 			<div class="row">
 
 				<?php get_sidebar( 'copyright' ); ?>
-				
+
 			</div><!-- /.row -->
 		</div><!-- /.container -->
 	</div><!-- /.footer-bottom -->

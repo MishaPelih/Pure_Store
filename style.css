@@ -1203,7 +1203,7 @@ footer.site-footer .widget-title {
 ============================== */
 .top-bar {
   color: #fff;
-  padding: 18px 0 14px;
+  padding: 15px 0 14px;
 }
 .top-bar:after {
   content: '';
@@ -1214,6 +1214,17 @@ footer.site-footer .widget-title {
 .top-bar .top-bar-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+.top-bar .top-bar-part {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -js-display: flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
   align-items: center;
 }
 .top-bar .menu-item {
@@ -1244,7 +1255,10 @@ footer.site-footer .widget-title {
 }
 .top-bar .pure-my-account-menu .menu > .menu-item .sub-menu {
   right: 0;
-  min-width: 200px;
+  min-width: 160px;
+}
+.top-bar .pure-my-account-menu .menu > .menu-item .menu-item {
+  margin: 0;
 }
 .top-bar form.login {
   width: 100%;
@@ -1277,21 +1291,19 @@ footer.site-footer .widget-title {
 .top-bar .cart-quantity {
   color: #fff;
   position: relative;
-  width: 18px;
-  height: 10px;
   display: block;
+  top: 6px;
 }
 .top-bar .cart-quantity:hover,
 .top-bar .cart-quantity:focus {
   color: #f05a66;
 }
 .top-bar .cart-quantity i {
-  position: absolute;
-  top: -4px;
-  left: -12px;
   font-size: 24px;
 }
 .top-bar .cart-count {
+  top: 3px;
+  left: 11px;
   position: absolute;
   width: 19px;
   height: 19px;
@@ -1301,18 +1313,117 @@ footer.site-footer .widget-title {
   border-radius: 50%;
   text-align: center;
   line-height: 19px;
-  top: 0;
   transform: translate(0%, -66%);
 }
 .top-bar .top-bar-widget,
 .top-bar .site-header-cart {
   display: inline-block;
 }
+.top-bar .site-header-cart {
+  position: relative;
+}
+.top-bar .site-header-cart:hover .widget_shopping_cart_content {
+  z-index: 200;
+  opacity: 1;
+  visibility: visible;
+}
+.top-bar .site-header-cart:before {
+  width: 200%;
+  transform: translateX(-50%);
+  left: 50%;
+}
+.top-bar .site-header-cart .cart-contents:after {
+  content: none;
+}
+.top-bar .widget_shopping_cart_content {
+  transform: translateY(14px);
+  width: 350px;
+  text-align: center;
+  position: absolute;
+  padding: 15px 0;
+  right: -45px;
+  opacity: 0;
+  z-index: -1;
+  visibility: hidden;
+  top: auto;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  color: #303030;
+  -webkit-transition: 0.2s 0.2s linear 0s;
+  -moz-transition: 0.2s 0.2s linear 0s;
+  -o-transition: 0.2s 0.2s linear 0s;
+  transition: 0.2s 0.2s linear 0s;
+}
+.top-bar .widget_shopping_cart_content .mini_cart_item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 10px 10px 0;
+}
+.top-bar .widget_shopping_cart_content .mini_cart_item a {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  line-height: 1.3;
+  padding: 0 10px 0 0;
+  font-size: 15px;
+  color: #303030;
+}
+.top-bar .widget_shopping_cart_content .mini_cart_item a:hover,
+.top-bar .widget_shopping_cart_content .mini_cart_item a:focus {
+  color: #f05a66;
+}
+.top-bar .widget_shopping_cart_content .mini_cart_item .remove {
+  width: 20px;
+  height: 20px;
+  padding: 0 0 0 1px;
+  display: block;
+  margin: 0 10px 0 6px;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  line-height: 1.4;
+  float: none;
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
+}
+.top-bar .widget_shopping_cart_content .mini_cart_item .remove:hover {
+  color: #f05a66;
+  border-color: #f05a66;
+}
+.top-bar .widget_shopping_cart_content .mini_cart_item img {
+  width: 30%;
+  margin-right: 10px;
+}
+.top-bar .widget_shopping_cart_content .mini_cart_item .quantity {
+  text-align: left;
+  font-size: 12px;
+}
+.top-bar .widget_shopping_cart_content .total {
+  text-align: center;
+  padding: 10px 0;
+}
+.top-bar .widget_shopping_cart_content .total strong {
+  text-transform: uppercase;
+}
+.top-bar .widget_shopping_cart_content .total span {
+  color: #f05a66;
+}
+.top-bar .widget_shopping_cart_content .buttons {
+  text-align: center;
+}
+.top-bar .widget_shopping_cart_content .buttons a,
+.top-bar .widget_shopping_cart_content .buttons .button {
+  padding: 6px 20px;
+  margin: 0 4px;
+}
 .top-bar-widget .menu > .menu-parent-item .sub-menu,
 .top-bar-widget .menu > .menu-item-has-children .sub-menu {
   min-width: 150px;
   padding: 6px 0;
-  transform: translateY(14px);
+  transform: translateY(18px);
 }
 /* ==============================
  - Header [Global Styles].

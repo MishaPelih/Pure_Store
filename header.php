@@ -42,17 +42,15 @@
 			                	<?php dynamic_sidebar( 'widgetarea-topbar-right' ); ?>
 			                <?php endif; ?>
 
-							<div class="site-header-cart">
+							<div class="site-header-cart menu-parent-item">
 								<?php if ( pure_is_woo_exists() ): ?>
-									<div class="site-header-cart-content-wrap">
-										<a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
-											<i class="zmdi zmdi-shopping-basket"></i>
-											<span class="cart-count">3</span>
-										</a>
-										<?php if ( !is_cart() ): ?>
-											<!-- <div class="widget_shopping_cart_content shopping-cart-content"></div> -->
-										<?php endif; ?>
-									</div>
+									<a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
+										<i class="zmdi zmdi-shopping-basket"></i>
+										<span class="cart-count">3</span>
+									</a>
+									<?php if ( !is_cart() ): ?>
+										<div class="widget_shopping_cart_content shopping-cart-conten sub-menut"></div>
+									<?php endif; ?>
 								<?php endif; ?>
 							</div><!-- /.site-header-cart -->
 
@@ -70,7 +68,8 @@
 						<!-- Logo -->
 						<div class="header-logo">
 							<a href="index.php">
-								<img src="<?php echo PURE_IMAGES_DIR; ?>/logo-main.png" alt="">
+								<!-- <img src="<?php //echo PURE_IMAGES_DIR; ?>/logo-main.png" alt=""> -->
+								<img src="<?php echo pure_get_logo_url(); ?>" alt="">
 							</a>
 						</div><!-- /.header-logo -->
 
@@ -84,7 +83,7 @@
 										'menu_id' => 'menu-main',
 										'container_class' => 'menu-main-container',
 									)
-								); 
+								);
 							?>
 						</div><!-- /.menu-wrap -->
 
@@ -109,7 +108,7 @@
 			</header><!-- /site-header -->
 
 			<?php get_header( 'fixed' ); ?>
-		
+
 			<!-- *======#| Mobile Menu |#======* -->
 			<div class="ps-mobile-menu">
 				<div class="mobile-menu-content">
@@ -121,7 +120,7 @@
 								'menu_id' => 'menu-mobile',
 								'container_class' => 'menu-mobile-container',
 							)
-						); 
+						);
 					?>
 				</div><!-- /.mobile-menu-content -->
 			</div><!-- /.ps-mobile-menu -->
@@ -132,5 +131,4 @@
 		<?php pure_get_breadcrumbs(); ?>
 
 		<!-- ====| Main content area |==== -->
-		<div class="site-content" id="content">
-			<div class="container">
+		<div class="site-content container" id="content">

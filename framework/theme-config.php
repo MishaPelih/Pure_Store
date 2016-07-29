@@ -158,42 +158,44 @@
 	 *
 	 */
 
-	// $section = array(
-	// 	'title' => 'Footer',
-	// 	'id'    => 'section_footer',
-	// 	'desc'  => '',
-	// 	'icon'  => 'el el-wrench'
-	// );
-	// Redux::setSection( $opt_name, $section );
+	$section = array(
+		'title' => 'Header',
+		'id'    => 'section_header',
+		'desc'  => '',
+		'icon'  => 'el el-wrench'
+	);
+	Redux::setSection( $opt_name, $section );
 
-	// $section = array(
-	// 	'title'      => __( 'Copyright', 'pure' ),
-	// 	'id'         => 'subsection_copyright',
-	// 	'subsection' => true,
-	// 	'desc'       => '',
-	// 	'fields'     => array(
-	// 		array(
-	// 			'id'       => 'copyright_left',
-	// 			'type'     => 'editor',
-	// 			'title'    => __( 'Left', 'pure' ),
-	// 			'desc'     => '',
-	// 			'default'  => '',
-	// 			'args'   => array(
-	// 				'teeny'            => true,
-	// 				'textarea_rows'    => 6
-	// 			)
-	// 		),
-	// 		array(
-	// 			'id'       => 'copyright_right',
-	// 			'type'     => 'editor',
-	// 			'title'    => __( 'Right', 'pure' ),
-	// 			'desc'     => '',
-	// 			'default'  => '',
-	// 			'args'   => array(
-	// 				'teeny'            => true,
-	// 				'textarea_rows'    => 6
-	// 			)
-	// 		),
-	// 	)
-	// );
-	// Redux::setSection( $opt_name, $section );
+	$section = array(
+        'title'      => __( 'Main Header', 'pure' ),
+        'id'         => 'subsection_header_main',
+        'subsection' => true,
+        'desc'       => '',
+        'fields'     => array(
+            array(
+                'id'       => 'header_main_logo',
+                'type'     => 'media',
+                'title'    => __( 'Upload Logo', 'pure' ),
+                'desc'     => '',
+                'default'  => ''
+            ),
+        )
+    );
+    Redux::setSection( $opt_name, $section );
+
+	$section = array(
+        'title'      => __( 'Transparent Header', 'pure' ),
+        'id'         => 'subsection_header_transparent',
+        'subsection' => true,
+        'desc'       => '',
+        'fields'     => array(
+            array(
+                'id'       => 'header_transparent_logo',
+                'type'     => 'media',
+                'title'    => __( 'Upload Logo', 'pure' ),
+                'desc'     => '',
+                'default'  => ''
+            ),
+        )
+    );
+    Redux::setSection( $opt_name, $section );
