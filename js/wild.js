@@ -10,7 +10,7 @@
      * @author Misha Pelykh, Er4ik
      * @version 1.2
      */
-    
+
 	$.fn.wildSelect = function( options )
 	{
 		/* ==============================
@@ -101,10 +101,6 @@
 					case 'flyUp':
 						wildSelect.addClass( 'animation-fly-up' );
 						break;
-
-					// case 'grow':
-					// 	wildSelect.addClass( 'animation-grow' );
-					// 	break;
 				}
 			}
 		});
@@ -120,7 +116,7 @@
 				'transition': 'all ' + settings.animationSpeed + 's linear'
 			});
 		}
-		
+
 
 		/* If Wild select is open on click on window hide this.
 		------------------------------------*/
@@ -140,7 +136,7 @@
 			var wildOptions = defaultSelect.siblings('ul.wild-options');
 			var wildTrigger = defaultSelect.siblings('.wild-trigger');
 
-			wildTrigger.find('.wild-caption').text( 
+			wildTrigger.find('.wild-caption').text(
 				defaultSelect.find('option').filter(':first-child').text()
 			);
 
@@ -162,22 +158,22 @@
 				var defaultOption = $(this);
 				var defaultOptionText = defaultOption.text();
 				var defaultOptionValue = defaultOption.attr( 'value' );
-				
+
 				if ( defaultOptionValue || defaultOptionValue == '' )
 				{
 					wildOptions.append(
 						'<li data-value="' + defaultOptionValue + '">'
-							+ defaultOptionText + 
+							+ defaultOptionText +
 						'</li>'
 					);
 				} else
 				{
 					wildOptions.append(
-						'<li>' 
-							+ defaultOptionText + 
+						'<li>'
+							+ defaultOptionText +
 						'</li>'
 					);
-				}	
+				}
 			});
 
 
@@ -190,7 +186,7 @@
 				var wildOption = $(this);
 				var wildOptionText = wildOption.text();
 				var wildOptionValue = wildOption.attr( 'data-value' );
-				
+
 				addSelectedAttr( function()
 				{
 					var filter;
@@ -207,7 +203,7 @@
 				wildTrigger.removeClass( 'open' );
 				wildTrigger.find('.wild-caption').text( wildOptionText );
 			});
-		});	
+		});
 
 
 		/* ==============================
@@ -224,7 +220,7 @@
 			preparedElement.attr("selected", "selected").siblings().removeAttr('selected');
 		}
 
-		return this;	
+		return this;
 	};
 
 })(jQuery);

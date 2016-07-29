@@ -10,6 +10,66 @@
 <?php
 
     /**
+     * Get main content classes.
+     */
+    if ( !function_exists( 'pure_main_content_classes' ) ) {
+        function pure_main_content_classes( $option = 'blog' )
+        {
+            $option = pure_get_redux_option( $option . '_sidebar_position' );
+
+            if ( $option ) {
+
+                $classes = array();
+
+                if ( $option === 'disable' ) {
+                    array_push( $classes, 'col-md-12' );
+                } else {
+                    array_push( $classes, 'col-md-9' );
+                    if ( $option === 'left' ) {
+                        array_push( $classes, 'pull-right' );
+                    } if ( $option === 'right' ) {
+                        array_push( $classes, 'pull-left' );
+                    }
+                }
+                return implode( ' ', $classes );
+            }
+            return;
+        }
+    }
+
+    /**
+     * Check if sidebar enabled.
+     */
+    if ( !function_exists( 'pure_enable_sidebar' ) ) {
+        function pure_enable_sidebar( $option = 'blog' )
+        {
+            $option = pure_get_redux_option( $option . '_sidebar_position' );
+
+            if ( $option && $option === 'disable' ) {
+                return false;
+            }
+            return true;
+        }
+    }
+
+    /**
+     * Get Product Loop Start classes.
+     */
+    if ( !function_exists( 'pure_get_products_classes' ) ) {
+        function pure_get_products_classes()
+        {
+            $classes = array();
+            array_push( $classes, 'products' );
+
+            if ( pure_get_redux_option( 'products_per_row' ) ) {
+                array_push( $classes, 'row-count-' . pure_get_redux_option( 'products_per_row' ) );
+            }
+
+            return implode( ' ', $classes );
+        }
+    }
+
+    /**
      * Get redux option.
      */
     if ( !function_exists( 'pure_get_redux_option' ) ) {

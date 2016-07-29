@@ -158,11 +158,22 @@
 	 *
 	 */
 
+	/**
+	 * Header.
+	 */
 	$section = array(
-		'title' => 'Header',
-		'id'    => 'section_header',
-		'desc'  => '',
-		'icon'  => 'el el-wrench'
+		'title'  => 'Header',
+		'id'     => 'section_header',
+		'desc'   => '',
+		'icon'   => 'el el-wrench',
+		'fields' => array(
+            array(
+                'id'       => 'fixed_header_enabled',
+                'type'     => 'switch',
+                'title'    => __( 'Enable Fixed Header', 'pure' ),
+                'default'  => true
+            ),
+        )
 	);
 	Redux::setSection( $opt_name, $section );
 
@@ -199,3 +210,73 @@
         )
     );
     Redux::setSection( $opt_name, $section );
+
+
+	/**
+	 * Shop
+	 */
+	$section = array(
+		'title' => 'E-commerce',
+		'id'    => 'section_ecommerce',
+		'desc'  => '',
+		'icon'  => 'el el-wrench'
+	);
+	Redux::setSection( $opt_name, $section );
+
+	$section = array(
+        'title'      => __( 'Products page layout', 'pure' ),
+        'id'         => 'subsection_products_page_layout',
+        'subsection' => true,
+        'desc'       => '',
+        'fields'     => array(
+            array(
+                'id'       => 'products_per_row',
+                'type'     => 'button_set',
+                'title'    => __( 'Products per row', 'pure' ),
+                'desc'     => '',
+				'options' => array(
+			        '2' => '2',
+			        '3' => '3',
+			        '4' => '4',
+			        '5' => '5',
+			        '6' => '6',
+			     ),
+                'default'  => '3'
+            ),
+        )
+    );
+    Redux::setSection( $opt_name, $section );
+
+	$section = array(
+		'title' => 'Sidebar',
+		'id'    => 'section_sidebar',
+		'desc'  => '',
+		'icon'  => 'el el-wrench',
+		'fields'     => array(
+			array(
+                'id'       => 'blog_sidebar_position',
+                'type'     => 'button_set',
+                'title'    => __( 'Blog sidebar position', 'pure' ),
+                'desc'     => '',
+				'options' => array(
+			        'left' => __( 'Left' ),
+			        'right' => __( 'Right' ),
+			        'disable' => __( 'Disable' ),
+			    ),
+                'default' => 'left'
+            ),
+            array(
+                'id'       => 'shop_sidebar_position',
+                'type'     => 'button_set',
+                'title'    => __( 'Shop sidebar position', 'pure' ),
+                'desc'     => '',
+				'options' => array(
+			        'left' => __( 'Left' ),
+			        'right' => __( 'Right' ),
+			        'disable' => __( 'Disable' ),
+			    ),
+                'default' => 'left'
+            ),
+        )
+	);
+	Redux::setSection( $opt_name, $section );

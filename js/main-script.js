@@ -3,7 +3,7 @@
 
 (function() {
 
-	jQuery(document).ready(function($) 
+	jQuery(document).ready(function($)
 	{
 		/**
 		 * ===================================================================
@@ -11,11 +11,11 @@
 		 * ===================================================================
 		 */
 		$('.open-mobile-menu').click(function() {
-			$('body').toggleClass('mobile-menu-open');	
+			$('body').toggleClass('mobile-menu-open');
 		});
 
 		$('.close-mobile-menu, .close-mobile-menu-full-screen').click(function() {
-			$('body').toggleClass('mobile-menu-open');	
+			$('body').toggleClass('mobile-menu-open');
 		});
 
 
@@ -113,7 +113,7 @@
 		$('.product-remove a').click(function( event ){
 			event.preventDefault();
 			$(this).closest('.cart_item').remove();
-			if ( !$.trim( $('.cart tbody').html() ) ) { 
+			if ( !$.trim( $('.cart tbody').html() ) ) {
 				$('table.cart').remove();
 				$('.cart-form').prepend('<div class="woocommerce-message">Cart is empty <a href="?page=shop" class="button">Go to shop</a></div>');
 			}
@@ -168,7 +168,7 @@
 			})
 		}
 
-		
+
 		/**
 		 * ===================================================================
 		 * - Slick carousel initialisation.
@@ -184,7 +184,7 @@
 			arrows: false
 		});
 
-		
+
 		/**
 		 * ===================================================================
 		 * - Custom scroll init.
@@ -193,48 +193,48 @@
 		$('.widget_layered_nav.filter_color ul').customScroll();
 		$('.ps_widget_brands ul').customScroll();
 
-		
+
 		/**
 		 * ===================================================================
 		 * - Price filter init.
 		 * ===================================================================
 		 */
 		if ( $('#nonlinear').length ) {
-			
-			var nonLinearSlider = document.getElementById('nonlinear'); 
 
-			noUiSlider.create(nonLinearSlider, { 
-				connect: true, 
-				behaviour: 'tap', 
-				start: [ 100, 500 ], 
-				step: 10, 
-				range: { 
-				'min': 0, 
-				'max': 1000, 
-				} 
-			}); 
+			var nonLinearSlider = document.getElementById('nonlinear');
 
-			// Write the CSS 'left' value to a span. 
-			function leftValue ( handle ) { 
-				return handle.parentElement.style.left; 
-			} 
+			noUiSlider.create(nonLinearSlider, {
+				connect: true,
+				behaviour: 'tap',
+				start: [ 100, 500 ],
+				step: 10,
+				range: {
+				'min': 0,
+				'max': 1000,
+				}
+			});
 
-			var lowerValue = document.getElementById('lower-value'), 
-			upperValue = document.getElementById('upper-value'), 
-			handles = nonLinearSlider.getElementsByClassName('noUi-handle'); 
+			// Write the CSS 'left' value to a span.
+			function leftValue ( handle ) {
+				return handle.parentElement.style.left;
+			}
 
-			// Display the slider value and how far the handle moved 
-			// from the left edge of the slider. 
-			nonLinearSlider.noUiSlider.on('update', function ( values, handle ) { 
-				if ( !handle ) { 
-					lowerValue.innerHTML = '$' + values[handle]; 
-				} else { 
-					upperValue.innerHTML = '$' + values[handle]; 
-				} 
+			var lowerValue = document.getElementById('lower-value'),
+			upperValue = document.getElementById('upper-value'),
+			handles = nonLinearSlider.getElementsByClassName('noUi-handle');
+
+			// Display the slider value and how far the handle moved
+			// from the left edge of the slider.
+			nonLinearSlider.noUiSlider.on('update', function ( values, handle ) {
+				if ( !handle ) {
+					lowerValue.innerHTML = '$' + values[handle];
+				} else {
+					upperValue.innerHTML = '$' + values[handle];
+				}
 			});
 		}
 
-		
+
 		/**
 		 * ===================================================================
 		 * - Dropdown with 'show' animation..
@@ -251,7 +251,7 @@
 			}
 		});
 
-		
+
 		/**
 		 * ===================================================================
 		 * - Change posts layout.
@@ -278,6 +278,22 @@
 		$('.wild-select').wildSelect({
 			animation: 'flyUp',
 			dropdownIcon: '<i class="zmdi zmdi-chevron-down"></i>'
+		});
+
+		$( '.woocommerce-ordering .orderby' ).wildSelect({
+			animation: 'flyUp',
+			dropdownIcon: '<i class="zmdi zmdi-chevron-down"></i>'
+		});
+
+		$( '.products_per_page_form .wild-options' ).find( 'li' ).click(function(){
+			$(this).closest('form').submit();
+		});
+
+		/**
+		 * Fix bug with order form submit.
+		 */
+		$( '.woocommerce-ordering' ).find('.wild-options li').click(function(){
+			$(this).closest('form').submit();
 		});
 
 
@@ -345,7 +361,7 @@
 			dots: false,
 			margin: 30,
 			navText: ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>']
-		}); 
+		});
 
 		$('.show-quickly').magnificPopup({
 			type: 'image',
@@ -369,18 +385,18 @@
 		---------------------------------------*/
 		$('.show-quickly').mousedown(function(e) {
 			window.popupOpen = true;
-			var mouseStartCoords = e.pageX; 
-			$(this).mouseup(function(e) { 
+			var mouseStartCoords = e.pageX;
+			$(this).mouseup(function(e) {
 				// var timeStart = performance.now();
-				var mouseEndCoords = e.pageX; 
-				if( mouseStartCoords != mouseEndCoords ){ 
+				var mouseEndCoords = e.pageX;
+				if( mouseStartCoords != mouseEndCoords ){
 					window.popupOpen = false;
 				} else {
 					window.popupOpen = true;
 				}
 				// var timeEnd = performance.now();
 				// console.log( timeEnd - timeStart );
-			}); 
+			});
 		});
 	});
 

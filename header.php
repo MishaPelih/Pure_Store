@@ -107,7 +107,9 @@
 				</div><!-- /.container -->
 			</header><!-- /site-header -->
 
-			<?php get_header( 'fixed' ); ?>
+			<?php if( pure_get_redux_option( 'fixed_header_enabled' ) && pure_get_redux_option( 'fixed_header_enabled' ) !== false ):
+				get_header( 'fixed' );
+			endif; ?>
 
 			<!-- *======#| Mobile Menu |#======* -->
 			<div class="ps-mobile-menu">

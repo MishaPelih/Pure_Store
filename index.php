@@ -12,7 +12,7 @@
 	<div class="row">
 
 		<!-- ====| Main Content |==== -->
-		<div class="content-page blog col-md-9" role="main">
+		<div class="content-page blog <?php echo pure_main_content_classes(); ?>" role="main">
 			<div class="entry-content">
 
 				<div class="row row-count-2">
@@ -29,12 +29,12 @@
 					<?php else: ?>
 						<?php get_template_part( 'content', 'none' ); ?>
 					<?php endif ?>
-					
+
 				</div><!-- /.row -->
 			</div><!-- /.entry-content -->
 		</div><!-- /.content-page -->
 
-		<?php get_sidebar(); ?>
+		<?php pure_enable_sidebar() ? get_sidebar() : null; ?>
 
 	</div><!-- /.row -->
 

@@ -30,6 +30,8 @@
     remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
     remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
+
+
 	/**
      * Add the PureStore wrappers.
      */
@@ -38,7 +40,7 @@
 		function pure_before_main_content_wrap()
 		{
 			echo '<div class="row">';
-			echo '<div class="content-page shop col-md-9" role="main">';
+			echo '<div class="content-page shop ' . pure_main_content_classes( 'shop' ) . '" role="main">';
 		}
 	}
 
@@ -47,7 +49,7 @@
 		function pure_after_main_content_wrap()
 		{
 			echo '</div><!-- /.content-page -->';
-			get_sidebar( 'shop' );
+			pure_enable_sidebar( 'shop' ) ? get_sidebar( 'shop' ) : remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );;
 			echo '</div><!-- /.row -->';
 		}
 	}
@@ -84,6 +86,27 @@
 
 
 	/**
+	 * Posts per page.
+	 */
+	add_filter( 'loop_shop_per_page', 'pure_shop_per_page', 20 );
+
+	function pure_shop_per_page()
+	{
+		if ( $_SERVER['REQUEST_METHOD'] === 'POST' && $_POST['products_per_page'] ) {
+			$products_per_page = $_POST['products_per_page'];
+			unset( $_POST['products_per_page'] );
+			setcookie( 'pure_products_per_page', $products_per_page, 0, get_permalink( woocommerce_get_page_id( 'shop' ) ) );
+			return $products_per_page;
+		} elseif ( $_COOKIE['products_per_page'] ) {
+			return $_COOKIE['products_per_page'];
+		} else {
+			return false;
+		}
+	}
+
+
+
+	/**
 	 * Shop Page options.
 	 * ============================================================= *
 	 */
@@ -114,19 +137,21 @@
 						</div>
 					</div>
 					<?php woocommerce_catalog_ordering(); ?>
-					<select name="products_per_page" onchange="this.form.submit()" class="per-page-select wild-select" style="display: none;">
-						<option value="12">12</option>
-						<option value="24">24</option>
-						<option value="36">36</option>
-						<option value="1">1</option>
-						<option value="2">2</option>
-						<option value="3">3</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-						<option value="7">7</option>
-						<option value="9">9</option>
-						<option value="-1">All</option>
-					</select>
+					<form class="products_per_page_form" method="POST">
+						<select name="products_per_page" class="per-page-select wild-select" style="display: none;">
+							<option value="12">12</option>
+							<option value="24">24</option>
+							<option value="36">36</option>
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="9">9</option>
+							<option value="-1">All</option>
+						</select>
+					</form>
 				</div>
 			</div>
 			<?php
