@@ -61,6 +61,14 @@
             $classes = array();
             array_push( $classes, 'products' );
 
+            $view_mode = $_GET['view_mode'];
+
+            if ( $_SERVER['REQUEST_METHOD'] === 'GET' && $view_mode && $view_mode == ( 'list' || 'grid' ) ) {
+                array_push( $classes, 'products-' . $view_mode );
+            } else {
+                array_push( $classes, 'products-grid' );
+            }
+
             if ( pure_get_redux_option( 'products_per_row' ) ) {
                 array_push( $classes, 'row-count-' . pure_get_redux_option( 'products_per_row' ) );
             }

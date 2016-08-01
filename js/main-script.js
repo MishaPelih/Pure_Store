@@ -257,17 +257,17 @@
 		 * - Change posts layout.
 		 * ===================================================================
 		 */
-		$('.switch-option').click(function(event){
-			event.preventDefault();
-			var option = $(this);
-			option.toggleClass('active');
-			option.siblings('.active').not(option).toggleClass('active');
-			if ( option.hasClass('grid-view') ) {
-				$('.products-list').addClass('products-grid').removeClass('products-list');
-			} else {
-				$('.products-grid').addClass('products-list').removeClass('products-grid');
-			}
-		});
+		// $('.switch-option').click(function(event){
+		// 	event.preventDefault();
+		// 	var option = $(this);
+		// 	option.toggleClass('active');
+		// 	option.siblings('.active').not(option).toggleClass('active');
+		// 	if ( option.hasClass('grid-view') ) {
+		// 		$('.products-list').addClass('products-grid').removeClass('products-list');
+		// 	} else {
+		// 		$('.products-grid').addClass('products-list').removeClass('products-grid');
+		// 	}
+		// });
 
 
 		/**
@@ -288,6 +288,30 @@
 		$( '.products_per_page_form .wild-options' ).find( 'li' ).click(function(){
 			$(this).closest('form').submit();
 		});
+
+        $( '.products_per_page_form' ).find( 'select option' ).each(function(){
+            var option = $(this);
+            if ( option.attr( 'value' ) == getCookie( 'pure_products_per_page' ) ) {
+                option.attr( 'selected', 'selected' );
+            }
+        });
+        $( '.products_per_page_form .wild-select' ).find( '.wild-options li' ).each(function(){
+            var option = $(this);
+            if ( option.attr( 'data-value' ) == getCookie( 'pure_products_per_page' ) ) {
+                option.attr( 'selected', 'selected' );
+                option.parent().siblings( '.wild-trigger' ).find('.wild-caption').text( option.text() );
+            }
+        });
+        // console.log( getCookie( 'pure_products_per_page' ) );
+
+        function getCookie( name ) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) {
+                return parts.pop().split(";").shift();
+            }
+            return false;
+        }
 
 		/**
 		 * Fix bug with order form submit.

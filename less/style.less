@@ -2075,6 +2075,11 @@ body.mobile-menu-open {
 					color: #fff;
 				}
 			}
+			span.current {
+				background-color: @activeColor;
+				border-color: @activeColor;
+				color: #fff;
+			}
 		}
 	}
 	.switch {
@@ -2118,7 +2123,7 @@ body.mobile-menu-open {
 			}
 		}
 	}
-	.products-per-page, .woocommerce-ordering {
+	.products-per-page, .woocommerce-ordering, .products_per_page_form {
 		&:last-child {
 			.wild-options {
 				right: 0;
@@ -2142,6 +2147,7 @@ body.mobile-menu-open {
     	justify-content: space-between;
 	}
 }
+
 /**
  * ====================================================================================
  * - WILD-SELECT - #wild_select.
@@ -2174,7 +2180,7 @@ body.mobile-menu-open {
 	}
 	.wild-trigger, .wild-options li {
 		cursor: pointer;
-		-webkit-user-select: none; 
+		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
@@ -2201,7 +2207,7 @@ body.mobile-menu-open {
 		border: 1px solid @borderColor;
 		margin-top: -1px;
 		width: inherit;
-		min-width: 100px;
+		min-width: 69px;
 		li {
 			text-align: left;
 			padding: 10px 10px 9px 10px;
@@ -2219,7 +2225,7 @@ body.mobile-menu-open {
 	/* Opacity animation.
 	------------------------------------*/
 	&.animation-opacity {
-		ul.wild-options { 
+		ul.wild-options {
 			display: block;
 			opacity: 0;
 			visibility: hidden;
@@ -2241,6 +2247,7 @@ body.mobile-menu-open {
 		}
 	}
 }
+
 /* Slider */
 
 .slick-slider {
@@ -2397,32 +2404,32 @@ aside.sidebar {
 			margin-bottom: 0;
 		}
 	}
-	.noUi-target, .noUi-background { 
-		box-shadow: none; 
-		border-radius: 0; 
-		border:0; 
-		height:4px; 
-		background-color: #eee; 
+	.noUi-target, .noUi-background {
+		box-shadow: none;
+		border-radius: 0;
+		border:0;
+		height:4px;
+		background-color: #eee;
 		margin-bottom: 18px;
-	} 
-	.noUi-connect { 
-		box-shadow: none; 
-		border-radius: 0; 
-		border:0; 
-		background-color: #303030; 
-	} 
-	.noUi-horizontal .noUi-handle { 
-		width: 12px; 
-		height: 12px; 
-		background-color: #eee; 
-		border: 2px solid #f05a66; 
-		border-radius:50%; 
-		left: 0px; 
-		top: -4px; 
+	}
+	.noUi-connect {
+		box-shadow: none;
+		border-radius: 0;
+		border:0;
+		background-color: #303030;
+	}
+	.noUi-horizontal .noUi-handle {
+		width: 12px;
+		height: 12px;
+		background-color: #eee;
+		border: 2px solid #f05a66;
+		border-radius:50%;
+		left: 0px;
+		top: -4px;
 		cursor: pointer;
-		&:before,&:after { 
-			display: none; 
-		} 
+		&:before,&:after {
+			display: none;
+		}
 	}
 	.wpb_video_widget {
 		margin-bottom: 0;
@@ -2431,7 +2438,7 @@ aside.sidebar {
 		.clear_after();
 		float: none;
 	}
-	
+
 	/* Widgets.
 	---------------------------------------*/
 	&.widget_text {
@@ -2448,7 +2455,7 @@ aside.sidebar {
 			a {
 				display: inline-block;
 				padding: 9px 0;
-				.light_link();	
+				.light_link();
 			}
 		}
 	}
@@ -2549,6 +2556,65 @@ aside.sidebar {
 		}
 	}
 
+	&.widget_price_filter {
+		.ui-widget-content {
+			background-color: #ddd;
+			border-radius: 0;
+			height: 4px;
+			border: 0;
+		}
+		.ui-slider {
+			position: relative;
+			text-align: left;
+			margin: 21px 0;
+
+		}
+		.ui-slider-handle {
+			position: absolute;
+			z-index: 2;
+			width: 12px;
+			height: 12px;
+			background-color: #eee;
+			border: 2px solid #f05a66;
+			border-radius: 50%;
+			left: 0px;
+			top: -4px;
+			outline: none;
+		}
+		.ui-slider-range {
+			position: absolute;
+			z-index: 1;
+			font-size: .7em;
+			display: block;
+			border: 0;
+			border-radius: 1em;
+			background-color: #303030;
+			height: 4px;
+		}
+		.price_slider {
+			margin-bottom: 1em;
+		}
+		.price_slider_amount {
+			line-height: 20px;
+			.button {
+				padding: 8px;
+				margin-bottom: 15px;
+				width: 100%;
+			}
+		}
+		.price_slider_wrapper {
+			.ui-widget-content {
+			background-color: #eee;
+			border-radius: 0;
+			height: 4px;
+
+			}
+		}
+		.woocommerce .widget_layered_nav ul li.chosen a:before, .woocommerce .widget_layered_nav_filters ul li a:before {
+			content: '';
+		}
+	}
+
 	&.pure_widget_posts {
 		font-size: 14px;
 		font-weight: 300;
@@ -2580,7 +2646,7 @@ aside.sidebar {
 			margin-top: -5px;
 		}
 		.post-title {
-			
+
 		}
 		.post-meta {
 			color: @extraLightColor;
@@ -2646,6 +2712,8 @@ aside.sidebar {
 			}
 		}
 	}
+
+
 
 	&.widget_price_filter {
 		text-transform: uppercase;
@@ -2732,7 +2800,7 @@ aside.sidebar {
 					}
 				}
 				&.red {
-					&:before {	
+					&:before {
 						background-color: red;
 					}
 				}
@@ -2762,6 +2830,7 @@ aside.sidebar {
 		}
 	}
 }
+
 /**
  * ========================================================================================
  * - BLOG-BASE-STYLES - #blog_base_styles.

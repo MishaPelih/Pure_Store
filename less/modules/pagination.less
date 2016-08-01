@@ -45,6 +45,11 @@
 					color: #fff;
 				}
 			}
+			span.current {
+				background-color: @activeColor;
+				border-color: @activeColor;
+				color: #fff;
+			}
 		}
 	}
 	.switch {
@@ -88,7 +93,7 @@
 			}
 		}
 	}
-	.products-per-page, .woocommerce-ordering {
+	.products-per-page, .woocommerce-ordering, .products_per_page_form {
 		&:last-child {
 			.wild-options {
 				right: 0;

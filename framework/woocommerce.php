@@ -90,17 +90,18 @@
 
 	function pure_shop_per_page()
 	{
-		$products_per_page_post = $_POST['products_per_page'];
-		$products_per_page_cookie = $_COOKIE['products_per_page'];
+		$products_per_page_post = $_POST['pure_products_per_page'];
+		$products_per_page_cookie = $_COOKIE['pure_products_per_page'];
 
 		if ( $_SERVER['REQUEST_METHOD'] === 'POST' && $products_per_page_post ) {
-			unset( $_POST['products_per_page'] );
-			setcookie( 'pure_products_per_page', $products_per_page_post, 0, get_permalink( woocommerce_get_page_id( 'shop' ) ) );
+			unset( $_POST['pure_products_per_page'] );
+			setcookie( 'pure_products_per_page', $products_per_page_post, 0, '/' );
 			return $products_per_page_post;
 		} elseif ( $products_per_page_cookie ) {
 			return $products_per_page_cookie;
 		}
-		return false;
+		setcookie( 'pure_products_per_page', 12, 0, '/' );
+		return 12;
 	}
 
 
@@ -124,20 +125,34 @@
 			<div class="filter-wrap top">
 				<div class="filter-content">
 					<div class="switch">
-						<div class="grid-view switch-option active">
-							<a href="#">
+						<?php
+							$current_page_url = get_permalink( );
+							$grid_class = '';
+							$list_class = '';
+							if ( $_GET['view_mode'] ) {
+								if ( $_GET['view_mode'] == 'grid' ) {
+									$grid_class = ' active';
+								} elseif ( $_GET['view_mode'] == 'list' ) {
+									$list_class = ' active';
+								}
+							} else {
+								$grid_class = ' active';
+							}
+						?>
+						<div class="grid-view switch-option<?php echo $grid_class; ?>">
+							<a href="<?php echo add_query_arg( 'view_mode', 'grid', remove_query_arg( 'view_mode', $current_url )); ?>">
 								<i class="zmdi zmdi-apps"></i>
 							</a>
 						</div>
-						<div class="list-view switch-option">
-							<a href="#">
+						<div class="list-view switch-option<?php echo $list_class; ?>">
+							<a href="<?php //echo $current_page_url; ?>?view_mode=list">
 								<i class="zmdi zmdi-menu"></i>
 							</a>
 						</div>
 					</div>
 					<?php woocommerce_catalog_ordering(); ?>
 					<form class="products_per_page_form" method="POST">
-						<select name="products_per_page" class="per-page-select wild-select" style="display: none;">
+						<select name="pure_products_per_page" class="per-page-select wild-select" style="display: none;">
 							<option value="1">1</option>
 							<option value="2">2</option>
 							<option value="3">3</option>
