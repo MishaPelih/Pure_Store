@@ -5,6 +5,14 @@
 
 	jQuery(document).ready(function($)
 	{
+		alert( pureConfig.ajaxurl );
+
+		$('.product-mask-content').find('.woocommerce-LoopProduct-link').magnificPopup({
+			type: 'ajax',
+			alignTop: true,
+			overflowY: 'scroll'
+		});
+
 		/**
 		 * ===================================================================
 		 * - Mobile Menu.
@@ -368,6 +376,8 @@
 			margin: 30,
 			navText: ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>']
 		});
+
+		
 
 		$('.show-quickly').magnificPopup({
 			type: 'image',

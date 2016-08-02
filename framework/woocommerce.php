@@ -247,7 +247,8 @@
 	    add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_mask_content_start', 10 );
 
 			# Add link on product which wrapped  only wrapps image thumbnail (start).
-		    add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 10);
+		    add_action( 'woocommerce_before_shop_loop_item_title', 'pure_show_quickly_area_start', 10);
+			// add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 10);
 
 				# Add product Image Thumbnail.
 			    add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
@@ -256,7 +257,8 @@
 			    add_action( 'woocommerce_before_shop_loop_item_title', 'pure_show_quickly', 10 );
 
 			# Add link on product which wrapped  only wrapps image thumbnail (end).
-			add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 10);
+			add_action( 'woocommerce_before_shop_loop_item_title', 'pure_show_quickly_area_end', 10);
+			// add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 10);
 
 			# Footer (Start)
 			add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_footer_start', 10 );
@@ -269,6 +271,8 @@
 
 				# Wishlist button.
 				add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_wishlist_button', 10 );
+				// add_action( 'woocommerce_before_shop_loop_item_title', create_function( '', 'echo do_shortcode( "[yith_wcwl_add_to_wishlist]" );' ), 10 );
+
 
 			# Footer (End)
 			add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_footer_end', 10 );
@@ -299,6 +303,24 @@
 
 
 	# Functions.
+	if ( !function_exists( 'pure_show_quickly_area_start' ) ) {
+		function pure_show_quickly_area_start()
+		{
+			global $post;
+			?>
+			<div class="show-quickly" data-prodid="<?php echo $post->ID; ?>">
+			<?php
+		}
+	}
+
+	if ( !function_exists( 'pure_show_quickly_area_end' ) ) {
+		function pure_show_quickly_area_end()
+		{ ?>
+			</div><!-- /.show-quickly -->
+			<?php
+		}
+	}
+
 	if ( !function_exists( 'pure_product_excerpt' ) ) {
 		function pure_product_excerpt() { ?>
 			<div class="product-excerpt">
@@ -347,6 +369,7 @@
 	if ( !function_exists( 'pure_product_compare_button' ) ) {
         function pure_product_compare_button()
         {
+			// echo do_shortcode('[yith_compare_button]');
             echo '<a href="#" class="refresh button side-button">';
 			echo '<i class="zmdi zmdi-refresh"></i>';
 			echo '</a>';
@@ -356,6 +379,9 @@
 	if ( !function_exists( 'pure_product_wishlist_button' ) ) {
         function pure_product_wishlist_button()
         {
+			// if ( shortcode_exists('yith_wcwl_add_to_wishlist') ) {
+			// 	echo do_shortcode( "[yith_wcwl_add_to_wishlist]" );
+			// }
             echo '<a href="#" class="add-to-wishlist button side-button">';
 			echo '<i class="zmdi zmdi-favorite-outline"></i>';
 			echo '</a>';

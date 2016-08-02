@@ -229,7 +229,7 @@
 			wp_register_script( 'custom-scroll', PURE_SCRIPTS_DIR . '/lib/jquery.custom-scroll.min.js', array( 'jquery' ), false, true );
 			wp_register_script( 'slick', PURE_SCRIPTS_DIR . '/lib/slick.min.js', array( 'jquery' ), false, true );
 			wp_register_script( 'wildjs', PURE_SCRIPTS_DIR . '/wild.js', array( 'jquery' ), false, true );
-			wp_register_script( 'pure-custom-script', PURE_SCRIPTS_DIR . '/main-script.js', array( 'jquery' ), false, true );
+			wp_register_script( 'purestore', PURE_SCRIPTS_DIR . '/main-script.js', array( 'jquery' ), false, true );
 
 			wp_enqueue_script( 'jquery' );
             wp_enqueue_script( 'bootstrap-js' );
@@ -239,7 +239,13 @@
             wp_enqueue_script( 'custom-scroll' );
             wp_enqueue_script( 'slick' );
             wp_enqueue_script( 'wildjs' );
-			wp_enqueue_script( 'pure-custom-script' );
+			wp_enqueue_script( 'purestore' );
+
+			$pureConf = array(
+				'ajaxurl' => admin_url( 'admin-ajax.php' )
+			);
+
+			wp_localize_script( 'purestore', 'pureConfig', $pureConf );
 
             # Load the stylesheets
             wp_enqueue_style( 'bootstrap', PURE_STYLES_DIR . '/bootstrap.min.css' );
@@ -251,4 +257,3 @@
         }
         add_action( 'wp_enqueue_scripts', 'pure_scripts' );
     }
-	
