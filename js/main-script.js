@@ -190,7 +190,7 @@
 		 * - Custom scroll init.
 		 * ===================================================================
 		 */
-		$('.widget_layered_nav.filter_color ul').customScroll();
+		$('.widget_layered_nav ul').customScroll();
 		$('.ps_widget_brands ul').customScroll();
 
 
@@ -250,24 +250,6 @@
 				children.hide('fast');
 			}
 		});
-
-
-		/**
-		 * ===================================================================
-		 * - Change posts layout.
-		 * ===================================================================
-		 */
-		// $('.switch-option').click(function(event){
-		// 	event.preventDefault();
-		// 	var option = $(this);
-		// 	option.toggleClass('active');
-		// 	option.siblings('.active').not(option).toggleClass('active');
-		// 	if ( option.hasClass('grid-view') ) {
-		// 		$('.products-list').addClass('products-grid').removeClass('products-list');
-		// 	} else {
-		// 		$('.products-grid').addClass('products-list').removeClass('products-grid');
-		// 	}
-		// });
 
 
 		/**

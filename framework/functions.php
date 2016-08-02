@@ -8,6 +8,30 @@
 ?>
 
 <?php
+    /**
+     * Add pure_cart_quantity function to woocommerce ajax.
+     */
+    add_filter( 'woocommerce_add_to_cart_fragments', 'pure_cart_quantity' );
+
+    if ( !function_exists( 'pure_cart_quantity' ) ){
+        function pure_cart_quantity( $fragments )
+        {
+            ob_start();
+            pure_cart_link();
+            $fragments['a.cart-quantity'] = ob_get_clean();
+            return $fragments;
+        }
+    }
+
+    if ( !function_exists( 'pure_cart_link' ) ){
+        function pure_cart_link() { ?>
+            <a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
+                <i class="zmdi zmdi-shopping-basket"></i>
+                <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count();?></span>
+            </a>
+        <?php
+        }
+    }
 
     /**
      * Get main content classes.

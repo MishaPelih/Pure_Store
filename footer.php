@@ -5,7 +5,7 @@
  * The template for displaying the footer.
  * ============================================ *
  */
-?>
+?>		</div><!-- /.container -->
 	</div><!-- /.site-content -->
 
 	<!--

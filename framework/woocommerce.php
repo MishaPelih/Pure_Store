@@ -126,26 +126,22 @@
 				<div class="filter-content">
 					<div class="switch">
 						<?php
-							$current_page_url = get_permalink( );
-							$grid_class = '';
+							$grid_class = ' active';
 							$list_class = '';
-							if ( $_GET['view_mode'] ) {
-								if ( $_GET['view_mode'] == 'grid' ) {
-									$grid_class = ' active';
-								} elseif ( $_GET['view_mode'] == 'list' ) {
-									$list_class = ' active';
-								}
-							} else {
-								$grid_class = ' active';
+							$view_mode = $_GET['view_mode'];
+
+							if ( $view_mode && $view_mode == 'list' ) {
+								$list_class = ' active';
+								$grid_class = '';
 							}
 						?>
 						<div class="grid-view switch-option<?php echo $grid_class; ?>">
-							<a href="<?php echo add_query_arg( 'view_mode', 'grid', remove_query_arg( 'view_mode', $current_url )); ?>">
+							<a href="<?php echo add_query_arg( 'view_mode', 'grid', remove_query_arg( 'view_mode' )); ?>">
 								<i class="zmdi zmdi-apps"></i>
 							</a>
 						</div>
 						<div class="list-view switch-option<?php echo $list_class; ?>">
-							<a href="<?php //echo $current_page_url; ?>?view_mode=list">
+							<a href="<?php echo add_query_arg( 'view_mode', 'list', remove_query_arg( 'view_mode' )); ?>">
 								<i class="zmdi zmdi-menu"></i>
 							</a>
 						</div>
@@ -295,11 +291,22 @@
 		# Add Product Rating.
 		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 
+		# Add Product Excerpt.
+		add_action( 'woocommerce_shop_loop_item_title', 'pure_product_excerpt', 5);
+
     add_action( 'woocommerce_after_shop_loop_item_title', 'pure_product_details_end', 10 );
 
 
 
 	# Functions.
+	if ( !function_exists( 'pure_product_excerpt' ) ) {
+		function pure_product_excerpt() { ?>
+			<div class="product-excerpt">
+				<?php the_excerpt(); ?>
+			</div>
+			<?php
+		}
+	}
 	if ( !function_exists( 'pure_show_quickly' ) ) {
 		function pure_show_quickly()
 		{ ?>

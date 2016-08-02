@@ -376,6 +376,25 @@ aside.sidebar {
 		}
 	}
 
+	&.widget_layered_nav {
+		ul {
+			color: @lightColor;
+			text-transform: uppercase;
+			height: 135px;
+    		overflow-x: auto;
+			li {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				padding-right: 10px;
+			}
+			a {
+				padding: 10px 0;
+				display: inline-block;
+			}
+		}
+	}
+
 	&.ps_widget_brands {
 		ul {
 			color: @lightColor;
@@ -385,98 +404,6 @@ aside.sidebar {
 			a {
 				padding: 10px 0;
 				display: inline-block;
-			}
-		}
-	}
-
-	&.widget_layered_nav {
-		&.filter_size {
-			ul {
-				display: block;
-				margin: 0 -22px;
-				border-top: 1px solid @borderColor;
-				border-bottom: 1px solid @borderColor;
-				position: relative;
-				.clear_after();
-			}
-			li {
-				width: 20%;
-				display: inline-block;
-				float: left;
-				text-align: center;
-				a {
-					font-size: 14px;
-					display: block;
-					padding: 12px 0;
-					border-right: 1px solid @borderColor;
-				}
-				&:last-child {
-					a {
-						&:last-child {
-							border-right: 0;
-						}
-					}
-				}
-				&.chosen {
-					a {
-						background-color: @activeColor;
-						color: #fff;
-					}
-				}
-			}
-		}
-		&.filter_color {
-			color: @lightColor;
-			text-transform: uppercase;
-			ul {
-				height: 100px;
-				overflow-x: auto;
-			}
-			li {
-				display: block;
-				padding-left: 28px;
-				position: relative;
-				&:before {
-					content: '';
-					position: absolute;
-					left: 0;
-					border: 1px solid @borderColor;
-					width: 12px;
-					height: 12px;
-					top: 30%;
-				}
-				&.black {
-					&:before {
-						background-color: black;
-					}
-				}
-				&.red {
-					&:before {
-						background-color: red;
-					}
-				}
-				&.blue {
-					&:before {
-						background-color: blue;
-					}
-				}
-				&.pink {
-					&:before {
-						background-color: pink;
-					}
-				}
-				&.mix-color {
-					&:before {
-						border-top: 6px solid red;
-					    border-bottom: 6px solid black;
-					    border-left: 6px solid green;
-					    border-right: 6px solid blue;
-					}
-				}
-				a {
-					padding: 10px 0;
-					display: inline-block;
-				}
 			}
 		}
 	}

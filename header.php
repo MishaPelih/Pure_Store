@@ -43,13 +43,14 @@
 			                <?php endif; ?>
 
 							<div class="site-header-cart menu-parent-item">
+
 								<?php if ( pure_is_woo_exists() ): ?>
 									<a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
-										<i class="zmdi zmdi-shopping-basket"></i>
-										<span class="cart-count">3</span>
-									</a>
+						                <i class="zmdi zmdi-shopping-basket"></i>
+						                <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count();?></span>
+						            </a>
 									<?php if ( !is_cart() ): ?>
-										<div class="widget_shopping_cart_content shopping-cart-conten sub-menut"></div>
+										<div class="widget_shopping_cart_content shopping-cart-content sub-menut"></div>
 									<?php endif; ?>
 								<?php endif; ?>
 							</div><!-- /.site-header-cart -->
@@ -133,4 +134,5 @@
 		<?php pure_get_breadcrumbs(); ?>
 
 		<!-- ====| Main content area |==== -->
-		<div class="site-content container" id="content">
+		<div class="site-content" id="content">
+			<div class="container">
