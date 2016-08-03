@@ -13,7 +13,8 @@
 	.clear_after();
 	.product {
 		position: relative;
-		margin-bottom: 63px;
+		margin-bottom: 55px;
+		// margin-bottom: 63px;
 		padding: 0 15px;
 		display: inline-block;
 		float: left;
@@ -29,7 +30,7 @@
 		pointer-events: none;
 	}
 	.product-mask-content {
-		a.woocommerce-LoopProduct-link {
+		.show-quickly {
 			position: relative;
 			display: block;
 			img {
@@ -65,7 +66,7 @@
 				transform: translateY(0);
 			}
 			.product-mask-content {
-				a.woocommerce-LoopProduct-link {
+				.show-quickly {
 					.icon {
 						visibility: visible;
 						opacity: 1;
@@ -96,7 +97,7 @@
 		position: absolute;
 		width: 100%;
 		bottom: 0;
-		transform: translateY(100%);
+		// transform: translateY(100%);
 		.trans( all, .2s );
 		border: 1px solid @buttonBgColor;
 		.button {
@@ -142,9 +143,38 @@
 			width: 21%;
 			text-align: center;
 			background-color: #fff;
+			margin: 0;
+			font-size: 0;
+			letter-spacing: 0;
 			.dark_link();
-			i {
+			&:first-child {
+				border-right: 1px solid transparent;
+			}
+			&:last-child {
+				border-left: 1px solid transparent;
+			}
+			&:before {
+				font-family: 'Material-Design-Iconic-Font';
 				font-size: 24px;
+				line-height: 1;
+			}
+			&.add_to_wishlist {
+				&:before {
+					content: '\f15e';
+				}
+			}
+			&.compare {
+				&:before {
+					content: '\f1b9';
+				}
+			}
+			&.added {
+				border-color: #fff;
+				background-color: @buttonBgColor;
+				color: #fff;
+				&:hover {
+					background-color: @buttonHoverBgColor;
+				}
 			}
 		}
 		.added_to_cart {
@@ -156,6 +186,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
+		align-items: flex-start;
 	}
 
 	.product-title {
@@ -176,6 +207,7 @@
 		.flex_center_Y();
 		flex-direction: row-reverse;
 		flex-wrap: wrap;
+		margin-bottom: 10px;
 		.woocommerce-Price-amount {
 			display: flex;
 			flex-wrap: nowrap;
@@ -202,17 +234,22 @@
 		}
 	}
 
-	.product-excerpt {
-		display: none;
+	.pure-meta-wrap {
+		.flex_center_Y();
 	}
 
 	.woocommerce-review-link {
 		font-size: 10px;
 		font-weight: 400;
 		text-transform: uppercase;
-		.count {
-			line-height: 2;
+		a {
+			display: block;
+			line-height: 1.6;
 		}
+	}
+
+	.product-excerpt {
+		display: none;
 	}
 
 	&.row-count-2 {
@@ -396,10 +433,11 @@
 		clear: both;
 		.clear_after();
 	}
-	.star-rating {
-		float: left;
+
+	.pure-meta-wrap {
 		margin-bottom: 20px;
 	}
+
 	.product-excerpt {
 		display: block;
 		clear: both;

@@ -241,8 +241,13 @@
             wp_enqueue_script( 'wildjs' );
 			wp_enqueue_script( 'purestore' );
 
+			if( function_exists( 'YITH_WCWL' ) ){
+				$wishlist_url = YITH_WCWL()->get_wishlist_url();
+			}
+
 			$pureConf = array(
-				'ajaxurl' => admin_url( 'admin-ajax.php' )
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'wishlisturl' => $wishlist_url
 			);
 
 			wp_localize_script( 'purestore', 'pureConfig', $pureConf );

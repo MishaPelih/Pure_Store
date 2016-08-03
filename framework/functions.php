@@ -9,6 +9,16 @@
 
 <?php
     /**
+     * Get permalink wihtout domain.
+     */
+    if ( !function_exists( 'pure_get_permalink_without_dominian' ) ) {
+        function pure_get_permalink_without_dominian() {
+            $permalink = get_permalink();
+            return str_replace( 'http://'.$_SERVER['HTTP_HOST'], "", $permalink );
+        }
+    }
+
+    /**
      * Add pure_cart_quantity function to woocommerce ajax.
      */
     add_filter( 'woocommerce_add_to_cart_fragments', 'pure_cart_quantity' );

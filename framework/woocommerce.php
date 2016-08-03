@@ -287,22 +287,92 @@
     add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_details_start', 10 );
 
 		# Add Product Title with link.
-		add_action('woocommerce_shop_loop_item_title','pure_product_title',5);
+		add_action('woocommerce_shop_loop_item_title','pure_product_title',5 );
 
 		# Add Product Price.
-		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_price', 5);
+		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_price', 5 );
 
-		# Add Product Rating.
-		add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+		# Add meta wrap.
+		add_action( 'woocommerce_shop_loop_item_title', 'pure_product_meta_wrap_start', 5 );
+
+			# Add Product Rating.
+			add_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_rating', 5 );
+
+			# Add Comment count.
+			add_action( 'woocommerce_shop_loop_item_title', 'pure_comment_count', 5 );
+
+		# Close div
+		add_action( 'woocommerce_shop_loop_item_title', 'pure_close_div', 5 );
 
 		# Add Product Excerpt.
-		add_action( 'woocommerce_shop_loop_item_title', 'pure_product_excerpt', 5);
+		add_action( 'woocommerce_shop_loop_item_title', 'pure_product_excerpt', 5 );
 
     add_action( 'woocommerce_after_shop_loop_item_title', 'pure_product_details_end', 10 );
 
 
 
-	# Functions.
+	/**
+	 * Functions.
+	 */
+	# Compare Button
+	if ( ! function_exists( 'pure_product_compare_button' ) ) {
+		function pure_product_compare_button() { ?>
+			<?php
+				$comp = new YITH_Woocompare_Frontend();
+				$product_list = $comp->products_list;
+				$added = '';
+				foreach  ( $product_list as $key => $value ) {
+					if ( $value == get_the_ID() ) {
+						$added = ' added';
+					}
+				}
+			?>
+			<a href="<?php echo pure_get_permalink_without_dominian(); ?>?action=yith-woocompare-add-product&id=<?php echo get_the_ID(); ?>" data-product_id="<?php echo get_the_ID(); ?>" rel="nofollow" class="button side-button compare<?php echo $added; ?>"></a>
+		<?php
+		}
+	}
+
+	# Wishlist Button
+	if ( ! function_exists( 'pure_product_wishlist_button' ) ) {
+		function pure_product_wishlist_button() { ?>
+			<?php
+				$added = '';
+				if ( YITH_WCWL()->is_product_in_wishlist( get_the_ID() ) ) {
+					$href = pure_get_permalink_without_dominian() . '?add_to_wishlist=' . get_the_ID();
+					$added = ' added';
+				} else {
+					$href = YITH_WCWL()->get_wishlist_url();
+				}
+			?>
+
+			<a href="<?php echo $href; ?>" rel="nofollow" data-product-id="<?php echo get_the_ID(); ?>" data-product-type="simple" class="button side-button add_to_wishlist yith-wcwl-add-to-wishlist add-to-wishlist-<?php echo get_the_ID(); ?><?php echo $added; ?>"></a>
+		<?php
+		}
+	}
+
+	if ( !function_exists( 'pure_close_div' ) ) {
+		function pure_close_div() {
+			echo '</div>';
+		}
+	}
+
+	if ( !function_exists( 'pure_product_meta_wrap_start' ) ) {
+		function pure_product_meta_wrap_start()
+		{
+			echo '<div class="pure-meta-wrap">';
+		}
+	}
+
+	if ( ! function_exists('pure_comment_count' ) ) {
+		function pure_comment_count() {
+		?>
+			<div id="reviews" class="woocommerce-review-link">
+				<a href="<?php echo the_permalink(); ?>#reviews">(<?php echo get_comments_number(); ?>)</a>
+			</div>
+		<?php
+		}
+	}
+
 	if ( !function_exists( 'pure_show_quickly_area_start' ) ) {
 		function pure_show_quickly_area_start()
 		{
@@ -365,29 +435,6 @@
         }
     }
 
-
-	if ( !function_exists( 'pure_product_compare_button' ) ) {
-        function pure_product_compare_button()
-        {
-			// echo do_shortcode('[yith_compare_button]');
-            echo '<a href="#" class="refresh button side-button">';
-			echo '<i class="zmdi zmdi-refresh"></i>';
-			echo '</a>';
-        }
-    }
-
-	if ( !function_exists( 'pure_product_wishlist_button' ) ) {
-        function pure_product_wishlist_button()
-        {
-			// if ( shortcode_exists('yith_wcwl_add_to_wishlist') ) {
-			// 	echo do_shortcode( "[yith_wcwl_add_to_wishlist]" );
-			// }
-            echo '<a href="#" class="add-to-wishlist button side-button">';
-			echo '<i class="zmdi zmdi-favorite-outline"></i>';
-			echo '</a>';
-        }
-    }
-
 	if ( !function_exists( 'pure_product_footer_start' ) ) {
         function pure_product_footer_start()
         {
@@ -429,3 +476,32 @@
            echo "</div><!-- /.product-mask-content -->";
         }
     }
+
+	add_action('wp_ajax_pure_product_quick_view', 'pure_product_quick_view');
+	add_action('wp_ajax_nopriv_pure_product_quick_view', 'pure_product_quick_view');
+	if ( !function_exists( 'pure_product_quick_view' ) ) {
+		function pure_product_quick_view()
+		{
+			if ( empty( $_POST['prodid'] ) ) {
+				echo 'Error: Absent product id';
+				die();
+			}
+
+			$args = array(
+				'p' => (int) $_POST['prodid'],
+				'post_type' => 'product'
+			);
+
+			$the_query = new WP_Query( $args );
+			if ( $the_query->have_posts() ) {
+				while ( $the_query->have_posts() ) : $the_query->the_post();
+					woocommerce_get_template('product-quick-view.php');
+				endwhile;
+				wp_reset_query();
+				wp_reset_postdata();
+			} else {
+				echo 'No posts were found!';
+			}
+			die();
+		}
+	}

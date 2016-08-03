@@ -1,17 +1,48 @@
-;'use strict';
+;(function() {
 
-
-(function() {
+	'use strict';
 
 	jQuery(document).ready(function($)
 	{
-		alert( pureConfig.ajaxurl );
+		$(document.body).on('click', '.show-quickly', (function() {
+			var thisBtn = $(this);
+			var prodid = thisBtn.data('prodid');
+			var magnificPopup;
+			$.ajax({
+				url: pureConfig.ajaxurl,
+				method: 'POST',
+				data: {
+					'action': 'pure_product_quick_view',
+					'prodid': prodid
+				},
+				dataType: 'html',
+				success: function( response ) {
+					$.magnificPopup.open({
+                        items: { src: '<div class="quick-view-popup mfp-with-anim"><div class="product-quick-view-wpap">' + response + '</div></div>' },
+                        type: 'inline',
+                        removalDelay: 500,
+                    }, 0);
+				}
+			});
 
-		$('.product-mask-content').find('.woocommerce-LoopProduct-link').magnificPopup({
-			type: 'ajax',
-			alignTop: true,
-			overflowY: 'scroll'
+			$('body').on('click', '.quick-view-popup .main-images a', function(e) {
+                e.preventDefault();
+            });
+		}));
+
+
+		$('.product').find('.add_to_wishlist').click(function( event ) {
+			var addBtn = $(this);
+			if ( $(this).hasClass( 'added' ) ) {
+				event.stopPropagation();
+				addBtn.attr( 'href', pureConfig.wishlisturl )
+					.removeAttr( 'rel' );
+			} else {
+				addBtn.addClass( 'added' );
+
+			}
 		});
+
 
 		/**
 		 * ===================================================================
@@ -377,25 +408,6 @@
 			navText: ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>']
 		});
 
-		
-
-		$('.show-quickly').magnificPopup({
-			type: 'image',
-			closeOnContentClick: true,
-			closeBtnInside: false,
-			fixedContentPos: true,
-			mainClass: 'mfp-no-margins mfp-with-zoom',
-			image: {
-				verticalFit: true
-			},
-			zoom: {
-				enabled: true,
-				duration: 300
-			},
-			disableOn: function() {
-				return window.popupOpen;
-			}
-		});
 
 		/* Function which disable popup when you dragging the carousel
 		---------------------------------------*/
