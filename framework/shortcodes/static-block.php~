@@ -6,7 +6,11 @@
 ?>
 
 <?php
-
+	function test( $message )
+	{
+		echo message;
+	}
+	
 	if ( !function_exists( 'pure_static_block' ) ) {
 		function pure_static_block( $attrs, $content = null )
 		{
