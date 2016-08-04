@@ -97,7 +97,7 @@
 		position: absolute;
 		width: 100%;
 		bottom: 0;
-		// transform: translateY(100%);
+		transform: translateY(100%);
 		.trans( all, .2s );
 		border: 1px solid @buttonBgColor;
 		.button {
@@ -251,23 +251,6 @@
 	.product-excerpt {
 		display: none;
 	}
-
-	&.row-count-2 {
-		.product {
-			width: 50%;
-			&:nth-child(2n+1) {
-				clear: both;
-			}
-		}
-	}
-	&.row-count-3 {
-		.product {
-			width: 33.333333333333%;
-			&:nth-child(3n+1) {
-				clear: both;
-			}
-		}
-	}
 	&.row-count-4, &.row-count-5, &.row-count-6 {
 		.footer-product {
 			background-color: @buttonHoverBgColor;
@@ -323,10 +306,6 @@
 	}
 	&.row-count-4 {
 		.product {
-			width: 25%;
-			&:nth-child(4n+1) {
-				clear: both;
-			}
 			.side-button {
 				padding: 4% 8%;
 				width: 25%;
@@ -341,9 +320,6 @@
 		}
 	}
 	&.row-count-5, &.row-count-6 {
-		.price, .star-rating {
-			margin: 0 auto;
-		}
 		.product-title {
 			margin-bottom: 8px;
 			text-align: center;
@@ -364,14 +340,14 @@
 				margin-right: 8px;
 			}
 		}
+		.pure-meta-wrap {
+			width: 100%;
+			justify-content: center;
+		}
 	}
 	&.row-count-5 {
 		.product {
-			width: 20%;
 			margin-bottom: 50px;
-			&:nth-child(5n+1) {
-				clear: both;
-			}
 			.button {
 				width: 34%;
 				font-size: 20px;
@@ -384,11 +360,7 @@
 	}
 	&.row-count-6 {
 		.product {
-			width: 16.6666666666666%;
 			margin-bottom: 45px;
-			&:nth-child(6n+1) {
-				clear: both;
-			}
 			.button {
 				width: 34%;
 				font-size: 16px;

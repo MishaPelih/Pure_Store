@@ -6,7 +6,7 @@
  * ============================================================= *
  */
 ?>
-
+ 
 <?php
 	/**
 	 * Global options.
@@ -505,3 +505,16 @@
 			die();
 		}
 	}
+
+
+
+
+	/**
+	 * Single Product Page options.
+	 * ============================================================= *
+	 */
+
+	/**
+	 * Remove Sale flash.
+	 */
+	remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );

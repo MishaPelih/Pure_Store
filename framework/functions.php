@@ -8,6 +8,7 @@
 ?>
 
 <?php
+
     /**
      * Get permalink wihtout domain.
      */
@@ -55,15 +56,19 @@
 
                 $classes = array();
 
-                if ( $option === 'disable' ) {
-                    array_push( $classes, 'col-md-12' );
-                } else {
-                    array_push( $classes, 'col-md-9' );
-                    if ( $option === 'left' ) {
-                        array_push( $classes, 'pull-right' );
-                    } if ( $option === 'right' ) {
-                        array_push( $classes, 'pull-left' );
+                if ( is_shop() ) {
+                    if ( $option === 'disable' ) {
+                        array_push( $classes, 'col-md-12' );
+                    } else {
+                        array_push( $classes, 'col-md-9' );
+                        if ( $option === 'left' ) {
+                            array_push( $classes, 'pull-right' );
+                        } if ( $option === 'right' ) {
+                            array_push( $classes, 'pull-left' );
+                        }
                     }
+                } else {
+                    array_push( $classes, 'col-md-12' );
                 }
                 return implode( ' ', $classes );
             }
@@ -83,6 +88,28 @@
                 return false;
             }
             return true;
+        }
+    }
+
+    /**
+     * Get posts classes.
+     */
+    if ( !function_exists( 'pure_get_posts_classses' ) ) {
+        function pure_get_posts_classes( $plug_classes = null )
+        {
+            $classes = array();
+            array_push( $classes, 'posts' );
+
+            if ( $plug_classes ) {
+                $classes = array_merge( $classes, $plug_classes );
+            }
+
+            if ( pure_get_redux_option( 'posts_per_row' ) ) {
+                array_push( $classes, 'posts-grid' );
+                array_push( $classes, 'row-count-' . pure_get_redux_option( 'posts_per_row' ) );
+            }
+
+            return implode( ' ', $classes );
         }
     }
 

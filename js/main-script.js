@@ -31,6 +31,17 @@
 		}));
 
 
+		$('.thumbnails').slick({
+			infinite: true,
+			slidesToShow: 4,
+			slidesToScroll: 1,
+			vertical: true,
+			speed: 170,
+			verticalSwiping: true,
+			arrows: false
+		});
+
+
 		$('.product').find('.add_to_wishlist').click(function( event ) {
 			var addBtn = $(this);
 			if ( $(this).hasClass( 'added' ) ) {
@@ -171,17 +182,6 @@
 
 		/**
 		 * ===================================================================
-		 * - Your mark (Rating).
-		 * ===================================================================
-		 */
-		$('.stars span').click(function(){
-			$(this).parent().addClass('selected');
-			$(this).addClass('active').siblings('.active').removeClass('active');
-		});
-
-
-		/**
-		 * ===================================================================
 		 * - Spin Buttons for Cart page.
 		 * ===================================================================
 		 */
@@ -306,7 +306,7 @@
 			dropdownIcon: '<i class="zmdi zmdi-chevron-down"></i>'
 		});
 
-		$( '.products_per_page_form .wild-options' ).find( 'li' ).click(function(){
+		$( '.products_per_page_form .wild-options li' ).click(function(){
 			$(this).closest('form').submit();
 		});
 

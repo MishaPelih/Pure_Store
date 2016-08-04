@@ -14,14 +14,11 @@
 		<!-- ====| Main Content |==== -->
 		<div class="content-page blog <?php echo pure_main_content_classes(); ?>" role="main">
 			<div class="entry-content">
-
-				<div class="row row-count-2">
+				<div class="<?php echo pure_get_posts_classes( array( 'row' ) ); ?>">
 					<?php if ( have_posts() ): ?>
 
 						<?php while( have_posts() ): the_post(); ?>
-							<div class="col-md-6">
-								<?php get_template_part( 'content', get_post_format() ); ?>
-							</div>
+							<?php get_template_part( 'content', get_post_format() ); ?>
 						<?php endwhile; ?>
 
 						<?php pure_paging_nav(); ?>

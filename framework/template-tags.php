@@ -36,22 +36,22 @@
 					<?php if ( comments_open() ): ?>
 						<li class="meta-comment">
 							<div class="meta-reply">
-
-								<?php 
-								$icon = '<i class="zmdi zmdi-comment-outline"></i>&nbsp;';
-								comments_popup_link( 
-									$icon . '(0)', 
-									$icon . '(1)', 
-									$icon . '(%)' 
-								); ?>
-
+								<?php
+									$icon = '<i class="zmdi zmdi-comment-outline"></i>&nbsp;';
+									comments_popup_link(
+										$icon . '<span class="count">(0)</span>',
+										$icon . '<span class="count">(1)</span>',
+										$icon . '<span class="count">(%)</span>'
+									); ?>
 							</div>
 						</li>
 					<?php endif; ?>
 
 					<li class="meta-views">
 						<i class="zmdi zmdi-eye"></i>
-						(<?php echo pure_get_post_views() ?>)
+						<span class="count">
+							(<?php echo pure_get_post_views() ?>)
+						</span>
 					</li>
 
 				<?php endif; ?>

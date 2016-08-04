@@ -213,40 +213,63 @@
 
 
 	/**
-	 * Shop
+	 * E-commerce
 	 */
 	$section = array(
 		'title' => 'E-commerce',
 		'id'    => 'section_ecommerce',
 		'desc'  => '',
-		'icon'  => 'el el-wrench'
+		'icon'  => 'el el-wrench',
+		'fields'     => array(
+			array(
+				'id'       => 'products_per_row',
+				'type'     => 'button_set',
+				'title'    => __( 'Products per row', 'pure' ),
+				'desc'     => '',
+				'options' => array(
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+					'5' => '5',
+					'6' => '6',
+				),
+				'default'  => '3'
+			),
+		)
 	);
 	Redux::setSection( $opt_name, $section );
 
-	$section = array(
-        'title'      => __( 'Products page layout', 'pure' ),
-        'id'         => 'subsection_products_page_layout',
-        'subsection' => true,
-        'desc'       => '',
-        'fields'     => array(
-            array(
-                'id'       => 'products_per_row',
-                'type'     => 'button_set',
-                'title'    => __( 'Products per row', 'pure' ),
-                'desc'     => '',
-				'options' => array(
-			        '2' => '2',
-			        '3' => '3',
-			        '4' => '4',
-			        '5' => '5',
-			        '6' => '6',
-			     ),
-                'default'  => '3'
-            ),
-        )
-    );
-    Redux::setSection( $opt_name, $section );
 
+	/**
+	 * Blog
+	 */
+	$section = array(
+		'title' => 'Blog',
+		'id'    => 'section_blog',
+		'desc'  => '',
+		'icon'  => 'el el-wrench',
+		'fields'     => array(
+			array(
+				'id'       => 'posts_per_row',
+				'type'     => 'button_set',
+				'title'    => __( 'Posts per row', 'pure' ),
+				'desc'     => '',
+				'options' => array(
+					'1' => '1',
+					'2' => '2',
+					'3' => '3',
+					'4' => '4',
+				),
+				'default'  => '3'
+			),
+		)
+	);
+	Redux::setSection( $opt_name, $section );
+
+
+	/**
+	 * Sidebar.
+	 */
 	$section = array(
 		'title' => 'Sidebar',
 		'id'    => 'section_sidebar',
