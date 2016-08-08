@@ -43,7 +43,7 @@
 			echo '<div class="content-page shop ' . pure_main_content_classes( 'shop' ) . '" role="main">';
 		}
 	}
-
+	
 	add_action( 'woocommerce_after_main_content', 'pure_after_main_content_wrap' );
 	if ( !function_exists( 'pure_after_main_content_wrap' ) ) {
 		function pure_after_main_content_wrap()

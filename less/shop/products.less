@@ -205,7 +205,6 @@
 
 	.price {
 		.flex_center_Y();
-		flex-direction: row-reverse;
 		flex-wrap: wrap;
 		margin-bottom: 10px;
 		.woocommerce-Price-amount {
@@ -215,21 +214,25 @@
 			font-weight: 500;
 			text-transform: uppercase;
 			color: @activeColor;
+			line-height: 1.4;
 		}
 		ins, del {
 			display: flex;
 		}
 		ins {
+			line-height: 1.8;
 			color: @activeColor;
-			margin-right: 15px;
 		}
 		del {
 			color: @lightColor;
+			margin-right: 15px;
 			.woocommerce-Price-amount {
 				font-size: 12px;
 				font-weight: 500;
 				text-transform: uppercase;
 				color: @lightColor;
+				display: block;
+				line-height: 1.5;
 			}
 		}
 	}

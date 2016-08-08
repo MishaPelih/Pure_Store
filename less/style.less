@@ -3837,7 +3837,20 @@ table.cart {
 	}
 	form.cart {
 		clear: both;
+		margin-bottom: 20px;
+		display: inline-block;
+		float: left;
+		margin-right: 10px;
 		.clear_after();
+		button[type='submit'] {
+			padding: 13px 28px 12px;
+			display: inline-block;
+		}
+		.quantity {
+			margin-right: 10px;
+			display: inline-block;
+			float: left;
+		}
 	}
 	table.variations {
 		tbody {
@@ -3941,6 +3954,15 @@ table.cart {
 			margin-right: 10px;
 		}
 	}
+	.yith-wcwl-add-to-wishlist a, .compare {
+		font-size: 0;
+		letter-spacing: 0;
+		padding: 7px 12px 8px 11px;
+		&:before {
+			font-family: 'Material-Design-Iconic-Font';
+			font-size: 24px;
+		}
+	}
 	.yith-wcwl-add-to-wishlist {
 		display: inline-block;
 		margin-top: 0;
@@ -3949,9 +3971,11 @@ table.cart {
 		.yith-wcwl-add-button {
 			line-height: 1.5;
 		}
+		img {
+			display: none;
+		}
 		.feedback {
-			display: block;
-			margin-bottom: 10px;
+			display: none;
 		}
 		a {
 			color: @buttonColor;
@@ -3959,14 +3983,13 @@ table.cart {
 			display: inline-block;
 			text-decoration: none;
 			border: 0;
-			padding: 10px 28px 9px;
 			text-transform: uppercase;
 			font-size: 14px;
 			-webkit-border-radius: 0;
 			-moz-border-radius: 0;
 			border-radius: 0;
-			font-weight: 500;
 			letter-spacing: 1px;
+			line-height: 1;
 			.trans( all, .2s );
 			.disable_focus();
 			&:hover, &:focus, &:active {
@@ -3974,10 +3997,19 @@ table.cart {
 				background-color: @buttonHoverBgColor;
 				text-decoration: none;
 			}
+			&:before {
+				content: '\f15e';
+			}
 		}
 	}
 	.compare {
 		margin-bottom: 20px;
+		&:before {
+			content: '\f1b9';
+		}
+	}
+	.clear {
+		display: none;
 	}
 	.product_meta {
 		margin-bottom: 12px;
@@ -4296,6 +4328,7 @@ table.cart {
 		}
 	}
 }
+
 /**
  * ========================================================================================
  * - PRODUCTS - #products.
@@ -4503,7 +4536,6 @@ table.cart {
 
 	.price {
 		.flex_center_Y();
-		flex-direction: row-reverse;
 		flex-wrap: wrap;
 		margin-bottom: 10px;
 		.woocommerce-Price-amount {
@@ -4513,21 +4545,25 @@ table.cart {
 			font-weight: 500;
 			text-transform: uppercase;
 			color: @activeColor;
+			line-height: 1.4;
 		}
 		ins, del {
 			display: flex;
 		}
 		ins {
+			line-height: 1.8;
 			color: @activeColor;
-			margin-right: 15px;
 		}
 		del {
 			color: @lightColor;
+			margin-right: 15px;
 			.woocommerce-Price-amount {
 				font-size: 12px;
 				font-weight: 500;
 				text-transform: uppercase;
 				color: @lightColor;
+				display: block;
+				line-height: 1.5;
 			}
 		}
 	}

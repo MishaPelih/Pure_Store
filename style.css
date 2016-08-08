@@ -3718,12 +3718,25 @@ table.cart td.product-remove a:focus {
 }
 .single-product form.cart {
   clear: both;
+  margin-bottom: 20px;
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
 }
 .single-product form.cart:after {
   content: '';
   display: block;
   clear: both;
   height: 0;
+}
+.single-product form.cart button[type='submit'] {
+  padding: 13px 28px 12px;
+  display: inline-block;
+}
+.single-product form.cart .quantity {
+  margin-right: 10px;
+  display: inline-block;
+  float: left;
 }
 .single-product table.variations tbody {
   display: table;
@@ -3823,6 +3836,17 @@ table.cart td.product-remove a:focus {
   height: 40px;
   margin-right: 10px;
 }
+.single-product .yith-wcwl-add-to-wishlist a,
+.single-product .compare {
+  font-size: 0;
+  letter-spacing: 0;
+  padding: 7px 12px 8px 11px;
+}
+.single-product .yith-wcwl-add-to-wishlist a:before,
+.single-product .compare:before {
+  font-family: 'Material-Design-Iconic-Font';
+  font-size: 24px;
+}
 .single-product .yith-wcwl-add-to-wishlist {
   display: inline-block;
   margin-top: 0;
@@ -3837,9 +3861,11 @@ table.cart td.product-remove a:focus {
 .single-product .yith-wcwl-add-to-wishlist .yith-wcwl-add-button {
   line-height: 1.5;
 }
+.single-product .yith-wcwl-add-to-wishlist img {
+  display: none;
+}
 .single-product .yith-wcwl-add-to-wishlist .feedback {
-  display: block;
-  margin-bottom: 10px;
+  display: none;
 }
 .single-product .yith-wcwl-add-to-wishlist a {
   color: #fff;
@@ -3847,14 +3873,13 @@ table.cart td.product-remove a:focus {
   display: inline-block;
   text-decoration: none;
   border: 0;
-  padding: 10px 28px 9px;
   text-transform: uppercase;
   font-size: 14px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  font-weight: 500;
   letter-spacing: 1px;
+  line-height: 1;
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
@@ -3874,8 +3899,17 @@ table.cart td.product-remove a:focus {
   background-color: #ed3e4c;
   text-decoration: none;
 }
+.single-product .yith-wcwl-add-to-wishlist a:before {
+  content: '\f15e';
+}
 .single-product .compare {
   margin-bottom: 20px;
+}
+.single-product .compare:before {
+  content: '\f1b9';
+}
+.single-product .clear {
+  display: none;
 }
 .single-product .product_meta {
   margin-bottom: 12px;
@@ -4347,7 +4381,6 @@ table.cart td.product-remove a:focus {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
-  flex-direction: row-reverse;
   flex-wrap: wrap;
   margin-bottom: 10px;
 }
@@ -4358,23 +4391,27 @@ table.cart td.product-remove a:focus {
   font-weight: 500;
   text-transform: uppercase;
   color: #f05a66;
+  line-height: 1.4;
 }
 .products .price ins,
 .products .price del {
   display: flex;
 }
 .products .price ins {
+  line-height: 1.8;
   color: #f05a66;
-  margin-right: 15px;
 }
 .products .price del {
   color: #606060;
+  margin-right: 15px;
 }
 .products .price del .woocommerce-Price-amount {
   font-size: 12px;
   font-weight: 500;
   text-transform: uppercase;
   color: #606060;
+  display: block;
+  line-height: 1.5;
 }
 .products .pure-meta-wrap {
   display: -webkit-box;

@@ -118,7 +118,20 @@
 	}
 	form.cart {
 		clear: both;
+		margin-bottom: 20px;
+		display: inline-block;
+		float: left;
+		margin-right: 10px;
 		.clear_after();
+		button[type='submit'] {
+			padding: 13px 28px 12px;
+			display: inline-block;
+		}
+		.quantity {
+			margin-right: 10px;
+			display: inline-block;
+			float: left;
+		}
 	}
 	table.variations {
 		tbody {
@@ -222,6 +235,15 @@
 			margin-right: 10px;
 		}
 	}
+	.yith-wcwl-add-to-wishlist a, .compare {
+		font-size: 0;
+		letter-spacing: 0;
+		padding: 7px 12px 8px 11px;
+		&:before {
+			font-family: 'Material-Design-Iconic-Font';
+			font-size: 24px;
+		}
+	}
 	.yith-wcwl-add-to-wishlist {
 		display: inline-block;
 		margin-top: 0;
@@ -230,9 +252,11 @@
 		.yith-wcwl-add-button {
 			line-height: 1.5;
 		}
+		img {
+			display: none;
+		}
 		.feedback {
-			display: block;
-			margin-bottom: 10px;
+			display: none;
 		}
 		a {
 			color: @buttonColor;
@@ -240,14 +264,13 @@
 			display: inline-block;
 			text-decoration: none;
 			border: 0;
-			padding: 10px 28px 9px;
 			text-transform: uppercase;
 			font-size: 14px;
 			-webkit-border-radius: 0;
 			-moz-border-radius: 0;
 			border-radius: 0;
-			font-weight: 500;
 			letter-spacing: 1px;
+			line-height: 1;
 			.trans( all, .2s );
 			.disable_focus();
 			&:hover, &:focus, &:active {
@@ -255,10 +278,19 @@
 				background-color: @buttonHoverBgColor;
 				text-decoration: none;
 			}
+			&:before {
+				content: '\f15e';
+			}
 		}
 	}
 	.compare {
 		margin-bottom: 20px;
+		&:before {
+			content: '\f1b9';
+		}
+	}
+	.clear {
+		display: none;
 	}
 	.product_meta {
 		margin-bottom: 12px;
