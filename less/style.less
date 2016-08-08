@@ -3823,7 +3823,8 @@ table.cart {
 		.clear_after();
 		.woocommerce-review-link {
 			.clear_after();
-			font-size: 10px;
+			font-size: 11px;
+			padding: 0 8px;
 		}
 	}
 	.summary {
@@ -3837,15 +3838,9 @@ table.cart {
 	}
 	form.cart {
 		clear: both;
+		display: block;
 		margin-bottom: 20px;
-		display: inline-block;
-		float: left;
-		margin-right: 10px;
 		.clear_after();
-		button[type='submit'] {
-			padding: 13px 28px 12px;
-			display: inline-block;
-		}
 		.quantity {
 			margin-right: 10px;
 			display: inline-block;
@@ -3948,55 +3943,59 @@ table.cart {
 		flex-flow: wrap row-reverse;
 		justify-content: flex-end;
 		button.single_add_to_cart_button {
+			display: inline-block;
 			font-weight: 500;
 			letter-spacing: 1px;
-			height: 40px;
 			margin-right: 10px;
+			padding: 8px 28px 8px;
 		}
 	}
 	.yith-wcwl-add-to-wishlist a, .compare {
 		font-size: 0;
 		letter-spacing: 0;
 		padding: 7px 12px 8px 11px;
+		color: @darkColor;
+		background-color: transparent;
+		text-decoration: none;
+		border: 0;
+		text-transform: uppercase;
+		border-radius: 0;
+		line-height: 1;
+		display: inline-block;
+		border: 1px solid @borderColor;
+		.trans( all, .2s );
+		.disable_focus();
 		&:before {
 			font-family: 'Material-Design-Iconic-Font';
 			font-size: 24px;
+			color: @darkColor;
+			.trans( all, .2s );
+		}
+		background-color: transparent;
+		&:hover, &:focus, &:active {
+			background-color: transparent;;
+			&:before {
+				color: @activeColor;
+			}
 		}
 	}
 	.yith-wcwl-add-to-wishlist {
 		display: inline-block;
 		margin-top: 0;
+		float: left;
+		margin-right: 10px;
 		margin-bottom: 20px;
 		.clear_after();
 		.yith-wcwl-add-button {
 			line-height: 1.5;
 		}
 		img {
-			display: none;
+			display: none !important;
 		}
 		.feedback {
 			display: none;
 		}
 		a {
-			color: @buttonColor;
-			background-color: @buttonBgColor;
-			display: inline-block;
-			text-decoration: none;
-			border: 0;
-			text-transform: uppercase;
-			font-size: 14px;
-			-webkit-border-radius: 0;
-			-moz-border-radius: 0;
-			border-radius: 0;
-			letter-spacing: 1px;
-			line-height: 1;
-			.trans( all, .2s );
-			.disable_focus();
-			&:hover, &:focus, &:active {
-				color: @buttonHoverColor;
-				background-color: @buttonHoverBgColor;
-				text-decoration: none;
-			}
 			&:before {
 				content: '\f15e';
 			}
@@ -4223,55 +4222,19 @@ table.cart {
 			margin-bottom: 30px;
 		}
 	}
-	//.stars {
-	//	.clear_after();
-	//	span {
-	//		position: relative;
-	//	    height: 1em;
-	//	    width: 1em;
-	//	    text-indent: -999em;
-	//	    display: inline-block;
-	//	    text-decoration: none;
-	//	    font-size: 18px;
-	//	    color: @darkColor;
-	//	    cursor: pointer;
-	//	    float: left;
-	//	    &:before {
-	//	    	content: '\f27c';
-	//		    display: block;
-	//		    position: absolute;
-	//		    top: 0;
-	//		    left: 0;
-	//		    width: 1em;
-	//		    height: 1em;
-	//		    line-height: 1;
-	//		    font-family: Material-Design-Iconic-Font;
-	//		    text-indent: 0;
-	//		    background-color: #fff;
-	//	    }
-	//	}
-	//	&.selected {
-	//		span {
-	//			&:before {
-	//				content: '\f27d';
-	//			}
-	//			&.active ~ span {
-	//				&:before {
-	//					content: '\f27c';
-	//				}
-	//			}
-	//		}
-	//	}
-	//}
 	p.stars {
+		.clear_after();
 		a {
 			position: relative;
-			height: 1em;
-			width: 1em;
-			text-indent: -999em;
-			display: inline-block;
-			text-decoration: none;
-
+		    height: 1em;
+		    width: 1em;
+		    text-indent: -999em;
+		    display: inline-block;
+		    text-decoration: none;
+		    font-size: 18px;
+		    color: @darkColor;
+		    cursor: pointer;
+		    float: left;
 			&:before {
 				display: block;
 				position: absolute;
@@ -4280,40 +4243,37 @@ table.cart {
 				width: 1em;
 				height: 1em;
 				line-height: 1;
-				font-family: "WooCommerce";
-				content: "\e021";
+				font-family: 'Material-Design-Iconic-Font';
+				content: '\f27c';
 				text-indent: 0;
 			}
-
 			&:hover {
 				~ a:before {
-					content: "\e021";
+					content: '\f27c';
 				}
 			}
 		}
-
 		&:hover {
 			a {
 				&:before {
-					content: "\e020";
+					content: '\f27d';
 				}
 			}
 		}
-
 		&.selected {
 			a.active {
 				&:before {
-					content: "\e020";
+					content: '\f27d';
 				}
 
 				~ a:before {
-					content: "\e021";
+					content: '\f27c';
 				}
 			}
 
 			a:not(.active) {
 				&:before {
-					content: "\e020";
+					content: '\f27d';
 				}
 			}
 		}
