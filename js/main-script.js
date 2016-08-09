@@ -18,10 +18,19 @@
 				dataType: 'html',
 				success: function( response ) {
 					$.magnificPopup.open({
-                        items: { src: '<div class="quick-view-popup mfp-with-anim"><div class="product-quick-view-wpap">' + response + '</div></div>' },
+                        items: { src: '<div class="product-quick-view mfp-with-anim"><div class="product-quick-view-content">' + response + '</div></div>' },
                         type: 'inline',
                         removalDelay: 500,
                     }, 0);
+					$('.product-quick-view .thumbnails').slick({
+						infinite: true,
+						slidesToShow: 4,
+						slidesToScroll: 1,
+						vertical: true,
+						speed: 170,
+						verticalSwiping: true,
+						arrows: false
+					});
 				}
 			});
 
@@ -29,7 +38,6 @@
                 e.preventDefault();
             });
 		}));
-
 
 		$('.thumbnails').slick({
 			infinite: true,
@@ -40,7 +48,6 @@
 			verticalSwiping: true,
 			arrows: false
 		});
-
 
 		$('.product').find('.add_to_wishlist').click(function( event ) {
 			var addBtn = $(this);
@@ -206,22 +213,6 @@
 				a && "" !== a && "NaN" !== a || (a = 0), ("" === n || "NaN" === n) && (n = ""), ("" === s || "NaN" === s) && (s = 0), ("any" === e || "" === e || void 0 === e || "NaN" === parseFloat(e)) && (e = 1), $(this).is(".plus") ? t.val(n && (n == a || a > n) ? n : a + parseFloat(e)) : s && (s == a || s > a) ? t.val(s) : a > 0 && t.val(a - parseFloat(e)), t.trigger("change")
 			})
 		}
-
-
-		/**
-		 * ===================================================================
-		 * - Slick carousel initialisation.
-		 * ===================================================================
-		 */
-		$('.slick-thumbnails').slick({
-			infinite: true,
-			slidesToShow: 4,
-			slidesToScroll: 1,
-			vertical: true,
-			speed: 170,
-			verticalSwiping: true,
-			arrows: false
-		});
 
 
 		/**
@@ -401,6 +392,15 @@
 
 		$( '.partners-area .partners' ).owlCarousel({
 			items: 5,
+			loop: true,
+			nav: true,
+			dots: false,
+			margin: 30,
+			navText: ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>']
+		});
+
+		$('.related-products, .upsells-products').find('.products').owlCarousel({
+			items: 4,
 			loop: true,
 			nav: true,
 			dots: false,

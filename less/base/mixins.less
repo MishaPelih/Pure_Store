@@ -66,6 +66,14 @@
 	}
 }
 
+.active_link()
+{
+	color: @activeColor;
+	&:hover, &:focus {
+		color: darken( @activeColor, 10% );
+	}
+}
+
 .light_link()
 {
 	color: @lightColor;

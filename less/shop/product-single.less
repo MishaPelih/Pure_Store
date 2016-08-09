@@ -4,7 +4,7 @@
  * ========================================================================================
  */
 
-.single-product {
+.single-product, .product-quick-view {
 
 	/* ==============================
 	 - Global Styles.
@@ -75,8 +75,8 @@
 			font-weight: 500;
 		}
 		.price {
-			display: inline-block;
-			float: left;
+			display: block;
+			float: none;
 			margin-bottom: 27px;
 			line-height: 1.2;
 			ins {
@@ -157,6 +157,26 @@
 			box-shadow: none;
 			padding: 5px 12px;
 		}
+		.reset_variations {
+			padding: 6px 28px 7px;
+			margin-left: 10px;
+			letter-spacing: 1px;
+			font-size: 14px;
+			border: 0;
+			text-transform: uppercase;
+			color: @buttonColor;
+			background-color: @buttonBgColor;
+			.trans( all, .2s );
+			.disable_focus();
+			&:hover, &:focus, &:active {
+				color: @buttonHoverColor;
+				background-color: @buttonHoverBgColor;
+				text-decoration: none;
+			}
+		}
+	}
+	.woocommerce-variation {
+		margin-bottom: 20px;
 	}
 	.size-picker, .color-picker {
 		.clear_after();

@@ -6,7 +6,7 @@
  * ============================================================= *
  */
 ?>
- 
+
 <?php
 	/**
 	 * Global options.
@@ -43,7 +43,7 @@
 			echo '<div class="content-page shop ' . pure_main_content_classes( 'shop' ) . '" role="main">';
 		}
 	}
-	
+
 	add_action( 'woocommerce_after_main_content', 'pure_after_main_content_wrap' );
 	if ( !function_exists( 'pure_after_main_content_wrap' ) ) {
 		function pure_after_main_content_wrap()
@@ -518,3 +518,101 @@
 	 * Remove Sale flash.
 	 */
 	remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10 );
+
+    /**
+     * Related Products
+     */
+    remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+    add_action( 'pure_site_content_bottom', 'pure_related_products', 20 );
+
+    if ( !function_exists( 'pure_related_products' ) ) {
+        function pure_related_products()
+        {
+            global $product, $woocommerce_loop;
+
+            if ( !method_exists( $product, 'get_related' ) ) return;
+
+            $related = $product->get_related();
+
+            if ( sizeof($related) == 0 ) return;
+
+            $args = apply_filters('woocommerce_related_products_args', array(
+            	'post_type'				=> 'product',
+            	'ignore_sticky_posts'	=> 1,
+            	'no_found_rows' 		=> 1,
+            	'posts_per_page' 		=> $posts_per_page,
+            	'orderby' 				=> $orderby,
+            	'post__in' 				=> $related
+            ));
+
+            $products = new WP_Query( $args );
+
+            $woocommerce_loop['columns'] = $columns;
+
+            if ( $products->have_posts() ) : ?>
+
+            	<div class="related-products">
+                    <div class="container">
+                        <h2><?php _e('Suggested products', 'pure'); ?></h2>
+                		<ul class="products products-grid">
+                			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+                				<?php woocommerce_get_template_part( 'content', 'product' ); ?>
+                			<?php endwhile; ?>
+                		</ul>
+                    </div>
+            	</div>
+
+            <?php endif;
+
+            wp_reset_postdata();
+        }
+    }
+
+	/**
+     * Upsell Products
+     */
+	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+    add_action( 'pure_site_content_bottom', 'pure_upsell_products', 15 );
+
+	if ( !function_exists( 'pure_upsell_products' ) ) {
+		function pure_upsell_products()
+		{
+			global $product, $woocommerce_loop;
+
+            if ( !method_exists( $product, 'get_upsells' ) ) return;
+
+            $upsells = $product->get_upsells();
+
+            if ( sizeof($upsells) == 0 ) return;
+
+            $args = apply_filters('woocommerce_related_products_args', array(
+            	'post_type'				=> 'product',
+            	'ignore_sticky_posts'	=> 1,
+            	'no_found_rows' 		=> 1,
+            	'posts_per_page' 		=> $posts_per_page,
+            	'orderby' 				=> $orderby,
+            	'post__in' 				=> $upsells
+            ));
+
+            $products = new WP_Query( $args );
+
+            $woocommerce_loop['columns'] = $columns;
+
+            if ( $products->have_posts() ) : ?>
+
+            	<div class="upsells-products">
+                    <div class="container">
+                        <h2><?php _e('Upsells products', 'pure'); ?></h2>
+                		<ul class="products products-grid">
+                			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
+                				<?php woocommerce_get_template_part( 'content', 'product' ); ?>
+                			<?php endwhile; ?>
+                		</ul>
+                    </div>
+            	</div>
+
+            <?php endif;
+
+            wp_reset_postdata();
+		}
+	}

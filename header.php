@@ -135,4 +135,7 @@
 
 		<!-- ====| Main content area |==== -->
 		<div class="site-content" id="content">
+
+			<?php do_action( 'pure_site_content_top' ); ?>
+
 			<div class="container">

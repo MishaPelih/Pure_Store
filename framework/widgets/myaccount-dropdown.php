@@ -67,29 +67,32 @@
         {
             extract( $args );
 
-            $title = $instance['title'];
+            if ( pure_is_woo_exists() && !is_account_page() ) {
 
-            echo $before_widget;
-            ?>
-                <ul class="menu menu-top-bar">
-                    <li class="menu-item menu-parent-item">
-                        <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>"><?php echo $title; ?></a>
-                        <ul class="sub-menu">
-                           <?php
-                            woocommerce_login_form();
-                            if ( is_user_logged_in() ): ?>
-                                <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
-                                    <li class="menu-item <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
-                                        <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
-                                    </li>
-                                <?php endforeach; ?>
-                            <?php endif; ?>
-                        </ul>
-                    </li>
-                </ul>
-            <?php
+                $title = $instance['title'];
 
-            echo $after_widget;
+                echo $before_widget;
+                ?>
+                    <ul class="menu menu-top-bar">
+                        <li class="menu-item menu-parent-item">
+                            <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>"><?php echo $title; ?></a>
+                            <ul class="sub-menu">
+                               <?php
+                                woocommerce_login_form();
+                                if ( is_user_logged_in() ): ?>
+                                    <?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
+                                        <li class="menu-item <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
+                                            <a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>"><?php echo esc_html( $label ); ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </ul>
+                        </li>
+                    </ul>
+                <?php
+
+                echo $after_widget;
+            }
         }
     }
 

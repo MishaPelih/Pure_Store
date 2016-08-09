@@ -1,0 +1,79 @@
+/**
+ * ========================================================================================
+ * - MY-ACCOUNT - #my_account.
+ * ========================================================================================
+ */
+
+.woocommerce-account {
+    .woocommerce {
+        .clear_after();
+    }
+    .woocommerce-MyAccount-content {
+        display: inline-block;
+        width: 70%;
+        padding: 20px;
+        border: 1px solid #eee;
+        background-color: #fff;
+        p {
+            margin-bottom: 20px;
+            color: @lightColor;
+            font-size: 14px;
+            font-weight: 300;
+            line-height: 24px;
+        }
+    }
+    .woocommerce-MyAccount-navigation {
+        display: inline-block;
+        width: 30%;
+        float: left;
+        padding-right: 30px;
+        li {
+            border-top: 1px solid @borderColor;
+            display: block;
+            &.is-active {
+                a {
+                    .active_link();
+                }
+            }
+        }
+        a {
+            padding: 20px 10px;
+            text-transform: uppercase;
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            width: 100%;
+        }
+    }
+    .login {
+        input[type=text],input[type=password] {
+            width: 100%;
+            margin: 10px 0;
+            padding: 0 15px;
+            height: 36px;
+        }
+        input[type=submit] {
+            margin-right: 15px;
+        }
+        label {
+            font-weight: 500;
+        }
+        .form-row{
+            display: inline-block;
+        }
+        .form-row-wide{
+            display: block;
+        }
+        .lost_password{
+            display: inline-block;
+            float: right;
+            line-height: 36px;
+        }
+    }
+    h2 {
+        text-transform: uppercase;
+        font-weight: 900;
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+}
