@@ -4,7 +4,7 @@
   *
   * Contains tgm2 options.
   * ============================================ *
-  */ 
+  */
 ?>
 
 <?php
@@ -27,7 +27,7 @@
 		    $prefix = 'pure_';
 
 		    /**
-		     * Initiate the metabox
+		     * Initiate the metabox (post)
 		     */
 		    $cmb_post = new_cmb2_box( array(
 		        'id'            => 'post_options',
@@ -64,7 +64,8 @@
 				),
 				'text'    => array(
 					'add_upload_file_text' => 'Add or Upload File'
-				)
+				),
+				'allow' => array( 'url', 'attachment' )
 			) );
 
 			// $cmb_post->add_group_field( $group_field_id, array(
@@ -72,7 +73,35 @@
 			// 	'name' => __( 'Post featured video (insert url)', 'pure' ),
 			// 	'type' => 'oembed',
 			// 	'default' => ''
-			// ) );		    
+			// ) );
+
+
+			/**
+		     * Initiate the metabox (page)
+		     */
+		    $cmb = new_cmb2_box( array(
+		        'id'            => 'page_options',
+		        'title'         => __( '[Pure] Page options', 'pure' ),
+		        'object_types'  => array( 'page', ), // Post type
+		        'context'       => 'normal',
+		        'priority'      => 'high',
+		        'show_names'    => true, // Show field names on the left
+		        // 'cmb_styles' => false, // false to disable the CMB stylesheet
+		        // 'closed'     => true, // Keep the metabox closed by default
+		    ) );
+
+			$cmb->add_field( array(
+			    'name'    => 'Sidebar position',
+			    'id' => $prefix . 'sidebar_position',
+			    'type'    => 'select',
+				'default' => 'default',
+				'options'          => array(
+					'default' => '&nbsp;--&nbsp;&nbsp;' . __( 'Select', 'pure' ) . '&nbsp;&nbsp;--&nbsp;',
+			        'left' => __( 'Left', 'pure' ),
+			        'right' => __( 'Right', 'pure' ),
+			        'disable' => __( 'Disable', 'pure' ),
+			    ),
+			) );
 		}
 		add_action( 'cmb2_admin_init', 'pure_metaboxes' );
 	}

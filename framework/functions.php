@@ -50,29 +50,45 @@
     if ( !function_exists( 'pure_main_content_classes' ) ) {
         function pure_main_content_classes( $option = 'blog' )
         {
-            $option = pure_get_redux_option( $option . '_sidebar_position' );
+            $classes = array();
 
-            if ( $option ) {
+            if ( pure_enable_sidebar( $option ) ) {
 
-                $classes = array();
+                $cmb_option = pure_get_cmb2_option( 'sidebar_position' );
+                $redux_option = pure_get_redux_option( $option . '_sidebar_position' );
+                $redux = false;
 
-                if ( is_shop() ) {
-                    if ( $option === 'disable' ) {
-                        array_push( $classes, 'col-md-12' );
+                if ( $cmb_option ) {
+                    if ( $cmb_option === 'left' ) {
+                        array_push( $classes, 'pull-right' );
+                    } elseif ( $cmb_option === 'right' ) {
+                        array_push( $classes, 'pull-left' );
                     } else {
-                        array_push( $classes, 'col-md-9' );
-                        if ( $option === 'left' ) {
-                            array_push( $classes, 'pull-right' );
-                        } if ( $option === 'right' ) {
-                            array_push( $classes, 'pull-left' );
-                        }
+                        $redux = true;
                     }
                 } else {
-                    array_push( $classes, 'col-md-12' );
+                    $redux = true;
                 }
-                return implode( ' ', $classes );
+
+                if ( $redux_option  && $redux === true ) {
+                    if ( $redux_option === 'left' ) {
+                        array_push( $classes, 'pull-right' );
+                    } elseif ( $redux_option === 'right' ) {
+                        array_push( $classes, 'pull-left' );
+                    }
+                }
+
+                if ( is_single() ) {
+                    array_push( $classes, 'col-md-12' );
+                } else {
+                    array_push( $classes, 'col-md-9' );
+                }
+
+            } else {
+                array_push( $classes, 'col-md-12' );
             }
-            return;
+
+            return implode( ' ', $classes );
         }
     }
 
@@ -82,12 +98,30 @@
     if ( !function_exists( 'pure_enable_sidebar' ) ) {
         function pure_enable_sidebar( $option = 'blog' )
         {
-            $option = pure_get_redux_option( $option . '_sidebar_position' );
+            $cmb_option = pure_get_cmb2_option( 'sidebar_position' );
+            $redux_option = pure_get_redux_option( $option . '_sidebar_position' );
+            $redux = false;
 
-            if ( $option && $option === 'disable' ) {
-                return false;
+            if ( $cmb_option ) {
+                if ( $cmb_option === 'disable' ) {
+                    return false;
+                } elseif ( $cmb_option === 'default' ) {
+                    $redux = true;
+                } else {
+                    return true;
+                }
+            } else {
+                $redux = true;
             }
-            return true;
+
+            if ( $redux_option && $redux === true ) {
+                if ( $redux_option === 'disable' ) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 
@@ -159,12 +193,42 @@
     if ( !function_exists( 'pure_get_cmb2_option' ) ) {
         function pure_get_cmb2_option( $option, $parent = null )
         {
-            if ( $parent ) {
-                $cmb_option = get_post_meta( get_the_ID(), 'pure_' . $parent, true )[0][$option];
-            } else {
-                $cmb_option = get_post_meta( get_the_ID(), 'pure_' . $option, true );
+            $id = get_the_ID();
+
+            if ( pure_is_woo_exists() ) {
+                if ( is_shop() ) {
+                    $id = get_option( 'woocommerce_shop_page_id' );
+                }
+                if ( is_checkout() ) {
+                    $id = get_option( 'woocommerce_checkout_page_id' );
+                }
             }
-            return $cmb_option ? $cmb_option : false;
+            if ( pure_is_blog() ) {
+                $id = get_option( 'page_for_posts' );
+            }
+            if ( in_the_loop() ) {
+                $id = get_the_ID();
+            }
+
+            if ( $parent ) {
+                $cmb_option = get_post_meta( $id, 'pure_' . $parent, true )[0]['pure_' . $option];
+            } else {
+                $cmb_option = get_post_meta( $id, 'pure_' . $option, true );
+            }
+            // $cmb_option = get_post_meta( $id, 'pure_' . $option, true );
+            return $cmb_option;
+        }
+    }
+
+    /**
+     * Check if current page is page for posts.
+     */
+    if ( ! function_exists( 'pure_is_blog' ) ) {
+        function pure_is_blog ()
+        {
+            global $post;
+            $posttype = get_post_type( $post );
+            return ( ( (is_archive() ) || ( is_author() ) || ( is_category() ) || ( is_home() ) || ( is_single() ) || ( is_tag() ) ) && ( $posttype == 'post' )  ) ? true : false ;
         }
     }
 

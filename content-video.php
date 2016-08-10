@@ -16,7 +16,7 @@
 			<div class="entry-thumbnail post-thumbnail">
 
 				<?php
-				$video_src = pure_get_cmb2_option( 'pure_post_video_file', 'post_format_video_group' );
+				$video_src = pure_get_cmb2_option( 'post_video_file', 'post_format_video_group' );
 
 				if ( $video_src ) :
 
@@ -34,9 +34,9 @@
 
 					<?php if ( has_post_thumbnail() ): ?>
 						<a href="<?php the_permalink(); ?>">
-							<?php if ( is_single() ): 
+							<?php if ( is_single() ):
 								the_post_thumbnail( 'large' );
-							else: 
+							else:
 								 the_post_thumbnail( 'medium_large' );
 							endif; ?>
 						</a>
@@ -76,7 +76,7 @@
 
 		<!-- Post content -->
 		<div class="entry-content">
-			<?php 
+			<?php
 			if ( !is_single() ): ?>
 
 				<?php if ( !is_search() ): ?>

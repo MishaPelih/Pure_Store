@@ -10,7 +10,7 @@
 <?php get_header(); ?>
 
 	<div class="row">
-		<div class="content-page col-md-9" role="main">
+		<div class="content-page <?php echo pure_main_content_classes(); ?>" role="main">
 
 			<!-- ====| Entry-content |==== -->
 			<div class="entry-content">
@@ -23,7 +23,7 @@
 			</div><!-- /.entry-content -->
 		</div><!-- /.content-page -->
 
-		<?php get_sidebar(); ?>
+		<?php pure_enable_sidebar() ? get_sidebar() : null; ?>
 
 	</div>
 

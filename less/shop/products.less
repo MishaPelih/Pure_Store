@@ -14,7 +14,6 @@
 	.product {
 		position: relative;
 		margin-bottom: 55px;
-		// margin-bottom: 63px;
 		padding: 0 15px;
 		display: inline-block;
 		float: left;
@@ -33,6 +32,7 @@
 		.show-quickly {
 			position: relative;
 			display: block;
+			cursor: pointer;
 			img {
 				display: block;
 			}
@@ -45,6 +45,13 @@
 				color: #fff;
 				font-size: 24px;
 				.trans( all, .2s );
+			}
+			&.loading {
+				.icon {
+					i {
+						animation: fa-spin 2s infinite linear;
+					}
+				}
 			}
 			&:before {
 				content: '';

@@ -507,8 +507,6 @@
 	}
 
 
-
-
 	/**
 	 * Single Product Page options.
 	 * ============================================================= *
@@ -530,7 +528,7 @@
         {
             global $product, $woocommerce_loop;
 
-            if ( !method_exists( $product, 'get_related' ) ) return;
+            if ( !method_exists( $product, 'get_related' ) || is_shop() ) return;
 
             $related = $product->get_related();
 
@@ -579,7 +577,7 @@
 		{
 			global $product, $woocommerce_loop;
 
-            if ( !method_exists( $product, 'get_upsells' ) ) return;
+            if ( !method_exists( $product, 'get_upsells' ) || is_shop() ) return;
 
             $upsells = $product->get_upsells();
 

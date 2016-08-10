@@ -116,6 +116,12 @@
 	div[itemprop='description'] {
 		clear: both;
 		margin-bottom: 30px;
+		.desc-content {
+			color: @lightColor;
+		    font-size: 14px;
+		    font-weight: 300;
+		    line-height: 1.7;
+		}
 	}
 	form.cart {
 		clear: both;
@@ -251,7 +257,7 @@
 			padding: 8px 28px 8px;
 		}
 	}
-	.yith-wcwl-add-to-wishlist a, .compare {
+	.yith-wcwl-add-to-wishlist a, .compare, .add_to_wishlist {
 		font-size: 0;
 		letter-spacing: 0;
 		padding: 7px 12px 8px 11px;
@@ -307,6 +313,9 @@
 		&:before {
 			content: '\f1b9';
 		}
+	}
+	.actions {
+		margin-bottom: 15px;
 	}
 	.clear {
 		display: none;

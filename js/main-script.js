@@ -16,21 +16,20 @@
 					'prodid': prodid
 				},
 				dataType: 'html',
+				beforeSend: function() {
+					thisBtn.addClass('loading');
+					thisBtn.find('.icon').html('<i class="zmdi zmdi-spinner"></i>');
+				},
+				complete: function()  {
+					thisBtn.removeClass('loading');
+					thisBtn.find('.icon').html('<i class="zmdi zmdi-plus-circle-o"></i>');
+				},
 				success: function( response ) {
 					$.magnificPopup.open({
-                        items: { src: '<div class="product-quick-view mfp-with-anim"><div class="product-quick-view-content">' + response + '</div></div>' },
+                        items: { src: '<div class="product-quick-view mfp-with-anim"><div class="container product-quick-view-wrap"><div class="product-quick-view-content">' + response + '</div></div></div>' },
                         type: 'inline',
                         removalDelay: 500,
                     }, 0);
-					$('.product-quick-view .thumbnails').slick({
-						infinite: true,
-						slidesToShow: 4,
-						slidesToScroll: 1,
-						vertical: true,
-						speed: 170,
-						verticalSwiping: true,
-						arrows: false
-					});
 				}
 			});
 
