@@ -115,7 +115,7 @@
 			position: relative;
 			width: 100%;
 			font-size: 14px;
-			padding: 12px 10px 10px;
+			padding: 10px 10px 8px;
 			letter-spacing: 0;
 			width: 61%;
 			&.loading, &.added {
@@ -153,6 +153,7 @@
 			margin: 0;
 			font-size: 0;
 			letter-spacing: 0;
+			border: 0;
 			.dark_link();
 			&:first-child {
 				border-right: 1px solid transparent;
@@ -179,6 +180,9 @@
 				border-color: #fff;
 				background-color: @buttonBgColor;
 				color: #fff;
+				&:before {
+					color: #fff;
+				}
 				&:hover {
 					background-color: @buttonHoverBgColor;
 				}
@@ -448,6 +452,9 @@
  - Products in OWL Carousel.
 ============================== */
 .products.owl-carousel {
+	.product {
+		width: 100% !important;
+	}
 	.product-mask {
 		.show-quickly {
 			.icon {

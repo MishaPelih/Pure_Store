@@ -205,6 +205,17 @@
 						'after_title' => '</h5>'
 					)
 				);
+				register_sidebar(
+					array(
+						'name' => __( 'Cart widgetarea', 'pure' ),
+						'id' => 'widgetarea-cart',
+						'description' => __( 'Appears in the Shopping Cart page', 'pure' ),
+						'before_widget' => '<div id="%1$s" class="widget %2$s">',
+						'after_widget' => '</div><!-- /widget -->',
+						'before_title' => '<h5 class="widget-title">',
+						'after_title' => '</h5>'
+					)
+				);
 			}
 		}
 		add_action( 'widgets_init', 'pure_widget_init' );
@@ -229,7 +240,7 @@
 			wp_register_script( 'custom-scroll', PURE_SCRIPTS_DIR . '/lib/jquery.custom-scroll.min.js', array( 'jquery' ), false, true );
 			wp_register_script( 'slick', PURE_SCRIPTS_DIR . '/lib/slick.min.js', array( 'jquery' ), false, true );
 			wp_register_script( 'wildjs', PURE_SCRIPTS_DIR . '/wild.js', array( 'jquery' ), false, true );
-			wp_register_script( 'purestore', PURE_SCRIPTS_DIR . '/main-script.js', array( 'jquery' ), false, true );
+			wp_register_script( 'purestore', PURE_SCRIPTS_DIR . '/pstore.js', array( 'jquery' ), false, true );
 
 			wp_enqueue_script( 'jquery' );
             wp_enqueue_script( 'bootstrap-js' );
@@ -245,9 +256,16 @@
 				$wishlist_url = YITH_WCWL()->get_wishlist_url();
 			}
 
+			if ( pure_is_woo_exists() ) {
+				$wo_exists = true;
+			} else {
+				$wo_exists = null;
+			}
+
 			$pureConf = array(
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				'wishlisturl' => $wishlist_url
+				'wishlisturl' => $wishlist_url,
+				'woocommerce' => $wo_exists,
 			);
 
 			wp_localize_script( 'purestore', 'pureConfig', $pureConf );

@@ -614,3 +614,12 @@
             wp_reset_postdata();
 		}
 	}
+
+	/**
+	 * Shopping Cart Page options.
+	 * ============================================================= *
+	 */
+
+	# remove Cross-Sells in cart collaterals.
+	remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+	add_action( 'pure_cart_cross_sells', 'woocommerce_cross_sell_display' );
