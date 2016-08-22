@@ -1366,7 +1366,7 @@ footer.site-footer {
 ============================== */
 .top-bar {
 	color: #fff;
-	padding: 15px 0 14px;
+	padding: 8px 0 8px;
 	.clear_after();
 	.top-bar-content {
 		display: flex;
@@ -1490,7 +1490,7 @@ footer.site-footer {
 		}
 	}
 	.widget_shopping_cart_content {
-		transform: translateY(14px);
+		transform: translateY(8px);
 		width: 350px;
 		text-align: center;
 		position: absolute;
@@ -1570,7 +1570,7 @@ footer.site-footer {
 			.sub-menu {
 				min-width: 150px;
 				padding: 6px 0;
-				transform: translateY(18px);
+				transform: translateY(10px);
 			}
 		}
 	}
@@ -2408,6 +2408,7 @@ body.mobile-menu-open {
 			margin-left: 30px;
 			font-size: 20px;
 			color: @extraLightColor;
+			line-height: 1;
 		}
 	}
 	.wild-options {
@@ -3023,6 +3024,7 @@ article.post {
     		.flex_center();
     		align-content: center;
     		flex-wrap: wrap;
+			line-height: 1;
     		span {
     			display: block;
     			width: 100%;
@@ -3218,7 +3220,7 @@ article.post {
 		margin-bottom: 12px;
 		text-align: right;
 		font-size: 13px;
-		font-weight: 300; 
+		font-weight: 300;
 		line-height: 1.6;
 		.clear_after();
 		a {
@@ -3267,7 +3269,7 @@ article.post {
 			font-size: 13px;
 		}
 	}
-	
+
 	.children {
 		.comment-body {
 			margin-left: 40px;
@@ -3344,6 +3346,7 @@ article.post {
 		}
 	}
 }
+
 /**
  * ========================================================================================
  * - SHOP-DEFAULTS - #shop_defaults.
@@ -3546,9 +3549,6 @@ table.cart {
 		font-weight: 500;
 		color: @darkColor;
 		text-transform: uppercase;
-	}
-	td {
-		padding: 6px 12px;
 		&.product-number {
 			width: 6%;
 			font-size: 14px;
@@ -3584,6 +3584,9 @@ table.cart {
 				.extra_light_link();
 			}
 		}
+	}
+	td {
+		padding: 6px 12px;
 	}
 }
 
@@ -3676,6 +3679,7 @@ table.cart {
 .wc-proceed-to-checkout {
 	text-align: right;
 }
+
 /**
  * ========================================================================================
  * - CHECKOUT - #checkout.
@@ -3997,6 +4001,10 @@ table.cart {
 			a, img {
 				display: block;
 				width: 100%;
+			}
+			&:only-child, &:only-child img {
+				width: 100%;
+				display: block;
 			}
 		}
 		.slick-slide {

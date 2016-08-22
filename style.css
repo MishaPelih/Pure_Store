@@ -1247,7 +1247,7 @@ footer.site-footer .widget-title {
 ============================== */
 .top-bar {
   color: #fff;
-  padding: 15px 0 14px;
+  padding: 8px 0 8px;
 }
 .top-bar:after {
   content: '';
@@ -1380,7 +1380,7 @@ footer.site-footer .widget-title {
   content: none;
 }
 .top-bar .widget_shopping_cart_content {
-  transform: translateY(14px);
+  transform: translateY(8px);
   width: 350px;
   text-align: center;
   position: absolute;
@@ -1467,7 +1467,7 @@ footer.site-footer .widget-title {
 .top-bar-widget .menu > .menu-item-has-children .sub-menu {
   min-width: 150px;
   padding: 6px 0;
-  transform: translateY(18px);
+  transform: translateY(10px);
 }
 /* ==============================
  - Header [Global Styles].
@@ -2315,6 +2315,7 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
   margin-left: 30px;
   font-size: 20px;
   color: #909090;
+  line-height: 1;
 }
 .wild-select.wild-area .wild-options {
   z-index: 10;
@@ -2908,6 +2909,7 @@ article.post .entry-header .meta-date {
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
+  line-height: 1;
 }
 article.post .entry-header .meta-date span {
   display: block;
@@ -3430,48 +3432,48 @@ table.cart th {
   color: #303030;
   text-transform: uppercase;
 }
-table.cart td {
-  padding: 6px 12px;
-}
-table.cart td.product-number {
+table.cart th.product-number {
   width: 6%;
   font-size: 14px;
   font-weight: 500;
   color: #303030;
 }
-table.cart td.product-thumbnail {
+table.cart th.product-thumbnail {
   width: 14%;
 }
-table.cart td.product-name {
+table.cart th.product-name {
   width: 35%;
   font-weight: 300;
   line-height: 1.3;
 }
-table.cart td.product-quantity {
+table.cart th.product-quantity {
   width: 11%;
 }
-table.cart td.product-price,
-table.cart td.product-subtotal {
+table.cart th.product-price,
+table.cart th.product-subtotal {
   color: #606060;
   font-weight: 500;
 }
-table.cart td.product-price {
+table.cart th.product-price {
   width: 11%;
 }
-table.cart td.product-subtotal {
+table.cart th.product-subtotal {
   width: 14%;
 }
-table.cart td.product-remove {
+table.cart th.product-remove {
   width: 9%;
   font-size: 24px;
 }
-table.cart td.product-remove a {
+table.cart th.product-remove a {
   display: inline-block;
   color: #909090;
 }
-table.cart td.product-remove a:hover,
-table.cart td.product-remove a:focus {
+table.cart th.product-remove a:hover,
+table.cart th.product-remove a:focus {
   color: #f05a66;
+}
+table.cart td {
+  padding: 6px 12px;
 }
 /* ==============================
  - Update Cart Wrap.
@@ -3889,6 +3891,13 @@ table.cart td.product-remove a:focus {
 .product-quick-view .images .woocommerce-main-image img {
   display: block;
   width: 100%;
+}
+.single-product .images .woocommerce-main-image:only-child,
+.product-quick-view .images .woocommerce-main-image:only-child,
+.single-product .images .woocommerce-main-image:only-child img,
+.product-quick-view .images .woocommerce-main-image:only-child img {
+  width: 100%;
+  display: block;
 }
 .single-product .images .slick-slide,
 .product-quick-view .images .slick-slide {
