@@ -16,50 +16,92 @@
 					'bg_image_id' => '',
 					'position_x' => '',
 					'position_y' => '',
-					'color_scheme' => '',
+					'text_color' => '',
+					'enable_button' => '',
+					'banner_mask_color' => '',
+					'content_mask_color' => '',
                     'enable_mask' => '',
 					'enable_bg_scale' => '',
 					'enable_mask_animation' => '',
                     'banner_link' => '',
 					'button_caption' => null,
 					'button_link' => null,
+					'button_color' => '',
+					'button_bg_color' => '',
+					'button_color_hover' => '',
+					'button_bg_color_hover' => '',
 				), $attrs
 			));
 
 			$bg_image_data = wp_get_attachment_image_src( intval($bg_image_id), "large" );
 	       	$bg_image_url = $bg_image_data[0];
 
-	       	ob_start(); ?>
+			$banner_classes = array();
+			array_push( $banner_classes,
+				esc_attr( $position_x ),
+				esc_attr( $position_y )
+			);
+			if ( $enable_mask ) {
+				array_push( $banner_classes, esc_attr('with_mask') );
+			}
+			if ( $enable_mask && $enable_mask_animation ) {
+				array_push( $banner_classes, esc_attr('mask_animate') );
+			}
+			if ( $enable_bg_scale ) {
+				array_push( $banner_classes, esc_attr('bg_scale') );
+			}
 
-	       		<!-- Banner -->
-				<div class="banner<?php echo ' ' . esc_attr( $position_x ); ?><?php echo ' ' . esc_attr( $position_y ); ?><?php if ( $color_scheme ) echo ' ' . esc_attr( $color_scheme ); ?><?php if( $enable_mask ) echo ' ' . esc_attr('with_mask'); ?><?php if( $enable_mask && $enable_mask_animation ) echo ' ' . esc_attr('mask_animate');  ?><?php if( $enable_bg_scale ) echo ' ' . esc_attr('bg_scale'); ?>">
-                    <?php if ( $banner_link ): ?>
-                        <a href="<?php echo esc_attr( $banner_link ); ?>">
-                    <?php endif; ?>
+			ob_start(); ?>
+
+				<!-- Banner -->
+				<div class="banner <?php echo implode( ' ', $banner_classes ) ?>">
+					<span class="before" <?php if ( $banner_mask_color ) echo 'style="background-color:' . $banner_mask_color . '"'; ?> ></span>
 
 					<img src="<?php echo esc_url( $bg_image_url ); ?>" alt="" class="banner-img scale-img">
 
+					<?php if ( $banner_link ): ?>
+						<a href="<?php echo esc_attr( $banner_link ) ?>" class="banner-link"></a>
+					<?php endif; ?>
+
 					<!-- Mask -->
-					<div class="mask">
+					<div class="mask" style="color:<?php echo $text_color . ';'; if ( $content_mask_color ) echo 'background-color:' . $content_mask_color . ';'; ?>">
 
 						<!-- Content -->
 						<div class="content">
 							<?php echo do_shortcode( $content ); ?>
+							<?php if( $enable_button ): ?>
+								<!-- Button content -->
+									<?php
+										$button_styling = '';
+										if ( $button_color || $button_bg_color ) {
+											$button_styling .= 'onmouseout="';
+											if ( $button_color ) {
+												$button_styling .= 'this.style.color=\'' . esc_attr( $button_color ) . '\';';
+											}
+											if ( $button_bg_color ) {
+												$button_styling .= ' this.style.backgroundColor=\'' . esc_attr( $button_bg_color ) . '\';';
+											}
+
+											$button_styling .= '"';
+										}
+
+
+										// if ( $button_color_hover || $button_bg_color_hover ) {
+										//
+										// }
+										//
+										// if ( $button_color_hover ) {
+										// 	$button_styling .= ':hover {color:' . esc_attr( $button_color_hover ) . ';';
+										// }
+										// if ( $button_bg_color ) {
+										// 	$button_styling .= 'background-color:' . esc_attr( $button_bg_color ) . ';';
+										// }
+										// $button_styling .= '"';
+									?>
+									<a href="<?php echo esc_url( $button_link ) ?>" class="button" <?php echo $button_styling ?>><?php echo $button_caption ?></a>
+							<?php endif; ?>
 						</div><!-- /banner-content -->
-
-						<?php if( $button_caption && $button_link ): ?>
-							<!-- Button content -->
-							<div class="button-content">
-								<a href="<?php echo $button_link ?>" class="button"><?php echo $button_caption ?></a>
-							</div><!-- /button-content -->
-						<?php endif; ?>
-
-					</div><!-- /banner-mask -->
-
-                    <?php if ( $banner_link ): ?>
-                        </a>
-                    <?php endif; ?>
-
+					</div>
 				</div><!-- /banner -->
 
 	       	<?php
@@ -76,7 +118,7 @@
 			vc_map( array(
 				"name" => __( "[Pure] Main Banner", "pure" ),
 				"base" => "pure_main_banner",
-				"category" => __( "Pure", "pure"),
+				"category" => __( "Pure", "pure" ),
 				"params" => array(
 					array(
 						"type" => "textarea_html",
@@ -119,17 +161,12 @@
 						'save_always' => true,
 					),
 					array(
-						"type" => "dropdown",
-						"holder" => "div",
-						"heading" => __( "Coloe scheme", "pure" ),
-						"param_name" => "color_scheme",
-						"value" => array(
-							__( '--', 'pure' ) => null,
-							__( 'White', 'pure' ) => 'white',
-							__( 'Black', 'pure' ) => 'black',
-						),
-						'save_always' => true,
-					),
+		                "type" => "colorpicker",
+		                "heading" => __( "Text color", "pure" ),
+		                "param_name" => "text_color",
+		                "value" => '#000',
+		                "description" => __( "Text Color", "pure" )
+		            ),
                     array(
 						"type" => "textfield",
 						"holder" => "div",
@@ -137,31 +174,120 @@
 						"param_name" => "banner_link",
 					),
 					array(
+						"type" => "checkbox",
+						"holder" => "div",
+						"param_name" => "enable_button",
+						"value" => array( __( 'Enable Button', 'pure' ) => true ),
+					),
+					array(
 						"type" => "textfield",
 						"holder" => "div",
 						"heading" => __( "Button caption", "pure" ),
 						"param_name" => "button_caption",
-						"value" => __( '', "pure" )
+						"value" => __( '', "pure" ),
+						"group" => __( 'Button', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_button',
+							'not_empty' => true,
+						),
 					),
 					array(
 						"type" => "textfield",
 						"holder" => "div",
 						"heading" => __( "Button link", "pure" ),
 						"param_name" => "button_link",
-						"value" => __( '', "pure" )
+						"value" => __( '', "pure" ),
+						"group" => __( 'Button', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_button',
+							'not_empty' => true,
+						),
 					),
+					array(
+		                "type" => "colorpicker",
+		                "heading" => __( "Button Color", "pure" ),
+		                "param_name" => "button_color",
+		                "value" => "",
+						"group" => __( 'Button', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_button',
+							'not_empty' => true,
+						),
+		            ),
+					array(
+		                "type" => "colorpicker",
+		                "heading" => __( "Button Hover Color", "pure" ),
+		                "param_name" => "button_color_hover",
+		                "value" => "",
+						"group" => __( 'Button', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_button',
+							'not_empty' => true,
+						),
+		            ),
+					array(
+		                "type" => "colorpicker",
+		                "heading" => __( "Button Background Color", "pure" ),
+		                "param_name" => "button_bg_color",
+		                "value" => "",
+						"group" => __( 'Button', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_button',
+							'not_empty' => true,
+						),
+		            ),
+					array(
+		                "type" => "colorpicker",
+		                "heading" => __( "Button Background Hover Color", "pure" ),
+		                "param_name" => "button_bg_color_hover",
+		                "value" => "",
+						"group" => __( 'Button', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_button',
+							'not_empty' => true,
+						),
+		            ),
                     array(
 						"type" => "checkbox",
 						"holder" => "div",
 						"param_name" => "enable_mask",
 						"value" => array( __( 'Enable banner mask', 'pure' ) => true ),
 					),
-                    array(
-						"type" => "checkbox",
-						"holder" => "div",
-						"param_name" => "enable_mask_animation",
-						"value" => array( __( 'Enable mask animation', 'pure' ) => true ),
-					),
+                    // array(
+					// 	"type" => "checkbox",
+					// 	"holder" => "div",
+					// 	"param_name" => "enable_mask_animation",
+					// 	"value" => array( __( 'Enable mask animation', 'pure' ) => true ),
+					// 	"group" => esc_html__( 'Mask', 'pure' ),
+					// 	'dependency' => array(
+					// 		'element' => 'enable_mask',
+					// 		'not_empty' => true,
+					// 	),
+					// ),
+					array(
+		                "type" => "colorpicker",
+		                "heading" => __( "Banner Mask color", "pure" ),
+		                "param_name" => "banner_mask_color",
+		                "value" => "rgba(255,255,255,0)",
+		                "description" => __( "Banner Mask Color", "pure" ),
+						"group" => esc_html__( 'Mask', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_mask',
+							'not_empty' => true,
+						),
+		            ),
+					array(
+		                "type" => "colorpicker",
+		                "heading" => __( "Content Mask color", "pure" ),
+		                "param_name" => "content_mask_color",
+		                "value" => "rgba(255,255,255,0)",
+		                "description" => __( "Content Mask Color", "pure" ),
+						"group" => esc_html__( 'Mask', 'pure' ),
+						'dependency' => array(
+							'element' => 'enable_mask',
+							'not_empty' => true,
+						),
+		            ),
 					array(
 						"type" => "checkbox",
 						"holder" => "div",

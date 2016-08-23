@@ -680,9 +680,21 @@ button:active {
   top: 50%;
   padding: 6% 9%;
   transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4);
 }
-.banner a {
+.banner > .banner-link {
   display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background-color: transparent !important;
+}
+.banner .button {
+  position: relative;
+  z-index: 30;
 }
 .banner img {
   display: block;
@@ -754,7 +766,7 @@ button:active {
 .banner.with_mask .mask {
   z-index: 10;
 }
-.banner.with_mask:before {
+.banner.with_mask .before {
   content: '';
   position: absolute;
   width: 100%;
@@ -763,7 +775,7 @@ button:active {
   opacity: 0.5;
   z-index: 1;
 }
-.banner.mask_animate .mask:before {
+.banner.mask_animate .mask .before {
   content: '';
   position: absolute;
   left: 0;
@@ -776,7 +788,7 @@ button:active {
   -o-transition: all 0.3s linear 0s;
   transition: all 0.3s linear 0s;
 }
-.banner.mask_animate:hover .mask:before {
+.banner.mask_animate:hover .mask .before {
   background-color: #000;
   opacity: 0.38;
 }

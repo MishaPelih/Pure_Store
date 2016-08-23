@@ -784,9 +784,19 @@ button {
 		top: 50%;
 		padding: 6% 9%;
 		transform: translateY( -50% );
+		background-color: rgba(0, 0, 0, .4);
 	}
-	a {
+	> .banner-link {
 		display: block;
+		position: absolute;
+		top: 0; bottom: 0;
+		left: 0; right: 0;
+		z-index: 20;
+		background-color: transparent !important;
+	}
+	.button {
+		position: relative;
+		z-index: 30;
 	}
 	img {
 		display: block;
@@ -868,7 +878,7 @@ button {
 		.mask {
 			z-index: 10;
 		}
-		&:before {
+		& .before {
 			content: '';
 			position: absolute;
 			width: 100%;
@@ -880,7 +890,7 @@ button {
 	}
 	&.mask_animate {
 		.mask {
-			&:before {
+			& .before {
 				content: '';
 				position: absolute;
 				left: 0;
@@ -893,7 +903,7 @@ button {
 		}
 		&:hover {
 			.mask {
-				&:before {
+				& .before {
 					background-color: #000;
 					opacity: 0.38;
 				}
