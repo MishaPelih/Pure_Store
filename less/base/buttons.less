@@ -6,8 +6,6 @@
 
 @buttonColor: #fff;
 @buttonBgColor: @activeColor;
-@buttonHoverColor: #fff;
-@buttonHoverBgColor: darken( @buttonBgColor , 6% );
 
 .button,
 button {
@@ -20,11 +18,11 @@ button {
 	letter-spacing: 1px;
     padding: 8px 28px 7px;
     text-transform: uppercase;
+	opacity: 1;
     .trans( all, .2s );
 	.disable_focus();
 	&:hover, &:focus, &:active {
-		color: @buttonHoverColor;
-		background-color: @buttonHoverBgColor;
-		text-decoration: none;
+		color: #fff;
+		opacity: .85;
 	}
 }

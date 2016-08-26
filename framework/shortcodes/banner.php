@@ -27,9 +27,7 @@
 					'button_caption' => null,
 					'button_link' => null,
 					'button_color' => '',
-					'button_bg_color' => '',
-					'button_color_hover' => '',
-					'button_bg_color_hover' => '',
+					'button_bg_color' => ''
 				), $attrs
 			));
 
@@ -71,34 +69,21 @@
 							<?php echo do_shortcode( $content ); ?>
 							<?php if( $enable_button ): ?>
 								<!-- Button content -->
-									<?php
-										$button_styling = '';
-										if ( $button_color || $button_bg_color ) {
-											$button_styling .= 'onmouseout="';
-											if ( $button_color ) {
-												$button_styling .= 'this.style.color=\'' . esc_attr( $button_color ) . '\';';
-											}
-											if ( $button_bg_color ) {
-												$button_styling .= ' this.style.backgroundColor=\'' . esc_attr( $button_bg_color ) . '\';';
-											}
-
-											$button_styling .= '"';
+								<?php
+									$button_styling = '';
+									if ( $button_color || $button_bg_color ) {
+										$button_styling .= 'style="';
+										if ( $button_color ) {
+											$button_styling .= 'color:' . esc_attr( $button_color ) . ';';
+										}
+										if ( $button_bg_color ) {
+											$button_styling .= 'background-color:' . esc_attr( $button_bg_color ) . ';';
 										}
 
-
-										// if ( $button_color_hover || $button_bg_color_hover ) {
-										//
-										// }
-										//
-										// if ( $button_color_hover ) {
-										// 	$button_styling .= ':hover {color:' . esc_attr( $button_color_hover ) . ';';
-										// }
-										// if ( $button_bg_color ) {
-										// 	$button_styling .= 'background-color:' . esc_attr( $button_bg_color ) . ';';
-										// }
-										// $button_styling .= '"';
-									?>
-									<a href="<?php echo esc_url( $button_link ) ?>" class="button" <?php echo $button_styling ?>><?php echo $button_caption ?></a>
+										$button_styling .= '"';
+									}
+								?>
+								<a href="<?php echo esc_url( $button_link ) ?>" class="button" <?php echo $button_styling ?>><?php echo $button_caption ?></a>
 							<?php endif; ?>
 						</div><!-- /banner-content -->
 					</div>
@@ -216,30 +201,8 @@
 		            ),
 					array(
 		                "type" => "colorpicker",
-		                "heading" => __( "Button Hover Color", "pure" ),
-		                "param_name" => "button_color_hover",
-		                "value" => "",
-						"group" => __( 'Button', 'pure' ),
-						'dependency' => array(
-							'element' => 'enable_button',
-							'not_empty' => true,
-						),
-		            ),
-					array(
-		                "type" => "colorpicker",
 		                "heading" => __( "Button Background Color", "pure" ),
 		                "param_name" => "button_bg_color",
-		                "value" => "",
-						"group" => __( 'Button', 'pure' ),
-						'dependency' => array(
-							'element' => 'enable_button',
-							'not_empty' => true,
-						),
-		            ),
-					array(
-		                "type" => "colorpicker",
-		                "heading" => __( "Button Background Hover Color", "pure" ),
-		                "param_name" => "button_bg_color_hover",
 		                "value" => "",
 						"group" => __( 'Button', 'pure' ),
 						'dependency' => array(

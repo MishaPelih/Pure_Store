@@ -56,19 +56,20 @@
 	}
 }
 
-.woocommerce-message {
-	text-align: center;
+.woocommerce-message, .woocommerce-info {
     width: 100%;
-    padding: 30px;
+    padding: 25px 30px;
     margin: 0 0 2em;
     position: relative;
-    background-color: #f7f6f7;
-    color: #515151;
-    color: #999;
+    background-color: #fff;
+	border: 1px solid @borderColor;
+    color: @extraLightColor;
     font-size: 14px;
-    text-transform: uppercase;
     letter-spacing: 1px;
     word-wrap: break-word;
+	a {
+		.light_link();
+	}
 }
 
 .up-sells-products, .upsells-products, .related-products, .cross-sells {

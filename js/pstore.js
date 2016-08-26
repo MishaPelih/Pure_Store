@@ -10,10 +10,8 @@
 			this.wildSelectInit();
 			this.owlCarouselInit();
 			this.slickInit();
-			this.radiogroupsInit();
 			this.customScrollInit();
 			this.spinButtons();
-			this.addToWishlistBtn();
 			this.sidebarDropdowns();
 			this.googleMap();
 			this.checkoutDropdowns();
@@ -21,6 +19,8 @@
 				this.woocommerceOrderingForm();
 				this.priceFilter();
 				this.productsPerPage();
+				this.addToWishlistBtn();
+				this.wishlistTfootRemove();
 				if ( pureConfig.ajaxurl ) {
 					this.quickView();
 				}
@@ -171,17 +171,6 @@
 			});
 		},
 
-		radiogroupsInit: function() {
-			$('.ps-radiogroup li label').click(function(){
-				var label = $(this);
-				label.closest('.ps-radiogroup').find('li')
-					.each(function(){
-						$(this).find('input').removeAttr('checked');
-					});
-				label.siblings('input').attr( 'checked', 'checked' );
-			});
-		},
-
 		customScrollInit: function() {
 			$('.widget_layered_nav ul').customScroll();
 			$('.ps_widget_brands ul').customScroll();
@@ -219,6 +208,10 @@
 					addBtn.addClass( 'added' );
 				}
 			});
+		},
+
+		wishlistTfootRemove: function() {
+			$('.wishlist_table').find('tfoot').remove();
 		},
 
 		sidebarDropdowns: function() {
