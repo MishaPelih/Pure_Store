@@ -7,7 +7,6 @@
  */
 ?>
 <?php
-
     /**
      * Get permalink wihtout domain.
      */
