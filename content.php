@@ -6,7 +6,6 @@
  * ============================================
  */
 ?>
-
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if ( !post_password_required() ): ?>

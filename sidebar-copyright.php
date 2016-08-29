@@ -2,9 +2,8 @@
 /**
   * sidebar-copyright.php
   * ============================================ *
-  */ 
+  */
 ?>
-
 <?php if ( 
 		is_active_sidebar( 'widgetarea-copyright-left' ) ||
 		is_active_sidebar( 'widgetarea-copyright-right' )

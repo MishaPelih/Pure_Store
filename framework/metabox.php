@@ -6,17 +6,7 @@
   * ============================================ *
   */
 ?>
-
 <?php
-/**
- * metabox.php
- *
- * The file which contain metaboxes.
- */
-?>
-
-<?php
-
 	/**
 	 * Define the metabox and field configurations.
 	 */

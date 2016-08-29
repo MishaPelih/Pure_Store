@@ -4,7 +4,6 @@
  * ============================================ *
  */
 ?>
-
 <?php
 	/**
 	 * ReduxFramework Redux Config File

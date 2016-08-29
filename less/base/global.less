@@ -21,13 +21,13 @@
 /* ==============================
  - Row counts.
 ============================== */
-.row-count-1 {
+.row-count-1, .columns-1 {
 	.product, .post {
 		width: 100%;
 		clear: both;
 	}
 }
-.row-count-2 {
+.row-count-2, .columns-2 {
 	.product, .post {
 		width: 50%;
 		&:nth-child(2n+1) {
@@ -35,7 +35,7 @@
 		}
 	}
 }
-.row-count-3 {
+.row-count-3, .columns-3 {
 	.product, .post {
 		width: 33.333333333333%;
 		&:nth-child(3n+1) {
@@ -43,7 +43,7 @@
 		}
 	}
 }
-.row-count-4 {
+.row-count-4, .columns-4 {
 	.product, .post {
 		width: 25%;
 		&:nth-child(4n+1) {
@@ -51,7 +51,7 @@
 		}
 	}
 }
-.row-count-5 {
+.row-count-5, .columns-5 {
 	.product, .post {
 		width: 20%;
 		&:nth-child(5n+1) {
@@ -59,7 +59,7 @@
 		}
 	}
 }
-.row-count-6 {
+.row-count-6, .columns-6 {
 	.product, .post {
 		width: 16.6666666666666%;
 		&:nth-child(6n+1) {
@@ -67,7 +67,18 @@
 		}
 	}
 }
-
+.vc_tta-tabs {
+	.row-count-1,
+	.row-count-2,
+	.row-count-3,
+	.row-count-4,
+	.row-count-5,
+	.row-count-6 {
+		.product, .post {
+			clear: none;
+		}
+	}
+}
 
 /* ==============================
  - Headings.
@@ -188,12 +199,12 @@
 	}
 	.facebook {
         a:hover, a:focus {
-            color: #3b5998 ;
+            color: #3b5998;
         }
     }
     .twitter {
         a:hover, a:focus {
-            color: #1da1f2 ;
+            color: #1da1f2;
         }
     }
     .vimeo {

@@ -1,16 +1,13 @@
 <?php
 /**
- * main-banner.php
+ * banner.php
  *
- * Shortcode for displaying Main Banner.
+ * Shortcode for displaying Banner.
  */
 ?>
-
 <?php
-
 	if ( !function_exists( 'pure_main_banner' ) ) {
-		function pure_main_banner( $attrs, $content = null )
-		{
+		function pure_main_banner( $attrs, $content = null ) {
 			$attrs = extract(shortcode_atts(
 				array(
 					'bg_image_id' => '',
@@ -21,6 +18,7 @@
 					'banner_mask_color' => '',
 					'content_mask_color' => '',
                     'enable_mask' => '',
+                    'enable_content_mask' => '',
 					'enable_bg_scale' => '',
 					'enable_mask_animation' => '',
                     'banner_link' => '',
@@ -48,22 +46,17 @@
 			if ( $enable_bg_scale ) {
 				array_push( $banner_classes, esc_attr('bg_scale') );
 			}
-
 			ob_start(); ?>
 
 				<!-- Banner -->
 				<div class="banner <?php echo implode( ' ', $banner_classes ) ?>">
 					<span class="before" <?php if ( $banner_mask_color ) echo 'style="background-color:' . $banner_mask_color . '"'; ?> ></span>
-
 					<img src="<?php echo esc_url( $bg_image_url ); ?>" alt="" class="banner-img scale-img">
-
 					<?php if ( $banner_link ): ?>
 						<a href="<?php echo esc_attr( $banner_link ) ?>" class="banner-link"></a>
 					<?php endif; ?>
-
 					<!-- Mask -->
-					<div class="mask" style="color:<?php echo $text_color . ';'; if ( $content_mask_color ) echo 'background-color:' . $content_mask_color . ';'; ?>">
-
+					<div class="mask" style="color:<?php echo $text_color . ';'; if ( $enable_content_mask && $content_mask_color ) echo 'background-color:' . $content_mask_color . ';'; ?>">
 						<!-- Content -->
 						<div class="content">
 							<?php echo do_shortcode( $content ); ?>
@@ -79,7 +72,6 @@
 										if ( $button_bg_color ) {
 											$button_styling .= 'background-color:' . esc_attr( $button_bg_color ) . ';';
 										}
-
 										$button_styling .= '"';
 									}
 								?>
@@ -88,9 +80,7 @@
 						</div><!-- /banner-content -->
 					</div>
 				</div><!-- /banner -->
-
 	       	<?php
-
 			$banner = ob_get_clean();
 			return $banner;
 		}
@@ -98,8 +88,7 @@
 	}
 
 	if ( !function_exists( 'pure_main_banner_VC' ) ) {
-		function pure_main_banner_VC()
-		{
+		function pure_main_banner_VC() {
 			vc_map( array(
 				"name" => __( "[Pure] Main Banner", "pure" ),
 				"base" => "pure_main_banner",
@@ -216,38 +205,31 @@
 						"param_name" => "enable_mask",
 						"value" => array( __( 'Enable banner mask', 'pure' ) => true ),
 					),
-                    // array(
-					// 	"type" => "checkbox",
-					// 	"holder" => "div",
-					// 	"param_name" => "enable_mask_animation",
-					// 	"value" => array( __( 'Enable mask animation', 'pure' ) => true ),
-					// 	"group" => esc_html__( 'Mask', 'pure' ),
-					// 	'dependency' => array(
-					// 		'element' => 'enable_mask',
-					// 		'not_empty' => true,
-					// 	),
-					// ),
 					array(
 		                "type" => "colorpicker",
 		                "heading" => __( "Banner Mask color", "pure" ),
 		                "param_name" => "banner_mask_color",
 		                "value" => "rgba(255,255,255,0)",
 		                "description" => __( "Banner Mask Color", "pure" ),
-						"group" => esc_html__( 'Mask', 'pure' ),
 						'dependency' => array(
 							'element' => 'enable_mask',
 							'not_empty' => true,
 						),
 		            ),
 					array(
+						"type" => "checkbox",
+						"holder" => "div",
+						"param_name" => "enable_content_mask",
+						"value" => array( __( 'Enable content mask', 'pure' ) => true ),
+					),
+					array(
 		                "type" => "colorpicker",
 		                "heading" => __( "Content Mask color", "pure" ),
 		                "param_name" => "content_mask_color",
 		                "value" => "rgba(255,255,255,0)",
 		                "description" => __( "Content Mask Color", "pure" ),
-						"group" => esc_html__( 'Mask', 'pure' ),
 						'dependency' => array(
-							'element' => 'enable_mask',
+							'element' => 'enable_content_mask',
 							'not_empty' => true,
 						),
 		            ),

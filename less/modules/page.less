@@ -109,7 +109,7 @@
 	}
 	p {
 		color: #f4d1d4;
-		font-weight: 300;	
+		font-weight: 300;
 		margin-bottom: 34px;
 	}
 	.social-icons {
@@ -119,10 +119,8 @@
 	}
 }
 
-.partners-area {
-	padding: 44px 0;
-	background-color: #fff;
-	.item {
+.pure-carousel {
+	.pc-item {
 		img {
 			width: inherit;
 			margin: 0 auto;
@@ -145,6 +143,10 @@
 				margin-right: -4%;
 			}
 		}
+	}
+	.owl-stage {
+		display: flex;
+		align-items: center;
 	}
 }
 
@@ -238,42 +240,52 @@
 	}
 }
 
-.page, .home {
-	.nav.nav-tabs {
-		li {
-			&:after {
-				content: '/';
-			    position: absolute;
-			    right: 0;
-			    top: 50%;
-			    transform: translateY(-50%);
-			    font-size: 11px;
-			}
-			&:last-child {
-				&:after {
-					content: '';
-					display: none;
-				}
-			}
-			a {
-				padding: 6px 30px;
-				text-transform: uppercase;
-				font-size: 12px;
-				font-weight: 600;
-				border: 0;
-				&:hover {
-					background-color: transparent;
-				}
-			}
-			&.active {
-				a {
-					color: @activeColor;
-					border: 0;
-					&:hover {
-						border: 0;
-					}
-				}
-			}
+/* VC Tabs.
+=========================== */
+.page .vc_tta.vc_tta-spacing-1 .vc_tta-tabs-list {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.page .vc_tta-color-grey.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels {
+	border-color: transparent;
+	background-color: transparent;
+}
+.page .vc_tta.vc_general .vc_tta-panel-body {
+	padding: 0;
+}
+.page .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab > a, .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab.vc_active > a {
+	border: 0px;
+	border-radius: 0 ;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	color: @lightColor;
+	padding: 15px 20px;
+	margin: 0 20px;
+	background-color: transparent !important;
+}
+.page .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab.vc_active > a {
+	color: @activeColor;
+}
+.page .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab > a:focus, .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab > a:hover {
+	color: @activeColor;
+	border: 0px;
+	background-color: transparent;
+}
+.page .vc_tta-tab {
+	position: relative;
+	outline: none;
+	&:after {
+		content: '/';
+		position: absolute;
+		right: -5px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	&:last-child {
+		&:after {
+			display: none;
 		}
 	}
 }

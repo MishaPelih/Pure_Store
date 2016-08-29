@@ -6,7 +6,6 @@
  * ============================================ *
  */
 ?>
-
 <?php
 	## Prevent the direct loading of comments.php.
 	if ( ! empty( $_SERVER['SCRIPT-FILENAME'] ) && basename( $_SERVER['SCRIPT-FILENAME'] ) == 'comments.php' ) {

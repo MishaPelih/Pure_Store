@@ -1,12 +1,11 @@
 <?php
 /**
  * single.php
- * 
+ *
  * The template for displaying single posts.
  * ============================================ *
  */
 ?>
-
 <?php get_header(); ?>
 
 <?php pure_update_post_views(); ?>
@@ -14,7 +13,7 @@
 	<div class="row">
 		<!-- ====| Main Content |==== -->
 		<div class="content-page col-md-9" role="main">
-	
+
 			<?php if ( have_posts() ) : ?>
 
 				<!-- Post content. -->

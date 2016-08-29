@@ -2,9 +2,8 @@
 /**
   * social-icons.php
   * ============================================ *
-  */ 
+  */
 ?>
-
 <?php
 
 	if ( ! function_exists( 'pure_social_icons' ) ){
@@ -29,48 +28,48 @@
 			ob_start();
 				?>
 					<ul class="social-icons">
-						<?php 
+						<?php
 							if (!empty($facebook_link)) {
 								  ?>
 								  	<li><a href="<?php echo esc_url($facebook_link); ?>"><i class="zmdi zmdi-facebook"></i></a></li>
 								  <?php
 							}
-						 ?>	
-						 <?php 
+						 ?>
+						 <?php
 							if (!empty($twitter_link)) {
 								  ?>
 								  	<li><a href="<?php echo esc_url($twitter_link); ?>"><i class="zmdi zmdi-twitter"></i></a></li>
 								  <?php
 							}
-						 ?>	
-						 <?php 
+						 ?>
+						 <?php
 							if (!empty($vimeo_link)) {
 								  ?>
 								  	<li><a href="<?php echo esc_url($vimeo_link); ?>"><i class="zmdi zmdi-vimeo"></i></a></li>
 								  <?php
 							}
-						 ?>	
-						 <?php 
+						 ?>
+						 <?php
 							if (!empty($google_link)) {
 								  ?>
 								  	<li><a href="<?php echo esc_url($google_link); ?>"><i class="zmdi zmdi-google-plus"></i></a></li>
 								  <?php
 							}
-						 ?>	
-						 <?php 
+						 ?>
+						 <?php
 							if (!empty($tumblr_link)) {
 								  ?>
 								  	<li><a href="<?php echo esc_url($tumblr_link); ?>"><i class="zmdi zmdi-tumblr"></i></a></li>
 								  <?php
 							}
-						 ?>	
-						 <?php 
+						 ?>
+						 <?php
 							if (!empty($pinterest_link)) {
 								  ?>
 								  	<li><a href="<?php echo esc_url($pinterest_link); ?>"><i class="zmdi zmdi-pinterest"></i></a></li>
 								  <?php
 							}
-						 ?>	
+						 ?>
 					</ul>
 				<?php
 				$social_icons = ob_get_clean();

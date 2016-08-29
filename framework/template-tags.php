@@ -6,7 +6,6 @@
  * ============================================ *
  */
 ?>
-
 <?php
 	/**
 	 * Display the post meta.
@@ -20,7 +19,7 @@
 					<li class="meta-author">
 						<i class="zmdi zmdi-account"></i>
 						By
-						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) 
+						<a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' )
 							) ); ?>" class="entry-meta-link" rel="author">
 							<?php echo get_the_author(); ?>
 				 		</a>
@@ -73,7 +72,7 @@
 			global $wp_query;
 
 			if ( $wp_query->max_num_pages > 1 ) {
-				
+
 				echo '<div class="pagination-wrap">';
 
 				$paged = get_query_var( 'paged' ) ? absint( get_query_var( 'paged' ) ) : 1;
