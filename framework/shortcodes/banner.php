@@ -6,8 +6,8 @@
  */
 ?>
 <?php
-	if ( !function_exists( 'pure_main_banner' ) ) {
-		function pure_main_banner( $attrs, $content = null ) {
+	if ( !function_exists( 'pure_banner_shortcode' ) ) {
+		function pure_banner_shortcode( $attrs, $content = null ) {
 			$attrs = extract(shortcode_atts(
 				array(
 					'bg_image_id' => '',
@@ -17,6 +17,7 @@
 					'enable_button' => '',
 					'banner_mask_color' => '',
 					'content_mask_color' => '',
+					'bg_color' => '',
                     'enable_mask' => '',
                     'enable_content_mask' => '',
 					'enable_bg_scale' => '',
@@ -49,7 +50,7 @@
 			ob_start(); ?>
 
 				<!-- Banner -->
-				<div class="banner <?php echo implode( ' ', $banner_classes ) ?>">
+				<div class="banner <?php echo implode( ' ', $banner_classes ) ?>" <?php if ( $bg_color ) echo 'style="background-color:' . $bg_color . ';"' ?>>
 					<span class="before" <?php if ( $banner_mask_color ) echo 'style="background-color:' . $banner_mask_color . '"'; ?> ></span>
 					<img src="<?php echo esc_url( $bg_image_url ); ?>" alt="" class="banner-img scale-img">
 					<?php if ( $banner_link ): ?>
@@ -84,14 +85,14 @@
 			$banner = ob_get_clean();
 			return $banner;
 		}
-		add_shortcode( 'pure_main_banner', 'pure_main_banner' );
+		add_shortcode( 'pure_banner_shortcode', 'pure_banner_shortcode' );
 	}
 
-	if ( !function_exists( 'pure_main_banner_VC' ) ) {
-		function pure_main_banner_VC() {
+	if ( !function_exists( 'pure_banner_shortcode_VC' ) ) {
+		function pure_banner_shortcode_VC() {
 			vc_map( array(
-				"name" => __( "[Pure] Main Banner", "pure" ),
-				"base" => "pure_main_banner",
+				"name" => __( "[Pure] Banner", "pure" ),
+				"base" => "pure_banner_shortcode",
 				"category" => __( "Pure", "pure" ),
 				"params" => array(
 					array(
@@ -139,7 +140,12 @@
 		                "heading" => __( "Text color", "pure" ),
 		                "param_name" => "text_color",
 		                "value" => '#000',
-		                "description" => __( "Text Color", "pure" )
+		            ),
+					array(
+		                "type" => "colorpicker",
+		                "heading" => __( "Background color", "pure" ),
+		                "param_name" => "bg_color",
+		                "value" => "rgba(255,255,255,0)",
 		            ),
                     array(
 						"type" => "textfield",
@@ -243,5 +249,5 @@
 			) );
 		};
 
-		add_action( 'vc_before_init', 'pure_main_banner_VC' );
+		add_action( 'vc_before_init', 'pure_banner_shortcode_VC' );
 	}

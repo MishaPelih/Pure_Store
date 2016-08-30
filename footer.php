@@ -18,12 +18,7 @@
 	-->
 	<footer class="site-footer">
 		<div class="footer-wrapper container">
-			<div class="row">
-
-				<?php get_sidebar( 'footer' ); ?>
-
-			</div><!-- /.row -->
-
+			<?php get_sidebar( 'footer' ); ?>
 		</div><!-- /.footer-wrapper -->
 	</footer><!-- /.site-footer -->
 

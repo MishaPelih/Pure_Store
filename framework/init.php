@@ -20,15 +20,9 @@
     get_template_part( 'framework/shortcodes/social-icons' );
     get_template_part( 'framework/shortcodes/banner' );
     get_template_part( 'framework/shortcodes/staff' );
+    get_template_part( 'framework/shortcodes/posts' );
     get_template_part( 'framework/shortcodes/simple-carousel' );
     get_template_part( 'framework/shortcodes/products-carousel' );
     get_template_part( 'framework/post-types/static-block' );
     get_template_part( 'framework/tgm-plugin-activation/class-tgm-plugin-activation' );
     get_template_part( 'framework/lib/VideoUrlParser.class' );
-
-    // $args = array(
-    //     'post_type' => 'product',
-    //     'posts_per_page' => $per_page
-    // );
-    // $loop = new WP_Query( $args );
-    // print_r($loop);

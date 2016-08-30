@@ -804,7 +804,6 @@ input[type='submit']:active {
   width: 100%;
   height: 100%;
   background-color: #f05a66;
-  opacity: 0.5;
   z-index: 1;
 }
 .banner.mask_animate .mask .before {
@@ -1032,6 +1031,10 @@ input[type='submit']:active {
 }
 .owl-controls .owl-dot.active span:before {
   display: block;
+}
+.owl-theme .owl-controls .owl-nav [class*=owl-] {
+  font-size: 48px;
+  background-color: transparent !important;
 }
 /**
  * ========================================================================================
@@ -4676,7 +4679,7 @@ table.cart td.product-remove {
   position: absolute;
   width: 100%;
   bottom: 0;
-  transform: translateY(100%);
+  transform: translateY(102%);
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
@@ -5049,24 +5052,29 @@ table.cart td.product-remove {
 .products.owl-carousel .product-mask .footer-product {
   z-index: 4;
 }
-.owl-products .product {
-  margin-bottom: 0;
+.pure-owl-posts {
+  margin: 0;
 }
-.owl-products .owl-controls .owl-nav .owl-prev,
-.owl-products .owl-controls .owl-nav .owl-next {
+.pure-owl-posts .product,
+.pure-owl-posts .post {
+  margin-bottom: 0;
+  padding: 0;
+}
+.pure-owl-posts .owl-controls .owl-nav .owl-prev,
+.pure-owl-posts .owl-controls .owl-nav .owl-next {
   color: #ddd;
   top: 40%;
 }
-.owl-products .owl-controls .owl-nav .owl-prev:hover,
-.owl-products .owl-controls .owl-nav .owl-next:hover,
-.owl-products .owl-controls .owl-nav .owl-prev:focus,
-.owl-products .owl-controls .owl-nav .owl-next:focus {
+.pure-owl-posts .owl-controls .owl-nav .owl-prev:hover,
+.pure-owl-posts .owl-controls .owl-nav .owl-next:hover,
+.pure-owl-posts .owl-controls .owl-nav .owl-prev:focus,
+.pure-owl-posts .owl-controls .owl-nav .owl-next:focus {
   color: #f05a66;
 }
-.owl-products .owl-controls .owl-nav .owl-prev {
+.pure-owl-posts .owl-controls .owl-nav .owl-prev {
   margin-left: -5%;
 }
-.owl-products .owl-controls .owl-nav .owl-next {
+.pure-owl-posts .owl-controls .owl-nav .owl-next {
   margin-right: -5%;
 }
 /**

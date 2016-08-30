@@ -144,13 +144,6 @@
 				navText: ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>']
 			});
 
-			// $( '.site-slider' ).owlCarousel({
-			// 	items: 1,
-			// 	loop: true,
-			// 	nav: true,
-			// 	navText: ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>']
-			// });
-
 			// $( '.fullscreen-slider' ).owlCarousel({
 			// 	items: 1,
 			// 	loop: true,
