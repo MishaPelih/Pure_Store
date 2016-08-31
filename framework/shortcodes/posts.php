@@ -5,6 +5,7 @@
  * Shortcode for displaying Posts.
  */
 ?>
+
 <?php
 if ( !function_exists( 'pure_posts' ) ) {
     function pure_posts( $attrs, $content = null )
