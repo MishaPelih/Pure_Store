@@ -222,12 +222,22 @@
     /**
      * Check if current page is page for posts.
      */
-    if ( ! function_exists( 'pure_is_blog' ) ) {
+    if ( !function_exists( 'pure_is_blog' ) ) {
         function pure_is_blog ()
         {
             global $post;
             $posttype = get_post_type( $post );
             return ( ( (is_archive() ) || ( is_author() ) || ( is_category() ) || ( is_home() ) || ( is_single() ) || ( is_tag() ) ) && ( $posttype == 'post' )  ) ? true : false ;
+        }
+    }
+
+    /**
+     * Get header type.
+     */
+    if( !function_exists('pure_get_header_type') ) {
+        function pure_get_header_type() {
+            $h_type = pure_get_redux_option('header_type');
+            return $h_type;
         }
     }
 
@@ -237,14 +247,11 @@
 	if ( !function_exists( 'pure_get_logo_url' ) ) {
         function pure_get_logo_url( $option = null )
         {
-            if ( !$option ) {
-                $option = 'main';
+            if ( $option ) {
+                $option = '_' . $option;
             }
-
-			$option = 'header_' . $option . '_logo';
-
-            if ( !empty( pure_get_redux_option( $option, 'url' ) ) ) {
-                return esc_url( pure_get_redux_option( $option, 'url' ) );
+            if ( !empty( pure_get_redux_option( 'logo_header' . $option, 'url' ) ) ) {
+                return esc_url( pure_get_redux_option( 'logo_header' . $option, 'url' ) );
 			}
 			return esc_url( PURE_IMAGES_DIR . '/logo-main.png' );
         }

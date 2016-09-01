@@ -158,69 +158,86 @@
 	 */
 
 	/**
-	 * Header.
+	 * General.
 	 */
-	$section = array(
-		'title'  => 'Header',
-		'id'     => 'section_header',
-		'desc'   => '',
-		'icon'   => 'el el-wrench',
-		'fields' => array(
+	Redux::setSection( $opt_name, array(
+        'title' => 'General',
+        'id' => 'general',
+        'icon' => 'el-icon-home',
+    ) );
+
+    Redux::setSection( $opt_name, array(
+        'title' => 'Header Settings',
+        'id' => 'general-header_settings',
+        'icon' => 'el-icon-cog',
+        'subsection' => true,
+        'fields' => array (
             array(
                 'id'       => 'fixed_header_enabled',
                 'type'     => 'switch',
                 'title'    => __( 'Enable Fixed Header', 'pure' ),
                 'default'  => true
             ),
-        )
-	);
-	Redux::setSection( $opt_name, $section );
-
-	$section = array(
-        'title'      => __( 'Main Header', 'pure' ),
-        'id'         => 'subsection_header_main',
-        'subsection' => true,
-        'desc'       => '',
-        'fields'     => array(
+            array (
+	            'id' => 'enable_top_bar',
+	            'type' => 'switch',
+	            'title' => 'Enable top bar',
+	            'default' => true,
+               ),
             array(
-                'id'       => 'header_main_logo',
+                'id'       => 'logo_header',
                 'type'     => 'media',
-                'title'    => __( 'Upload Logo', 'pure' ),
-                'desc'     => '',
+                'title'    => __( 'Logo image', 'pure' ),
+                'desc'     => __( 'Upload image: png, jpg or gif file.', 'pure' ),
                 'default'  => ''
             ),
-        )
-    );
-    Redux::setSection( $opt_name, $section );
-
-	$section = array(
-        'title'      => __( 'Transparent Header', 'pure' ),
-        'id'         => 'subsection_header_transparent',
-        'subsection' => true,
-        'desc'       => '',
-        'fields'     => array(
             array(
-                'id'       => 'header_transparent_logo',
+                'id'       => 'logo_header_fixed',
                 'type'     => 'media',
-                'title'    => __( 'Upload Logo', 'pure' ),
-                'desc'     => '',
+                'title'    => __( 'Logo image for fixed header', 'pure' ),
+                'desc'     => __( 'Upload image: png, jpg or gif file.', 'pure' ),
                 'default'  => ''
             ),
-        )
-    );
-    Redux::setSection( $opt_name, $section );
+        ),
+    ) );
+
+    Redux::setSection( $opt_name, array(
+        'title' => 'Header Type',
+        'id' => 'general-header',
+        'icon' => 'el-icon-cog',
+        'subsection' => true,
+        'fields' => array (
+            array(
+				'id'       => 'header_type',
+				'type'     => 'button_set',
+				'title'    => __( 'Header type', 'pure' ),
+				'desc'     => '',
+				'options' => array(
+					'main' => 'Default',
+					'transparent' => 'Transparent'
+				),
+				'default'  => 'main'
+			),
+        ),
+    ) );
 
 
 	/**
 	 * E-commerce
 	 */
-	$section = array(
-		'title' => 'E-commerce',
-		'id'    => 'section_ecommerce',
-		'desc'  => '',
-		'icon'  => 'el el-wrench',
-		'fields'     => array(
-			array(
+	Redux::setSection( $opt_name, array(
+        'title' => 'E-Commerce',
+        'id' => 'shop',
+        'icon' => 'el-icon-shopping-cart',
+    ));
+
+    Redux::setSection( $opt_name, array(
+        'title' => 'Products Page Layout',
+        'id' => 'shop-product_page_layout',
+        'icon' => 'el-icon-view-mode',
+        'subsection' => true,
+        'fields' => array (
+            array(
 				'id'       => 'products_per_row',
 				'type'     => 'button_set',
 				'title'    => __( 'Products per row', 'pure' ),
@@ -234,21 +251,38 @@
 				),
 				'default'  => '3'
 			),
-		)
-	);
-	Redux::setSection( $opt_name, $section );
+			array(
+                'id'       => 'shop_sidebar_position',
+                'type'     => 'button_set',
+                'title'    => __( 'Sidebar position', 'pure' ),
+                'desc'     => '',
+				'options' => array(
+			        'left' => __( 'Left' ),
+			        'right' => __( 'Right' ),
+			        'disable' => __( 'Disable' ),
+			    ),
+                'default' => 'left'
+            ),
+        ),
+    ));
 
 
 	/**
 	 * Blog
 	 */
-	$section = array(
-		'title' => 'Blog',
-		'id'    => 'section_blog',
-		'desc'  => '',
-		'icon'  => 'el el-wrench',
-		'fields'     => array(
-			array(
+	Redux::setSection( $opt_name, array(
+        'title' => 'Blog',
+        'id' => 'blog',
+        'icon' => 'el-icon-wordpress',
+    ));
+
+    Redux::setSection( $opt_name, array(
+        'title' => 'Blog Layout',
+        'id' => 'blog-blog_layout',
+        'subsection' => true,
+        'icon' => 'el-icon-wordpress',
+        'fields' => array (
+            array(
 				'id'       => 'posts_per_row',
 				'type'     => 'button_set',
 				'title'    => __( 'Posts per row', 'pure' ),
@@ -261,21 +295,7 @@
 				),
 				'default'  => '3'
 			),
-		)
-	);
-	Redux::setSection( $opt_name, $section );
-
-
-	/**
-	 * Sidebar.
-	 */
-	$section = array(
-		'title' => 'Sidebar',
-		'id'    => 'section_sidebar',
-		'desc'  => '',
-		'icon'  => 'el el-wrench',
-		'fields'     => array(
-			array(
+            array(
                 'id'       => 'blog_sidebar_position',
                 'type'     => 'button_set',
                 'title'    => __( 'Blog sidebar position', 'pure' ),
@@ -287,18 +307,5 @@
 			    ),
                 'default' => 'left'
             ),
-            array(
-                'id'       => 'shop_sidebar_position',
-                'type'     => 'button_set',
-                'title'    => __( 'Shop sidebar position', 'pure' ),
-                'desc'     => '',
-				'options' => array(
-			        'left' => __( 'Left' ),
-			        'right' => __( 'Right' ),
-			        'disable' => __( 'Disable' ),
-			    ),
-                'default' => 'left'
-            ),
-        )
-	);
-	Redux::setSection( $opt_name, $section );
+        ),
+    ));

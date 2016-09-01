@@ -58,13 +58,6 @@
 				'allow' => array( 'url', 'attachment' )
 			) );
 
-			// $cmb_post->add_group_field( $group_field_id, array(
-			// 	'id' => $prefix . 'post_video_url',
-			// 	'name' => __( 'Post featured video (insert url)', 'pure' ),
-			// 	'type' => 'oembed',
-			// 	'default' => ''
-			// ) );
-
 
 			/**
 		     * Initiate the metabox (page)
@@ -80,7 +73,41 @@
 		        // 'closed'     => true, // Keep the metabox closed by default
 		    ) );
 
-			$cmb->add_field( array(
+		    $group_field_id = $cmb->add_field( array(
+			    'id'          => $prefix . 'header_options',
+			    'type'        => 'group',
+			    // 'description' => __( '', 'pure' ),
+			    'repeatable'  => false,
+			    'options'     => array(
+			        'group_title'   => __( 'Header', 'pure' ),
+			        'sortable'      => true,
+			    ),
+			) );
+
+			$cmb->add_group_field( $group_field_id, array(
+			    'name'    => 'Header type',
+			    'id' => $prefix . 'header_type',
+			    'type'    => 'select',
+				'default' => 'default',
+				'options'          => array(
+					'default' => '&nbsp;--&nbsp;&nbsp;' . __( 'Select', 'pure' ) . '&nbsp;&nbsp;--&nbsp;',
+			        'main' => __( 'Default', 'pure' ),
+			        'transparent' => __( 'Transparent', 'pure' )
+			    ),
+			) );
+
+		    $group_field_id = $cmb->add_field( array(
+			    'id'          => $prefix . 'page_layout',
+			    'type'        => 'group',
+			    // 'description' => __( '', 'pure' ),
+			    'repeatable'  => false,
+			    'options'     => array(
+			        'group_title'   => __( 'Page layout', 'pure' ),
+			        'sortable'      => true,
+			    ),
+			) );
+
+			$cmb->add_group_field( $group_field_id, array(
 			    'name'    => 'Sidebar position',
 			    'id' => $prefix . 'sidebar_position',
 			    'type'    => 'select',

@@ -12,7 +12,7 @@
 			<!-- Logo -->
 			<div class="header-logo">
 				<a href="index.php">
-					<img src="<?php echo PURE_IMAGES_DIR; ?>/logo-main.png" alt="">
+					<img src="<?php echo pure_get_logo_url( 'fixed' ); ?>" alt="">
 				</a>
 			</div><!-- /.header-logo -->
 
