@@ -209,10 +209,10 @@
                 $id = get_the_ID();
             }
 
-            if ( $parent ) {
-                $cmb_option = get_post_meta( $id, 'pure_' . $parent, true )[0]['pure_' . $option];
+            if ( $parent && get_post_meta( $id, 'pure_' . $parent, true ) ) {
+                @$cmb_option = get_post_meta( $id, 'pure_' . $parent, true )[0]['pure_' . $option];
             } else {
-                $cmb_option = get_post_meta( $id, 'pure_' . $option, true );
+                @$cmb_option = get_post_meta( $id, 'pure_' . $option, true );
             }
             // $cmb_option = get_post_meta( $id, 'pure_' . $option, true );
             return $cmb_option;
@@ -232,12 +232,21 @@
     }
 
     /**
-     * Get header type.
+     * Get relevant header.
      */
-    if( !function_exists('pure_get_header_type') ) {
-        function pure_get_header_type() {
-            $h_type = pure_get_redux_option('header_type');
-            return $h_type;
+    if ( !function_exists( 'pure_get_relevant_header' ) ) {
+        function pure_get_relevant_header() {
+            $header_type_rdx = pure_get_redux_option('header_type');
+            $header_type_cmb = pure_get_cmb2_option( 'header_type', 'header_options' );
+
+            if ( $header_type_cmb && $header_type_cmb !== 'default' ) {
+                $header_type = $header_type_cmb;
+            } elseif ( $header_type_rdx ) {
+                $header_type = $header_type_rdx;
+            } else {
+                $header_type = 'main';
+            }
+            get_template_part( 'headers/' . $header_type );
         }
     }
 

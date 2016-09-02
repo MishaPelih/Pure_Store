@@ -3,7 +3,7 @@
 	<?php get_template_part('headers/parts/top-bar'); ?>
 
 	<!-- *======#| Header |#======* -->
-	<header class="header">
+	<header class="header site-header">
 		<div class="container">
 			<div class="container-wrap">
 

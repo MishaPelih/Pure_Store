@@ -313,6 +313,7 @@ table {
 ============================== */
 html {
 	font-size: @fontSize;
+	position: relative;
 }
 
 body {
@@ -1310,7 +1311,6 @@ footer.site-footer {
  * ========================================================================================
  */
 
-
 /* ==============================
  - Base.
 ============================== */
@@ -1716,7 +1716,7 @@ header.header.fixed {
 
 	/* Header Main.
 	---------------------------------------*/
-	header.header {
+	header.site-header {
 		.menu, .menu-main {
 			a {
 				.dark_link();
@@ -1757,7 +1757,7 @@ header.header.fixed {
 
 	/* Header Transparent.
 	---------------------------------------*/
-	header.header {
+	header.site-header {
 		.menu {
 			> li {
 				> a {
@@ -2804,7 +2804,11 @@ aside.sidebar {
 			position: relative;
 			text-align: left;
 			margin: 21px 0;
-
+			.ui-slider-handle {
+				&:last-child {
+					transform: translate(-100%);
+				}
+			}
 		}
 		.ui-slider-handle {
 			position: absolute;

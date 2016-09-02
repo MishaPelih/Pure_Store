@@ -218,7 +218,11 @@ aside.sidebar {
 			position: relative;
 			text-align: left;
 			margin: 21px 0;
-
+			.ui-slider-handle {
+				&:last-child {
+					transform: translate(-100%);
+				}
+			}
 		}
 		.ui-slider-handle {
 			position: absolute;

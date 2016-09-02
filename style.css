@@ -225,6 +225,7 @@ table {
 ============================== */
 html {
   font-size: 14px;
+  position: relative;
 }
 body {
   overflow-x: hidden;
@@ -1645,17 +1646,17 @@ header.header.fixed .menu.menu-main .menu-item a:focus {
 .header-wrapper.main .top-bar {
   background-color: #303030;
 }
-.header-wrapper.main header.header .menu a,
-.header-wrapper.main header.header .menu-main a {
+.header-wrapper.main header.site-header .menu a,
+.header-wrapper.main header.site-header .menu-main a {
   color: #303030;
 }
-.header-wrapper.main header.header .menu a:hover,
-.header-wrapper.main header.header .menu-main a:hover,
-.header-wrapper.main header.header .menu a:focus,
-.header-wrapper.main header.header .menu-main a:focus {
+.header-wrapper.main header.site-header .menu a:hover,
+.header-wrapper.main header.site-header .menu-main a:hover,
+.header-wrapper.main header.site-header .menu a:focus,
+.header-wrapper.main header.site-header .menu-main a:focus {
   color: #f05a66;
 }
-.header-wrapper.main header.header .site-search input {
+.header-wrapper.main header.site-header .site-search input {
   width: 159px;
 }
 /* ==============================
@@ -1679,11 +1680,11 @@ header.header.fixed .menu.menu-main .menu-item a:focus {
 .header-wrapper.transparent .top-bar-widget .menu > .menu-parent-item .sub-menu .menu-item {
   color: #303030;
 }
-.header-wrapper.transparent header.header .menu > li > a {
+.header-wrapper.transparent header.site-header .menu > li > a {
   color: #fff;
 }
-.header-wrapper.transparent header.header .menu > li > a:hover,
-.header-wrapper.transparent header.header .menu > li > a:focus {
+.header-wrapper.transparent header.site-header .menu > li > a:hover,
+.header-wrapper.transparent header.site-header .menu > li > a:focus {
   color: #f05a66;
 }
 /**
@@ -2731,6 +2732,9 @@ aside.sidebar .widget .widget-title {
   position: relative;
   text-align: left;
   margin: 21px 0;
+}
+.widget.widget_price_filter .ui-slider .ui-slider-handle:last-child {
+  transform: translate(-100%);
 }
 .widget.widget_price_filter .ui-slider-handle {
   position: absolute;

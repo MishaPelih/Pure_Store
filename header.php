@@ -22,8 +22,7 @@
 	<div class="site-wrap">
 
 		<?php
-			$header_type = pure_get_header_type();
-			get_template_part( 'headers/' . $header_type );
+			pure_get_relevant_header();
 			pure_get_breadcrumbs(); 
 		?>
 
