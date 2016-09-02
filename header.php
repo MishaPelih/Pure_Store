@@ -12,8 +12,7 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="description" content="<?php bloginfo( 'description' ) ?>">
-	<!-- Mobile specific meta -->
-	<meta name="viewport" content="width=device-width, initioal-scale=1, maximum-scale=1.5">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.5">
 	<?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

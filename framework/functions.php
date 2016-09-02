@@ -179,10 +179,13 @@
         {
             global $redux_pure;
 
-            if ( !$type ) {
-                return !empty( $redux_pure ) ? $redux_pure[$id] : false;
+            if ( !empty( $redux_pure ) && $redux_pure[$id] ) {
+                if ( $type ) {
+                    return $redux_pure[$id][$type];
+                }
+                return $redux_pure[$id];
             }
-            return !empty( $redux_pure ) ? $redux_pure[$id][$type] : false;
+            return false;
         }
     }
 
@@ -254,13 +257,12 @@
 	 * Get the logo URL.
 	 */
 	if ( !function_exists( 'pure_get_logo_url' ) ) {
-        function pure_get_logo_url( $option = null )
+        function pure_get_logo_url( $option = 'main' )
         {
-            if ( $option ) {
-                $option = '_' . $option;
-            }
-            if ( !empty( pure_get_redux_option( 'logo_header' . $option, 'url' ) ) ) {
-                return esc_url( pure_get_redux_option( 'logo_header' . $option, 'url' ) );
+            $_url = pure_get_redux_option( 'logo_header_' . $option, 'url' );
+
+            if ( $_url && !empty( $_url ) ) {
+                return esc_url( $_url );
 			}
 			return esc_url( PURE_IMAGES_DIR . '/logo-main.png' );
         }
