@@ -8,6 +8,65 @@
 ?>
 <?php
 	/**
+     * Get the different sidebars.
+     */
+    if ( !function_exists( 'pure_get_sidebar' ) ) {
+        function pure_get_sidebar( $sr_type = null ) {
+            if ( !$sr_type ) return;
+            switch ( $sr_type ) {
+                case 'footer':
+                    $wf = 'widgetarea-footer-';
+                    if ( is_active_sidebar( $wf . '1' ) || is_active_sidebar( $wf . '2' ) || is_active_sidebar( $wf . '3' ) || is_active_sidebar( $wf . '4' ) ): ?>
+                        <!-- *======#| Site-footer. |#======* -->
+                        <footer class="site-footer">
+                            <div class="footer-wrapper container">
+                                <aside class="sidebar-footer" role="complementary">
+                                    <div class="row">
+                                        <?php for ( $i=1; $i <= 4; $i++ ) {
+                                            if ( is_active_sidebar( 'widgetarea-footer-' . $i ) ) {
+                                                dynamic_sidebar( 'widgetarea-footer-' . $i );
+                                            }
+                                        } ?>
+                                    </div>
+                                </aside><!-- /sidebar -->
+                            </div><!-- /.footer-wrapper -->
+                        </footer><!-- /.site-footer -->
+                    <?php endif;
+                    break;
+
+                case 'copyright': ?>
+                	<!-- *======#| Footer-bottom. |#======* -->
+					<div class="footer-bottom">
+						<div class="container copyright">
+							<div class="row"><?php
+		                    $wr_c_left = 'widgetarea-copyright-left';
+							$wr_c_right = 'widgetarea-copyright-right';
+							
+							if ( is_active_sidebar( $wr_c_left ) || is_active_sidebar( $wr_c_right ) ): ?>
+								<?php if ( is_active_sidebar( $wr_c_left ) ):  ?>
+									<div class="col-md-6 copyright-left">
+										<?php dynamic_sidebar( $wr_c_left ); ?>
+									</div>
+								<?php endif; ?>
+								<?php if ( is_active_sidebar( $wr_c_right ) ):  ?>
+									<div class="col-md-6 copyright-right">
+										<?php dynamic_sidebar( $wr_c_right ); ?>
+									</div>
+								<?php endif; ?>
+							<?php endif; ?>
+							</div><!-- /.row -->
+						</div><!-- /.container -->
+					</div><!-- /.footer-bottom --><?php
+                    break;
+                
+                default:
+                    return false;
+                    break;
+            }
+        }
+    }
+
+	/**
 	 * Display the post meta.
 	 */
 	if ( !function_exists( 'pure_post_meta' ) ) {
