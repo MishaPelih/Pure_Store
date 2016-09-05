@@ -1,3 +1,6 @@
+<?php
+	echo pure_enable_sidebar();
+?>
 <?php if ( pure_get_redux_option( 'enable_top_bar' ) ): ?>
 	
 	<!-- *======#| Top-bar menu |#======* -->

@@ -93,13 +93,11 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 /**
- * ========================================================================================
- * - BODY - #body.
- * ========================================================================================
+ * BODY - #body.
+ * ============================================ *
  */
-/* ==============================
- - Reset Styles.
-============================== */
+/* Reset Styles.
+============================ */
 html,
 body,
 div,
@@ -220,9 +218,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* ==============================
- - PS Defaults.
-============================== */
+/* PS Defaults.
+============================ */
 html {
   font-size: 14px;
   position: relative;
@@ -267,9 +264,8 @@ ins {
 mark {
   background-color: transparent;
 }
-/* ==============================
- - Inputs.
-============================== */
+/* Inputs.
+============================ */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -333,14 +329,22 @@ input[type=checkbox] {
   display: block;
   width: 100%;
   padding: 6px 12px;
-  margin: 2px 0 20px;
+  margin: 0 0 20px;
 }
 form p {
   margin-bottom: 14px;
 }
-/* ==============================
- - Headings.
-============================== */
+select {
+  background-color: transparent;
+  cursor: pointer;
+  max-width: 100%;
+}
+select:focus {
+  outline: 0;
+  box-shadow: none;
+}
+/* Headings.
+============================ */
 h1,
 .h1,
 h2,
@@ -387,9 +391,8 @@ h6,
   line-height: 1.2;
 }
 /**
- * ========================================================================================
- * - BUTTONS - #buttons.
- * ========================================================================================
+ * BUTTONS - #buttons.
+ * ============================================ *
  */
 .button,
 button,
@@ -437,22 +440,19 @@ input[type='submit']:active {
   opacity: .85;
 }
 /**
- * ========================================================================================
- * - GLOBAL-STYLESHEETS - #global_stylesheets.
- * ========================================================================================
+ * GLOBAL-STYLESHEETS - #global_stylesheets.
+ * ============================================ *
  */
-/* ==============================
- - Site Content.
-============================== */
+/* Site Content.
+============================ */
 .site-content:not(.home) {
   background-color: #fcfcfc;
 }
 .site-content.sidebar-position-left .content-page {
   float: right;
 }
-/* ==============================
- - Row counts.
-============================== */
+/* Row counts.
+============================ */
 .row-count-1 .product,
 .columns-1 .product,
 .row-count-1 .post,
@@ -534,9 +534,8 @@ input[type='submit']:active {
 .vc_tta-tabs .row-count-6 .post {
   clear: none;
 }
-/* ==============================
- - Headings.
-============================== */
+/* Headings.
+============================ */
 .heading-block {
   text-align: center;
 }
@@ -556,9 +555,8 @@ input[type='submit']:active {
   left: 50%;
   transform: translateX(-50%);
 }
-/* ==============================
- - Nav Tabs.
-============================== */
+/* Nav Tabs.
+============================ */
 .nav-tabs-wrap {
   display: flex;
   justify-content: center;
@@ -590,9 +588,8 @@ input[type='submit']:active {
 .nav.nav-tabs li.active a:hover {
   border: 0;
 }
-/* ==============================
- - Star Rating.
-============================== */
+/* Star Rating.
+============================ */
 .star-rating {
   float: right;
   overflow: hidden;
@@ -632,9 +629,8 @@ input[type='submit']:active {
   color: #606060;
   font-size: 16px;
 }
-/* ==============================
- - Social Icons.
-============================== */
+/* Social Icons.
+============================ */
 .social-icons {
   margin: 0 -5px;
   cursor: pointer;
@@ -672,15 +668,13 @@ input[type='submit']:active {
 .social-icons .pinterest a:focus {
   color: #ab171e ;
 }
-/* ==============================
- - Owl Carousel.
-============================== */
+/* Owl Carousel.
+============================ */
 .owl-carousel.owl-loaded {
   display: inline-block;
 }
-/* ==============================
- - Common classes.
-============================== */
+/* Common classes.
+============================ */
 .uppercase {
   text-transform: uppercase;
 }
@@ -701,9 +695,8 @@ input[type='submit']:active {
     width: 1200px;
   }
 }
-/* ==============================
- - Common Styles.
-============================== */
+/* Common Styles.
+============================ */
 .banner {
   position: relative;
   overflow: hidden;
@@ -838,9 +831,8 @@ input[type='submit']:active {
   position: relative;
   z-index: 1;
 }
-/* ==============================
- - Medium Banner.
-============================== */
+/* Common Styles.
+============================ */
 .medium-banner {
   background-color: #fcfcfc;
 }
@@ -860,9 +852,8 @@ input[type='submit']:active {
   margin-right: auto;
   margin-left: 0;
 }
-/* ==============================
- - Fullscreen Slider.
-============================== */
+/* Fullscreen Slider.
+============================ */
 .fullscreen-slider {
   margin-bottom: 90px;
   cursor: move;
@@ -913,9 +904,8 @@ input[type='submit']:active {
 .fullscreen-slider .owl-controls .owl-dot.active span {
   border-color: #ddd;
 }
-/* ==============================
- - Sliders.
-============================== */
+/* Sliders.
+============================ */
 .slider.site-slider {
   margin-bottom: 30px;
 }
@@ -962,9 +952,8 @@ input[type='submit']:active {
 .slider.site-slider .content .button:hover {
   color: #fff;
 }
-/* ==============================
- - OWL controls.
-============================== */
+/* OWL controls.
+============================ */
 .owl-controls .owl-nav .owl-prev,
 .owl-controls .owl-nav .owl-next {
   position: absolute;
@@ -1038,9 +1027,8 @@ input[type='submit']:active {
   background-color: transparent !important;
 }
 /**
- * ========================================================================================
- * - BREADCRUMBS - #breadcrumbs.
- * ========================================================================================
+ * BREADCRUMBS - #breadcrumbs.
+ * ============================================ *
  */
 .breadcrumbs {
   padding: 30px 0;
@@ -1117,13 +1105,11 @@ input[type='submit']:active {
   transition: opacity 0.2s, visibility step-end 0.3s;
 }
 /**
- * ========================================================================================
- * - SITE-FOOTER #site_footer.
- * ========================================================================================
+ * SITE-FOOTER #site_footer.
+ * ============================================ *
  */
-/* ==============================
- - Prefooter.
-============================== */
+/* Prefooter.
+============================ */
 .prefooter {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -1190,9 +1176,8 @@ input[type='submit']:active {
   margin-bottom: 2px;
   letter-spacing: 1.5px;
 }
-/* ==============================
- - Footer.
-============================== */
+/* Footer.
+============================ */
 footer.site-footer {
   background-color: #fcfcfc;
   padding-top: 82px;
@@ -1203,9 +1188,8 @@ footer.site-footer .widget-title {
   font-weight: 600;
   padding-top: 8px;
 }
-/* ==============================
- - Footer bottom.
-============================== */
+/* Footer bottom.
+============================ */
 .footer-bottom {
   padding: 36px 0;
 }
@@ -1213,13 +1197,11 @@ footer.site-footer .widget-title {
   float: right;
 }
 /**
- * ========================================================================================
- * - HEADER - #header.
- * ========================================================================================
+ * HEADER - #header.
+ * ============================================ *
  */
-/* ==============================
- - Base.
-============================== */
+/* Base.
+============================ */
 .header-wrapper {
   position: relative;
   z-index: 1000;
@@ -1292,9 +1274,8 @@ footer.site-footer .widget-title {
   content: '\f2f9';
   margin-left: 4px;
 }
-/* ==============================
- - Top-Bar.
-============================== */
+/* Top-Bar.
+============================ */
 .top-bar {
   color: #fff;
   padding: 8px 0 8px;
@@ -1519,9 +1500,8 @@ footer.site-footer .widget-title {
   padding: 6px 0;
   transform: translateY(10px);
 }
-/* ==============================
- - Header [Global Styles].
-============================== */
+/* Header [Global Styles].
+============================ */
 header.header {
   padding: 34px 0;
 }
@@ -1618,9 +1598,8 @@ header.header .site-search button i {
     display: none;
   }
 }
-/* ==============================
- - Header Main.
-============================== */
+/* Header Main.
+============================ */
 header.header.fixed {
   position: fixed;
   top: 0;
@@ -1645,15 +1624,8 @@ header.header.fixed .menu.menu-main .menu-item a:hover,
 header.header.fixed .menu.menu-main .menu-item a:focus {
   color: #f05a66;
 }
-/* ==============================
- - Header Main.
-============================== */
-.header-wrapper.main {
-  /* Top-bar
-	---------------------------------------*/
-  /* Header Main.
-	---------------------------------------*/
-}
+/* Header Main.
+============================ */
 .header-wrapper.main .top-bar {
   background-color: #303030;
 }
@@ -1670,17 +1642,12 @@ header.header.fixed .menu.menu-main .menu-item a:focus {
 .header-wrapper.main header.site-header .site-search input {
   width: 159px;
 }
-/* ==============================
- - Header Transparent.
-============================== */
+/* Header Transparent.
+============================ */
 .header-wrapper.transparent {
   position: absolute;
   top: 0;
   width: 100%;
-  /* Top-bar.
-   ---------------------------------------*/
-  /* Header Transparent.
-	---------------------------------------*/
 }
 .header-wrapper.transparent .top-bar {
   border-bottom: 1px solid rgba(69, 69, 69, 0.5);
@@ -1699,9 +1666,8 @@ header.header.fixed .menu.menu-main .menu-item a:focus {
   color: #f05a66;
 }
 /**
- * ===================================================================
- * - MOBILE-MENU - #mobile_menu.
- * ===================================================================
+ * MOBILE-MENU - #mobile_menu.
+ * ============================================ *
  */
 .ps-mobile-menu {
   position: fixed;
@@ -1754,9 +1720,8 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
   display: block;
 }
 /**
- * ========================================================================================
- * - MY-ACCOUNT - #my_account.
- * ========================================================================================
+ * MY-ACCOUNT - #my_account.
+ * ============================================ *
  */
 .woocommerce-account .woocommerce:after {
   content: '';
@@ -1904,23 +1869,27 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
   font-weight: 400;
   width: 100%;
 }
+/**
+ * PAGE - #page
+ * ============================================ *
+ */
+/* Common Styles.
+============================ */
 .banner-row {
   margin-bottom: 30px;
 }
 .banner-row.last {
   margin-bottom: 90px;
 }
-/* ==============================
- - Home Page.
-============================== */
+/* Home Page.
+============================ */
 .featured-products {
   display: block;
   cursor: all-scroll;
   margin-bottom: 60px;
 }
-/* ==============================
- - About Us.
-============================== */
+/* About Us.
+============================ */
 .about-description-area {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
@@ -2041,9 +2010,8 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
   display: flex;
   align-items: center;
 }
-/* ==============================
- - Contact Us.
-============================== */
+/* Contact Us.
+============================ */
 .map-wrap {
   margin-bottom: 85px;
 }
@@ -2189,13 +2157,11 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
   display: none;
 }
 /**
- * ========================================================================================
- * - PAGINATION - #pagination.
- * ========================================================================================
+ * PAGINATION - #pagination.
+ * ============================================ *
  */
-/* ==============================
- - Base.
-============================== */
+/* Base.
+============================ */
 .pagination-wrap,
 .filter-wrap {
   text-align: center;
@@ -2313,9 +2279,8 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 .filter-wrap .products_per_page_form:last-child .wild-options {
   right: 0;
 }
-/* ==============================
- - In woocommerce page.
-============================== */
+/* In woocommerce page.
+============================ */
 .woocommerce-page .pagination-wrap.bottom,
 .woocommerce-page .filter-wrap.bottom {
   margin-bottom: 90px;
@@ -2334,23 +2299,17 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
   justify-content: space-between;
 }
 /**
- * ====================================================================================
- * - WILD-SELECT - #wild_select.
- * ====================================================================================
+ * WILD-SELECT - #wild_select.
+ * ============================================ *
  */
-/* ==============================
- - Basic ssyles.
-============================== */
+/* Basic ssyles.
+============================ */
 .wild-select.wild-area {
   display: inline-block;
   position: relative;
   color: #606060;
   text-transform: uppercase;
   font-size: 12px;
-  /* Opacity animation.
-	------------------------------------*/
-  /* Fly-up animation.
-	------------------------------------*/
 }
 .wild-select.wild-area ul.wild-options {
   display: none;
@@ -2429,7 +2388,10 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 .wild-select.wild-area.animation-fly-up ul.wild-options.open {
   transform: none;
 }
-/* Slider */
+/**
+ * SLICK - #slick
+ * ============================================ *
+ */
 .slick-slider {
   position: relative;
   display: block;
@@ -2516,12 +2478,10 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
   display: none;
 }
 /**
- * ========================================================================================
- * - WIDGETS - #widgets.
- * ========================================================================================
+ * WIDGETS - #widgets.
+ * ============================================ *
  */
-/* ==============================
- - Sidebar widget.
+/* Sidebar widget.
 ============================== */
 aside.sidebar .widget {
   padding: 16px 22px;
@@ -2534,13 +2494,8 @@ aside.sidebar .widget .widget-title {
   font-size: 14px;
   letter-spacing: 2.5px;
   font-weight: 600;
-  padding-bottom: 6px;
-}
-.widget {
-  /* Common styles.
-	---------------------------------------*/
-  /* Widgets.
-	---------------------------------------*/
+  padding-bottom: 5px;
+  line-height: 1.4;
 }
 .widget .widget-title {
   color: #303030;
@@ -2569,6 +2524,12 @@ aside.sidebar .widget .widget-title {
 }
 .widget p:last-child {
   margin-bottom: 0;
+}
+.widget label {
+  font-weight: 400;
+  line-height: 1.7;
+  display: block;
+  margin-bottom: 8px;
 }
 .widget .noUi-target,
 .widget .noUi-background {
@@ -2704,11 +2665,27 @@ aside.sidebar .widget .widget-title {
 .widget.widget_search button:hover {
   background-color: #4d4d4d;
 }
+.widget.widget_categories .cat-item a,
+.widget.widget_pages .cat-item a,
+.widget.widget_categories .page_item a,
+.widget.widget_pages .page_item a {
+  padding: 10px 0;
+  display: inline-block;
+}
 .widget.widget_categories .widget-title {
   margin-bottom: 14px;
 }
-.widget.widget_categories .cat-item a {
-  padding: 10px 0;
+.widget.widget_recent_comments #recentcomments li {
+  line-height: 2.2;
+}
+.widget.widget_rss li {
+  margin-bottom: 15px;
+}
+.widget.widget_rss li a {
+  display: block;
+}
+.widget.widget_meta li > a {
+  line-height: 2;
   display: inline-block;
 }
 .widget.widget_tag_cloud .tagcloud {
@@ -2732,6 +2709,33 @@ aside.sidebar .widget .widget-title {
 .widget.widget_tag_cloud .tagcloud a:hover {
   background-color: #000;
   color: #fff;
+}
+.widget.widget.widget_calendar .calendar_wrap {
+  margin: 0 -10px;
+}
+.widget.widget.widget_calendar caption {
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+.widget.widget.widget_calendar table {
+  width: 100%;
+}
+.widget.widget.widget_calendar td,
+.widget.widget.widget_calendar th {
+  height: 38px;
+  text-align: center;
+  vertical-align: middle;
+}
+.widget.widget.widget_calendar th {
+  color: #f05a66;
+  font-weight: 500;
+}
+.widget.widget.widget_calendar a {
+  color: #f05a66;
+}
+.widget.widget.widget_calendar a:hover,
+.widget.widget.widget_calendar a:focus {
+  color: #ec2b3b;
 }
 .widget.widget_price_filter .ui-widget-content {
   background-color: #ddd;
@@ -2831,12 +2835,6 @@ aside.sidebar .widget .widget-title {
 .widget.pure_widget_posts .post-meta a:focus {
   color: #f05a66;
 }
-.widget.widget_product_categories {
-  /* Dropdown.
-		---------------------------------------*/
-  /* Style.
-		---------------------------------------*/
-}
 .widget.widget_product_categories .cat-parent .children {
   display: none;
 }
@@ -2926,13 +2924,11 @@ aside.sidebar .widget .widget-title {
   display: inline-block;
 }
 /**
- * ========================================================================================
- * - BLOG-BASE-STYLES - #blog_base_styles.
- * ========================================================================================
+ * BLOG-BASE-STYLES - #blog_base_styles.
+ * ============================================ *
  */
-/* ==============================
- - Base styles.
-============================== */
+/* Base styles.
+============================ */
 .blog .site-content,
 .single-post .site-content {
   padding-bottom: 112px;
@@ -2946,9 +2942,8 @@ aside.sidebar .widget .widget-title {
   float: left;
   padding: 0 15px;
 }
-/* ==============================
- - Article.
-============================== */
+/* Article.
+============================ */
 article.post {
   margin-bottom: 30px;
 }
@@ -3054,9 +3049,8 @@ article.post a {
 article.post a:hover {
   color: #f05a66;
 }
-/* ==============================
- - Single Post.
-============================== */
+/* Single Post.
+============================ */
 .single article,
 .single-post article {
   margin-bottom: 30px;
@@ -3073,9 +3067,8 @@ article.post a:hover {
 .single-post article .entry-content p {
   text-align: justify;
 }
-/* ==============================
- - Element: Recent Posts.
-============================== */
+/* Element: Recent Posts.
+============================ */
 .recent-posts-area {
   background-color: #fcfcfc;
   padding: 90px 0 60px 0;
@@ -3090,9 +3083,8 @@ article.post a:hover {
   clear: both;
   height: 0;
 }
-/* ==============================
- - Wordpress video.
-============================== */
+/* Wordpress video.
+============================ */
 .wp-video {
   width: 100% !important;
 }
@@ -3100,9 +3092,8 @@ article.post a:hover {
 .wp-video .wp-video-shortcode {
   width: 100%;
 }
-/* ==============================
- - Row Counts.
-============================== */
+/* Row Counts.
+============================ */
 .row-count-1 .post {
   margin-bottom: 45px;
 }
@@ -3132,13 +3123,11 @@ article.post a:hover {
   margin-left: 0;
 }
 /**
- * ========================================================================================
- * - COMMENTS-BLOG - #comments_blog.
- * ========================================================================================
+ * COMMENTS-BLOG - #comments_blog.
+ * ============================================ *
  */
-/* ==============================
- - Comments.
-============================== */
+/* Comments.
+============================ */
 #comments .comments {
   margin-bottom: 47px;
 }
@@ -3230,9 +3219,8 @@ article.post a:hover {
 #comments .children .children .children .comment-body {
   margin-left: 120px;
 }
-/* ==============================
- - Comment Form.
-============================== */
+/* Comment Form.
+============================ */
 #respond .comment-reply-title {
   color: #303030;
   text-transform: uppercase;
@@ -3290,9 +3278,8 @@ article.post a:hover {
   background-color: #ed3e4c;
 }
 /**
- * ========================================================================================
- * - SHOP-DEFAULTS - #shop_defaults.
- * ========================================================================================
+ * SHOP-DEFAULTS - #shop_defaults.
+ * ============================================ *
  */
 .product-quick-view .product-quick-view-wrap {
   width: 1000px;
@@ -3493,13 +3480,11 @@ article.post a:hover {
   border-color: #eee;
 }
 /**
- * ========================================================================================
- * - SHOPPING-CART - #shopping_cart.
- * ========================================================================================
+ * SHOPPING-CART - #shopping_cart.
+ * ============================================ *
  */
-/* ==============================
- - Table.
-============================== */
+/* Table.
+============================ */
 table.cart {
   width: 100%;
   display: table;
@@ -3561,9 +3546,8 @@ table.cart td {
 table.cart td.product-remove {
   font-size: 24px;
 }
-/* ==============================
- - Update Cart Wrap.
-============================== */
+/* Update Cart Wrap.
+============================ */
 .woocommerce-cart .update-cart-wrap {
   text-align: right;
   margin-bottom: 33px;
@@ -3689,9 +3673,8 @@ table.cart td.product-remove {
   text-align: center;
 }
 /**
- * ========================================================================================
- * - CHECKOUT - #checkout.
- * ========================================================================================
+ * CHECKOUT - #checkout.
+ * ============================================ *
  */
 .woocommerce-checkout h3 {
   display: block;
@@ -3885,20 +3868,16 @@ table.cart td.product-remove {
   text-align: right;
 }
 /**
- * ========================================================================================
- * - SINGLE-PRODUCT - #product_single.
- * ========================================================================================
+ * SINGLE-PRODUCT - #product_single.
+ * ============================================ *
  */
 .single-product {
-  /* ==============================
-	 - Global Styles.
-	============================== */
-  /* ==============================
-	 - Images-wrap.
-	============================== */
-  /* ==============================
-	 - Woocomerce Tabs.
-	============================== */
+  /* Global Styles.
+	============================ */
+  /* Images-wrap.
+	============================ */
+  /* Woocomerce Tabs.
+	============================ */
 }
 .single-product .product {
   display: block;
@@ -4230,9 +4209,8 @@ table.cart td.product-remove {
 }
 .single-product,
 .product-quick-view {
-  /* ==============================
-	 - Summary.
-	============================== */
+  /* Summary.
+	============================ */
 }
 .single-product .summary label,
 .product-quick-view .summary label {
@@ -4594,13 +4572,11 @@ table.cart td.product-remove {
   color: #fff;
 }
 /**
- * ========================================================================================
- * - PRODUCTS - #products.
- * ========================================================================================
+ * PRODUCTS - #products.
+ * ============================================ *
  */
-/* ==============================
- - Base.
-============================== */
+/* Base.
+============================ */
 .products {
   margin: 0 -15px;
 }
@@ -4990,9 +4966,8 @@ table.cart td.product-remove {
 .products.row-count-6 .product .button i {
   font-size: 16px;
 }
-/* ==============================
- - List view.
-============================== */
+/* List view.
+============================ */
 .products-list .product {
   width: 100% !important;
   display: table;
@@ -5052,9 +5027,8 @@ table.cart td.product-remove {
 .site-content:not(.without-sidebar) .products-list .product-details {
   width: 65%;
 }
-/* ==============================
- - Products in OWL Carousel.
-============================== */
+/* Products in OWL Carousel.
+============================ */
 .products.owl-carousel .product {
   width: 100% !important;
 }
@@ -5094,7 +5068,7 @@ table.cart td.product-remove {
 }
 /**
  * WISHLIST - #wishlist
- * ========================================== *
+ * ============================================ *
  */
 .woocommerce table.wishlist_table tbody td {
   text-align: center;

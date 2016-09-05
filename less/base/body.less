@@ -1,13 +1,10 @@
 /**
- * ========================================================================================
- * - BODY - #body.
- * ========================================================================================
+ * BODY - #body.
+ * ============================================ *
  */
 
-
-/* ==============================
- - Reset Styles.
-============================== */
+/* Reset Styles.
+============================ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -48,20 +45,16 @@ table {
 	border-spacing: 0;
 }
 
-
-/* ==============================
- - PS Defaults.
-============================== */
+/* PS Defaults.
+============================ */
 html {
 	font-size: @fontSize;
 	position: relative;
 }
-
 body {
 	overflow-x: hidden;
 	font-family: @mainFont;
 }
-
 a {
 	color: @lightColor;
 	outline: 0;
@@ -78,31 +71,25 @@ a {
 		color: @activeColor;
 	}
 }
-
 p {
 	color: @lightColor;
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 1.7;
 }
-
 img {
 	max-width: 100%;
 	height: auto;
 }
-
 ins {
 	text-decoration: none;
 }
-
 mark {
 	background-color: transparent;
 }
 
-
-/* ==============================
- - Inputs.
-============================== */
+/* Inputs.
+============================ */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -127,11 +114,9 @@ textarea {
 		color: @extraLightColor;
 	}
 }
-
 textarea {
 	max-width: 100%;
 }
-
 input[type="number"] {
 	&::-webkit-outer-spin-button,
 	&::-webkit-inner-spin-button {
@@ -139,14 +124,12 @@ input[type="number"] {
 		margin: 0;
 	}
 }
-
 input[type=radio],
 input[type=checkbox] {
 	display: inline-block;
 	float: left;
 	margin: 5px 5px 5px 0;
 }
-
 .site-content {
 	input[type="text"],
 	input[type="number"],
@@ -158,25 +141,31 @@ input[type=checkbox] {
 		display: block;
 	    width: 100%;
 	    padding: 6px 12px;
-	    margin: 2px 0 20px;
+	    margin: 0 0 20px;
 	}
 }
-
 form {
 	p {
 		margin-bottom: 14px;
 	}
 }
+select {
+	background-color: transparent;
+	cursor: pointer;
+	max-width: 100%;
+	&:focus {
+		outline: 0;
+		box-shadow: none;
+	}
+}
 
-/* ==============================
- - Headings.
-============================== */
+/* Headings.
+============================ */
 h1, .h1,
 h2, .h2,
 h3, .h3 {
 	text-transform: uppercase;
 }
-
 h1, .h1,
 h2, .h2,
 h3, .h3
@@ -185,7 +174,6 @@ h5, .h5,
 h6, .h6 {
 	margin-top: 0;
 }
-
 h2,
 .h2 {
 	font-size: 36px;
@@ -193,22 +181,18 @@ h2,
 	letter-spacing: 3px;
 	margin-bottom: 10px;
 }
-
 h3,
 .h3 {
 	font-size: 30px;
 }
-
 h4,
 .h4 {
 	font-size: 20px;
 }
-
 h5,
 .h5 {
 	font-size: 18px;
 }
-
 h6,
 .h6 {
 	font-size: 16px;

@@ -13,7 +13,6 @@
  * Text Domain: pure
  */
 
-
 /* latin-ext */
 @font-face {
   font-family: 'Poppins';
@@ -121,23 +120,19 @@
 	-o-transition: @arguments;
 	transition: @arguments;
 }
-
 .backface()
 {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
-
 .font_size_em( @foze )
 {
 	font-size: ( @foze / @fontSize ) + 0em;
 }
-
 .font_size_rem( @foze )
 {
 	font-size: ( @foze / @fontSize ) + 0rem;
 }
-
 .clear()
 {
 	content: '';
@@ -145,7 +140,6 @@
 	clear: both;
 	height: 0;
 }
-
 .clear_after()
 {
 	&:after {
@@ -155,7 +149,6 @@
 		height: 0;
 	}
 }
-
 .clear_before()
 {
 	&:before {
@@ -165,7 +158,6 @@
 		height: 0;
 	}
 }
-
 .disable_focus()
 {
 	&:hover, &:focus, &:active, &:visited {
@@ -173,7 +165,6 @@
 		box-shadow: none;
 	}
 }
-
 .white_link()
 {
 	color: #fff;
@@ -181,7 +172,6 @@
 		color: @activeColor;
 	}
 }
-
 .active_link()
 {
 	color: @activeColor;
@@ -189,7 +179,6 @@
 		color: darken( @activeColor, 10% );
 	}
 }
-
 .light_link()
 {
 	color: @lightColor;
@@ -197,7 +186,6 @@
 		color: @activeColor;
 	}
 }
-
 .extra_light_link()
 {
 	color: @extraLightColor;
@@ -205,7 +193,6 @@
 		color: @activeColor;
 	}
 }
-
 .dark_link()
 {
 	color: @darkColor;
@@ -213,7 +200,6 @@
 		color: @activeColor;
 	}
 }
-
 .flex_center()
 {
 	display: -webkit-box;
@@ -230,7 +216,6 @@
     -webkit-align-items: center;
     align-items: center;
 }
-
 .flex_center_X()
 {
 	display: -webkit-box;
@@ -243,7 +228,6 @@
     -webkit-justify-content: center;
     justify-content: center;
 }
-
 .flex_center_Y()
 {
 	display: -webkit-box;
@@ -256,17 +240,13 @@
     -webkit-align-items: center;
     align-items: center;
 }
-
 /**
- * ========================================================================================
- * - BODY - #body.
- * ========================================================================================
+ * BODY - #body.
+ * ============================================ *
  */
 
-
-/* ==============================
- - Reset Styles.
-============================== */
+/* Reset Styles.
+============================ */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -307,20 +287,16 @@ table {
 	border-spacing: 0;
 }
 
-
-/* ==============================
- - PS Defaults.
-============================== */
+/* PS Defaults.
+============================ */
 html {
 	font-size: @fontSize;
 	position: relative;
 }
-
 body {
 	overflow-x: hidden;
 	font-family: @mainFont;
 }
-
 a {
 	color: @lightColor;
 	outline: 0;
@@ -337,31 +313,25 @@ a {
 		color: @activeColor;
 	}
 }
-
 p {
 	color: @lightColor;
 	font-size: 14px;
 	font-weight: 300;
 	line-height: 1.7;
 }
-
 img {
 	max-width: 100%;
 	height: auto;
 }
-
 ins {
 	text-decoration: none;
 }
-
 mark {
 	background-color: transparent;
 }
 
-
-/* ==============================
- - Inputs.
-============================== */
+/* Inputs.
+============================ */
 input[type="text"],
 input[type="number"],
 input[type="email"],
@@ -386,11 +356,9 @@ textarea {
 		color: @extraLightColor;
 	}
 }
-
 textarea {
 	max-width: 100%;
 }
-
 input[type="number"] {
 	&::-webkit-outer-spin-button,
 	&::-webkit-inner-spin-button {
@@ -398,14 +366,12 @@ input[type="number"] {
 		margin: 0;
 	}
 }
-
 input[type=radio],
 input[type=checkbox] {
 	display: inline-block;
 	float: left;
 	margin: 5px 5px 5px 0;
 }
-
 .site-content {
 	input[type="text"],
 	input[type="number"],
@@ -417,25 +383,31 @@ input[type=checkbox] {
 		display: block;
 	    width: 100%;
 	    padding: 6px 12px;
-	    margin: 2px 0 20px;
+	    margin: 0 0 20px;
 	}
 }
-
 form {
 	p {
 		margin-bottom: 14px;
 	}
 }
+select {
+	background-color: transparent;
+	cursor: pointer;
+	max-width: 100%;
+	&:focus {
+		outline: 0;
+		box-shadow: none;
+	}
+}
 
-/* ==============================
- - Headings.
-============================== */
+/* Headings.
+============================ */
 h1, .h1,
 h2, .h2,
 h3, .h3 {
 	text-transform: uppercase;
 }
-
 h1, .h1,
 h2, .h2,
 h3, .h3
@@ -444,7 +416,6 @@ h5, .h5,
 h6, .h6 {
 	margin-top: 0;
 }
-
 h2,
 .h2 {
 	font-size: 36px;
@@ -452,32 +423,26 @@ h2,
 	letter-spacing: 3px;
 	margin-bottom: 10px;
 }
-
 h3,
 .h3 {
 	font-size: 30px;
 }
-
 h4,
 .h4 {
 	font-size: 20px;
 }
-
 h5,
 .h5 {
 	font-size: 18px;
 }
-
 h6,
 .h6 {
 	font-size: 16px;
 	line-height: 1.2;
 }
-
 /**
- * ========================================================================================
- * - BUTTONS - #buttons.
- * ========================================================================================
+ * BUTTONS - #buttons.
+ * ============================================ *
  */
 
 @buttonColor: #fff;
@@ -505,14 +470,12 @@ input[type='submit'] {
 }
 
 /**
- * ========================================================================================
- * - GLOBAL-STYLESHEETS - #global_stylesheets.
- * ========================================================================================
+ * GLOBAL-STYLESHEETS - #global_stylesheets.
+ * ============================================ *
  */
 
-/* ==============================
- - Site Content.
-============================== */
+/* Site Content.
+============================ */
 .site-content {
 	&:not(.home) {
 		background-color: @bgColor;
@@ -524,9 +487,8 @@ input[type='submit'] {
 	}
 }
 
-/* ==============================
- - Row counts.
-============================== */
+/* Row counts.
+============================ */
 .row-count-1, .columns-1 {
 	.product, .post {
 		width: 100%;
@@ -586,9 +548,8 @@ input[type='submit'] {
 	}
 }
 
-/* ==============================
- - Headings.
-============================== */
+/* Headings.
+============================ */
 .heading-block {
 	text-align: center;
 	h2 {
@@ -609,10 +570,8 @@ input[type='submit'] {
 	}
 }
 
-
-/* ==============================
- - Nav Tabs.
-============================== */
+/* Nav Tabs.
+============================ */
 .nav-tabs-wrap {
 	display: flex;
 	justify-content: center;
@@ -644,10 +603,8 @@ input[type='submit'] {
 	}
 }
 
-
-/* ==============================
- - Star Rating.
-============================== */
+/* Star Rating.
+============================ */
 .star-rating {
 	float: right;
 	overflow: hidden;
@@ -688,9 +645,8 @@ input[type='submit'] {
 	}
 }
 
-/* ==============================
- - Social Icons.
-============================== */
+/* Social Icons.
+============================ */
 .social-icons {
 	margin: 0 -5px;
 	cursor: pointer;
@@ -735,18 +691,14 @@ input[type='submit'] {
     }
 }
 
-
-/* ==============================
- - Owl Carousel.
-============================== */
+/* Owl Carousel.
+============================ */
 .owl-carousel.owl-loaded {
 	display: inline-block;
 }
 
-
-/* ==============================
- - Common classes.
-============================== */
+/* Common classes.
+============================ */
 .uppercase {
 	text-transform: uppercase;
 }
@@ -773,9 +725,8 @@ input[type='submit'] {
 	}
 }
 
-/* ==============================
- - Common Styles.
-============================== */
+/* Common Styles.
+============================ */
 .banner {
 	position: relative;
 	overflow: hidden;
@@ -926,10 +877,8 @@ input[type='submit'] {
 	}
 }
 
-
-/* ==============================
- - Medium Banner.
-============================== */
+/* Common Styles.
+============================ */
 .medium-banner {
 	background-color: @bgColor;
 	h2, .h2 {
@@ -951,10 +900,8 @@ input[type='submit'] {
 	}
 }
 
-
-/* ==============================
- - Fullscreen Slider.
-============================== */
+/* Fullscreen Slider.
+============================ */
 .fullscreen-slider {
 	margin-bottom: 90px;
 	cursor: move;
@@ -1001,7 +948,6 @@ input[type='submit'] {
 			text-transform: capitalize;
 		}
 	}
-
 	.owl-controls {
 		.owl-dot, .owl-dot.active {
 			span {
@@ -1011,10 +957,8 @@ input[type='submit'] {
 	}
 }
 
-
-/* ==============================
- - Sliders.
-============================== */
+/* Sliders.
+============================ */
 .slider.site-slider {
 	margin-bottom: 30px;
 	.slide {
@@ -1062,10 +1006,8 @@ input[type='submit'] {
 	}
 }
 
-
-/* ==============================
- - OWL controls.
-============================== */
+/* OWL controls.
+============================ */
 .owl-controls {
 	.owl-nav {
 		.owl-prev, .owl-next {
@@ -1137,9 +1079,8 @@ input[type='submit'] {
 }
 
 /**
- * ========================================================================================
- * - BREADCRUMBS - #breadcrumbs.
- * ========================================================================================
+ * BREADCRUMBS - #breadcrumbs.
+ * ============================================ *
  */
 
 .breadcrumbs {
@@ -1215,15 +1156,12 @@ input[type='submit'] {
 	transition: opacity .2s, visibility step-end .3s;
 }
 /**
- * ========================================================================================
- * - SITE-FOOTER #site_footer.
- * ========================================================================================
+ * SITE-FOOTER #site_footer.
+ * ============================================ *
  */
 
-
-/* ==============================
- - Prefooter.
-============================== */
+/* Prefooter.
+============================ */
 .prefooter {
 	padding-top: 40px;
 	padding-bottom: 40px;
@@ -1278,10 +1216,8 @@ input[type='submit'] {
 	}
 }
 
-
-/* ==============================
- - Footer.
-============================== */
+/* Footer.
+============================ */
 footer.site-footer {
 	background-color: @bgColor;
 	padding-top: 82px;
@@ -1293,10 +1229,8 @@ footer.site-footer {
 	}
 }
 
-
-/* ==============================
- - Footer bottom.
-============================== */
+/* Footer bottom.
+============================ */
 .footer-bottom {
 	padding: 36px 0;
 	.copyright-right {
@@ -1306,14 +1240,12 @@ footer.site-footer {
 	}
 }
 /**
- * ========================================================================================
- * - HEADER - #header.
- * ========================================================================================
+ * HEADER - #header.
+ * ============================================ *
  */
 
-/* ==============================
- - Base.
-============================== */
+/* Base.
+============================ */
 .header-wrapper {
 	position: relative;
 	z-index: 1000;
@@ -1376,9 +1308,8 @@ footer.site-footer {
 	}
 }
 
-/* ==============================
- - Top-Bar.
-============================== */
+/* Top-Bar.
+============================ */
 .top-bar {
 	color: #fff;
 	padding: 8px 0 8px;
@@ -1591,10 +1522,8 @@ footer.site-footer {
 	}
 }
 
-
-/* ==============================
- - Header [Global Styles].
-============================== */
+/* Header [Global Styles].
+============================ */
 header.header {
 	padding: 34px 0;
 
@@ -1672,7 +1601,6 @@ header.header {
 }
 
 
-
 /* =========================================================
  - RESPONSIVE - .
 ========================================================= */
@@ -1685,9 +1613,8 @@ header.header {
 	}
 }
 
-/* ==============================
- - Header Main.
-============================== */
+/* Header Main.
+============================ */
 header.header.fixed {
 	position: fixed;
 	top: 0;
@@ -1709,19 +1636,16 @@ header.header.fixed {
 		}
 	}
 }
-/* ==============================
- - Header Main.
-============================== */
+/* Header Main.
+============================ */
 .header-wrapper.main {
 
-	/* Top-bar
-	---------------------------------------*/
+	// Top-bar.
 	.top-bar {
 		background-color: #303030;
 	}
 
-	/* Header Main.
-	---------------------------------------*/
+	// Header Main.
 	header.site-header {
 		.menu, .menu-main {
 			a {
@@ -1735,16 +1659,14 @@ header.header.fixed {
 		}
 	}
 }
-/* ==============================
- - Header Transparent.
-============================== */
+/* Header Transparent.
+============================ */
 .header-wrapper.transparent {
 	position: absolute;
     top: 0;
     width: 100%;
 
-   /* Top-bar.
-   ---------------------------------------*/
+   // Top-bar.
     .top-bar {
     	border-bottom: 1px solid rgba( 69, 69, 69, .5 );
     }
@@ -1761,8 +1683,7 @@ header.header.fixed {
 		}
 	}
 
-	/* Header Transparent.
-	---------------------------------------*/
+	// Header Transparent.
 	header.site-header {
 		.menu {
 			> li {
@@ -1774,9 +1695,8 @@ header.header.fixed {
 	}
 }
 /**
- * ===================================================================
- * - MOBILE-MENU - #mobile_menu.
- * ===================================================================
+ * MOBILE-MENU - #mobile_menu.
+ * ============================================ *
  */
 
 .ps-mobile-menu {
@@ -1827,9 +1747,8 @@ body.mobile-menu-open {
 	}
 }
 /**
- * ========================================================================================
- * - MY-ACCOUNT - #my_account.
- * ========================================================================================
+ * MY-ACCOUNT - #my_account.
+ * ============================================ *
  */
 
 .woocommerce-account {
@@ -1978,6 +1897,13 @@ body.mobile-menu-open {
     }
 }
 
+/**
+ * PAGE - #page
+ * ============================================ *
+ */
+
+/* Common Styles.
+============================ */
 .banner-row {
 	margin-bottom: 30px;
 	&.last {
@@ -1985,20 +1911,16 @@ body.mobile-menu-open {
 	}
 }
 
-
-/* ==============================
- - Home Page.
-============================== */
+/* Home Page.
+============================ */
 .featured-products {
 	display: block;
 	cursor: all-scroll;
 	margin-bottom: 60px;
 }
 
-
-/* ==============================
- - About Us.
-============================== */
+/* About Us.
+============================ */
 .about-description-area {
 	border-top: 1px solid @borderColor;
 	border-bottom: 1px solid @borderColor;
@@ -2130,10 +2052,8 @@ body.mobile-menu-open {
 	}
 }
 
-
-/* ==============================
- - Contact Us.
-============================== */
+/* Contact Us.
+============================ */
 .map-wrap {
 	margin-bottom: 85px;
 	iframe {
@@ -2271,15 +2191,12 @@ body.mobile-menu-open {
 }
 
 /**
- * ========================================================================================
- * - PAGINATION - #pagination.
- * ========================================================================================
+ * PAGINATION - #pagination.
+ * ============================================ *
  */
 
-
-/* ==============================
- - Base.
-============================== */
+/* Base.
+============================ */
 .pagination-wrap, .filter-wrap {
 	text-align: center;
 	padding: 13px 14px 12px 14px;
@@ -2374,9 +2291,8 @@ body.mobile-menu-open {
 	}
 }
 
-/* ==============================
- - In woocommerce page.
-============================== */
+/* In woocommerce page.
+============================ */
 .woocommerce-page {
 	.pagination-wrap, .filter-wrap {
 		&.bottom {
@@ -2391,14 +2307,12 @@ body.mobile-menu-open {
 }
 
 /**
- * ====================================================================================
- * - WILD-SELECT - #wild_select.
- * ====================================================================================
+ * WILD-SELECT - #wild_select.
+ * ============================================ *
  */
 
-/* ==============================
- - Basic ssyles.
-============================== */
+/* Basic ssyles.
+============================ */
 .wild-select.wild-area {
 	display: inline-block;
 	position: relative;
@@ -2465,8 +2379,7 @@ body.mobile-menu-open {
 		}
 	}
 
-	/* Opacity animation.
-	------------------------------------*/
+	// Opacity animation.
 	&.animation-opacity {
 		ul.wild-options {
 			display: block;
@@ -2479,8 +2392,7 @@ body.mobile-menu-open {
 		}
 	}
 
-	/* Fly-up animation.
-	------------------------------------*/
+	// Fly-up animation.
 	&.animation-fly-up:extend(.animation-opacity all) {
 		ul.wild-options {
 			transform: translateY( 10% );
@@ -2491,7 +2403,10 @@ body.mobile-menu-open {
 	}
 }
 
-/* Slider */
+/**
+ * SLICK - #slick
+ * ============================================ *
+ */
 
 .slick-slider {
     position: relative;
@@ -2591,13 +2506,11 @@ body.mobile-menu-open {
 }
 
 /**
- * ========================================================================================
- * - WIDGETS - #widgets.
- * ========================================================================================
+ * WIDGETS - #widgets.
+ * ============================================ *
  */
 
-/* ==============================
- - Sidebar widget.
+/* Sidebar widget.
 ============================== */
 aside.sidebar {
 	.widget {
@@ -2606,19 +2519,19 @@ aside.sidebar {
 		background-color: #fff;
 		border: 1px solid @borderColor;
 		.widget-title {
-			color: @lightColor;
-			font-size: 14px;
-			letter-spacing: 2.5px;
-			font-weight: 600;
-			padding-bottom: 6px;
+			color: #606060;
+		    font-size: 14px;
+		    letter-spacing: 2.5px;
+		    font-weight: 600;
+		    padding-bottom: 5px;
+		    line-height: 1.4;
 		}
 	}
 }
 
 .widget {
 
-	/* Common styles.
-	---------------------------------------*/
+	// Common styles.
 	.widget-title {
 		color: @darkColor;
 		text-transform: uppercase;
@@ -2646,6 +2559,12 @@ aside.sidebar {
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+	label {
+		font-weight: 400;
+	    line-height: 1.7;
+	    display: block;
+	    margin-bottom: 8px;
 	}
 	.noUi-target, .noUi-background {
 		box-shadow: none;
@@ -2682,8 +2601,7 @@ aside.sidebar {
 		float: none;
 	}
 
-	/* Widgets.
-	---------------------------------------*/
+	// Widgets.
 	&.widget_text {
 		img {
 			display: block;
@@ -2766,14 +2684,43 @@ aside.sidebar {
 			}
 		}
 	}
+	
+	&.widget_categories, &.widget_pages {
+		.cat-item, .page_item {
+			a {
+				padding: 10px 0;
+				display: inline-block;
+			}
+		}
+	}
 
 	&.widget_categories {
 		.widget-title {
 			margin-bottom: 14px;
 		}
-		.cat-item {
+	}
+
+	&.widget_recent_comments {
+		#recentcomments {
+			li {
+				line-height: 2.2;
+			}
+		}
+	}
+
+	&.widget_rss {
+		li {
+			margin-bottom: 15px;
 			a {
-				padding: 10px 0;
+				display: block;
+			}
+		}
+	}
+
+	&.widget_meta {
+		li {
+			> a {
+				line-height: 2;
 				display: inline-block;
 			}
 		}
@@ -2796,6 +2743,31 @@ aside.sidebar {
     				color: #fff;
     			}
 			}
+		}
+	}
+
+	&.widget.widget_calendar {
+		.calendar_wrap {
+			margin: 0 -10px;
+		}
+		caption {
+			margin-bottom: 15px;
+			padding: 0 10px;
+		}
+		table {
+			width: 100%;
+		}
+		td, th {
+			height: 38px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		th {
+			color: @activeColor;
+			font-weight: 500;	
+		}
+		a {
+			.active_link();
 		}
 	}
 
@@ -2905,16 +2877,14 @@ aside.sidebar {
 
 	&.widget_product_categories {
 
-		/* Dropdown.
-		---------------------------------------*/
+		// Dropdown.
 		.cat-parent {
 			.children {
 				display: none;
 			}
 		}
 
-		/* Style.
-		---------------------------------------*/
+		// Style.
 		ul.product-categories {
 			-webkit-user-select: none;
 			.cat-item  {
@@ -3006,14 +2976,12 @@ aside.sidebar {
 }
 
 /**
- * ========================================================================================
- * - BLOG-BASE-STYLES - #blog_base_styles.
- * ========================================================================================
+ * BLOG-BASE-STYLES - #blog_base_styles.
+ * ============================================ *
  */
 
-/* ==============================
- - Base styles.
-============================== */
+/* Base styles.
+============================ */
 .blog, .single-post {
 	.site-content {
 		padding-bottom: 112px;
@@ -3034,9 +3002,8 @@ aside.sidebar {
 	}
 }
 
-/* ==============================
- - Article.
-============================== */
+/* Article.
+============================ */
 article.post {
 	margin-bottom: 30px;
 	.entry-header {
@@ -3131,10 +3098,8 @@ article.post {
 	}
 }
 
-
-/* ==============================
- - Single Post.
-============================== */
+/* Single Post.
+============================ */
 .single, .single-post {
 	article {
 		margin-bottom: 30px;
@@ -3154,10 +3119,8 @@ article.post {
 	}
 }
 
-
-/* ==============================
- - Element: Recent Posts.
-============================== */
+/* Element: Recent Posts.
+============================ */
 .recent-posts-area {
 	background-color: @bgColor;
 	padding: 90px 0 60px 0;
@@ -3170,9 +3133,8 @@ article.post {
 	.clear_after();
 }
 
-/* ==============================
- - Wordpress video.
-============================== */
+/* Wordpress video.
+============================ */
 .wp-video {
 	width: 100% !important;
 	.mejs-container, .wp-video-shortcode {
@@ -3181,9 +3143,8 @@ article.post {
 }
 
 
-/* ==============================
- - Row Counts.
-============================== */
+/* Row Counts.
+============================ */
 .row-count-1 {
 	.post {
 		margin-bottom: 45px;
@@ -3231,15 +3192,12 @@ article.post {
 }
 
 /**
- * ========================================================================================
- * - COMMENTS-BLOG - #comments_blog.
- * ========================================================================================
+ * COMMENTS-BLOG - #comments_blog.
+ * ============================================ *
  */
 
-
-/* ==============================
- - Comments.
-============================== */
+/* Comments.
+============================ */
 #comments {
 	.comments {
 		margin-bottom: 47px;
@@ -3324,10 +3282,8 @@ article.post {
 	}
 }
 
-
-/* ==============================
- - Comment Form.
-============================== */
+/* Comment Form.
+============================ */
 #respond {
 	.comment-reply-title {
 		color: @darkColor;
@@ -3385,9 +3341,8 @@ article.post {
 }
 
 /**
- * ========================================================================================
- * - SHOP-DEFAULTS - #shop_defaults.
- * ========================================================================================
+ * SHOP-DEFAULTS - #shop_defaults.
+ * ============================================ *
  */
 
 .product-quick-view {
@@ -3549,14 +3504,12 @@ article.post {
 }
 
 /**
- * ========================================================================================
- * - SHOPPING-CART - #shopping_cart.
- * ========================================================================================
+ * SHOPPING-CART - #shopping_cart.
+ * ============================================ *
  */
 
-/* ==============================
- - Table.
-============================== */
+/* Table.
+============================ */
 table.cart {
 	width: 100%;
 	display: table;
@@ -3615,9 +3568,8 @@ table.cart {
 }
 
 
-/* ==============================
- - Update Cart Wrap.
-============================== */
+/* Update Cart Wrap.
+============================ */
 .woocommerce-cart {
 	.update-cart-wrap {
 		text-align: right;
@@ -3743,9 +3695,8 @@ table.cart {
 }
 
 /**
- * ========================================================================================
- * - CHECKOUT - #checkout.
- * ========================================================================================
+ * CHECKOUT - #checkout.
+ * ============================================ *
  */
 .woocommerce-checkout {
 	h3 {
@@ -3931,15 +3882,14 @@ table.cart {
 }
 
 /**
- * ========================================================================================
- * - SINGLE-PRODUCT - #product_single.
- * ========================================================================================
+ * SINGLE-PRODUCT - #product_single.
+ * ============================================ *
  */
 
 .single-product {
-	/* ==============================
-	 - Global Styles.
-	============================== */
+
+	/* Global Styles.
+	============================ */
 	.product {
 		display: block;
 		margin-bottom: 30px;
@@ -3957,9 +3907,9 @@ table.cart {
 		float: none;
 		.clear_after();
 	}
-	/* ==============================
-	 - Images-wrap.
-	============================== */
+	
+	/* Images-wrap.
+	============================ */
 	.images {
 		.thumbnails, .woocommerce-main-image {
 			display: inline-block;
@@ -3995,9 +3945,9 @@ table.cart {
 			}
 		}
 	}
-	/* ==============================
-	 - Woocomerce Tabs.
-	============================== */
+	
+	/* Woocomerce Tabs.
+	============================ */
 	.woocommerce-tabs {
 		padding: 30px;
 		border: 1px solid @borderColor;
@@ -4263,9 +4213,9 @@ table.cart {
 }
 
 .single-product, .product-quick-view {
-	/* ==============================
-	 - Summary.
-	============================== */
+	
+	/* Summary.
+	============================ */
 	.summary {
 		label {
 			color: @darkColor;
@@ -4488,15 +4438,12 @@ table.cart {
 }
 
 /**
- * ========================================================================================
- * - PRODUCTS - #products.
- * ========================================================================================
+ * PRODUCTS - #products.
+ * ============================================ *
  */
 
-
-/* ==============================
- - Base.
-============================== */
+/* Base.
+============================ */
 .products {
 	margin: 0 -15px;
 	.clear_after();
@@ -4871,10 +4818,8 @@ table.cart {
 	}
 }
 
-
-/* ==============================
- - List view.
-============================== */
+/* List view.
+============================ */
 .products-list {
 	.product {
 		width: 100% !important;
@@ -4932,9 +4877,8 @@ table.cart {
 	}
 }
 
-/* ==============================
- - Products in OWL Carousel.
-============================== */
+/* Products in OWL Carousel.
+============================ */
 .products.owl-carousel {
 	.product {
 		width: 100% !important;
@@ -4980,7 +4924,7 @@ table.cart {
 
 /**
  * WISHLIST - #wishlist
- * ========================================== *
+ * ============================================ *
  */
 
 .woocommerce table.wishlist_table tbody td {

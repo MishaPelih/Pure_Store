@@ -10,14 +10,6 @@
 
 	<div class="row">
 
-		<?php
-
-			// echo pure_get_cmb2_option( 'sidebar_position' );
-			// print_r( pure_get_cmb2_option( 'sidebar_position' ) );
-			print_r( pure_get_cmb2_option( 'post_video_file' ) );
-
-		?>
-
 		<!-- ====| Main Content |==== -->
 		<div class="content-page blog <?php echo pure_main_content_classes(); ?>" role="main">
 			<div class="entry-content">

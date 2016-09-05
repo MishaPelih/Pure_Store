@@ -1,11 +1,9 @@
 /**
- * ========================================================================================
- * - WIDGETS - #widgets.
- * ========================================================================================
+ * WIDGETS - #widgets.
+ * ============================================ *
  */
 
-/* ==============================
- - Sidebar widget.
+/* Sidebar widget.
 ============================== */
 aside.sidebar {
 	.widget {
@@ -14,19 +12,19 @@ aside.sidebar {
 		background-color: #fff;
 		border: 1px solid @borderColor;
 		.widget-title {
-			color: @lightColor;
-			font-size: 14px;
-			letter-spacing: 2.5px;
-			font-weight: 600;
-			padding-bottom: 6px;
+			color: #606060;
+		    font-size: 14px;
+		    letter-spacing: 2.5px;
+		    font-weight: 600;
+		    padding-bottom: 5px;
+		    line-height: 1.4;
 		}
 	}
 }
 
 .widget {
 
-	/* Common styles.
-	---------------------------------------*/
+	// Common styles.
 	.widget-title {
 		color: @darkColor;
 		text-transform: uppercase;
@@ -54,6 +52,12 @@ aside.sidebar {
 		&:last-child {
 			margin-bottom: 0;
 		}
+	}
+	label {
+		font-weight: 400;
+	    line-height: 1.7;
+	    display: block;
+	    margin-bottom: 8px;
 	}
 	.noUi-target, .noUi-background {
 		box-shadow: none;
@@ -90,8 +94,7 @@ aside.sidebar {
 		float: none;
 	}
 
-	/* Widgets.
-	---------------------------------------*/
+	// Widgets.
 	&.widget_text {
 		img {
 			display: block;
@@ -174,14 +177,43 @@ aside.sidebar {
 			}
 		}
 	}
+	
+	&.widget_categories, &.widget_pages {
+		.cat-item, .page_item {
+			a {
+				padding: 10px 0;
+				display: inline-block;
+			}
+		}
+	}
 
 	&.widget_categories {
 		.widget-title {
 			margin-bottom: 14px;
 		}
-		.cat-item {
+	}
+
+	&.widget_recent_comments {
+		#recentcomments {
+			li {
+				line-height: 2.2;
+			}
+		}
+	}
+
+	&.widget_rss {
+		li {
+			margin-bottom: 15px;
 			a {
-				padding: 10px 0;
+				display: block;
+			}
+		}
+	}
+
+	&.widget_meta {
+		li {
+			> a {
+				line-height: 2;
 				display: inline-block;
 			}
 		}
@@ -204,6 +236,31 @@ aside.sidebar {
     				color: #fff;
     			}
 			}
+		}
+	}
+
+	&.widget.widget_calendar {
+		.calendar_wrap {
+			margin: 0 -10px;
+		}
+		caption {
+			margin-bottom: 15px;
+			padding: 0 10px;
+		}
+		table {
+			width: 100%;
+		}
+		td, th {
+			height: 38px;
+			text-align: center;
+			vertical-align: middle;
+		}
+		th {
+			color: @activeColor;
+			font-weight: 500;	
+		}
+		a {
+			.active_link();
 		}
 	}
 
@@ -313,16 +370,14 @@ aside.sidebar {
 
 	&.widget_product_categories {
 
-		/* Dropdown.
-		---------------------------------------*/
+		// Dropdown.
 		.cat-parent {
 			.children {
 				display: none;
 			}
 		}
 
-		/* Style.
-		---------------------------------------*/
+		// Style.
 		ul.product-categories {
 			-webkit-user-select: none;
 			.cat-item  {
