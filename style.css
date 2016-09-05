@@ -1531,11 +1531,22 @@ header.header .container-wrap {
   align-items: center;
   justify-content: space-between;
 }
-header.header .menu > .menu-item {
+header.header .menu ul > .menu-item,
+header.header .menu-main ul > .menu-item,
+header.header .menu ul .page_item,
+header.header .menu-main ul .page_item {
   display: inline-block;
   text-transform: uppercase;
 }
-header.header .menu a {
+header.header .menu > .menu-item,
+header.header .menu-main > .menu-item,
+header.header .menu .page_item,
+header.header .menu-main .page_item {
+  display: inline-block;
+  text-transform: uppercase;
+}
+header.header .menu a,
+header.header .menu-main a {
   padding: 10px 15px;
 }
 header.header .sub-menu {

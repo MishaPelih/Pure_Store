@@ -298,8 +298,14 @@ header.header {
 	    justify-content: space-between;
 	}
 
-	.menu {
-		> .menu-item {
+	.menu, .menu-main {
+		ul {
+			> .menu-item, .page_item {
+				display: inline-block;
+				text-transform: uppercase;
+			}
+		}
+		> .menu-item, .page_item {
 			display: inline-block;
 			text-transform: uppercase;
 		}
