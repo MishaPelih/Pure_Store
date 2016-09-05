@@ -11,12 +11,34 @@
      * Get the different sidebars.
      */
     if ( !function_exists( 'pure_get_sidebar' ) ) {
-        function pure_get_sidebar( $sr_type = null ) {
+        function pure_get_sidebar( $sr_type = 'blog' ) {
             if ( !$sr_type ) return;
             switch ( $sr_type ) {
+
+            	# Default sidebar.
+            	case 'blog':
+            		if ( is_active_sidebar( 'sidebar-blog' ) ): ?>
+            			<!-- ====| Sidebar |==== -->
+						<aside class="sidebar sidebar-blog col-md-3 col-sm-12 col-xs-12" role="complementary">
+							<?php dynamic_sidebar( 'sidebar-blog' ); ?>
+						</aside><!-- /sidebar -->
+					<?php endif;
+            		break;
+
+            	# Shop sidebar.
+            	case 'shop':
+            		if ( is_active_sidebar( 'sidebar-shop' ) && is_shop() && pure_is_woo_exists() ): ?>
+            			<!-- ====| Sidebar |==== -->
+					    <aside class="sidebar sidebar-shop col-md-3 col-sm-12 col-xs-12" role="complementary">
+					        <?php dynamic_sidebar( 'sidebar-shop' ); ?>
+					    </aside>
+					<?php endif;
+            		break;
+
+            	# Footer widgetarea.
                 case 'footer':
-                    $wf = 'widgetarea-footer-';
-                    if ( is_active_sidebar( $wf . '1' ) || is_active_sidebar( $wf . '2' ) || is_active_sidebar( $wf . '3' ) || is_active_sidebar( $wf . '4' ) ): ?>
+                    $wr_f = 'widgetarea-footer-';
+                    if ( is_active_sidebar( $wr_f . '1' ) || is_active_sidebar( $wr_f . '2' ) || is_active_sidebar( $wr_f . '3' ) || is_active_sidebar( $wr_f . '4' ) ): ?>
                         <!-- *======#| Site-footer. |#======* -->
                         <footer class="site-footer">
                             <div class="footer-wrapper container">
@@ -34,6 +56,7 @@
                     <?php endif;
                     break;
 
+                # Copyright widgetarea.
                 case 'copyright': ?>
                 	<!-- *======#| Footer-bottom. |#======* -->
 					<div class="footer-bottom">
@@ -58,6 +81,20 @@
 						</div><!-- /.container -->
 					</div><!-- /.footer-bottom --><?php
                     break;
+
+                # Left topbar.
+                case 'topbar-left':
+                	if ( is_active_sidebar( 'widgetarea-topbar-left' ) ) {
+                		dynamic_sidebar( 'widgetarea-topbar-left' );
+	                }
+                	break;
+
+                # Right topbar.
+                case 'topbar-right':
+                	if ( is_active_sidebar( 'widgetarea-topbar-right' ) ) {
+                		dynamic_sidebar( 'widgetarea-topbar-right' );
+	                }
+                	break;
                 
                 default:
                     return false;

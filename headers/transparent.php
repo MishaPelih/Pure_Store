@@ -30,8 +30,7 @@
 
 				<!-- Search -->
 				<div class="site-search">
-					<form role="search" action="#" method="get" id="searchform" class="searchform">
-				        <!-- <input type="hidden" name="post_type" class="search-type" value="post"> -->
+					<form role="search" action="#" method="get" id="searchform" class="searchform"
 				        <input type="text" name="s" id="search-content" class="search-content" placeholder="Search" />
 				        <button type="submit" class="searchsubmit">
 				        	<i class="zmdi zmdi-search"></i>

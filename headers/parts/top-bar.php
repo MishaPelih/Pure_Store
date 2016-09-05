@@ -6,18 +6,12 @@
 			<div class="top-bar-content">
 
 				<div class="top-bar-left top-bar-part">
-
-	                <?php if ( is_active_sidebar( 'widgetarea-topbar-left' ) ): ?>
-	                	<?php dynamic_sidebar( 'widgetarea-topbar-left' ); ?>
-	                <?php endif; ?>
-
+	                <?php pure_get_sidebar( 'topbar-left' ); ?>
 				</div><!-- /.languages-area -->
 
 				<div class="top-bar-right top-bar-part">
 
-					<?php if ( is_active_sidebar( 'widgetarea-topbar-right' ) ): ?>
-	                	<?php dynamic_sidebar( 'widgetarea-topbar-right' ); ?>
-	                <?php endif; ?>
+					<?php pure_get_sidebar( 'topbar-right' ); ?>
 
 					<div class="site-header-cart menu-parent-item">
 
