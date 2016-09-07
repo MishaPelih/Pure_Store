@@ -7,6 +7,30 @@
  */
 ?>
 <?php
+    if ( !function_exists( 'pure_header_classes' ) ) {
+        function pure_header_classes() {
+            $_classes = array();
+
+            # Header overlap.
+            $overlap = pure_get_redux_option( 'header_overlap' );
+            if ( $overlap && $overlap != false ) {
+                array_push( $_classes, 'header-overlap' );
+            }
+
+            # Header color.
+            $header_color = pure_get_redux_option( 'header_color' );
+            if ( $header_color ) {
+                array_push( $_classes, 'header-' . $header_color );
+            }
+
+            if ( count( $_classes ) > 0 ) {
+                array_unshift( $_classes, '' );
+            }
+            $_classes = implode( ' ', $_classes );
+            
+            echo $_classes;
+        }
+    }
 
     /**
      * Get permalink wihtout domain.

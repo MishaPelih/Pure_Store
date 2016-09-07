@@ -5,7 +5,7 @@
  */
 ?>
 <!-- *======#| Header Fixed |#======* -->
-<header class="header fixed">
+<header class="header site-header fixed">
 	<div class="container">
 		<div class="container-wrap">
 

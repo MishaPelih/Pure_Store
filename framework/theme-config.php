@@ -178,12 +178,50 @@
                 'title'    => __( 'Enable Fixed Header', 'pure' ),
                 'default'  => true
             ),
-            array (
+            array(
+                'id' => 'header_overlap',
+                'type' => 'switch',
+                'title' => 'Header overlaps the content',
+                'default' => false,
+            ),
+            array(
+                'id' => 'header_color',
+                'type' => 'select',
+                'title' => 'Header text color',
+                'options' => array(
+                    'dark' => 'Dark',
+                    'white' => 'White',
+                ),
+                'default' => 'white'
+            ),
+            array(
+                'id' => 'header_bg',
+                'type' => 'background',
+                'title' => 'Header background',
+                'output' => array('.header-wrapper')
+            ),
+            array(
 	            'id' => 'enable_top_bar',
 	            'type' => 'switch',
 	            'title' => 'Enable top bar',
 	            'default' => true,
-               ),
+            ),
+            array(
+                'id' => 'top_bar_bg',
+                'type' => 'background',
+                'title' => 'Top bar background',
+                'output' => array('.top-bar')
+            ),
+            array(
+                'id' => 'top_bar_color',
+                'type' => 'select',
+                'title' => 'Top bar text color',
+                'options' => array(
+                    'dark' => 'Dark',
+                    'white' => 'White',
+                ),
+                'default' => 'white'
+            ),
             array(
                 'id'       => 'logo_header',
                 'type'     => 'media',
@@ -213,10 +251,10 @@
 				'title'    => __( 'Header type', 'pure' ),
 				'desc'     => '',
 				'options' => array(
-					'main' => 'Default',
-					'transparent' => 'Transparent'
+					'header-1' => 'Header 1',
+					'header-2' => 'Header 2'
 				),
-				'default'  => 'main'
+				'default'  => 'header-1'
 			),
         ),
     ) );

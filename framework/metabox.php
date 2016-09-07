@@ -91,8 +91,8 @@
 				'default' => 'default',
 				'options'          => array(
 					'default' => '&nbsp;--&nbsp;&nbsp;' . __( 'Select', 'pure' ) . '&nbsp;&nbsp;--&nbsp;',
-			        'main' => __( 'Default', 'pure' ),
-			        'transparent' => __( 'Transparent', 'pure' )
+			        'header-1' => __( 'Header-1', 'pure' ),
+			        'header-2' => __( 'Header-2', 'pure' )
 			    ),
 			) );
 

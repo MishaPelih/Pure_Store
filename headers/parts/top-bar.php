@@ -1,10 +1,8 @@
-<?php
-	echo pure_enable_sidebar();
-?>
 <?php if ( pure_get_redux_option( 'enable_top_bar' ) ): ?>
-	
+
 	<!-- *======#| Top-bar menu |#======* -->
-	<div class="top-bar">
+	<?php $tb_txt_color = pure_get_redux_option( 'top_bar_color' ); ?>
+	<div class="top-bar <?php if ( $tb_txt_color ) echo 'top-bar-' . $tb_txt_color; ?>">
 		<div class="container">
 			<div class="top-bar-content">
 
