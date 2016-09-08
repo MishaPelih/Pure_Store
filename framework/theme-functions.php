@@ -7,20 +7,66 @@
  */
 ?>
 <?php
+// remove_action( 'wp_head', array( 'ReduxFramework', '_output_css' ), 150 );
     if ( !function_exists( 'pure_header_classes' ) ) {
         function pure_header_classes() {
             $_classes = array();
+            $cmb_parent_option = 'header_options';
 
             # Header overlap.
-            $overlap = pure_get_redux_option( 'header_overlap' );
-            if ( $overlap && $overlap != false ) {
+            $overlap_rdx = pure_get_redux_option( 'header_overlap' );
+            $overlap_cmb = pure_get_cmb2_option( 'header_overlap', $cmb_parent_option );
+            if ( !$overlap_cmb || $overlap_cmb == 'default' ) {
+                if ( $overlap_rdx && $overlap_rdx != false ) {
+                    $overlap = true;
+                } else {
+                    $overlap = false;
+                }
+            } elseif( $overlap_cmb == 'on' ) {
+                $overlap = true;
+            } elseif( $overlap_cmb == 'off' ) {
+                $overlap = false;
+            }
+            if ( $overlap && $overlap === true ) {
                 array_push( $_classes, 'header-overlap' );
             }
 
-            # Header color.
-            $header_color = pure_get_redux_option( 'header_color' );
-            if ( $header_color ) {
-                array_push( $_classes, 'header-' . $header_color );
+            # Header text color.
+            $hdr_color_rdx = pure_get_redux_option( 'header_color' );
+            $hdr_color_cmb = pure_get_cmb2_option( 'header_color', $cmb_parent_option );
+            if ( $hdr_color_cmb && $hdr_color_cmb != 'default' ) {
+                $hdr_color = $hdr_color_cmb;
+            } else {
+                $hdr_color = $hdr_color_rdx;
+            }
+            if ( $hdr_color ) {
+                array_push( $_classes, 'header-' . $hdr_color );
+            }
+
+            if ( count( $_classes ) > 0 ) {
+                array_unshift( $_classes, '' );
+            }
+            $_classes = implode( ' ', $_classes );
+            
+            echo $_classes;
+        }
+    }
+
+    if ( !function_exists( 'pure_top_bar_classes' ) ) {
+        function pure_top_bar_classes() {
+            $_classes = array();
+            $cmb_parent_option = 'top_bar_options';
+
+            # Top-bar text color.
+            $tb_color_rdx = pure_get_redux_option( 'top_bar_color' );
+            $tb_color_cmb = pure_get_cmb2_option( 'top_bar_color', $cmb_parent_option );
+            if ( $tb_color_cmb && $tb_color_cmb != 'default' ) {
+                $tb_color = $tb_color_cmb;
+            } else {
+                $tb_color = $tb_color_rdx;
+            }
+            if ( $tb_color ) {
+                array_push( $_classes, 'top-bar-' . $tb_color );
             }
 
             if ( count( $_classes ) > 0 ) {
@@ -283,12 +329,20 @@
 	if ( !function_exists( 'pure_get_logo_url' ) ) {
         function pure_get_logo_url( $option = 'main' )
         {
-            $_url = pure_get_redux_option( 'logo_header_' . $option, 'url' );
+            $_url_rdx = pure_get_redux_option( 'logo_header_' . $option, 'url' );
+            $_url_cmb = pure_get_cmb2_option( 'logo_header_' . $option, 'header_options' );
+            $_url = null;
 
-            if ( $_url && !empty( $_url ) ) {
-                return esc_url( $_url );
-			}
-			return esc_url( PURE_IMAGES_DIR . '/logo-main.png' );
+            if ( !$_url_cmb || empty( $_url_cmb ) ) {
+                if ( $_url_rdx && !empty( $_url_rdx ) ) {
+                    $_url = $_url_rdx;
+                } else {
+                    return false;
+                }
+            } else {
+                $_url = $_url_cmb;
+            }
+            return esc_url( $_url );
         }
 	}
 

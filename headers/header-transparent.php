@@ -1,4 +1,4 @@
-<div class="header-wrapper header-type-2<?php pure_header_classes(); ?>">
+<div class="header-wrapper header-type-transparent<?php pure_header_classes(); ?>">
 
 	<?php get_template_part('headers/parts/top-bar'); ?>
 
@@ -7,15 +7,14 @@
 		<div class="container">
 			<div class="container-wrap">
 
-				<!-- Search -->
-				<div class="site-search">
-					<form role="search" action="#" method="get" id="searchform" class="searchform">
-				        <input type="text" name="s" id="search-content" class="search-content" placeholder="Search" />
-				        <button type="submit" class="searchsubmit">
-				        	<i class="zmdi zmdi-search"></i>
-				        </button>
-					</form>
-				</div>
+				<!-- Logo -->
+				<?php if ( pure_get_logo_url() ): ?>
+					<div class="header-logo">
+						<a href="index.php">
+							<img src="<?php echo pure_get_logo_url(); ?>" alt="">
+						</a>
+					</div><!-- /.header-logo -->
+				<?php endif ?>
 
 				<!-- Navigation -->
 				<div class="menu-wrap">
@@ -31,14 +30,15 @@
 					?>
 				</div><!-- /.menu-wrap -->
 
-				<!-- Logo -->
-				<?php if ( pure_get_logo_url() ): ?>
-					<div class="header-logo">
-						<a href="index.php">
-							<img src="<?php echo pure_get_logo_url(); ?>" alt="">
-						</a>
-					</div><!-- /.header-logo -->
-				<?php endif ?>
+				<!-- Search -->
+				<div class="site-search">
+					<form role="search" action="#" method="get" id="searchform" class="searchform">
+				        <input type="text" name="s" id="search-content" class="search-content" placeholder="Search" />
+				        <button type="submit" class="searchsubmit">
+				        	<i class="zmdi zmdi-search"></i>
+				        </button>
+					</form>
+				</div>
 
 				<!-- Open Mobile Menu Button -->
 				<button type="button" class="open-mobile-menu">

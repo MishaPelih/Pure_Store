@@ -1305,6 +1305,13 @@ footer.site-footer .widget-title {
 .header-wrapper.header-dark .site-search form {
   border-bottom: 1px solid #303030;
 }
+.header-wrapper.header-type-transparent header.site-header,
+.header-wrapper.header-type-transparent .top-bar {
+  background-color: transparent !important;
+}
+.header-wrapper.header-type-transparent .top-bar {
+  border-bottom: 1px solid rgba(69, 69, 69, 0.5);
+}
 /* Header.
 ============================ */
 header.site-header {

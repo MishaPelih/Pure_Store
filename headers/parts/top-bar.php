@@ -2,7 +2,7 @@
 
 	<!-- *======#| Top-bar menu |#======* -->
 	<?php $tb_txt_color = pure_get_redux_option( 'top_bar_color' ); ?>
-	<div class="top-bar <?php if ( $tb_txt_color ) echo 'top-bar-' . $tb_txt_color; ?>">
+	<div class="top-bar<?php pure_top_bar_classes(); ?>">
 		<div class="container">
 			<div class="top-bar-content">
 

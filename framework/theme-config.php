@@ -198,7 +198,7 @@
                 'id' => 'header_bg',
                 'type' => 'background',
                 'title' => 'Header background',
-                'output' => array('.header-wrapper')
+                'output' => array('.header-wrapper:not(.header-type-transparent)')
             ),
             array(
 	            'id' => 'enable_top_bar',
@@ -210,7 +210,7 @@
                 'id' => 'top_bar_bg',
                 'type' => 'background',
                 'title' => 'Top bar background',
-                'output' => array('.top-bar')
+                'output' => array('.header-wrapper:not(.header-type-transparent) .top-bar')
             ),
             array(
                 'id' => 'top_bar_color',
@@ -223,7 +223,7 @@
                 'default' => 'white'
             ),
             array(
-                'id'       => 'logo_header',
+                'id'       => 'logo_header_main',
                 'type'     => 'media',
                 'title'    => __( 'Logo image', 'pure' ),
                 'desc'     => __( 'Upload image: png, jpg or gif file.', 'pure' ),
@@ -252,7 +252,8 @@
 				'desc'     => '',
 				'options' => array(
 					'header-1' => 'Header 1',
-					'header-2' => 'Header 2'
+					'header-2' => 'Header 2',
+					'header-transparent' => 'Transparent Header',
 				),
 				'default'  => 'header-1'
 			),

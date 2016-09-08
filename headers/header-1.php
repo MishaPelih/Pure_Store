@@ -8,11 +8,13 @@
 			<div class="container-wrap">
 
 				<!-- Logo -->
-				<div class="header-logo">
-					<a href="index.php">
-						<img src="<?php echo pure_get_logo_url(); ?>" alt="">
-					</a>
-				</div><!-- /.header-logo -->
+				<?php if ( pure_get_logo_url() ): ?>
+					<div class="header-logo">
+						<a href="index.php">
+							<img src="<?php echo pure_get_logo_url(); ?>" alt="">
+						</a>
+					</div><!-- /.header-logo -->
+				<?php endif ?>
 
 				<!-- Navigation -->
 				<div class="menu-wrap">
