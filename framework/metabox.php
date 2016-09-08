@@ -25,22 +25,22 @@
 		        'object_types'  => array( 'post' ), // Post type
 		        'context'       => 'normal',
 		        'priority'      => 'high',
-		        'show_names'    => true, // Show field names on the left
-		        // 'cmb_styles' => false, // false to disable the CMB stylesheet
-		        // 'closed'     => true, // Keep the metabox closed by default
+		        'show_names'    => true,
+		        // 'cmb_styles' => false,
+		        // 'closed'     => true,
 		    ) );
 
 		    # [Post format - video] options.
 			$group_field_id = $cmb_post->add_field( array(
 			    'id'          => $prefix . 'post_format_video_group',
 			    'type'        => 'group',
-			    'repeatable'  => false, // use false if you want non-repeatable group
+			    'repeatable'  => false,
 			    'options'     => array(
 			        'group_title'   => __( 'Options for [Video] post format', 'pure' ),
 			        'sortable'      => true,
 			        // 'add_button'    => __( 'Add Another Entry', 'pure' ),
 			        // 'remove_button' => __( 'Remove Entry', 'pure' ),
-			        // 'closed'     => true, // true to have the groups closed by default
+			        // 'closed'     => true,
 			    ),
 			) );
 
@@ -50,10 +50,10 @@
 				'type'    => 'file',
 				'description' => __( 'Upload a file or enter an URL', 'pure' ),
 				'options' => array(
-					'url' => true, // Hide the text input for the url
+					'url' => true,
 				),
 				'text'    => array(
-					'add_upload_file_text' => 'Add or Upload File'
+					'add_upload_file_text' => __( 'Add or Upload File', pure )
 				),
 				'allow' => array( 'url', 'attachment' )
 			) );
@@ -117,7 +117,7 @@
 					'url' => true,
 				),
 				'text'    => array(
-					'add_upload_file_text' => 'Add or Upload File'
+					'add_upload_file_text' => __( 'Add or Upload File', 'pure' )
 				),
 				'allow' => array( 'url', 'attachment' )
 			) );
@@ -131,7 +131,7 @@
 					'url' => true,
 				),
 				'text'    => array(
-					'add_upload_file_text' => 'Add or Upload File'
+					'add_upload_file_text' => __( 'Add or Upload File', pure )
 				),
 				'allow' => array( 'url', 'attachment' )
 			) );

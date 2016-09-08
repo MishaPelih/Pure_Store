@@ -9,11 +9,9 @@
 	 * ReduxFramework Redux Config File
 	 * For full documentation, please visit: http://docs.reduxframework.com/
 	 */
-
 	if ( ! class_exists( 'Redux' ) ) {
 		return;
 	}
-
 
 	// This is your option name where all the Redux data is stored.
 	$opt_name = "redux_pure";
@@ -161,7 +159,7 @@
 	 * General.
 	 */
 	Redux::setSection( $opt_name, array(
-        'title' => 'General',
+        'title' => __( 'General', 'pure' ),
         'id' => 'general',
         'icon' => 'el-icon-home',
     ) );
@@ -181,44 +179,44 @@
             array(
                 'id' => 'header_overlap',
                 'type' => 'switch',
-                'title' => 'Header overlaps the content',
+                'title' => __( 'Header overlaps the content', 'pure' ),
                 'default' => false,
             ),
             array(
                 'id' => 'header_color',
                 'type' => 'select',
-                'title' => 'Header text color',
+                'title' => __( 'Header text color', 'pure' ),
                 'options' => array(
-                    'dark' => 'Dark',
-                    'white' => 'White',
+                    'dark' => __( 'Dark', 'pure' ),
+                    'white' => __( 'White', 'pure' ),
                 ),
                 'default' => 'white'
             ),
             array(
                 'id' => 'header_bg',
                 'type' => 'background',
-                'title' => 'Header background',
+                'title' => __( 'Header background', 'pure' ),
                 'output' => array('.header-wrapper:not(.header-type-transparent)')
             ),
             array(
 	            'id' => 'enable_top_bar',
 	            'type' => 'switch',
-	            'title' => 'Enable top bar',
+	            'title' => __( 'Enable top bar', 'pure' ),
 	            'default' => true,
             ),
             array(
                 'id' => 'top_bar_bg',
                 'type' => 'background',
-                'title' => 'Top bar background',
+                'title' => __( 'Top bar background', 'pure' ),
                 'output' => array('.header-wrapper:not(.header-type-transparent) .top-bar')
             ),
             array(
                 'id' => 'top_bar_color',
                 'type' => 'select',
-                'title' => 'Top bar text color',
+                'title' => __( 'Top bar text color', 'pure' ),
                 'options' => array(
-                    'dark' => 'Dark',
-                    'white' => 'White',
+                    'dark' => __( 'Dark', 'pure' ),
+                    'white' => __( 'White', 'pure' ),
                 ),
                 'default' => 'white'
             ),
@@ -251,9 +249,9 @@
 				'title'    => __( 'Header type', 'pure' ),
 				'desc'     => '',
 				'options' => array(
-					'header-1' => 'Header 1',
-					'header-2' => 'Header 2',
-					'header-transparent' => 'Transparent Header',
+					'header-1' => __( 'Header 1', 'pure' ),
+					'header-2' => __( 'Header 2', 'pure' ),
+					'header-transparent' => __( 'Transparent Header', 'pure' ),
 				),
 				'default'  => 'header-1'
 			),
@@ -265,13 +263,13 @@
 	 * E-commerce
 	 */
 	Redux::setSection( $opt_name, array(
-        'title' => 'E-Commerce',
+        'title' => __( 'E-Commerce', 'pure' ),
         'id' => 'shop',
         'icon' => 'el-icon-shopping-cart',
     ));
 
     Redux::setSection( $opt_name, array(
-        'title' => 'Products Page Layout',
+        'title' => __( 'Products Page Layout', 'pure' ),
         'id' => 'shop-product_page_layout',
         'icon' => 'el-icon-view-mode',
         'subsection' => true,
@@ -296,9 +294,9 @@
                 'title'    => __( 'Sidebar position', 'pure' ),
                 'desc'     => '',
 				'options' => array(
-			        'left' => __( 'Left' ),
-			        'right' => __( 'Right' ),
-			        'disable' => __( 'Disable' ),
+			        'left' => __( 'Left', 'pure' ),
+			        'right' => __( 'Right', 'pure' ),
+			        'disable' => __( 'Disable', 'pure' ),
 			    ),
                 'default' => 'left'
             ),
@@ -310,13 +308,13 @@
 	 * Blog
 	 */
 	Redux::setSection( $opt_name, array(
-        'title' => 'Blog',
+        'title' => __( 'Blog', 'pure' ),
         'id' => 'blog',
         'icon' => 'el-icon-wordpress',
     ));
 
     Redux::setSection( $opt_name, array(
-        'title' => 'Blog Layout',
+        'title' => __( 'Blog Layout', 'pure' ),
         'id' => 'blog-blog_layout',
         'subsection' => true,
         'icon' => 'el-icon-wordpress',
@@ -340,9 +338,9 @@
                 'title'    => __( 'Blog sidebar position', 'pure' ),
                 'desc'     => '',
 				'options' => array(
-			        'left' => __( 'Left' ),
-			        'right' => __( 'Right' ),
-			        'disable' => __( 'Disable' ),
+			        'left' => __( 'Left', 'pure' ),
+			        'right' => __( 'Right', 'pure' ),
+			        'disable' => __( 'Disable', 'pure' ),
 			    ),
                 'default' => 'left'
             ),
