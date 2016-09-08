@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
   * metabox.php
   *
@@ -53,7 +53,7 @@
 					'url' => true,
 				),
 				'text'    => array(
-					'add_upload_file_text' => __( 'Add or Upload File', pure )
+					'add_upload_file_text' => __( 'Add or Upload File', 'pure' )
 				),
 				'allow' => array( 'url', 'attachment' )
 			) );
@@ -131,7 +131,7 @@
 					'url' => true,
 				),
 				'text'    => array(
-					'add_upload_file_text' => __( 'Add or Upload File', pure )
+					'add_upload_file_text' => __( 'Add or Upload File', 'pure' )
 				),
 				'allow' => array( 'url', 'attachment' )
 			) );

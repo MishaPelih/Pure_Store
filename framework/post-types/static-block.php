@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * reviews.php
  *
@@ -6,24 +6,23 @@
  * ============================================ *
  */
 ?>
-
 <?php
 	if ( !function_exists( 'pure_post_type_static_block' ) ) {
 		function pure_post_type_static_block() {
 			$labels = array(
-				'name'               => _x( 'Static block', 'Static block' ),
-				'singular_name'      => _x( 'Static block', 'Static block' ),
-				'add_new'            => _x( 'Add New', 'book' ),
-				'add_new_item'       => __( 'Add New Static block' ),
-				'edit_item'          => __( 'Edit Static block' ),
-				'new_item'           => __( 'New Static block' ),
-				'all_items'          => __( 'All Static blocks' ),
-				'view_item'          => __( 'View Static block' ),
-				'search_items'       => __( 'Search for Static blocks' ),
-				'not_found'          => __( 'No static blocks found' ),
-				'not_found_in_trash' => __( 'No static blocks found in the Trash' ),
+				'name'               => _x( 'Static block', 'Static block', 'pure' ),
+				'singular_name'      => _x( 'Static block', 'Static block',  'pure' ),
+				'add_new'            => _x( 'Add New', 'Add New', 'pure' ),
+				'add_new_item'       => __( 'Add New Static block', 'pure' ),
+				'edit_item'          => __( 'Edit Static block', 'pure' ),
+				'new_item'           => __( 'New Static block', 'pure' ),
+				'all_items'          => __( 'All Static blocks', 'pure' ),
+				'view_item'          => __( 'View Static block', 'pure' ),
+				'search_items'       => __( 'Search for Static blocks', 'pure' ),
+				'not_found'          => __( 'No static blocks found', 'pure' ),
+				'not_found_in_trash' => __( 'No static blocks found in the Trash', 'pure' ),
 				'parent_item_colon'  => '',
-				'menu_name'          => 'Static blocks'
+				'menu_name'          => __( 'Static blocks', 'pure' )
 			);
 			$args = array(
 				'taxonomies'    => array( 'category', 'post_tag' ),

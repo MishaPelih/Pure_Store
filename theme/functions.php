@@ -1,16 +1,13 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * functions.php
+ * theme/functions.php
+ * ============================================ *
  */
 ?>
-
 <?php
-	 /**
-	 * -----------------------------------------------------------------------------------------
-	 * - Plugins activation.
-	 * -----------------------------------------------------------------------------------------
+	/**
+	 * Plugins activation.
 	 */
-	
 	if ( !function_exists( 'pure_register_required_plugins' ) ) {
 		function pure_register_required_plugins()
 		{
@@ -36,14 +33,14 @@
 					'external_url' 			=> 'woocommerce', // If set, overrides default API URL and points to an external URL
 				),
 				array(
-					'name'     				=> 'Visual Composer', // The plugin name
-					'slug'     				=> 'js_composer', // The plugin slug (typically the folder name)
-					'source'   				=> get_template_directory_uri() . '/theme/plugins/js_composer.zip', // The plugin source
-					'required' 				=> true, // If false, the plugin is only 'recommended' instead of required
-					'version' 				=> '', // E.g. 1.0.0. If set, the active plugin must be this version or higher, otherwise a notice is presented
-					'force_activation' 		=> false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch
-					'force_deactivation' 	=> false, // If true, plugin is deactivated upon theme switch, useful for theme-specific plugins
-					'external_url' 			=> '', // If set, overrides default API URL and points to an external URL
+					'name'     				=> 'Visual Composer',
+					'slug'     				=> 'js_composer',
+					'source'   				=> get_template_directory_uri() . '/theme/plugins/js_composer.zip',
+					'required' 				=> true,
+					'version' 				=> '',
+					'force_activation' 		=> false,
+					'force_deactivation' 	=> false,
+					'external_url' 			=> '',
 				),
 				array(
 					'name'     				=> 'YITH WooCommerce Wishlist',
@@ -90,5 +87,4 @@
 			tgmpa( $plugins, $config );
 		}
 	}
-
 	add_action( 'tgmpa_register', 'pure_register_required_plugins' );

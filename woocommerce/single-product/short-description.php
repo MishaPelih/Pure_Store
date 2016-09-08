@@ -28,6 +28,6 @@ if ( ! $post->post_excerpt ) {
 
 ?>
 <div itemprop="description">
-	<label>Overview:</label>
+	<label><?php _e( 'Overview', 'pure' ) ?>:</label>
 	<?php echo apply_filters( 'woocommerce_short_description', $post->post_excerpt ) ?>
 </div>

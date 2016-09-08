@@ -98,7 +98,7 @@
 	if( is_single() && get_the_author_meta( 'description' ) ): ?>
 		<!-- ====| Entry-footer |==== -->
 		<footer class="entry-footer">
-			<h3><?php echo __( 'Written by ', 'blanc' ) . get_the_author(); ?></h3>
+			<h3><?php echo __( 'Written by ', 'pure' ) . get_the_author(); ?></h3>
 			<p><?php echo the_author_meta( 'description' ); ?></p>
 		</footer><!-- /.entry-footer -->
 	<?php endif; ?>

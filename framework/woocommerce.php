@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * woocommerce.php
  *
@@ -363,8 +363,7 @@
 	}
 
 	if ( ! function_exists('pure_comment_count' ) ) {
-		function pure_comment_count() {
-		?>
+		function pure_comment_count() { ?>
 			<div id="reviews" class="woocommerce-review-link">
 				<a href="<?php echo the_permalink(); ?>#reviews">(<?php echo get_comments_number(); ?>)</a>
 			</div>
@@ -373,18 +372,14 @@
 	}
 
 	if ( !function_exists( 'pure_show_quickly_area_start' ) ) {
-		function pure_show_quickly_area_start()
-		{
+		function pure_show_quickly_area_start() {
 			global $post;
-			?>
-			<div class="show-quickly" data-prodid="<?php echo $post->ID; ?>">
-			<?php
+			echo '<div class="show-quickly" data-prodid="' . $post->ID . '">';
 		}
 	}
 
 	if ( !function_exists( 'pure_show_quickly_area_end' ) ) {
-		function pure_show_quickly_area_end()
-		{ ?>
+		function pure_show_quickly_area_end() { ?>
 			</div><!-- /.show-quickly -->
 			<?php
 		}
@@ -399,8 +394,7 @@
 		}
 	}
 	if ( !function_exists( 'pure_show_quickly' ) ) {
-		function pure_show_quickly()
-		{ ?>
+		function pure_show_quickly() { ?>
 			<span class="icon">
 				<i class="zmdi zmdi-plus-circle-o"></i>
 			</span>
@@ -409,8 +403,7 @@
 	}
 
 	if ( !function_exists( 'pure_product_title' ) ) {
-        function pure_product_title()
-        { ?>
+        function pure_product_title() { ?>
             <h3 class="product-title">
 				<a href="<?php the_permalink(); ?>" class="woocommerce-LoopProduct-link">
 					<?php the_title(); ?>
@@ -421,50 +414,43 @@
     }
 
 	if ( !function_exists( 'pure_product_details_start' ) ) {
-        function pure_product_details_start()
-        {
+        function pure_product_details_start() {
             echo "<div class='product-details'>";
         }
     }
 
 	if ( !function_exists( 'pure_product_details_end' ) ) {
-        function pure_product_details_end()
-        {
+        function pure_product_details_end() {
 			echo "</div><!-- /.product-details -->";
         }
     }
 
 	if ( !function_exists( 'pure_product_footer_start' ) ) {
-        function pure_product_footer_start()
-        {
+        function pure_product_footer_start() {
             echo '<footer class="footer-product">';
         }
     }
 
     if ( !function_exists( 'pure_product_footer_end' ) ) {
-        function pure_product_footer_end()
-        {
+        function pure_product_footer_end() {
             echo "</footer>";
         }
     }
 
 	if ( !function_exists( 'pure_product_mask_start' ) ) {
-        function pure_product_mask_start()
-        {
+        function pure_product_mask_start() {
             echo "<div class='product-mask'>";
         }
     }
 
     if ( !function_exists( 'pure_product_mask_end' ) ) {
-        function pure_product_mask_end()
-        {
+        function pure_product_mask_end() {
            echo "</div><!-- /.product-mask -->";
         }
     }
 
 	if ( !function_exists( 'pure_product_mask_content_start' ) ) {
-        function pure_product_mask_content_start()
-        {
+        function pure_product_mask_content_start() {
             echo "<div class='product-mask-content'>";
         }
     }
@@ -479,8 +465,8 @@
 	add_action('wp_ajax_pure_product_quick_view', 'pure_product_quick_view');
 	add_action('wp_ajax_nopriv_pure_product_quick_view', 'pure_product_quick_view');
 	if ( !function_exists( 'pure_product_quick_view' ) ) {
-		function pure_product_quick_view()
-		{
+		function pure_product_quick_view() {
+
 			if ( empty( $_POST['prodid'] ) ) {
 				echo 'Error: Absent product id';
 				die();

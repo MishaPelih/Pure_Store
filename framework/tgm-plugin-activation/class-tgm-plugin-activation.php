@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * Plugin installation and activation for WordPress themes.
  *

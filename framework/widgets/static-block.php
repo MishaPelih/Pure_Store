@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * Widget API: Pure_Statick_Block_Widget class
  *
@@ -7,8 +7,7 @@
  * @since 4.4.0
  * ============================================ *
  */
- ?>
-
+?>
 <?php
 
     class Pure_Statick_Block_Widget extends WP_Widget
@@ -63,7 +62,7 @@
 
             <!-- Title -->
             <p>
-                <label for="<?php echo $this->get_field_id( 'post_title' ); ?>"><?php _e( 'Title:', 'blanc' ); ?></label>
+                <label for="<?php echo $this->get_field_id( 'post_title' ); ?>"><?php _e( 'Title:', 'pure' ); ?></label>
                 <input type="text" name="<?php echo $this->get_field_name( 'post_title' ); ?>" id="<?php echo $this->get_field_id( 'post_title' ); ?>" value="<?php echo $post_title; ?>">
             </p>
 

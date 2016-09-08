@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * Widget API: Pure_Myaccount_Dropdown class
  *
@@ -8,7 +8,6 @@
  * ============================================ *
  */
  ?>
-
  <?php
     class Pure_My_Account_Menu extends WP_Widget
     {
@@ -41,7 +40,7 @@
              ?>
             <!-- Title -->
             <p>
-                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'blanc' ); ?></label>
+                <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:', 'pure' ); ?></label>
                 <input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>" id="<?php echo $this->get_field_id( 'title' ); ?>" value="<?php echo $title; ?>">
             </p>
 

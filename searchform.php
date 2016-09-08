@@ -3,6 +3,7 @@
  * searcform.php
  *
  * Wordpress search form.
+ * ============================================ *
  */
 ?>
 <form role="search" method="get" id="searchform" class="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">

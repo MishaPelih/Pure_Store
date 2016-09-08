@@ -1,10 +1,9 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
-  * static-block.php
-  * ============================================ *
-  */ 
+ * static-block.php
+ * ============================================ *
+ */ 
 ?>
-
 <?php
 
 	if ( !function_exists( 'pure_static_block' ) ) {

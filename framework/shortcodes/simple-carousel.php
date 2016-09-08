@@ -1,8 +1,9 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * simple-carousel.php
  *
  * Shortcode for displaying Simple Carousel.
+ * ============================================ *
  */
 ?>
 <?php

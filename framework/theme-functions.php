@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * functions.php
  *
@@ -7,7 +7,6 @@
  */
 ?>
 <?php
-// remove_action( 'wp_head', array( 'ReduxFramework', '_output_css' ), 150 );
     if ( !function_exists( 'pure_header_classes' ) ) {
         function pure_header_classes() {
             $_classes = array();

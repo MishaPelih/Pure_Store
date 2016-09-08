@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * Widget API: Pure_Popular_Posts class
  *
@@ -7,7 +7,7 @@
  * @since 4.4.0
  * ============================================ *
  */
- ?>
+?>
 <?php
     class Pure_Popular_Posts extends WP_Widget
     {

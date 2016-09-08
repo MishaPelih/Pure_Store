@@ -1,11 +1,11 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * posts.php
- *
+ * 
  * Shortcode for displaying Posts.
+ * ============================================ *
  */
 ?>
-
 <?php
 if ( !function_exists( 'pure_posts' ) ) {
     function pure_posts( $attrs, $content = null )

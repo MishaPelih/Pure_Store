@@ -9,7 +9,7 @@
 <?php
 	## Prevent the direct loading of comments.php.
 	if ( ! empty( $_SERVER['SCRIPT-FILENAME'] ) && basename( $_SERVER['SCRIPT-FILENAME'] ) == 'comments.php' ) {
-		die( __( 'You cannot access this page directly.', 'blanc' ) );
+		die( __( 'You cannot access this page directly.', 'pure' ) );
 	}
 ?>
 
@@ -18,7 +18,7 @@
 	if ( post_password_required() ): ?>
 		<p>
 			<?php
-				_e( 'This post is password protected. Enter the password to view the comments.', 'blanc' );
+				_e( 'This post is password protected. Enter the password to view the comments.', 'pure' );
 				return;
 			?>
 		</p>
@@ -47,10 +47,10 @@
 			<!-- comments navigation -->
 			<nav class="comment-nav" role="navigation">
 				<p class="comment-nav-prev">
-					<?php previous_comments_link( __( '&larr; Older Comments', 'blanc' ) ); ?>
+					<?php previous_comments_link( __( '&larr; Older Comments', 'pure' ) ); ?>
 				</p>
 				<p class="comment-nav-next">
-					<?php next_comments_link( __( ' Newer Comments &larr;', 'blanc' ) ); ?>
+					<?php next_comments_link( __( ' Newer Comments &larr;', 'pure' ) ); ?>
 				</p>
 			</nav><!-- comment-nav -->
 		<?php endif; ?>
@@ -59,7 +59,7 @@
 		## If the comments are closed, display an info text.
 		if ( ! comments_open() && get_comments_number() ): ?>
 			<p class="no-comments">
-				<?php _e( 'Comments are closed.', 'blanc' ); ?>
+				<?php _e( 'Comments are closed.', 'pure' ); ?>
 			</p>
 		<?php endif; ?>
     <?php else: ?>

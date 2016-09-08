@@ -1,4 +1,4 @@
-<?php
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * functions.php
  *
@@ -8,9 +8,7 @@
 ?>
 <?php
 	/**
-	 * ================================================================
-	 * - Define constants.
-	 * ================================================================
+	 * Define constants.
 	 */
 	define( 'PURE_THEMEROOT', get_stylesheet_directory_uri() );
 	define( 'PURE_IMAGES_DIR', PURE_THEMEROOT . '/images' );
@@ -18,6 +16,11 @@
 	define( 'PURE_STYLES_DIR', PURE_THEMEROOT . '/css' );
 	define( 'PURE_FRAMEWORK_DIR', get_template_directory() . '/framework' );
 	define( 'PURE_THEME_DIR', get_template_directory() . '/theme' );
+
+	/**
+	 * Load theme setup.
+	 */
+	require_once( PURE_THEME_DIR . '/theme-setup.php' );
 
 	/**
 	 * Load the framework.
@@ -34,46 +37,6 @@
 	 */
 	if ( !isset( $content_width ) ) {
 		$content_width = 800;
-	}
-
-	/**
-	 * Set up theme default and register various supported features.
-	 */
-	if ( !function_exists( 'pure_setup' ) ) {
-		function pure_setup()
-		{
-			# Make the theme available for translation.
-			$lang_dir = PURE_THEMEROOT . '/languages';
-			load_theme_textdomain( 'pure', $lang_dir );
-
-			# Add support for post formats.
-			add_theme_support( 'post-formats',
-				array(
-					'gallery',
-					'link',
-					'image',
-					'video',
-					'audio'
-				)
-			);
-
-			# Add support for post thumbnails.
-			add_theme_support( 'post-thumbnails' );
-
-			# Add support for page title.
-			add_theme_support( 'title-tag' );
-
-			# Register nav menus.
-			register_nav_menus(
-				array(
-					'main' => __( 'Main Menu', 'pure' ),
-					'topbar' => __( 'Topbar Menu', 'pure' ),
-					'mobile' => __( 'Mobile Menu', 'pure' )
-				)
-			);
-		}
-
-		add_action( 'after_setup_theme', 'pure_setup' );
 	}
 
 	/**

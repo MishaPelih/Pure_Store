@@ -1,7 +1,4 @@
-<?php
-    if ( ! defined( 'ABSPATH' ) ) {
-    	exit; // Exit if accessed directly
-    }
+<?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 
 	/**
 	 * woocommerce_before_single_product hook.
