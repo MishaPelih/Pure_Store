@@ -234,6 +234,16 @@
                 'desc'     => __( 'Upload image: png, jpg or gif file.', 'pure' ),
                 'default'  => ''
             ),
+            array(
+                'id'        => 'logo_width',
+                'type'      => 'slider',
+                'title'     => __( 'Logo max width', 'pure' ),
+                "default"   => 200,
+                "min"       => 50,
+                "step"      => 1,
+                "max"       => 500,
+                'display_value' => 'label'
+            ),
         ),
     ) );
 
@@ -256,6 +266,31 @@
 				'default'  => 'header-1'
 			),
         ),
+    ) );
+
+
+    /**
+     * Styling.
+     */
+    Redux::setSection( $opt_name, array(
+        'title' => 'Styling',
+        'id' => 'style',
+        'icon' => 'el-icon-picture',
+    ) );
+
+    Redux::setSection( $opt_name, array(
+    	'title' => 'Content',
+        'id' => 'style-content',
+        'icon' => 'el-icon-picture',
+        'subsection' => true,
+        'fields' => array(
+        	array(
+                'id' => 'active_color',
+                'type' => 'color',
+                'title' => 'Main Color',
+                'default' => '#f05a66'
+            ),
+        )
     ) );
 
 

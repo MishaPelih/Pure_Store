@@ -286,7 +286,6 @@
             } else {
                 @$cmb_option = get_post_meta( $id, 'pure_' . $option, true );
             }
-            // $cmb_option = get_post_meta( $id, 'pure_' . $option, true );
             return $cmb_option;
         }
     }
@@ -350,7 +349,7 @@
      */
     function pure_update_post_views()
     {
-        if ( !$_COOKIE['pure_post_view'] && is_single() ): ?>
+        if ( !isset( $_COOKIE['pure_post_view'] ) && is_single() ): ?>
 
             <?php $post_id = get_the_ID(); ?>
 
@@ -431,4 +430,10 @@
         {
             return is_plugin_active('woocommerce/woocommerce.php');
         }
+    }
+
+    if( !function_exists( 'pure_js2tring' ) ) {
+        function pure_js2tring($str='') {
+            return trim( preg_replace("/('|\"|\r?\n)/", '', $str) ); 
+        } 
     }

@@ -8,7 +8,9 @@
 ?>
 <?php
     # Necessary components.
+    get_template_part( 'framework/sidebars' );
     get_template_part( 'framework/theme-functions' );
+    get_template_part( 'framework/theme-init' );
     get_template_part( 'framework/woocommerce' );
     get_template_part( 'framework/template-tags' );
     get_template_part( 'framework/theme-config' );
