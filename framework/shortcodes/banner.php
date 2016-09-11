@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * banner.php
+ * framework/shortcodes/banner.php
  * 
  * Shortcode for displaying Banner.
  * ============================================ *

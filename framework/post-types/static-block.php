@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * reviews.php
+ * framework/post-types/static-block.php
  *
  * Register static posts type.
  * ============================================ *

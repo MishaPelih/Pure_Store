@@ -1,7 +1,6 @@
-
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * woocommerce.php
+ * framework/woocommerce.php
  *
  * File which contains functions and hooks related to woocommerce.
  * ============================================================= *

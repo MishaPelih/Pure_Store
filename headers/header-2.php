@@ -31,8 +31,8 @@
 					?>
 				</div><!-- /.menu-wrap -->
 
-				<!-- Logo -->
 				<?php if ( pure_get_logo_url() ): ?>
+					<!-- Logo -->
 					<div class="header-logo">
 						<a href="index.php">
 							<img src="<?php echo pure_get_logo_url(); ?>" alt="">

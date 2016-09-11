@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * init.php
+ * framework/init.php
  *
  * Load the frameworks.
  * ============================================ *

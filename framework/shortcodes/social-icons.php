@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * social-icons.php
+ * framework/shortcodes/social-icons.php
  * ============================================ *
  */
 ?>

@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * static-block.php
+ * framework/shortcodes/static-block.php
  * ============================================ *
  */ 
 ?>
