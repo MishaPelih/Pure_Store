@@ -14,7 +14,7 @@
 							<img src="<?php echo pure_get_logo_url(); ?>" alt="">
 						</a>
 					</div><!-- /.header-logo -->
-				<?php endif ?>
+				<?php endif; ?>
 
 				<!-- Navigation -->
 				<div class="menu-wrap">

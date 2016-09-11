@@ -16,7 +16,6 @@
 	define( 'PURE_STYLES_DIR', PURE_THEMEROOT . '/css' );
 	define( 'PURE_FRAMEWORK_DIR', get_template_directory() . '/framework' );
 	define( 'PURE_THEME_DIR', get_template_directory() . '/theme' );
-
 	/**
 	 * Load theme setup.
 	 */

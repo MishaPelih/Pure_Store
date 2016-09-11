@@ -38,7 +38,7 @@
 							<img src="<?php echo pure_get_logo_url(); ?>" alt="">
 						</a>
 					</div><!-- /.header-logo -->
-				<?php endif ?>
+				<?php endif; ?>
 
 				<!-- Open Mobile Menu Button -->
 				<button type="button" class="open-mobile-menu">
