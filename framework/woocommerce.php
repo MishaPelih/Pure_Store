@@ -1,3 +1,4 @@
+
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * woocommerce.php
@@ -89,17 +90,16 @@
 
 	function pure_shop_per_page()
 	{
-		$products_per_page_post = $_POST['pure_products_per_page'];
-		$products_per_page_cookie = $_COOKIE['pure_products_per_page'];
-
-		if ( $_SERVER['REQUEST_METHOD'] === 'POST' && $products_per_page_post ) {
-			unset( $_POST['pure_products_per_page'] );
-			setcookie( 'pure_products_per_page', $products_per_page_post, 0, '/' );
-			return $products_per_page_post;
-		} elseif ( $products_per_page_cookie ) {
-			return $products_per_page_cookie;
+		$_per_page = 'pure_products_per_page';
+		if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST[$_per_page] ) ) {
+			$per_page_post = $_POST[$_per_page];
+			unset( $_POST[$_per_page] );
+			setcookie( $_per_page, $per_page_post, 0, '/' );
+			return $per_page_post;
+		} elseif ( $_COOKIE[$_per_page] ) {
+			return $_COOKIE[$_per_page];
 		}
-		setcookie( 'pure_products_per_page', 12, 0, '/' );
+		setcookie( $_per_page, 12, 0, '/' );
 		return 12;
 	}
 
@@ -127,9 +127,8 @@
 						<?php
 							$grid_class = ' active';
 							$list_class = '';
-							$view_mode = $_GET['view_mode'];
 
-							if ( $view_mode && $view_mode == 'list' ) {
+							if ( isset( $_GET['view_mode'] ) && $_GET['view_mode'] == 'list' ) {
 								$list_class = ' active';
 								$grid_class = '';
 							}
@@ -174,9 +173,7 @@
 
 	add_action( 'woocommerce_after_shop_loop', 'pure_before_after_shop_loop' );
 	if ( !function_exists( 'pure_before_after_shop_loop' ) ) {
-		function pure_before_after_shop_loop()
-		{
-			?>
+		function pure_before_after_shop_loop() { ?>
 			<div class="filter-wrap top">
 				<div class="filter-content">
 					<div class="switch">
@@ -309,43 +306,33 @@
     add_action( 'woocommerce_after_shop_loop_item_title', 'pure_product_details_end', 10 );
 
 
-
 	/**
 	 * Functions.
 	 */
 	# Compare Button
 	if ( ! function_exists( 'pure_product_compare_button' ) ) {
-		function pure_product_compare_button() { ?>
-			<?php
-				$comp = new YITH_Woocompare_Frontend();
-				$product_list = $comp->products_list;
-				$added = '';
-				foreach  ( $product_list as $key => $value ) {
-					if ( $value == get_the_ID() ) {
-						$added = ' added';
-					}
-				}
-			?>
-			<a href="<?php echo pure_get_permalink_without_dominian(); ?>?action=yith-woocompare-add-product&id=<?php echo get_the_ID(); ?>" data-product_id="<?php echo get_the_ID(); ?>" rel="nofollow" class="button side-button compare<?php echo $added; ?>"></a>
-		<?php
+		function pure_product_compare_button() {
+			$comp = new YITH_Woocompare_Frontend();
+			$product_list = $comp->products_list;
+			$added = '';
+			foreach  ( $product_list as $key => $value ) {
+				if ( $value == get_the_ID() ) $added = ' added';
+			}
+			echo '<a href="' . pure_get_permalink_without_dominian() . '?action=yith-woocompare-add-product&id=' . get_the_ID() . '" data-product_id="' . get_the_ID() . '" rel="nofollow" class="button side-button compare' . $added . '"></a>';
 		}
 	}
 
 	# Wishlist Button
 	if ( ! function_exists( 'pure_product_wishlist_button' ) ) {
-		function pure_product_wishlist_button() { ?>
-			<?php
-				$added = '';
-				if ( YITH_WCWL()->is_product_in_wishlist( get_the_ID() ) ) {
-					$href = pure_get_permalink_without_dominian() . '?add_to_wishlist=' . get_the_ID();
-					$added = ' added';
-				} else {
-					$href = YITH_WCWL()->get_wishlist_url();
-				}
-			?>
-
-			<a href="<?php echo $href; ?>" rel="nofollow" data-product-id="<?php echo get_the_ID(); ?>" data-product-type="simple" class="button side-button add_to_wishlist yith-wcwl-add-to-wishlist add-to-wishlist-<?php echo get_the_ID(); ?><?php echo $added; ?>"></a>
-		<?php
+		function pure_product_wishlist_button() { 
+			$added = '';
+			if ( YITH_WCWL()->is_product_in_wishlist( get_the_ID() ) ) {
+				$href = pure_get_permalink_without_dominian() . '?add_to_wishlist=' . get_the_ID();
+				$added = ' added';
+			} else {
+				$href = YITH_WCWL()->get_wishlist_url();
+			}
+			echo '<a href="<?php echo $href; ?>" rel="nofollow" data-product-id="' . get_the_ID() . '" data-product-type="simple" class="button side-button add_to_wishlist yith-wcwl-add-to-wishlist add-to-wishlist-' . get_the_ID() . $added . '"></a>';
 		}
 	}
 
@@ -356,8 +343,7 @@
 	}
 
 	if ( !function_exists( 'pure_product_meta_wrap_start' ) ) {
-		function pure_product_meta_wrap_start()
-		{
+		function pure_product_meta_wrap_start() {
 			echo '<div class="pure-meta-wrap">';
 		}
 	}
@@ -379,9 +365,8 @@
 	}
 
 	if ( !function_exists( 'pure_show_quickly_area_end' ) ) {
-		function pure_show_quickly_area_end() { ?>
-			</div><!-- /.show-quickly -->
-			<?php
+		function pure_show_quickly_area_end() {
+			echo '</div><!-- /.show-quickly -->';
 		}
 	}
 
@@ -456,8 +441,7 @@
     }
 
 	if ( !function_exists( 'pure_product_mask_content_end' ) ) {
-        function pure_product_mask_content_end()
-        {
+        function pure_product_mask_content_end() {
            echo "</div><!-- /.product-mask-content -->";
         }
     }
