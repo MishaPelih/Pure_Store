@@ -41,20 +41,18 @@
 		}
 		a {
 			display: block;
-			.dark_link();
+			color: @darkColor;;
 		}
 		.says {
 			display: none !important;
 		}
 	}
 	.reply {
-		// font-size: 20px;
 		float: right;
 		font-size: 13px;
 		text-transform: uppercase;
 		a {
-			// .extra_light_link();
-			.dark_link();
+			color: @darkColor;;
 			display: inline-block;
 			&:before {
 				content: '\f193';
@@ -134,15 +132,11 @@
 			height: 42px;
 			padding: 0;
 			border: 0;
-			background-color: @activeColor;
 			color: #fff;
 			font-size: 12px;
 			text-transform: uppercase;
 			letter-spacing: 2px;
 			.trans( all, .2s );
-			&:hover {
-				background-color: darken( @activeColor, 6% );
-			}
 		}
 	}
 }

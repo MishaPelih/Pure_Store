@@ -19,10 +19,12 @@
 						<?php if ( pure_is_woo_exists() ): ?>
 							<a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
 				                <i class="zmdi zmdi-shopping-basket"></i>
-				                <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count();?></span>
+				                <span class="cart-count">
+				                	<?php echo WC()->cart->get_cart_contents_count(); ?>
+				                </span>
 				            </a>
 							<?php if ( !is_cart() ): ?>
-								<div class="widget_shopping_cart_content shopping-cart-content sub-menut"></div>
+								<div class="widget_shopping_cart_content shopping-cart-content"></div>
 							<?php endif; ?>
 						<?php endif; ?>
 					</div><!-- /.site-header-cart -->
@@ -32,4 +34,4 @@
 			</div><!-- /.top-bar-content -->
 		</div><!-- /.container -->
 	</div><!-- /.top-bar -->
-<?php endif ?>
+<?php endif; ?>

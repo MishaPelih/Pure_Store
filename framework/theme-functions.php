@@ -102,16 +102,6 @@
         }
     }
 
-    if ( !function_exists( 'pure_cart_link' ) ){
-        function pure_cart_link() { ?>
-            <a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
-                <i class="zmdi zmdi-shopping-basket"></i>
-                <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count();?></span>
-            </a>
-        <?php
-        }
-    }
-
     /**
      * Get main content classes.
      */
@@ -436,4 +426,14 @@
         function pure_js2tring($str='') {
             return trim( preg_replace("/('|\"|\r?\n)/", '', $str) ); 
         } 
+    }
+
+    if ( !function_exists( 'pure_cart_link' ) ){
+        function pure_cart_link() { ?>
+            <a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
+                <i class="zmdi zmdi-shopping-basket"></i>
+                <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count();?></span>
+            </a>
+        <?php
+        }
     }

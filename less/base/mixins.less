@@ -1,32 +1,26 @@
-.trans( @prop: all, @time: 0.2s, @animation: linear, @delay: 0s )
-{
+.trans( @prop: all, @time: 0.2s, @animation: linear, @delay: 0s ) {
 	-webkit-transition: @arguments;
 	-moz-transition: @arguments;
 	-o-transition: @arguments;
 	transition: @arguments;
 }
-.backface()
-{
+.backface() {
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 }
-.font_size_em( @foze )
-{
+.font_size_em( @foze ) {
 	font-size: ( @foze / @fontSize ) + 0em;
 }
-.font_size_rem( @foze )
-{
+.font_size_rem( @foze ) {
 	font-size: ( @foze / @fontSize ) + 0rem;
 }
-.clear()
-{
+.clear() {
 	content: '';
 	display: block;
 	clear: both;
 	height: 0;
 }
-.clear_after()
-{
+.clear_after() {
 	&:after {
 		content: '';
 		display: block;
@@ -34,8 +28,7 @@
 		height: 0;
 	}
 }
-.clear_before()
-{
+.clear_before() {
 	&:before {
 		content: '';
 		display: block;
@@ -43,55 +36,21 @@
 		height: 0;
 	}
 }
-.disable_focus()
-{
+.disable_OutBox() {
 	&:hover, &:focus, &:active, &:visited {
 		outline: 0;
 		box-shadow: none;
 	}
 }
-.white_link()
-{
-	color: #fff;
-	&:hover, &:focus {
-		color: @activeColor;
-	}
-}
-.active_link()
-{
-	color: @activeColor;
-	&:hover, &:focus {
-		color: darken( @activeColor, 10% );
-	}
-}
-.light_link()
-{
-	color: @lightColor;
-	&:hover, &:focus {
-		color: @activeColor;
-	}
-}
-.extra_light_link()
-{
-	color: @extraLightColor;
-	&:hover, &:focus {
-		color: @activeColor;
-	}
-}
-.dark_link()
-{
-	color: @darkColor;
-	&:hover, &:focus {
-		color: @activeColor;
-	}
-}
-.flex_center()
-{
+.flex() {
 	display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     -js-display: flex;
     display: flex;
+}
+.flex_center() {
+	.flex();
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -101,25 +60,15 @@
     -webkit-align-items: center;
     align-items: center;
 }
-.flex_center_X()
-{
-	display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    -js-display: flex;
-    display: flex;
+.flex_center_X() {
+	.flex();
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
 }
-.flex_center_Y()
-{
-	display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    -js-display: flex;
-    display: flex;
+.flex_center_Y() {
+	.flex();
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;

@@ -437,7 +437,7 @@
 			text-transform: uppercase;
 			color: #fff;
 			.trans( all, .2s );
-			.disable_focus();
+			.disable_OutBox();
 			&:hover, &:focus, &:active {
 				text-decoration: none;
 				opacity: 0.85;
@@ -474,7 +474,7 @@
 		display: inline-block;
 		border: 1px solid @borderColor;
 		.trans( all, .2s );
-		.disable_focus();
+		.disable_OutBox();
 		&:before {
 			font-family: 'Material-Design-Iconic-Font';
 			font-size: 24px;
@@ -482,7 +482,7 @@
 			.trans( all, .2s );
 		}
 		background-color: transparent;
-		&:hover, &:focus, &:active {
+		&:hover, &:focus {
 			background-color: transparent;;
 			&:before {
 				color: @activeColor;

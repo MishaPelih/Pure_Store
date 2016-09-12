@@ -28,7 +28,7 @@
 	h1 {
 		a {
 			display: inline-block;
-			.dark_link();
+			color: @darkColor;;
 		}
 	}
 	.summary {
@@ -63,8 +63,15 @@
     font-size: 14px;
     letter-spacing: 1px;
     word-wrap: break-word;
+    button,
+    .button {
+    	color: #fff;
+    	&:hover, &:focus {
+    		color: #fff;
+    	}
+    }
 	a {
-		.light_link();
+		color: @lightColor;
 	}
 }
 

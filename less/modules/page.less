@@ -89,7 +89,6 @@
 	&:hover {
 		.member-image {
 			&:before {
-				background-color: @activeColor;
 				opacity: .6;
 			}
 		}
@@ -199,15 +198,11 @@
 			height: 42px;
 			padding: 0;
 			border: 0;
-			background-color: @activeColor;
 			color: #fff;
 			font-size: 12px;
 			text-transform: uppercase;
 			letter-spacing: 2px;
 			.trans( all, .2s );
-			&:hover {
-				background-color: darken( @activeColor, 6% );
-			}
 		}
 	}
 	.contact-info {
@@ -254,8 +249,9 @@
 .page .vc_tta.vc_general .vc_tta-panel-body {
 	padding: 0;
 }
-.page .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab > a, .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab.vc_active > a {
-	border: 0px;
+.page .vc_tta-tabs .vc_tta-tab > a,
+.page .vc_tta-tabs .vc_tta-tab.vc_active > a {
+	border: 0px !important;
 	border-radius: 0 ;
 	text-transform: uppercase;
 	font-size: 12px;
@@ -266,11 +262,8 @@
 	margin: 0 20px;
 	background-color: transparent !important;
 }
-.page .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab.vc_active > a {
-	color: @activeColor;
-}
-.page .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab > a:focus, .vc_tta-color-grey.vc_tta-style-classic .vc_tta-tab > a:hover {
-	color: @activeColor;
+.page .vc_tta-tabs .vc_tta-tab > a:focus,
+.page .vc_tta-tabs .vc_tta-tab > a:hover {
 	border: 0px;
 	background-color: transparent;
 }

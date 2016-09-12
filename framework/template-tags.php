@@ -198,7 +198,7 @@
 
 				//	Link to first page, plus ellipses if necessary
 				if ( ! in_array( 1, $links ) ) {
-					$class = 1 == $paged ? ' class="current"' : '';
+					$class = 1 == $paged ? ' class="current active-bg-color"' : '';
 
 					printf( '<li%s><a href="%s">%s</a></li>', $class, esc_url( get_pagenum_link( 1 ) ), '1' );
 
@@ -208,7 +208,7 @@
 				// Link to current page, plus 2 pages in either direction if necessary
 				sort( $links );
 				foreach ( (array) $links as $link ) {
-					$class = $paged == $link ? ' class="current"' : '';
+					$class = $paged == $link ? ' class="current active-bg-color"' : '';
 					printf( '<li%s><a href="%s" class="pag-object">%s</a></li>', $class, esc_url( get_pagenum_link( $link ) ), $link );
 				}
 
@@ -217,7 +217,7 @@
 					if ( ! in_array( $max - 1, $links ) )
 						echo '<li><span>...</span></li>';
 
-					$class = $paged == $max ? ' class="current"' : '';
+					$class = $paged == $max ? ' class="current active-bg-color"' : '';
 					printf( '<li%s><a href="%s" class="pag-object">%s</a></li>', $class, esc_url( get_pagenum_link( $max ) ), $max );
 				}
 
@@ -257,7 +257,7 @@
 			$show_home_link = 1;
 			$show_on_home = 1;
 			$show_current = 1;
-			$before = '<span class="current">';
+			$before = '<span class="current active-color">';
 			$after = '</span>';
 
 			global $post;

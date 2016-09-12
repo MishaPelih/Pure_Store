@@ -109,7 +109,7 @@ aside.sidebar {
 			a {
 				display: inline-block;
 				padding: 9px 0;
-				.light_link();
+				color: @lightColor;
 			}
 		}
 	}
@@ -126,14 +126,10 @@ aside.sidebar {
 			height: 38px;
 			float: left;
     		width: 63%;
-    		&:focus {
-    			border-color: @activeColor;
-    		}
 		}
 		input[type='submit'],
 		input[type='button'] {
 			color: #fff;
-			background-color: @activeColor;
 			text-transform: none;
 			font-size: 14px;
 			border: 0;
@@ -142,7 +138,7 @@ aside.sidebar {
     		width: 37%;
     		letter-spacing: 0;
     		.trans( all, .2s );
-    		.disable_focus();
+    		.disable_OutBox();
 		}
 	}
 
@@ -256,11 +252,7 @@ aside.sidebar {
 			vertical-align: middle;
 		}
 		th {
-			color: @activeColor;
 			font-weight: 500;	
-		}
-		a {
-			.active_link();
 		}
 	}
 
@@ -363,7 +355,7 @@ aside.sidebar {
 		.post-meta {
 			color: @extraLightColor;
 			a {
-				.extra_light_link();
+				color: @extraLightColor;
 			}
 		}
 	}
@@ -386,15 +378,11 @@ aside.sidebar {
 				padding: 9px 0;
 				a {
 					display: inline-block;
-					.extra_light_link();
+					color: @extraLightColor;
 				}
 				&.open {
 					.open-this {
-						color: @activeColor;
 						transform: rotate( 90deg );
-						&:hover {
-							color: darken( @activeColor, 6% );
-						}
 					}
 				}
 			}
@@ -406,9 +394,6 @@ aside.sidebar {
 				cursor: pointer;
 				-webkit-user-select: none;
 				.trans( all, .2s );
-				&:hover {
-					color: @activeColor;
-				}
 			}
 			.children {
 				margin-top: 10px;
@@ -417,7 +402,7 @@ aside.sidebar {
 			}
 			> .cat-item  {
 				> a {
-					.light_link();
+					color: @lightColor;
 				}
 			}
 		}

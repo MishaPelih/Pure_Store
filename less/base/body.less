@@ -59,16 +59,13 @@ a {
 	color: @lightColor;
 	outline: 0;
 	box-shadow: none;
-	.trans( all, .3s );
 	text-decoration: none;
+	.trans( all, .3s );
 	&:hover, &:focus {
-		color: inherit;
+		color: initial;
 		outline: 0;
 		box-shadow: none;
 		text-decoration: none;
-	}
-	&:hover {
-		color: @activeColor;
 	}
 }
 p {
@@ -91,7 +88,6 @@ mark {
 /* Inputs.
 ============================ */
 input[type="text"],
-input[type="number"],
 input[type="email"],
 input[type="search"],
 input[type="password"],
@@ -108,7 +104,6 @@ textarea {
 		-webkit-box-shadow: none;
 		box-shadow: none;
 		outline:none;
-		border-color: @activeColor;
 	}
 	&::-webkit-input-placeholder {
 		color: @extraLightColor;
@@ -132,7 +127,6 @@ input[type=checkbox] {
 }
 .site-content {
 	input[type="text"],
-	input[type="number"],
 	input[type="email"],
 	input[type="search"],
 	input[type="password"],
