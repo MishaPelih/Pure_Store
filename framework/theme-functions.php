@@ -331,9 +331,6 @@
             $_url_cmb = pure_get_cmb2_option( 'logo_header_' . $option, 'header_options' );
             $_url = null;
 
-            echo "<br>REDUX -> " . $_url_rdx . '<br>';
-            echo "<br>CMB -> " . $_url_cmb . '<br>';
-
             if ( !$_url_cmb || empty( $_url_cmb ) ) {
                 if ( $_url_rdx && !empty( $_url_rdx ) ) {
                     $_url = $_url_rdx;
