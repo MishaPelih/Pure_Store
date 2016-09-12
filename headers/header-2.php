@@ -31,14 +31,14 @@
 					?>
 				</div><!-- /.menu-wrap -->
 
-				<!-- Logo -->
 				<?php if ( pure_get_logo_url() ): ?>
+					<!-- Logo -->
 					<div class="header-logo">
 						<a href="index.php">
 							<img src="<?php echo pure_get_logo_url(); ?>" alt="">
 						</a>
 					</div><!-- /.header-logo -->
-				<?php endif ?>
+				<?php endif; ?>
 
 				<!-- Open Mobile Menu Button -->
 				<button type="button" class="open-mobile-menu">

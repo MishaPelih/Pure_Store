@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * theme-setup,php
+ * theme/theme-setup.php
  * ============================================ *
  */
 ?>

@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * functions.php
+ * framework/theme-functions.php
  *
  * Contains framework functions.
  * ============================================ *
@@ -249,7 +249,7 @@
             global $redux_pure;
 
             if ( !empty( $redux_pure ) && $redux_pure[$id] ) {
-                if ( $type ) {
+                if ( $type && $redux_pure[$id][$type] ) {
                     return $redux_pure[$id][$type];
                 }
                 return $redux_pure[$id];
@@ -330,6 +330,9 @@
             $_url_rdx = pure_get_redux_option( 'logo_header_' . $option, 'url' );
             $_url_cmb = pure_get_cmb2_option( 'logo_header_' . $option, 'header_options' );
             $_url = null;
+
+            echo "<br>REDUX -> " . $_url_rdx . '<br>';
+            echo "<br>CMB -> " . $_url_cmb . '<br>';
 
             if ( !$_url_cmb || empty( $_url_cmb ) ) {
                 if ( $_url_rdx && !empty( $_url_rdx ) ) {

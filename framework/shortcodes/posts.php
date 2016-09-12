@@ -1,6 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
- * posts.php
+ * framework/shortcodes/posts.php
  * 
  * Shortcode for displaying Posts.
  * ============================================ *
