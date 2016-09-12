@@ -1,5 +1,4 @@
-
-module.exports = function(grunt) {
+module.exports = function( grunt ) {	
 	grunt.initConfig ({
 
 		pkg: grunt.file.readJSON('package.json'),
@@ -14,38 +13,31 @@ module.exports = function(grunt) {
   			}
 		},
 
-		/*watch: {
-  			scripts: {
-    			files: ['less/ie-fix.less'],
-    			tasks: ['less'],
-    			options: {
-      				spawn: false
-    			}
-  			}
-		},*/
-
 		concat: {
       		basic_and_extras: {
 			    files: {
-				    'less/style.less':
-				    ['less/themeinfo.less',
-				    'less/fonts.less',
-				    'less/config.less',
-				    'less/base/reset.less',
-				    'less/base/mixins.less',
-				    'less/base/body.less',
-				    'less/base/buttons.less',
-				    'less/base/global.less',
-				    'less/base/*.less',
-					'less/modules/**/*.less',
-					'less/blog/**/*.less',
-					'less/shop/**/*.less'],
+				    'less/style.less': [
+					    getLess( 'themeinfo' ),
+					    getLess( 'fonts' ),
+					    getLess( 'config' ),
+					    getLess( 'mixins' ),
+					    getLess( 'base/body' ),
+					    getLess( 'base/buttons' ),
+					    getLess( 'base/global' ),
+					    getLess( 'base/*' ),
+						getLess( 'modules/**/*' ),
+						getLess( 'blog/**/*' ),
+						getLess( 'shop/**/*' )
+					],
 			    }
     		}
     	},
 
     	less: {
 			development: {
+				/* options: {
+    				compress: true
+    			},*/
 				files: {
 					"style.css": "less/style.less",
 				}
@@ -83,9 +75,7 @@ module.exports = function(grunt) {
 
 		uglify: {
 			options: {
-				/*mangle: {
-					except: ['js/lib/*.js'],
-				}*/
+				/*mangle: { except: ['js/lib/*.js'], }*/
 			},
 			target: {
 				files: [{
@@ -109,4 +99,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-newer');
 
 	grunt.registerTask('default', ['concat', 'less', 'newer:postcss:dist','newer:cssmin','newer:uglify']);
+
+	function getLess( path ) { return 'less/' + path + '.less'; };
 };

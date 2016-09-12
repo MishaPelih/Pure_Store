@@ -12,6 +12,11 @@
  * Tags: one-column, two-columns, right-sidebar, left-sidebar, custom-menu, featured-images, sticky-post 
  * Text Domain: pure
  */
+/**
+ * FONTS - #fonts
+ * ============================================ *
+ * 
+ */
 /* latin-ext */
 @font-face {
   font-family: 'Poppins';
@@ -95,6 +100,7 @@
 /**
  * BODY - #body.
  * ============================================ *
+ * 
  */
 /* Reset Styles.
 ============================ */
@@ -393,12 +399,12 @@ h6,
 /**
  * BUTTONS - #buttons.
  * ============================================ *
+ * 
  */
 .button,
 button,
 input[type='submit'] {
   color: #fff;
-  background-color: #f05a66;
   display: inline-block;
   text-decoration: none;
   font-size: 14px;
@@ -442,6 +448,7 @@ input[type='submit']:active {
 /**
  * GLOBAL-STYLESHEETS - #global_stylesheets.
  * ============================================ *
+ * 
  */
 /* Site Content.
 ============================ */
@@ -729,6 +736,11 @@ input[type='submit']:active {
     width: 1200px;
   }
 }
+/**
+ * BANNERS - #banners.
+ * ============================================ *
+ * 
+ */
 /* Common Styles.
 ============================ */
 .banner {
@@ -1063,6 +1075,7 @@ input[type='submit']:active {
 /**
  * BREADCRUMBS - #breadcrumbs.
  * ============================================ *
+ * 
  */
 .breadcrumbs {
   padding: 30px 0;
@@ -1090,6 +1103,11 @@ input[type='submit']:active {
   color: #909090;
   margin: 0 7px;
 }
+/**
+ * CUSTOM-SCROLL #custom_scroll.
+ * ============================================ *
+ * 
+ */
 .custom-scroll_container {
   overflow: hidden !important;
   position: relative;
@@ -1141,6 +1159,7 @@ input[type='submit']:active {
 /**
  * SITE-FOOTER #site_footer.
  * ============================================ *
+ * 
  */
 /* Prefooter.
 ============================ */
@@ -1233,6 +1252,7 @@ footer.site-footer .widget-title {
 /**
  * HEADER - #header.
  * ============================================ *
+ * 
  */
 /* Base.
 ============================ */
@@ -1711,6 +1731,7 @@ header.site-header .site-search button i {
 /**
  * FIXED HEADER - #fixed_header
  * ============================================ *
+ * 
  */
 header.site-header.fixed {
   position: fixed;
@@ -1739,6 +1760,7 @@ header.site-header.fixed .menu .menu-item a:focus {
 /**
  * MOBILE-MENU - #mobile_menu.
  * ============================================ *
+ * 
  */
 .ps-mobile-menu {
   position: fixed;
@@ -1793,6 +1815,7 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 /**
  * MY-ACCOUNT - #my_account.
  * ============================================ *
+ * 
  */
 .woocommerce-account .woocommerce:after {
   content: '';
@@ -1943,6 +1966,7 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 /**
  * PAGE - #page
  * ============================================ *
+ * 
  */
 /* Common Styles.
 ============================ */
@@ -2230,6 +2254,7 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 /**
  * PAGINATION - #pagination.
  * ============================================ *
+ * 
  */
 /* Base.
 ============================ */
@@ -2372,6 +2397,7 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 /**
  * WILD-SELECT - #wild_select.
  * ============================================ *
+ * 
  */
 /* Basic ssyles.
 ============================ */
@@ -2462,6 +2488,7 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 /**
  * SLICK - #slick
  * ============================================ *
+ * 
  */
 .slick-slider {
   position: relative;
@@ -2551,6 +2578,7 @@ body.mobile-menu-open .close-mobile-menu-full-screen {
 /**
  * WIDGETS - #widgets.
  * ============================================ *
+ * 
  */
 /* Sidebar widget.
 ============================== */
@@ -2997,6 +3025,7 @@ aside.sidebar .widget .widget-title {
 /**
  * BLOG-BASE-STYLES - #blog_base_styles.
  * ============================================ *
+ * 
  */
 /* Base styles.
 ============================ */
@@ -3196,6 +3225,7 @@ article.post a:hover {
 /**
  * COMMENTS-BLOG - #comments_blog.
  * ============================================ *
+ * 
  */
 /* Comments.
 ============================ */
@@ -3351,6 +3381,7 @@ article.post a:hover {
 /**
  * SHOP-DEFAULTS - #shop_defaults.
  * ============================================ *
+ * 
  */
 .product-quick-view .product-quick-view-wrap {
   width: 1000px;
@@ -3384,9 +3415,6 @@ article.post a:hover {
 .product-quick-view .summary .add_to_cart_button {
   float: left;
   margin-right: 10px;
-}
-.product-quick-view .summary .add_to_cart_button.loading {
-  background-color: #f48991;
 }
 .product-quick-view .summary .add_to_wishlist {
   float: none;
@@ -3553,6 +3581,7 @@ article.post a:hover {
 /**
  * SHOPPING-CART - #shopping_cart.
  * ============================================ *
+ * 
  */
 /* Table.
 ============================ */
@@ -3746,6 +3775,7 @@ table.cart td.product-remove {
 /**
  * CHECKOUT - #checkout.
  * ============================================ *
+ * 
  */
 .woocommerce-checkout h3 {
   display: block;
@@ -3941,6 +3971,7 @@ table.cart td.product-remove {
 /**
  * SINGLE-PRODUCT - #product_single.
  * ============================================ *
+ * 
  */
 .single-product {
   /* Global Styles.
@@ -4420,7 +4451,6 @@ table.cart td.product-remove {
   border: 0;
   text-transform: uppercase;
   color: #fff;
-  background-color: #f05a66;
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
@@ -4636,7 +4666,6 @@ table.cart td.product-remove {
   padding: 6px 10px 5px 10p;
 }
 .product-quick-view .mfp-close {
-  background-color: #f05a66;
   color: #fff;
 }
 .product-quick-view .mfp-close:hover {
@@ -4645,6 +4674,7 @@ table.cart td.product-remove {
 /**
  * PRODUCTS - #products.
  * ============================================ *
+ * 
  */
 /* Base.
 ============================ */
@@ -4746,7 +4776,6 @@ table.cart td.product-remove {
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
-  border: 1px solid #f05a66;
 }
 .products .footer-product .button {
   text-align: center;
@@ -4821,7 +4850,6 @@ table.cart td.product-remove {
 }
 .products .footer-product .side-button.added {
   border-color: #fff;
-  background-color: #f05a66;
   color: #fff;
 }
 .products .footer-product .side-button.added:before {
@@ -4936,7 +4964,6 @@ table.cart td.product-remove {
   right: 0;
   bottom: 0;
   letter-spacing: 0;
-  background-color: #f05a66;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -5140,6 +5167,7 @@ table.cart td.product-remove {
 /**
  * WISHLIST - #wishlist
  * ============================================ *
+ * 
  */
 .woocommerce table.wishlist_table tbody td {
   text-align: center;
