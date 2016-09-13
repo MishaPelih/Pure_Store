@@ -18,8 +18,8 @@ module.exports = function( grunt ) {
 			    files: {
 				    'less/style.less': [
 					    getLess( 'themeinfo' ),
-					    getLess( 'fonts' ),
 					    getLess( 'config' ),
+					    getLess( 'fonts' ),
 					    getLess( 'mixins' ),
 					    getLess( 'base/body' ),
 					    getLess( 'base/buttons' ),

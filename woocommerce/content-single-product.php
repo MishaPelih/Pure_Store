@@ -34,9 +34,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	 }
 ?>
 
-<div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class( 'row' ); ?>>
+<div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?>" id="product-<?php the_ID(); ?>" <?php post_class( 'container' ); ?>>
 
-	<div class="product-main">
+	<div class="product-main row">
 		<div class="col-md-6 images-wrap">
 			<?php
 				/**
@@ -87,5 +87,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<meta itemprop="url" content="<?php the_permalink(); ?>" />
 
 </div><!-- #product-<?php the_ID(); ?> -->
+
+<div class="after-single-product-summary">
+	<?php 
+		pure_upsell_products();
+		pure_related_products();
+	?>
+</div><!-- /.after-single-product-summary -->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

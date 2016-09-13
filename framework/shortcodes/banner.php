@@ -140,13 +140,13 @@
 		                "type" => "colorpicker",
 		                "heading" => __( "Text color", "pure" ),
 		                "param_name" => "text_color",
-		                "value" => '#000',
+		                "value" => '',
 		            ),
 					array(
 		                "type" => "colorpicker",
 		                "heading" => __( "Background color", "pure" ),
 		                "param_name" => "bg_color",
-		                "value" => "rgba(255,255,255,0)",
+		                "value" => "",
 		            ),
                     array(
 						"type" => "textfield",
@@ -216,7 +216,7 @@
 		                "type" => "colorpicker",
 		                "heading" => __( "Banner Mask color", "pure" ),
 		                "param_name" => "banner_mask_color",
-		                "value" => "rgba(255,255,255,0)",
+		                "value" => "",
 		                "description" => __( "Banner Mask Color", "pure" ),
 						'dependency' => array(
 							'element' => 'enable_mask',
@@ -233,7 +233,7 @@
 		                "type" => "colorpicker",
 		                "heading" => __( "Content Mask color", "pure" ),
 		                "param_name" => "content_mask_color",
-		                "value" => "rgba(255,255,255,0)",
+		                "value" => "",
 		                "description" => __( "Content Mask Color", "pure" ),
 						'dependency' => array(
 							'element' => 'enable_content_mask',

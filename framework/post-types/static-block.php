@@ -30,6 +30,7 @@
 				'description'   => __( 'Static block', 'pure' ),
 				'public'        => true,
 				'menu_position' => 5,
+				'menu_icon' => 'dashicons-welcome-widgets-menus',
 				'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
 				'has_archive'   => true,
 			);

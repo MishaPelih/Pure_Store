@@ -34,8 +34,10 @@
      */
 	add_action( 'woocommerce_before_main_content', 'pure_before_main_content_wrap' );
 	if ( !function_exists( 'pure_before_main_content_wrap' ) ) {
-		function pure_before_main_content_wrap()
-		{
+		function pure_before_main_content_wrap() {
+			if ( !is_single() ) {
+				echo '<div class="container">';
+			}
 			echo '<div class="row">';
 			echo '<div class="content-page shop ' . pure_main_content_classes( 'shop' ) . '" role="main">';
 		}
@@ -43,11 +45,13 @@
 
 	add_action( 'woocommerce_after_main_content', 'pure_after_main_content_wrap' );
 	if ( !function_exists( 'pure_after_main_content_wrap' ) ) {
-		function pure_after_main_content_wrap()
-		{
+		function pure_after_main_content_wrap() {
 			echo '</div><!-- /.content-page -->';
 			pure_enable_sidebar( 'shop' ) ? get_sidebar( 'shop' ) : remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );;
 			echo '</div><!-- /.row -->';
+			if ( !is_single() ) {
+				echo '</div><!-- /.container -->';
+			}
 		}
 	}
 
@@ -59,8 +63,7 @@
 	/**
 	 * Removes the page title on the main shop page.
 	 */
-	add_filter( 'woocommerce_show_page_title' , 'pure_hide_page_title' );
-	function pure_hide_page_title(){ return false; }
+	add_filter( 'woocommerce_show_page_title' , create_function( '', 'return false;' ) );
 
     /**
      * Change woocommerce breadcrumbs settings.
@@ -439,7 +442,6 @@
      * Related Products
      */
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
-    add_action( 'pure_site_content_bottom', 'pure_related_products', 20 );
 
     if ( !function_exists( 'pure_related_products' ) ) {
         function pure_related_products()
@@ -485,7 +487,6 @@
      * Upsell Products
      */
 	remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
-    add_action( 'pure_site_content_bottom', 'pure_upsell_products', 15 );
 
 	if ( !function_exists( 'pure_upsell_products' ) ) {
 		function pure_upsell_products()

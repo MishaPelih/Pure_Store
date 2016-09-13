@@ -4274,8 +4274,8 @@ table.cart td.product-remove {
   box-shadow: none;
   padding: 5px 12px;
 }
-.single-product table.variations .reset_variations,
-.product-quick-view table.variations .reset_variations {
+.single-product .reset_variations,
+.product-quick-view .reset_variations {
   padding: 6px 28px 7px;
   margin-left: 10px;
   letter-spacing: 1px;
@@ -4288,23 +4288,23 @@ table.cart td.product-remove {
   -o-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
 }
-.single-product table.variations .reset_variations:hover,
-.product-quick-view table.variations .reset_variations:hover,
-.single-product table.variations .reset_variations:focus,
-.product-quick-view table.variations .reset_variations:focus,
-.single-product table.variations .reset_variations:active,
-.product-quick-view table.variations .reset_variations:active,
-.single-product table.variations .reset_variations:visited,
-.product-quick-view table.variations .reset_variations:visited {
+.single-product .reset_variations:hover,
+.product-quick-view .reset_variations:hover,
+.single-product .reset_variations:focus,
+.product-quick-view .reset_variations:focus,
+.single-product .reset_variations:active,
+.product-quick-view .reset_variations:active,
+.single-product .reset_variations:visited,
+.product-quick-view .reset_variations:visited {
   outline: 0;
   box-shadow: none;
 }
-.single-product table.variations .reset_variations:hover,
-.product-quick-view table.variations .reset_variations:hover,
-.single-product table.variations .reset_variations:focus,
-.product-quick-view table.variations .reset_variations:focus,
-.single-product table.variations .reset_variations:active,
-.product-quick-view table.variations .reset_variations:active {
+.single-product .reset_variations:hover,
+.product-quick-view .reset_variations:hover,
+.single-product .reset_variations:focus,
+.product-quick-view .reset_variations:focus,
+.single-product .reset_variations:active,
+.product-quick-view .reset_variations:active {
   text-decoration: none;
   opacity: 0.85;
 }
@@ -4319,8 +4319,8 @@ table.cart td.product-remove {
   flex-flow: wrap row-reverse;
   justify-content: flex-end;
 }
-.single-product .woocommerce-variation-add-to-cart button.single_add_to_cart_button,
-.product-quick-view .woocommerce-variation-add-to-cart button.single_add_to_cart_button {
+.single-product .woocommerce-variation-add-to-cart button,
+.product-quick-view .woocommerce-variation-add-to-cart button {
   display: inline-block;
   font-weight: 500;
   letter-spacing: 1px;

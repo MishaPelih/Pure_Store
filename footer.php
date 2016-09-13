@@ -6,7 +6,6 @@
  * ============================================ *
  */
 ?>
-		</div><!-- /.container -->
 		<?php do_action( 'pure_site_content_bottom' ); ?>
 	</div><!-- /.site-content -->
 
