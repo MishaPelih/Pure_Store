@@ -29,8 +29,6 @@
     remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
     remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
 
-
-
 	/**
      * Add the PureStore wrappers.
      */
@@ -68,8 +66,7 @@
      * Change woocommerce breadcrumbs settings.
      */
     if ( !function_exists( 'pure_woocommerce_breadcrumbs' ) ) {
-        function pure_woocommerce_breadcrumbs()
-        {
+        function pure_woocommerce_breadcrumbs() {
             return array(
                 'delimiter'   => '<span class="sep">&nbsp;/&nbsp;</span>',
                 'wrap_before' => '<div class="breadcrumbs"><div class="container">',
@@ -87,15 +84,14 @@
 	 */
 	add_filter( 'loop_shop_per_page', 'pure_shop_per_page', 20 );
 
-	function pure_shop_per_page()
-	{
+	function pure_shop_per_page() {
 		$_per_page = 'pure_products_per_page';
 		if ( $_SERVER['REQUEST_METHOD'] === 'POST' && isset( $_POST[$_per_page] ) ) {
 			$per_page_post = $_POST[$_per_page];
 			unset( $_POST[$_per_page] );
 			setcookie( $_per_page, $per_page_post, 0, '/' );
 			return $per_page_post;
-		} elseif ( $_COOKIE[$_per_page] ) {
+		} elseif ( isset( $_COOKIE[$_per_page] ) ) {
 			return $_COOKIE[$_per_page];
 		}
 		setcookie( $_per_page, 12, 0, '/' );
@@ -243,7 +239,6 @@
 
 			# Add link on product which wrapped  only wrapps image thumbnail (start).
 		    add_action( 'woocommerce_before_shop_loop_item_title', 'pure_show_quickly_area_start', 10);
-			// add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_open', 10);
 
 				# Add product Image Thumbnail.
 			    add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
@@ -252,8 +247,7 @@
 			    add_action( 'woocommerce_before_shop_loop_item_title', 'pure_show_quickly', 10 );
 
 			# Add link on product which wrapped  only wrapps image thumbnail (end).
-			add_action( 'woocommerce_before_shop_loop_item_title', 'pure_show_quickly_area_end', 10);
-			// add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 10);
+			add_action( 'woocommerce_before_shop_loop_item_title', create_function( '', 'echo "</div><!-- /.show-quickly -->";' ), 10);
 
 			# Footer (Start)
 			add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_footer_start', 10 );
@@ -266,17 +260,15 @@
 
 				# Wishlist button.
 				add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_wishlist_button', 10 );
-				// add_action( 'woocommerce_before_shop_loop_item_title', create_function( '', 'echo do_shortcode( "[yith_wcwl_add_to_wishlist]" );' ), 10 );
-
 
 			# Footer (End)
-			add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_footer_end', 10 );
+			add_action( 'woocommerce_before_shop_loop_item_title', create_function( '', 'echo "</footer>";' ), 10 );
 
 		# Product mask content. (End)
-	    add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_mask_content_end', 10 );
+	    add_action( 'woocommerce_before_shop_loop_item_title', create_function( '', 'echo "</div><!-- /.product-mask-content -->";' ), 10 );
 
 	# Product mask. (End)
-    add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_mask_end', 10 );
+    add_action( 'woocommerce_before_shop_loop_item_title', create_function( '', 'echo "</div><!-- /.product-mask -->";' ), 10 );
 
 	# Product details. (Start)
     add_action( 'woocommerce_before_shop_loop_item_title', 'pure_product_details_start', 10 );
@@ -302,7 +294,7 @@
 		# Add Product Excerpt.
 		add_action( 'woocommerce_shop_loop_item_title', 'pure_product_excerpt', 5 );
 
-    add_action( 'woocommerce_after_shop_loop_item_title', 'pure_product_details_end', 10 );
+    add_action( 'woocommerce_after_shop_loop_item_title', create_function( '', 'echo "</div><!-- /.product-details -->";' ), 10 );
 
 
 	/**
@@ -335,18 +327,6 @@
 		}
 	}
 
-	if ( !function_exists( 'pure_close_div' ) ) {
-		function pure_close_div() {
-			echo '</div>';
-		}
-	}
-
-	if ( !function_exists( 'pure_product_meta_wrap_start' ) ) {
-		function pure_product_meta_wrap_start() {
-			echo '<div class="pure-meta-wrap">';
-		}
-	}
-
 	if ( ! function_exists('pure_comment_count' ) ) {
 		function pure_comment_count() { ?>
 			<div id="reviews" class="woocommerce-review-link">
@@ -360,12 +340,6 @@
 		function pure_show_quickly_area_start() {
 			global $post;
 			echo '<div class="show-quickly" data-prodid="' . $post->ID . '">';
-		}
-	}
-
-	if ( !function_exists( 'pure_show_quickly_area_end' ) ) {
-		function pure_show_quickly_area_end() {
-			echo '</div><!-- /.show-quickly -->';
 		}
 	}
 
@@ -397,52 +371,28 @@
         }
     }
 
-	if ( !function_exists( 'pure_product_details_start' ) ) {
-        function pure_product_details_start() {
-            echo "<div class='product-details'>";
-        }
-    }
+    if ( !function_exists( 'pure_close_div' ) ) {
+		function pure_close_div() { echo '</div>'; }
+	}
 
-	if ( !function_exists( 'pure_product_details_end' ) ) {
-        function pure_product_details_end() {
-			echo "</div><!-- /.product-details -->";
-        }
+	if ( !function_exists( 'pure_product_meta_wrap_start' ) ) {
+		function pure_product_meta_wrap_start() { echo '<div class="pure-meta-wrap">'; }
+	}
+
+	if ( !function_exists( 'pure_product_details_start' ) ) {
+        function pure_product_details_start() { echo "<div class='product-details'>"; }
     }
 
 	if ( !function_exists( 'pure_product_footer_start' ) ) {
-        function pure_product_footer_start() {
-            echo '<footer class="footer-product">';
-        }
-    }
-
-    if ( !function_exists( 'pure_product_footer_end' ) ) {
-        function pure_product_footer_end() {
-            echo "</footer>";
-        }
+        function pure_product_footer_start() { echo '<footer class="footer-product">'; }
     }
 
 	if ( !function_exists( 'pure_product_mask_start' ) ) {
-        function pure_product_mask_start() {
-            echo "<div class='product-mask'>";
-        }
-    }
-
-    if ( !function_exists( 'pure_product_mask_end' ) ) {
-        function pure_product_mask_end() {
-           echo "</div><!-- /.product-mask -->";
-        }
+        function pure_product_mask_start() { echo "<div class='product-mask'>"; }
     }
 
 	if ( !function_exists( 'pure_product_mask_content_start' ) ) {
-        function pure_product_mask_content_start() {
-            echo "<div class='product-mask-content'>";
-        }
-    }
-
-	if ( !function_exists( 'pure_product_mask_content_end' ) ) {
-        function pure_product_mask_content_end() {
-           echo "</div><!-- /.product-mask-content -->";
-        }
+        function pure_product_mask_content_start() { echo "<div class='product-mask-content'>"; }
     }
 
 	add_action('wp_ajax_pure_product_quick_view', 'pure_product_quick_view');
@@ -494,7 +444,7 @@
     if ( !function_exists( 'pure_related_products' ) ) {
         function pure_related_products()
         {
-            global $product, $woocommerce_loop;
+            global $product;
 
             if ( !method_exists( $product, 'get_related' ) || is_shop() ) return;
 
@@ -506,14 +456,11 @@
             	'post_type'				=> 'product',
             	'ignore_sticky_posts'	=> 1,
             	'no_found_rows' 		=> 1,
-            	'posts_per_page' 		=> $posts_per_page,
-            	'orderby' 				=> $orderby,
+            	'posts_per_page' 		=> 10,
             	'post__in' 				=> $related
             ));
 
             $products = new WP_Query( $args );
-
-            $woocommerce_loop['columns'] = $columns;
 
             if ( $products->have_posts() ) : ?>
 
@@ -543,7 +490,7 @@
 	if ( !function_exists( 'pure_upsell_products' ) ) {
 		function pure_upsell_products()
 		{
-			global $product, $woocommerce_loop;
+			global $product;
 
             if ( !method_exists( $product, 'get_upsells' ) || is_shop() ) return;
 
@@ -555,14 +502,11 @@
             	'post_type'				=> 'product',
             	'ignore_sticky_posts'	=> 1,
             	'no_found_rows' 		=> 1,
-            	'posts_per_page' 		=> $posts_per_page,
-            	'orderby' 				=> $orderby,
+            	'posts_per_page' 		=> 10,
             	'post__in' 				=> $upsells
             ));
 
             $products = new WP_Query( $args );
-
-            $woocommerce_loop['columns'] = $columns;
 
             if ( $products->have_posts() ) : ?>
 
