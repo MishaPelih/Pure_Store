@@ -9,7 +9,7 @@
 	 * ReduxFramework Redux Config File
 	 * For full documentation, please visit: http://docs.reduxframework.com/
 	 */
-	if ( ! class_exists( 'Redux' ) ) {
+	if ( !class_exists( 'Redux' ) ) {
 		return;
 	}
 
@@ -292,6 +292,45 @@
             ),
         )
     ) );
+
+    Redux::setSection( $opt_name, array(
+        'title' => __( 'Custom CSS', 'pure' ),
+        'id' => 'style-custom_css',
+        'icon' => 'el-icon-css',
+        'subsection' => true,
+        'fields' => array(
+            array(
+                'id' => 'custom_css',
+                'type' => 'ace_editor',
+                'mode' => 'css',
+                'title' => __( 'Global Custom CSS', 'pure' ),
+            ),
+            array(
+                'id' => 'custom_css_desktop',
+                'type' => 'ace_editor',
+                'mode' => 'css',
+                'title' => __( 'Custom CSS for desktop', 'pure' ),
+            ),
+            array(
+                'id' => 'custom_css_tablet',
+                'type' => 'ace_editor',
+                'mode' => 'css',
+                'title' => __( 'Custom CSS for tablet', 'pure' ),
+            ),
+            array(
+                'id' => 'custom_css_wide_mobile',
+                'type' => 'ace_editor',
+                'mode' => 'css',
+                'title' => __( 'Custom CSS for mobile landscape', 'pure' ),
+            ),
+            array(
+                'id' => 'custom_css_mobile',
+                'type' => 'ace_editor',
+                'mode' => 'css',
+                'title' => __( 'Custom CSS for mobile', 'pure' ),
+            ),
+        ),
+    ));
 
 
 	/**

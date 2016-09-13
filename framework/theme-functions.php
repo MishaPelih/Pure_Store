@@ -416,15 +416,21 @@
      * Check If woocommerce plugin installed.
      */
     if ( !function_exists( 'pure_is_woo_exists' ) ) {
-        function pure_is_woo_exists()
-        {
+        function pure_is_woo_exists() {
             return is_plugin_active('woocommerce/woocommerce.php');
         }
     }
 
     if( !function_exists( 'pure_js2tring' ) ) {
-        function pure_js2tring($str='') {
-            return trim( preg_replace("/('|\"|\r?\n)/", '', $str) ); 
+        function pure_js2tring( $str = '', $remove_extra_whitespaces = false ) {
+
+            $final_str = trim( preg_replace( "/('|\"|\t|\r?\n)/", '', $str ) );
+
+            if ( $remove_extra_whitespaces === true ) {
+               $final_str = trim( preg_replace("/\s{2,}/", " ", $final_str) );
+            }
+            
+            return $final_str;
         } 
     }
 
