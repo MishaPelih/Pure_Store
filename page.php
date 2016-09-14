@@ -7,7 +7,7 @@
  */
 ?>
 <?php get_header(); ?>
-	<div class="container">
+	<div class="container page-container">
 		<div class="row">
 			<div class="content-page <?php echo pure_main_content_classes(); ?>" role="main">
 
@@ -24,7 +24,7 @@
 
 			<?php pure_enable_sidebar() ? get_sidebar() : null; ?>
 
-		</div>
-	</div>
+		</div><!-- /.row -->
+	</div><!-- /.page-container -->
 
 <?php get_footer(); ?>

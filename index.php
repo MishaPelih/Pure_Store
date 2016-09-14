@@ -8,7 +8,7 @@
 ?>
 	<?php get_header(); ?>
 
-	<div class="container">
+	<div class="container page-container">
 		<div class="row">
 
 			<!-- ====| Main Content |==== -->
@@ -34,6 +34,6 @@
 			<?php pure_enable_sidebar() ? get_sidebar() : null; ?>
 
 		</div><!-- /.row -->
-	</div>
+	</div><!-- /.page-container -->
 
 	<?php get_footer(); ?>

@@ -63,11 +63,11 @@
 		},
 
 		mobileMenu: function() {
-			$('.open-mobile-menu').click(function() {
-				$('body').toggleClass('mobile-menu-open');
+			$('.menu-mobile-switcher').click(function() {
+				$('body').toggleClass('menu-mobile-open');
 			});
-			$('.close-mobile-menu, .close-mobile-menu-full-screen').click(function() {
-				$('body').toggleClass('mobile-menu-open');
+			$('.close-menu-mobile, .close-menu-mobile-full-screen').click(function() {
+				$('body').toggleClass('menu-mobile-open');
 			});
 		},
 

@@ -8,6 +8,60 @@
 ?>
 <?php
 	/**
+	 * Returns navigations.
+	 */
+	if ( !function_exists( 'pure_get_menu' ) ) {
+		function pure_get_menu( $type = 'main' ) {
+			wp_nav_menu(
+				array(
+					'theme_location' => $type,
+					'menu_class' => 'menu menu-' . $type,
+					'menu_id' => 'menu-' . $type,
+					'container_class' => 'menu-' . $type . '-wrap',
+				)
+			);
+		}
+	}
+
+	/**
+	 * Display mobile menu template.
+	 */
+	if ( !function_exists( 'pure_mobile_menu_tpl' ) ) {
+		function pure_mobile_menu_tpl( $opt = null ) { ?>
+			<?php if ( $opt !== 'switcher' ): ?>
+				<!-- *======#| Mobile Menu |#======* -->
+				<div class="pure-menu-mobile">
+					<?php pure_get_menu( 'mobile' ); ?>
+				</div><!-- /.pure-menu-mobile -->
+				<div class="close-menu-mobile-full-screen"></div>
+			<?php else: ?>
+				<!-- Open Mobile Menu Button -->
+				<button type="button" class="menu-mobile-switcher">
+					<i class="zmdi zmdi-menu"></i>
+				</button>
+			<?php endif;
+		}
+	}
+
+	/**
+	 * Display site search.
+	 */
+	if ( !function_exists( 'pure_site_search_tpl' ) ) {
+		function pure_site_search_tpl() { ?>
+			<!-- Search -->
+			<div class="site-search">
+				<form role="search" action="#" method="get" id="searchform" class="searchform">
+			        <input type="text" name="s" id="search-content" class="search-content" placeholder="Search" />
+			        <button type="submit" class="searchsubmit">
+			        	<i class="zmdi zmdi-search"></i>
+			        </button>
+				</form>
+			</div>
+			<?php
+		}
+	}
+
+	/**
      * Get the different sidebars.
      */
     if ( !function_exists( 'pure_get_sidebar' ) ) {

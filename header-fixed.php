@@ -4,6 +4,7 @@
  * ============================================ *
  */
 ?>
+<?php if( pure_get_redux_option( 'fixed_header_enabled' ) && pure_get_redux_option( 'fixed_header_enabled' ) !== false ): ?>
 <!-- *======#| Header Fixed |#======* -->
 <header class="header site-header fixed">
 	<div class="container">
@@ -32,3 +33,4 @@
 		</div><!-- /.container-wrap -->
 	</div><!-- /.container -->
 </header><!-- /fixed-header -->
+<?php endif; ?>

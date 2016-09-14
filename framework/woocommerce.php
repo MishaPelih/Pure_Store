@@ -35,9 +35,7 @@
 	add_action( 'woocommerce_before_main_content', 'pure_before_main_content_wrap' );
 	if ( !function_exists( 'pure_before_main_content_wrap' ) ) {
 		function pure_before_main_content_wrap() {
-			if ( !is_single() ) {
-				echo '<div class="container">';
-			}
+			if ( !is_product() ) echo '<div class="container page-container">';
 			echo '<div class="row">';
 			echo '<div class="content-page shop ' . pure_main_content_classes( 'shop' ) . '" role="main">';
 		}
@@ -49,9 +47,7 @@
 			echo '</div><!-- /.content-page -->';
 			pure_enable_sidebar( 'shop' ) ? get_sidebar( 'shop' ) : remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );;
 			echo '</div><!-- /.row -->';
-			if ( !is_single() ) {
-				echo '</div><!-- /.container -->';
-			}
+			if ( !is_product() ) echo '</div><!-- /.page-container -->';
 		}
 	}
 
