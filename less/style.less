@@ -614,7 +614,7 @@ input[type='submit'] {
 /* =========================================================
  - RESPONSIVE - .
 ========================================================= */
-@media only screen and ( min-width: 1200px )
+@media only screen and ( min-width: 1260px )
 {
 	.container {
 		width: 1200px;
@@ -1316,8 +1316,11 @@ footer.site-footer {
 		.menu {
 			> .menu-item {
 				.sub-menu {
-					right: 0;
-					min-width: 180px;
+					    right: 50%;
+					    left: initial;
+					    min-width: 180px;
+					    text-align: center;
+					    transform: translate( 50%, 10px );
 				}
 				.menu-item {
 					margin: 0;
@@ -1328,6 +1331,7 @@ footer.site-footer {
 	form.login {
 		width: 100%;
 		padding: 10px;
+		text-align: left;
 		label:not(.inline) {
 			text-transform: none;
 			margin-bottom: 6px;
@@ -1418,7 +1422,7 @@ footer.site-footer {
 		text-align: center;
 		position: absolute;
 		padding: 15px 0;
-		right: -45px;
+		right: -15px;
 		opacity: 0;
 		z-index: -1;
 		visibility: hidden;
@@ -1530,6 +1534,7 @@ header.site-header {
 	    justify-content: space-between;
 	}
 	.menu, .menu-main {
+		text-align: center;
 		ul {
 			> .menu-item, .page_item {
 				display: inline-block;
@@ -1541,7 +1546,8 @@ header.site-header {
 			text-transform: uppercase;
 		}
 		a {
-			padding: 10px 15px;
+			display: block;
+			padding: 8px 15px;
 		}
 		> li {
 			> a {
@@ -1550,15 +1556,54 @@ header.site-header {
 		}	
 	}
 	.sub-menu {
+		min-width: 200px;
+		text-align: left;
 		padding: 6px 0;
 		transform: translateY( 6px );
 		.menu-item {
-			width: 200px;
+			display: block;
+			width: 100%;
 			font-size: 13px;
 			a {
 				padding: 10px 12px;
 				color: @lightColor;
 			}
+		}
+	}
+}
+.header-logo {
+	a {
+		display: block;
+	}
+}
+.site-search {
+	flex-shrink: 0;
+	padding-left: 30px;
+	form {
+		.trans( all, .2s );
+	}
+	input, button {
+		background-color: transparent;
+		border: 0;
+		outline: 0;
+		box-shadow: none;
+		color: @lightColor;
+		&:focus, &:active {
+			border: 0;
+			outline: 0;
+			box-shadow: none;
+		}
+	}
+	input {
+		padding: 6px 0;
+		width: 160px;
+	}
+	button {
+		padding: 10px;
+		margin-right: -10px;
+		.trans( all, .2s );
+		i {
+			font-size: 20px;
 		}
 	}
 }
@@ -1624,52 +1669,19 @@ header.site-header {
 	}
 }
 
-/* Other templates.
-============================ */
-.header-logo {
-	a {
-		display: block;
-	}
-}
-.site-search {
-	padding-left: 30px;
-	form {
-		.trans( all, .2s );
-	}
-	input, button {
-		background-color: transparent;
-		border: 0;
-		outline: 0;
-		box-shadow: none;
-		color: @lightColor;
-		&:focus, &:active {
-			border: 0;
-			outline: 0;
-			box-shadow: none;
-		}
-	}
-	input {
-		padding: 6px 0;
-		width: 160px;
-	}
-	button {
-		padding: 10px;
-		margin-right: -10px;
-		.trans( all, .2s );
-		i {
-			font-size: 20px;
-		}
-	}
-}
-
 /* =========================================================
  - RESPONSIVE
 ========================================================= */
-@media only screen and ( min-width: 768px )
-{
-	.menu-mobile-switcher {
-		display: none;
+@media only screen and ( max-width: 1200px ) {
+	.top-bar .widget_shopping_cart_content {
+		right: -15px;
 	}
+	header.site-header .menu a, header.site-header .menu-main a {
+		padding: 8px 10px;
+	}
+}
+@media only screen and ( max-width: 992px ) {
+	
 }
 /**
  * FIXED HEADER - #fixed_header
@@ -1746,6 +1758,17 @@ body.menu-mobile-open {
 	}
 	.close-menu-mobile-full-screen {
 		display: block;
+	}
+}
+
+
+/* =========================================================
+ - RESPONSIVE
+========================================================= */
+@media only screen and ( min-width: 768px )
+{
+	.menu-mobile-switcher {
+		display: none;
 	}
 }
 /**
@@ -4641,6 +4664,7 @@ table.cart {
 				color: @lightColor;
 				display: block;
 				line-height: 1.5;
+				.flex_center_Y();
 			}
 		}
 	}
@@ -4801,7 +4825,6 @@ table.cart {
 	}
 	.price {
 		margin-bottom: 10px;
-		justify-content: flex-end;
 		clear: both;
 		.clear_after();
 	}
