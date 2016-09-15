@@ -17,7 +17,7 @@
 					'theme_location' => $type,
 					'menu_class' => 'menu menu-' . $type,
 					'menu_id' => 'menu-' . $type,
-					'container_class' => 'menu-' . $type . '-wrap',
+					'container_class' => 'menu-wrap menu-' . $type . '-wrap',
 				)
 			);
 		}
@@ -31,14 +31,19 @@
 			<?php if ( $opt !== 'switcher' ): ?>
 				<!-- *======#| Mobile Menu |#======* -->
 				<div class="pure-menu-mobile">
-					<?php pure_get_menu( 'mobile' ); ?>
+					<div class="menu-content">
+						<?php pure_search_tpl( 'menu-mobile-search' ); ?>
+						<?php pure_get_menu( 'mobile' ); ?>
+					</div>
 				</div><!-- /.pure-menu-mobile -->
 				<div class="close-menu-mobile-full-screen"></div>
 			<?php else: ?>
 				<!-- Open Mobile Menu Button -->
-				<button type="button" class="menu-mobile-switcher">
-					<i class="zmdi zmdi-menu"></i>
-				</button>
+				<div class="menu-mobile-switcher-wrap">
+					<button type="button" class="menu-mobile-switcher">
+						<i class="zmdi zmdi-menu"></i>
+					</button>
+				</div>
 			<?php endif;
 		}
 	}
@@ -46,10 +51,10 @@
 	/**
 	 * Display site search.
 	 */
-	if ( !function_exists( 'pure_site_search_tpl' ) ) {
-		function pure_site_search_tpl() { ?>
+	if ( !function_exists( 'pure_search_tpl' ) ) {
+		function pure_search_tpl( $extra_class = null ) { ?>
 			<!-- Search -->
-			<div class="site-search">
+			<div class="search<?php if ( $extra_class ) echo " $extra_class"; ?>">
 				<form role="search" action="#" method="get" id="searchform" class="searchform">
 			        <input type="text" name="s" id="search-content" class="search-content" placeholder="Search" />
 			        <button type="submit" class="searchsubmit">
@@ -57,7 +62,23 @@
 			        </button>
 				</form>
 			</div>
-			<?php
+		<?php
+		}
+	}
+
+	/**
+	 * Display Logo template.
+	 */
+	if ( !function_exists( 'pure_logo_tpl' ) ) {
+		function pure_logo_tpl( $type = 'main' ) {
+			if ( pure_get_logo_url( $type ) ): ?>
+				<!-- Logo -->
+				<div class="header-logo">
+					<a href="index.php">
+						<img src="<?php echo pure_get_logo_url( $type ); ?>" alt="">
+					</a>
+				</div><!-- /.header-logo -->
+			<?php endif;
 		}
 	}
 

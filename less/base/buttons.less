@@ -6,19 +6,25 @@
 .button,
 button,
 input[type='submit'] {
-	color: #fff;
 	display: inline-block;
 	text-decoration: none;
-	font-size: 14px;
 	border: 0;
-	letter-spacing: 1px;
-    padding: 8px 28px 7px;
-    text-transform: uppercase;
-	opacity: 1;
-    .trans( all, .2s );
+	.trans( all, .2s );
 	.disable_OutBox();
-	&:hover, &:focus, &:active {
+}
+.site-content, .site-footer, .footer-bottom {
+	.button,
+	button,
+	input[type='submit'] {
 		color: #fff;
-		opacity: .85;
+		font-size: 14px;
+		letter-spacing: 1px;
+	    padding: 8px 28px 7px;
+	    text-transform: uppercase;
+		opacity: 1;
+		&:hover, &:focus {
+			color: #fff;
+			opacity: .85;
+		}
 	}
 }

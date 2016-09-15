@@ -9,7 +9,7 @@
 	height: 100vh;
 	top: 0;
 	z-index: 20000;
-	background-color: #141414;
+	background-color: #151515;
 	transform: translateX(-100%);
 	.trans( transform, .3s, ease-out );
 	.menu {
@@ -17,6 +17,7 @@
 		li {
 			display: block;
 			width: 100%;
+			position: relative;
 			a {
 				color: #fff;
 				display: block;
@@ -26,11 +27,58 @@
 					opacity: 1;
 				}
 			}
+			.opel-this {
+				position: absolute;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				&:before {
+					font-family: 'Material-Design-Iconic-Font';
+					content: '\f2fa';
+				}
+			}
+			&.open {
+				&:before {
+					transform: rotate( -90deg );
+				}
+			}
 		}
 	}
 	.sub-menu {
 		display: block;
 		width: 100%;
+	}
+}
+.search.menu-mobile-search {
+	padding: 20px 0;
+	form {
+		display: flex;
+		width: 100%;
+		border-top: 1px solid #222222;
+		border-bottom: 1px solid #222222;
+		input[type='text'],
+		input[type='search'] {
+			width: 100%;
+			background-color: #0e0e0e;
+			border: 0;
+			padding-left: 16px;
+    		height: 40px;
+    		color: #999;
+    		&::-webkit-input-placeholder {
+    			color: #333;
+    		}
+		}
+		button[type='submit'] {
+			flex-shrink: 0;
+			width: 40px;
+			height: 40px;
+			background-color: #0e0e0e;
+			padding-top: 4px;
+			font-size: 22px;
+			&:hover, &:focus {
+				color: #999;
+			}
+		}
 	}
 }
 .close-menu-mobile-full-screen {
@@ -47,16 +95,5 @@ body.menu-mobile-open {
 	}
 	.close-menu-mobile-full-screen {
 		display: block;
-	}
-}
-
-
-/* =========================================================
- - RESPONSIVE
-========================================================= */
-@media only screen and ( min-width: 768px )
-{
-	.menu-mobile-switcher {
-		display: none;
 	}
 }

@@ -63,11 +63,18 @@
 		},
 
 		mobileMenu: function() {
+
+			var mobileMenu = $('.pure-menu-mobile');
+
 			$('.menu-mobile-switcher').click(function() {
 				$('body').toggleClass('menu-mobile-open');
 			});
 			$('.close-menu-mobile, .close-menu-mobile-full-screen').click(function() {
 				$('body').toggleClass('menu-mobile-open');
+			});
+
+			mobileMenu.find('li.menu-item.menu-item-has-children').each(function(){
+				$(this).append('<span class="open-this"></span>');
 			});
 		},
 

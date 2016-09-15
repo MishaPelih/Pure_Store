@@ -6,28 +6,17 @@
 	<header class="header site-header">
 		<div class="container">
 			<div class="container-wrap">
-
-				<?php if ( pure_get_logo_url() ): ?>
-					<!-- Logo -->
-					<div class="header-logo">
-						<a href="index.php">
-							<img src="<?php echo pure_get_logo_url(); ?>" alt="">
-						</a>
-					</div><!-- /.header-logo -->
-				<?php endif; ?>
-
-				<?php pure_get_menu(); ?>
-
-				<?php pure_site_search_tpl(); ?>
-
-				<?php pure_mobile_menu_tpl( 'switcher' ); ?>
-
+			<?php # Header Templates.
+				pure_logo_tpl(); 
+				pure_get_menu(); 
+				pure_site_search_tpl(); 
+				pure_mobile_menu_tpl( 'switcher' ); 
+			?>
 			</div><!-- /.container-wrap -->
 		</div><!-- /.container -->
 	</header><!-- /site-header -->
 
 	<?php get_header( 'fixed' ); ?>
-
 	<?php pure_mobile_menu_tpl(); ?>
 
 </div><!-- /.header-wrapper -->

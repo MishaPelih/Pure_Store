@@ -6,30 +6,11 @@
 ?>
 <?php if( pure_get_redux_option( 'fixed_header_enabled' ) && pure_get_redux_option( 'fixed_header_enabled' ) !== false ): ?>
 <!-- *======#| Header Fixed |#======* -->
-<header class="header site-header fixed">
+<header class="header fixed-header fixed">
 	<div class="container">
 		<div class="container-wrap">
-
-			<!-- Logo -->
-			<div class="header-logo">
-				<a href="index.php">
-					<img src="<?php echo pure_get_logo_url( 'fixed' ); ?>" alt="">
-				</a>
-			</div><!-- /.header-logo -->
-
-			<!-- Navigation -->
-			<div class="menu-wrap">
-				<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'main',
-							'menu_class' => 'menu menu-fixed',
-							'menu_id' => 'menu-fixed',
-							'container_class' => 'menu-fixed-container',
-						)
-					); 
-				?>
-			</div><!-- /.menu-wrap -->
+			<?php pure_logo_tpl( 'fixed' ); ?>
+			<?php pure_get_menu(); ?>
 		</div><!-- /.container-wrap -->
 	</div><!-- /.container -->
 </header><!-- /fixed-header -->
