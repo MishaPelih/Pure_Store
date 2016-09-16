@@ -17,6 +17,7 @@
 	</header><!-- /site-header -->
 
 	<?php get_header( 'fixed' ); ?>
-	<?php pure_mobile_menu_tpl(); ?>
 
 </div><!-- /.header-wrapper -->
+
+<?php pure_mobile_menu_tpl(); ?>

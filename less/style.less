@@ -1758,27 +1758,62 @@ header.fixed-header {
 			width: 100%;
 			position: relative;
 			a {
+				display: flex;
+			    align-items: center;
+			    min-height: 40px;
 				color: #fff;
-				display: block;
 				font-weight: 300;
 				opacity: .8;
+				z-index: 1;
+				border-top: 1px solid #222;
 				&:hover {
 					opacity: 1;
+					background-color: #0e0e0e;
 				}
 			}
-			.opel-this {
+			.open-this {
+				cursor: pointer;
 				position: absolute;
+				display: flex;
 				right: 0;
 				top: 0;
-				bottom: 0;
+				width: 40px;
+				height: 40px;
+				font-size: 18px;
+				z-index: 3;
+				border-top: 1px solid #222;
+				.trans( all, .2s );
 				&:before {
+					margin: auto;
 					font-family: 'Material-Design-Iconic-Font';
-					content: '\f2fa';
+					content: '\f2f9';
+					.trans( all, .15s );
+				}
+				&:hover {
+					background-color: #0e0e0e;
 				}
 			}
 			&.open {
-				&:before {
-					transform: rotate( -90deg );
+				.open-this {
+					&:before {
+						transform: rotate( 90deg );
+					}
+				}
+			}
+			&.menu-item-has-children {
+				> a {
+					margin-right: 40px;
+				}
+			}
+		}
+		> li {
+			> a {
+				padding: 8px 20px;
+				text-transform: uppercase;
+			}
+			&:first-child {
+				> a, > .open-this {
+					border-top: 0;
 				}
 			}
 		}
@@ -1786,15 +1821,30 @@ header.fixed-header {
 	.sub-menu {
 		display: block;
 		width: 100%;
+		padding-left: 20px;
+		display: none;
+		li {
+			a {
+				padding: 6px 20px;
+				&:before {
+					font-family: 'Material-Design-Iconic-Font';
+					content: '\f2fb';
+					position: absolute;
+					left: 6px;
+					font-size: 16px;
+				}
+			}
+		}
 	}
 }
 .search.menu-mobile-search {
-	padding: 20px 0;
+	padding-top: 20px;
 	form {
 		display: flex;
 		width: 100%;
-		border-top: 1px solid #222222;
-		border-bottom: 1px solid #222222;
+		border-top: 1px solid #222;
+		border-bottom: 1px solid #222;
+		.trans( all, .2s );
 		input[type='text'],
 		input[type='search'] {
 			width: 100%;
@@ -1802,7 +1852,12 @@ header.fixed-header {
 			border: 0;
 			padding-left: 16px;
     		height: 40px;
-    		color: #999;
+    		color: #aaa;
+    		font-weight: 300;
+    		.trans( all, .2s );
+    		&:focus {
+    			border-color: #999;
+    		}
     		&::-webkit-input-placeholder {
     			color: #333;
     		}
@@ -1815,7 +1870,19 @@ header.fixed-header {
 			padding-top: 4px;
 			font-size: 22px;
 			&:hover, &:focus {
-				color: #999;
+				color: #999 !important;
+			}
+		}
+		&.focused {
+			border-color: #999;
+			input[type='text'],
+			input[type='search'] {
+				&::-webkit-input-placeholder {
+	    			color: #555;
+	    		}
+			}
+			button[type='submit'] {
+				color: #555;
 			}
 		}
 	}
