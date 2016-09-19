@@ -35,9 +35,12 @@
 	/**
 	 * Set up the content with value based on the theme's design.
 	 */
-	if ( !isset( $content_width ) ) {
-		$content_width = 800;
-	}
+	if ( !isset( $content_width ) ) $content_width = 800;
+
+	/**
+	 * Remove wpadminbar stylesheets.
+	 */
+	// add_action( 'get_header', create_function( "", "remove_action( 'wp_head', '_admin_bar_bump_cb' );" ) );
 
 	/**
 	 * Load the custom scripts for the theme.

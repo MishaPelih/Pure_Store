@@ -68,19 +68,48 @@
 		mobileMenu: function() {
 
 			var mobileMenu = $('.pure-menu-mobile');
+			var wpadminbar = $( '#wpadminbar' );
+			var position = {
+				get: function( element ) { return element.css( 'position' ); },
+				set: function( element, new_pos ) {
+					element.css({ position: new_pos });
+				},
+			}
+
+			if ( wpadminbar.length ) {
+
+				$(window).bind('scroll load resize', function() {
+
+					var ABHeight = wpadminbar.innerHeight();
+
+					mobileMenu.css( 'top', function() {
+
+						if ( position.get( wpadminbar ) == 'absolute' ) {
+
+							var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+
+							if ( scrolled < ABHeight ) {
+								position.set( mobileMenu, 'absolute' );
+								return ABHeight + 'px';
+							}
+
+							position.set( mobileMenu, 'fixed' );
+							return '0';
+						}
+
+						position.set( mobileMenu, 'fixed' );
+						return ABHeight + 'px';
+					});
+				});
+			}
 
 			mobileMenu.find('form.searchform').filter(function(){
 
 				var form = $(this);
 				var input = form.find('input');
 
-				input.focus(function(){
-					form.addClass( 'focused' );
-				});
-
-				input.focusout(function(){
-					form.removeClass( 'focused' );
-				});
+				input.focus(function(){ form.addClass( 'focused' ); });
+				input.focusout(function(){ form.removeClass( 'focused' ); });
 			});
 
 			mobileMenu.find('li.menu-item.menu-item-has-children').each(function(){
@@ -99,9 +128,7 @@
 				var thisLi = openThis.parent();
 				var subMenu = openThis.siblings('.sub-menu');
 				var animHeight = function( element, action = 'toggle', speed = 'fast' ){
-					element.animate({
-						height: action
-					}, speed );
+					element.animate({ height: action }, speed );
 				};
 
 				openThis.click(function(){
@@ -147,8 +174,7 @@
 				var wpadminbar = $( '#wpadminbar' );
 
 				if ( wpadminbar.length ) {
-					$( 'header.header.fixed.active' ).css( 'top', function()
-					{
+					$( 'header.header.fixed.active' ).css( 'top', function() {
 						if ( wpadminbar.css( 'position' ) == 'fixed' ) {
 							return wpadminbar.innerHeight() + 'px';
 						}

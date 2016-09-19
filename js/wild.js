@@ -3,15 +3,14 @@
     'use strict';
 
 	/**
-     * - Wild Select - jQuery plugin.
-     * ========================================================== *
-     *
+     * Wild Select - jQuery plugin.
      * @author Misha Pelykh
      * @version 1.3.0
+     * =============================================== *
      */
 
-	$.fn.wildSelect = function( options )
-	{
+	$.fn.wildSelect = function( options ) {
+
 		/* Options.
 		============================== */
 		var settings = $.extend({
@@ -35,8 +34,7 @@
 
         // Create select wrapper and push it into variable.
 		wildWrapHTML = '<div class=\"wild-select wild-area';
-		if ( typeof settings.wrapClass === 'string' )
-		{
+		if ( typeof settings.wrapClass === 'string' ) {
 			wildWrapHTML += ' ' + settings.wrapClass
 				.replace(/\s+/g, ' ')
 				.replace(/^\s|\s$/g, '')
@@ -52,8 +50,7 @@
 
 		// Add a trigger.
 		triggerHTML = '<div class="wild-trigger"><span class="caption"></span>';
-		if ( typeof settings.dropdownIcon === 'string' )
-		{
+		if ( typeof settings.dropdownIcon === 'string' ) {
 			var dropdownIcon = settings.dropdownIcon;
 			if ( dropdownIcon == 'default' ) {
 				dropdownIcon = '<i class="fa fa-angle-down"></i>';
@@ -66,7 +63,9 @@
 
 		// Option: Animation.
 		$(document).ready(function() {
+
 			if ( settings.animation ) {
+
 				switch ( settings.animation ) {
 
 					case 'opacity':
