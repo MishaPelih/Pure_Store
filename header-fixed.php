@@ -11,6 +11,7 @@
 		<div class="container-wrap">
 			<?php pure_logo_tpl( 'fixed' ); ?>
 			<?php pure_get_menu(); ?>
+			<?php pure_mobile_menu_tpl( 'switcher' ); ?>
 		</div><!-- /.container-wrap -->
 	</div><!-- /.container -->
 </header><!-- /fixed-header -->

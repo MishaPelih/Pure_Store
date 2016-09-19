@@ -514,10 +514,21 @@ header.fixed-header {
 }
 
 @media only screen and ( max-width: 992px ) {
-	header.site-header {
+	header.header {
 		.menu-wrap, .site-search {
 			display: none !important;
 		}
 	}
-	
+}
+
+@media only screen and ( max-width: 768px ) {
+	.top-bar .widget_shopping_cart_content {
+		display: none !important;
+	}
+}
+
+@media only screen and ( max-width: 482px ) {
+	.top-bar .menu-item {
+		margin-right: 20px;
+	}
 }

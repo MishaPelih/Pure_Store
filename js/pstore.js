@@ -78,7 +78,7 @@
 
 			if ( wpadminbar.length ) {
 
-				$(window).bind('scroll load resize', function() {
+				$(window).bind('load scroll resize', function() {
 
 					var ABHeight = wpadminbar.innerHeight();
 

@@ -8,10 +8,12 @@
 ?>
 <?php
 	if ( !function_exists( 'pure_widget_init' ) ) {
-		function pure_widget_init()
-		{
+		function pure_widget_init() {
+			
 			$before_title = '<h5 class="widget-title">';
 			$after_title = '</h5>';
+			$before_footer_widget = '<div class="col-md-3 col-sm-6 col-xs-12"><div id="%1$s" class="widget %2$s">';
+			$after_footer_widget = '</div><!-- /footer-widget --></div>';
 			
 			if ( function_exists( 'register_sidebar' ) ) {
 				register_sidebar(
@@ -63,8 +65,8 @@
 						'name' => __( 'Footer widget 1', 'pure' ),
 						'id' => 'widgetarea-footer-1',
 						'description' => __( 'Appears in footer', 'pure' ),
-						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
-						'after_widget' => '</div><!-- /widget -->',
+						'before_widget' => $before_footer_widget,
+						'after_widget' => $after_footer_widget,
 						'before_title' => $before_title,
 						'after_title' => $after_title
 					)
@@ -74,8 +76,8 @@
 						'name' => __( 'Footer widget 2', 'pure' ),
 						'id' => 'widgetarea-footer-2',
 						'description' => __( 'Appears in footer', 'pure' ),
-						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
-						'after_widget' => '</div><!-- /widget -->',
+						'before_widget' => $before_footer_widget,
+						'after_widget' => $after_footer_widget,
 						'before_title' => $before_title,
 						'after_title' => $after_title
 					)
@@ -85,8 +87,8 @@
 						'name' => __( 'Footer widget 3', 'pure' ),
 						'id' => 'widgetarea-footer-3',
 						'description' => __( 'Appears in footer', 'pure' ),
-						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
-						'after_widget' => '</div><!-- /widget -->',
+						'before_widget' => $before_footer_widget,
+						'after_widget' => $after_footer_widget,
 						'before_title' => $before_title,
 						'after_title' => $after_title
 					)
@@ -96,8 +98,8 @@
 						'name' => __( 'Footer widget 4', 'pure' ),
 						'id' => 'widgetarea-footer-4',
 						'description' => __( 'Appears in footer', 'pure' ),
-						'before_widget' => '<div id="%1$s" class="widget col-md-3 col-sm-6 col-xs-12 %2$s">',
-						'after_widget' => '</div><!-- /widget -->',
+						'before_widget' => $before_footer_widget,
+						'after_widget' => $after_footer_widget,
 						'before_title' => $before_title,
 						'after_title' => $after_title
 					)

@@ -73,8 +73,43 @@ footer.site-footer {
 .footer-bottom {
 	padding: 36px 0;
 	.copyright-right {
+		.clear_after();
 		.widget {
 			float: right;
+			.clear_after();
 		}
 	}
+}
+
+
+/* =====================================================
+ - RESPONSIVE - #footer.
+===================================================== */
+@media only screen and ( max-width: 992px ) {
+	footer.site-footer {
+	    padding-top: 60px;
+		padding-bottom: 0;
+	}
+	.sidebar-footer {
+		.widget {
+			margin-bottom: 40px;
+		}
+	}
+	.copyright {
+		.copyright-left, .copyright-right {
+			float: none;
+			text-align: center;
+		}
+	}
+	.copyright-left {
+		margin-bottom: 20px;
+	}
+	.footer-bottom .copyright-right .widget {
+		display: inline-block;
+		float: none;
+	}
+}
+
+@media only screen and ( max-width:768px ) {
+	
 }
