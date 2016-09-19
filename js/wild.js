@@ -1,20 +1,18 @@
-;'use strict';
+;(function( $ ) {
 
-(function($) {
+    'use strict';
 
 	/**
-     * ====================================================================================
      * - Wild Select - jQuery plugin.
-     * ====================================================================================
+     * ========================================================== *
      *
-     * @author Misha Pelykh, Er4ik
-     * @version 1.2
+     * @author Misha Pelykh
+     * @version 1.3.0
      */
 
 	$.fn.wildSelect = function( options )
 	{
-		/* ==============================
-		 - Options.
+		/* Options.
 		============================== */
 		var settings = $.extend({
 			animation: false,
@@ -23,9 +21,7 @@
 			wrapClass: false,
 		}, options );
 
-
-		/* ==============================
-		 - Global Variables.
+		/* Global Variables.
 		============================== */
 		var allDefaultSelects = $(this),
 		allWildTriggers,
@@ -34,16 +30,11 @@
 		wildWrapHTML,
 		triggerHTML;
 
-		/* Hide raw selects.
-		------------------------------------*/
+        // Hide raw selects.
 		allDefaultSelects.css('display','none');
 
-		/* Add select wrap (start).
-		------------------------------------*/
+        // Create select wrapper and push it into variable.
 		wildWrapHTML = '<div class=\"wild-select wild-area';
-
-		/* Option: wrapClass.
-		------------------------------------*/
 		if ( typeof settings.wrapClass === 'string' )
 		{
 			wildWrapHTML += ' ' + settings.wrapClass
@@ -51,28 +42,16 @@
 				.replace(/^\s|\s$/g, '')
 				.replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'');
 		}
-
-		/* Add select wrap (end).
-		------------------------------------*/
 		wildWrapHTML += '\"></div>';
-
-		/* Create wrapper...
-		------------------------------------*/
 		allDefaultSelects.wrap(wildWrapHTML);
-
-		/* ... and pull it in variable.
-		------------------------------------*/
 		wildSelect = allDefaultSelects.parent();
 
-		/* Add the wild select after trigger.
-		------------------------------------*/
+		// Add the wild select after default select.
 		allDefaultSelects.after('<ul class="wild-options"></ul>');
 		allWildOptions = allDefaultSelects.siblings( 'ul.wild-options' );
 
-		/* Add a trigger.
-		------------------------------------*/
-		triggerHTML = '<div class="wild-trigger"><span class="wild-caption"></span>';
-
+		// Add a trigger.
+		triggerHTML = '<div class="wild-trigger"><span class="caption"></span>';
 		if ( typeof settings.dropdownIcon === 'string' )
 		{
 			var dropdownIcon = settings.dropdownIcon;
@@ -81,19 +60,15 @@
 			}
 			triggerHTML += '<span class="icon">' + dropdownIcon + '</span>';
 		}
-
 		triggerHTML += '</div>';
 		allDefaultSelects.after(triggerHTML);
 		allWildTriggers = allDefaultSelects.siblings( 'div.wild-trigger' );
 
+		// Option: Animation.
+		$(document).ready(function() {
+			if ( settings.animation ) {
+				switch ( settings.animation ) {
 
-		/* Option: Animation.
-		------------------------------------*/
-		$(document).ready(function(){
-			if ( settings.animation )
-			{
-				switch ( settings.animation )
-				{
 					case 'opacity':
 						wildSelect.addClass( 'animation-opacity' );
 						break;
@@ -105,10 +80,8 @@
 			}
 		});
 
-		/* Option: Animation Speed.
-		------------------------------------*/
-		if ( typeof settings.animationSpeed === 'number' && settings.animationSpeed >= 0 )
-		{
+		// Option: Animation Speed.
+		if ( typeof settings.animationSpeed === 'number' && settings.animationSpeed >= 0 ) {
 			allWildOptions.css({
 				'transition': 'all ' + settings.animationSpeed + 's linear'
 			});
@@ -117,26 +90,22 @@
 			});
 		}
 
-
-		/* If Wild select is open on click on window hide this.
-		------------------------------------*/
-		$(window).click(function( event ){
+		//If Wild select is open on click on window hide this.
+		$(window).click(function( event ) {
 			if ( allWildOptions.hasClass('open') ) {
 				allWildTriggers.removeClass( 'open' );
 				allWildOptions.removeClass( 'open' );
 			}
 		});
 
+		// For each Wild Select loop.
+		allDefaultSelects.each(function(i) {
 
-		/* For each Wild Select loop.
-		------------------------------------*/
-		allDefaultSelects.each(function(i)
-		{
 			var defaultSelect = $(this);
 			var wildOptions = defaultSelect.siblings('ul.wild-options');
 			var wildTrigger = defaultSelect.siblings('.wild-trigger');
 
-			wildTrigger.find('.wild-caption').text(
+			wildTrigger.find('.caption').text(
 				defaultSelect.find('option').filter(':first-child').text()
 			);
 
@@ -150,71 +119,57 @@
 				wildOptions.toggleClass( 'open' );
 			});
 
-
-			/* For each select option loop.
-			------------------------------------*/
+			// For each select option loop.
 			defaultSelect.find('option').each(function(j)
 			{
 				var defaultOption = $(this);
 				var defaultOptionText = defaultOption.text();
 				var defaultOptionValue = defaultOption.attr( 'value' );
 
-				if ( defaultOptionValue || defaultOptionValue == '' )
-				{
+				if ( defaultOptionValue || defaultOptionValue == '' ) {
 					wildOptions.append(
-						'<li data-value="' + defaultOptionValue + '">'
-							+ defaultOptionText +
-						'</li>'
+						'<li data-value="' + defaultOptionValue + '">' + defaultOptionText + '</li>'
 					);
-				} else
-				{
+				} else {
 					wildOptions.append(
-						'<li>'
-							+ defaultOptionText +
-						'</li>'
+						'<li>' + defaultOptionText + '</li>'
 					);
 				}
 			});
 
+			// On wild-select > option click action.
+			wildOptions.find('li').click(function( event ) {
 
-			/* On wild-select > element click action.
-			------------------------------------*/
-			wildOptions.find('li').click(function( event )
-			{
 				event.stopPropagation();
 
 				var wildOption = $(this);
 				var wildOptionText = wildOption.text();
 				var wildOptionValue = wildOption.attr( 'data-value' );
 
-				addSelectedAttr( function()
-				{
+				addSelectedAttr( function() {
+
 					var filter;
+
 					if ( wildOptionValue || wildOptionValue == '' ) {
 						filter = '[value="'+ wildOptionValue +'"]';
 					} else {
 						filter = ':contains("'+ wildOptionText +'")';
 					}
-					return defaultSelect.find('option')
-						.filter(filter);
+					return defaultSelect.find('option').filter(filter);
 				});
 
 				wildOptions.removeClass( 'open' );
 				wildTrigger.removeClass( 'open' );
-				wildTrigger.find('.wild-caption').text( wildOptionText );
+				wildTrigger.find('.caption').text( wildOptionText );
 			});
 		});
 
 
-		/* ==============================
-		 - Functions.
+		/* Functions.
 		============================== */
 
-		/**
-		 * Add attr 'selected' to option and remove it in current option.
-		 */
-		function addSelectedAttr( element )
-		{
+		// Add attr 'selected' to option and remove it in current option.
+		function addSelectedAttr( element ) {
 			var preparedElement;
 			typeof element === 'function' ? preparedElement = element() : preparedElement = element;
 			preparedElement.attr("selected", "selected").siblings().removeAttr('selected');

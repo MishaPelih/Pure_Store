@@ -98,7 +98,6 @@
 				var openThis = $(this);
 				var thisLi = openThis.parent();
 				var subMenu = openThis.siblings('.sub-menu');
-
 				var animHeight = function( element, action = 'toggle', speed = 'fast' ){
 					element.animate({
 						height: action
