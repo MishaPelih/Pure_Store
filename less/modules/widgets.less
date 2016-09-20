@@ -49,6 +49,7 @@ aside.sidebar {
 	}
 	p {
 		margin-bottom: 14px;
+		.clear_after();
 		&:last-child {
 			margin-bottom: 0;
 		}
@@ -115,8 +116,7 @@ aside.sidebar {
 	}
 
 	&.widget_mc4wp_form_widget {
-		input[type='email'],
-		input[type='text'] {
+		input[type='email'] {
 			border: 1px solid transparent;
 			border-right: 0;
 			padding: 10px 14px;
@@ -127,8 +127,7 @@ aside.sidebar {
 			float: left;
     		width: 63%;
 		}
-		input[type='submit'],
-		input[type='button'] {
+		input[type='submit'] {
 			color: #fff;
 			text-transform: none;
 			font-size: 14px;
@@ -450,5 +449,20 @@ aside.sidebar {
 				display: inline-block;
 			}
 		}
+	}
+}
+
+@media only screen and ( min-width: 482px ) and ( max-width: 768px ) {
+	.widget.widget_mc4wp_form_widget input[type='submit'] {
+		width: 20%;
+	}
+	.widget.widget_mc4wp_form_widget input[type='email'] {
+		width: 80%;
+	}
+}
+
+@media only screen and ( max-width: 482px ) {
+	footer.site-footer .widget-title {
+		font-size: 17px;
 	}
 }

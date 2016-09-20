@@ -207,9 +207,7 @@
 				.product-quick-view .mfp-close,
 				.products .product-mask:hover .product-mask-content .show-quickly:before,
 				.products .footer-product .side-button.added,
-				.products.row-count-4 .add_to_cart_button:before,
-				.products.row-count-5 .add_to_cart_button:before,
-				.products.row-count-6 .add_to_cart_button:before,
+				.products .add_to_cart_button,
 				.pagination-wrap .page-numbers li span.current, 
 				.filter-wrap .page-numbers li span.current
 			";
