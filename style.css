@@ -4567,16 +4567,17 @@ table.cart td.product-remove {
   margin-right: 10px;
   padding: 8px 28px 8px;
 }
-.single-product .yith-wcwl-add-to-wishlist a,
-.product-quick-view .yith-wcwl-add-to-wishlist a,
-.single-product .compare,
-.product-quick-view .compare,
-.single-product .add_to_wishlist,
-.product-quick-view .add_to_wishlist {
+.single-product .summary .yith-wcwl-add-to-wishlist a,
+.product-quick-view .summary .yith-wcwl-add-to-wishlist a,
+.single-product .summary .compare,
+.product-quick-view .summary .compare,
+.single-product .summary .add_to_wishlist,
+.product-quick-view .summary .add_to_wishlist {
   font-size: 0;
   letter-spacing: 0;
   padding: 7px 12px 8px 11px;
   color: #303030;
+  background-color: transparent;
   text-decoration: none;
   border: 0;
   text-transform: uppercase;
@@ -4584,45 +4585,45 @@ table.cart td.product-remove {
   line-height: 1;
   display: inline-block;
   border: 1px solid #eee;
+  background-color: transparent !important;
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
-  background-color: transparent;
 }
-.single-product .yith-wcwl-add-to-wishlist a:hover,
-.product-quick-view .yith-wcwl-add-to-wishlist a:hover,
-.single-product .compare:hover,
-.product-quick-view .compare:hover,
-.single-product .add_to_wishlist:hover,
-.product-quick-view .add_to_wishlist:hover,
-.single-product .yith-wcwl-add-to-wishlist a:focus,
-.product-quick-view .yith-wcwl-add-to-wishlist a:focus,
-.single-product .compare:focus,
-.product-quick-view .compare:focus,
-.single-product .add_to_wishlist:focus,
-.product-quick-view .add_to_wishlist:focus,
-.single-product .yith-wcwl-add-to-wishlist a:active,
-.product-quick-view .yith-wcwl-add-to-wishlist a:active,
-.single-product .compare:active,
-.product-quick-view .compare:active,
-.single-product .add_to_wishlist:active,
-.product-quick-view .add_to_wishlist:active,
-.single-product .yith-wcwl-add-to-wishlist a:visited,
-.product-quick-view .yith-wcwl-add-to-wishlist a:visited,
-.single-product .compare:visited,
-.product-quick-view .compare:visited,
-.single-product .add_to_wishlist:visited,
-.product-quick-view .add_to_wishlist:visited {
+.single-product .summary .yith-wcwl-add-to-wishlist a:hover,
+.product-quick-view .summary .yith-wcwl-add-to-wishlist a:hover,
+.single-product .summary .compare:hover,
+.product-quick-view .summary .compare:hover,
+.single-product .summary .add_to_wishlist:hover,
+.product-quick-view .summary .add_to_wishlist:hover,
+.single-product .summary .yith-wcwl-add-to-wishlist a:focus,
+.product-quick-view .summary .yith-wcwl-add-to-wishlist a:focus,
+.single-product .summary .compare:focus,
+.product-quick-view .summary .compare:focus,
+.single-product .summary .add_to_wishlist:focus,
+.product-quick-view .summary .add_to_wishlist:focus,
+.single-product .summary .yith-wcwl-add-to-wishlist a:active,
+.product-quick-view .summary .yith-wcwl-add-to-wishlist a:active,
+.single-product .summary .compare:active,
+.product-quick-view .summary .compare:active,
+.single-product .summary .add_to_wishlist:active,
+.product-quick-view .summary .add_to_wishlist:active,
+.single-product .summary .yith-wcwl-add-to-wishlist a:visited,
+.product-quick-view .summary .yith-wcwl-add-to-wishlist a:visited,
+.single-product .summary .compare:visited,
+.product-quick-view .summary .compare:visited,
+.single-product .summary .add_to_wishlist:visited,
+.product-quick-view .summary .add_to_wishlist:visited {
   outline: 0;
   box-shadow: none;
 }
-.single-product .yith-wcwl-add-to-wishlist a:before,
-.product-quick-view .yith-wcwl-add-to-wishlist a:before,
-.single-product .compare:before,
-.product-quick-view .compare:before,
-.single-product .add_to_wishlist:before,
-.product-quick-view .add_to_wishlist:before {
+.single-product .summary .yith-wcwl-add-to-wishlist a:before,
+.product-quick-view .summary .yith-wcwl-add-to-wishlist a:before,
+.single-product .summary .compare:before,
+.product-quick-view .summary .compare:before,
+.single-product .summary .add_to_wishlist:before,
+.product-quick-view .summary .add_to_wishlist:before {
   font-family: 'Material-Design-Iconic-Font';
   font-size: 24px;
   color: #303030;
@@ -4630,34 +4631,6 @@ table.cart td.product-remove {
   -moz-transition: all 0.2s linear 0s;
   -o-transition: all 0.2s linear 0s;
   transition: all 0.2s linear 0s;
-}
-.single-product .yith-wcwl-add-to-wishlist a:hover,
-.product-quick-view .yith-wcwl-add-to-wishlist a:hover,
-.single-product .compare:hover,
-.product-quick-view .compare:hover,
-.single-product .add_to_wishlist:hover,
-.product-quick-view .add_to_wishlist:hover,
-.single-product .yith-wcwl-add-to-wishlist a:focus,
-.product-quick-view .yith-wcwl-add-to-wishlist a:focus,
-.single-product .compare:focus,
-.product-quick-view .compare:focus,
-.single-product .add_to_wishlist:focus,
-.product-quick-view .add_to_wishlist:focus {
-  background-color: transparent;
-}
-.single-product .yith-wcwl-add-to-wishlist a:hover:before,
-.product-quick-view .yith-wcwl-add-to-wishlist a:hover:before,
-.single-product .compare:hover:before,
-.product-quick-view .compare:hover:before,
-.single-product .add_to_wishlist:hover:before,
-.product-quick-view .add_to_wishlist:hover:before,
-.single-product .yith-wcwl-add-to-wishlist a:focus:before,
-.product-quick-view .yith-wcwl-add-to-wishlist a:focus:before,
-.single-product .compare:focus:before,
-.product-quick-view .compare:focus:before,
-.single-product .add_to_wishlist:focus:before,
-.product-quick-view .add_to_wishlist:focus:before {
-  color: #f05a66;
 }
 .single-product .yith-wcwl-add-to-wishlist,
 .product-quick-view .yith-wcwl-add-to-wishlist {
@@ -4730,6 +4703,24 @@ table.cart td.product-remove {
 }
 .product-quick-view .mfp-close:hover {
   color: #fff;
+}
+@media only screen and (max-width: 1200px) {
+  .single-product .images .thumbnails {
+    display: block;
+    width: 100%;
+    float: none;
+    padding: 0;
+    margin: 0 -10px;
+  }
+  .slick-slide {
+    margin: 0;
+    padding: 0 10px;
+  }
+  .single-product .images .woocommerce-main-image {
+    display: block;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 /**
  * PRODUCTS - #products.

@@ -9,15 +9,14 @@
 			this.siteSearch();
 			this.wildSelectInit();
 			this.owlCarouselInit();
-			this.slickInit();
 			this.customScrollInit();
 			this.spinButtons();
 			this.sidebarDropdowns();
-			this.checkoutDropdowns();
 			if ( pureConfig.woocommerce ) {
 				this.woocommerceOrderingForm();
 				this.priceFilter();
 				this.productsPerPage();
+				this.singleProductsThumbnails();
 				this.addToWishlistBtn();
 				this.wishlistTfootRemove();
 				if ( pureConfig.ajaxurl ) {
@@ -225,7 +224,7 @@
 			});
 		},
 
-		slickInit: function() {
+		singleProductsThumbnails: function() {
 
 			$('.thumbnails').slick({
 				infinite: true,
@@ -234,8 +233,21 @@
 				vertical: true,
 				speed: 170,
 				verticalSwiping: true,
-				arrows: false
+				arrows: false,
+				responsive: [
+                    {
+                        breakpoint: 1200,
+                        settings: {
+                        	vertical: false,
+                        	verticalSwiping: false,
+                        	slidesToShow: 4,
+                        	padding: '20px',
+                        }
+                    },
+                ]
 			});
+
+			
 		},
 
 		customScrollInit: function() {
@@ -295,24 +307,6 @@
 					children.show('fast');
 				} else {
 					children.hide('fast');
-				}
-			});
-		},
-
-		checkoutDropdowns: function() {
-			$('.fade-area').find('.fade-content').css('display', 'none');
-
-			$('.fade-area').find('.fade-trigger').click(function() {
-
-				var content = $(this).siblings('.fade-content');
-				var parent = content.parent();
-
-				parent.toggleClass('open');
-
-				if ( parent.hasClass('open') ) {
-					content.show('medium');
-				} else {
-					content.hide('medium');
 				}
 			});
 		},

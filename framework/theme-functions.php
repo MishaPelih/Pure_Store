@@ -128,7 +128,7 @@
                     $redux = true;
                 }
 
-                if ( $redux_option  && $redux === true ) {
+                if ( $redux_option && $redux === true && !is_product() ) {
                     if ( $redux_option === 'left' ) {
                         array_push( $classes, 'pull-right' );
                     } elseif ( $redux_option === 'right' ) {
