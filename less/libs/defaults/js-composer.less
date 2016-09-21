@@ -1,0 +1,52 @@
+/**
+ * JS-COMPOSER ELEMENTS - #js_composer_elements.
+ * ============================================ *
+ * 
+*/
+/* VC Tabs.
+=========================== */
+.page .vc_tta.vc_tta-spacing-1 .vc_tta-tabs-list {
+	text-align: center;
+	margin-bottom: 30px;
+}
+.page .vc_tta-color-grey.vc_tta-style-classic.vc_tta-tabs .vc_tta-panels {
+	border-color: transparent;
+	background-color: transparent;
+}
+.page .vc_tta.vc_general .vc_tta-panel-body {
+	padding: 0;
+}
+.page .vc_tta-tabs .vc_tta-tab > a,
+.page .vc_tta-tabs .vc_tta-tab.vc_active > a {
+	border: 0px !important;
+	border-radius: 0 ;
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 1px;
+	color: @lightColor;
+	padding: 15px 20px;
+	margin: 0 20px;
+	background-color: transparent !important;
+}
+.page .vc_tta-tabs .vc_tta-tab > a:focus,
+.page .vc_tta-tabs .vc_tta-tab > a:hover {
+	border: 0px;
+	background-color: transparent;
+}
+.page .vc_tta-tab {
+	position: relative;
+	outline: none;
+	&:after {
+		content: '/';
+		position: absolute;
+		right: -5px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	&:last-child {
+		&:after {
+			display: none;
+		}
+	}
+}

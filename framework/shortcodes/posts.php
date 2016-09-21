@@ -60,13 +60,19 @@ if ( !function_exists( 'pure_posts' ) ) {
                     $( '#<?php echo $el_id_rand; ?>.<?php echo $el_class_rand; ?>' ).owlCarousel({
                         items: <?php echo $columns; ?>,
                         loop: <?php echo $carousel_loop; ?>,
-                        nav: true,
                         dots: false,
                         margin: 30,
                         navText: [
                             '<i class="zmdi zmdi-chevron-left"></i>',
                             '<i class="zmdi zmdi-chevron-right"></i>'
-                        ]
+                        ],
+                        responsive:{
+                            0: { items: 1, nav: false },
+                            480: { items: 2, nav: false },
+                            620: { items: 3, nav: false },
+                            768: { items: 4, nav: false },
+                            768: { items: 4, nav: true }
+                        }
                     });
                 });
             </script>
