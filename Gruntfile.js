@@ -25,9 +25,11 @@ module.exports = function( grunt ) {
 					    getLess( 'base/buttons' ),
 					    getLess( 'base/global' ),
 					    getLess( 'base/*' ),
-						getLess( 'modules/**/*' ),
 						getLess( 'blog/**/*' ),
-						getLess( 'shop/**/*' )
+						getLess( 'blog/blog.less' ),
+						getLess( 'woocommerce/**/*' ),
+						getLess( 'woocommerce/woocommerce.less' ),
+						getLess( 'modules/**/*' )
 					],
 			    }
     		}

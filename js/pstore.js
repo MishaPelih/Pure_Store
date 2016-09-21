@@ -240,14 +240,13 @@
                         settings: {
                         	vertical: false,
                         	verticalSwiping: false,
-                        	slidesToShow: 4,
+                        	slidesToShow: 3,
+                        	focusOnSelect: true,
                         	padding: '20px',
                         }
                     },
                 ]
 			});
-
-			
 		},
 
 		customScrollInit: function() {

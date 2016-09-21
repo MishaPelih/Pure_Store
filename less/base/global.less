@@ -79,24 +79,22 @@
 
 /* Headings.
 ============================ */
-.heading-block {
-	text-align: center;
-	h2 {
-		padding-bottom: 15px;
-		margin-bottom: 30px;
-		display: inline-block;
-		position: relative;
-		&:after {
-			content: '';
-			position: absolute;
-			width: 60px;
-			height: 1px;
-			background-color: #ddd;
-			top: 100%;
-		    left: 50%;
-		    transform: translateX( -50% );
-		}
-	}
+.page-heading  {
+    display: block;
+    position: relative;
+    text-align: center;
+	margin-bottom: 40px;
+	padding-bottom: 4px;
+    &:after {
+    	content: '';
+	    position: absolute;
+	    width: 60px;
+	    height: 1px;
+	    background-color: #ddd;
+	    top: 100%;
+	    left: 50%;
+	    transform: translateX(-50%);
+    }
 }
 
 /* Nav Tabs.
@@ -104,9 +102,9 @@
 .nav-tabs-wrap {
 	display: flex;
 	justify-content: center;
-    align-items: center;
-    margin-bottom: 40px;
-    .clear_after();
+	align-items: center;
+	margin-bottom: 40px;
+	.clear_after();
 }
 .tab-content {
 	display: inline-block;
@@ -189,35 +187,35 @@
 		font-size: 20px;
 	}
 	.facebook {
-        a:hover, a:focus {
-            color: #3b5998;
-        }
-    }
-    .twitter {
-        a:hover, a:focus {
-            color: #1da1f2;
-        }
-    }
-    .vimeo {
-        a:hover, a:focus {
-            color: #4bf;
-        }
-    }
-    .google {
-        a:hover, a:focus {
-            color: #c53929 ;
-        }
-    }
-    .tumblr {
-        a:hover, a:focus {
-            color: #36465d ;
-        }
-    }
-    .pinterest {
-        a:hover, a:focus {
-            color: #ab171e ;
-        }
-    }
+		a:hover, a:focus {
+			color: #3b5998;
+		}
+	}
+	.twitter {
+		a:hover, a:focus {
+			color: #1da1f2;
+		}
+	}
+	.vimeo {
+		a:hover, a:focus {
+			color: #4bf;
+		}
+	}
+	.google {
+		a:hover, a:focus {
+			color: #c53929 ;
+		}
+	}
+	.tumblr {
+		a:hover, a:focus {
+			color: #36465d ;
+		}
+	}
+	.pinterest {
+		a:hover, a:focus {
+			color: #ab171e ;
+		}
+	}
 }
 
 /* Owl Carousel.
@@ -273,9 +271,15 @@
 	overflow: hidden;
 }
 
-@media only screen and ( min-width: 1260px )
-{
+@media only screen and ( min-width: 1260px ) {
 	.container {
 		width: 1200px;
+	}
+}
+
+@media only screen and ( max-width: 1200px ) {
+	.page-heading {
+		font-size: 32px;
+		margin-bottom: 34px;
 	}
 }

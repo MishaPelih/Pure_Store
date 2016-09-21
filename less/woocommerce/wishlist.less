@@ -1,0 +1,29 @@
+/**
+ * WISHLIST - #wishlist
+ * ============================================ *
+ * 
+ */
+.woocommerce table.wishlist_table tbody td {
+    text-align: center;
+}
+.woocommerce #content table.wishlist_table.cart a.remove {
+    color: inherit;
+    &:hover {
+        background-color: inherit;
+        color: @activeColor;
+    }
+}
+.woocommerce .wishlist_table td.product-add-to-cart a {
+    border-radius: 0;
+    line-height: 1.3;
+}
+.woocommerce .wishlist-title h2 {
+    padding: 0;
+    line-height: 1.2;
+    margin-bottom: 30px;
+}
+.wishlist_table {
+    tfoot {
+        display: none !important;
+    }
+}

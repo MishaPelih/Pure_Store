@@ -440,8 +440,8 @@
     remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 
     if ( !function_exists( 'pure_related_products' ) ) {
-        function pure_related_products()
-        {
+        function pure_related_products() {
+        	
             global $product;
 
             if ( !method_exists( $product, 'get_related' ) || is_shop() ) return;
@@ -462,9 +462,9 @@
 
             if ( $products->have_posts() ) : ?>
 
-            	<div class="related-products">
-                    <div class="container">
-                        <h2><?php _e('Suggested products', 'pure'); ?></h2>
+            	<div class="related-products pure-owl-posts">
+                    <div class="container pure-content">
+                        <h2 class="page-heading"><?php _e('Suggested products', 'pure'); ?></h2>
                 		<ul class="products products-grid">
                 			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
                 				<?php woocommerce_get_template_part( 'content', 'product' ); ?>
@@ -507,9 +507,9 @@
 
             if ( $products->have_posts() ) : ?>
 
-            	<div class="upsells-products">
-                    <div class="container">
-                        <h2><?php _e('Upsells products', 'pure'); ?></h2>
+            	<div class="upsells-products pure-owl-posts">
+                    <div class="container pure-content">
+                        <h2 class="page-heading"><?php _e('Upsells products', 'pure'); ?></h2>
                 		<ul class="products products-grid">
                 			<?php while ( $products->have_posts() ) : $products->the_post(); ?>
                 				<?php woocommerce_get_template_part( 'content', 'product' ); ?>

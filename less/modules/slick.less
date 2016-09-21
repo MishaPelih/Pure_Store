@@ -41,23 +41,19 @@
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 }
-
 .slick-track {
     position: relative;
     left: 0;
     top: 0;
     display: block;
-
     &:before,
     &:after {
         content: "";
         display: table;
     }
-
     &:after {
         clear: both;
     }
-
     .slick-loading & {
         visibility: hidden;
     }
@@ -66,6 +62,7 @@
     float: left;
     height: 100%;
     min-height: 1px;
+    display: none;
     [dir="rtl"] & {
         float: right;
     }
@@ -75,21 +72,15 @@
     &.slick-loading img {
         display: none;
     }
-
-    display: none;
-
     &.dragging img {
         pointer-events: none;
     }
-
     .slick-initialized & {
         display: block;
     }
-
     .slick-loading & {
         visibility: hidden;
     }
-
     .slick-vertical & {
         display: block;
         height: auto;
