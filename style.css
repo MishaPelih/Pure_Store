@@ -3687,7 +3687,7 @@ footer.site-footer .widget-title {
  * HEADER - #header.
  * ============================================ *
  * 
- */
+*/
 /* Base.
 ============================ */
 .header-wrapper {
@@ -3703,10 +3703,36 @@ footer.site-footer .widget-title {
 .header-wrapper .sub-menu {
   background-color: #f1f1f1;
   border: 1px solid #ddd;
+  position: absolute;
 }
 .header-wrapper .sub-menu .menu-item a {
   padding: 6px 12px;
   line-height: 1.2;
+}
+.header-wrapper .sub-menu .sub-menu {
+  position: absolute;
+  right: 0;
+  transform: translateX(100%);
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+  top: 0;
+}
+.header-wrapper .sub-menu > .dropdown > a:after,
+.header-wrapper .sub-menu > .menu-parent-item > a:after,
+.header-wrapper .sub-menu > .menu-item-has-children > a:after {
+  font-family: Material-Design-Iconic-Font;
+  content: '\f301';
+  margin-right: 20px;
+  position: absolute;
+  right: 0;
+}
+.header-wrapper .sub-menu > .dropdown:hover > .sub-menu,
+.header-wrapper .sub-menu > .menu-parent-item:hover > .sub-menu,
+.header-wrapper .sub-menu > .menu-item-has-children:hover > .sub-menu {
+  opacity: 1;
+  visibility: visible;
+  z-index: 100;
 }
 .header-wrapper .dropdown,
 .header-wrapper .menu-parent-item,
@@ -3744,14 +3770,14 @@ footer.site-footer .widget-title {
   left: 0;
   top: 100%;
 }
-.header-wrapper .dropdown:hover:before,
-.header-wrapper .menu-parent-item:hover:before,
-.header-wrapper .menu-item-has-children:hover:before {
+ > .header-wrapper .dropdown:hover:before,
+ > .header-wrapper .menu-parent-item:hover:before,
+ > .header-wrapper .menu-item-has-children:hover:before {
   display: block;
 }
-.header-wrapper .dropdown:hover .sub-menu,
-.header-wrapper .menu-parent-item:hover .sub-menu,
-.header-wrapper .menu-item-has-children:hover .sub-menu {
+.header-wrapper .dropdown:hover > .sub-menu,
+.header-wrapper .menu-parent-item:hover > .sub-menu,
+.header-wrapper .menu-item-has-children:hover > .sub-menu {
   opacity: 1;
   visibility: visible;
   z-index: 100;
@@ -4206,6 +4232,7 @@ header.fixed-header .menu .menu-item a {
   z-index: 20000;
   background-color: #151515;
   transform: translateX(-100%);
+  overflow-y: auto;
   -webkit-transition: transform 0.3s ease-out 0s;
   -moz-transition: transform 0.3s ease-out 0s;
   -o-transition: transform 0.3s ease-out 0s;
@@ -4261,7 +4288,7 @@ header.fixed-header .menu .menu-item a {
 .pure-menu-mobile .menu li .open-this:hover {
   background-color: #0e0e0e;
 }
-.pure-menu-mobile .menu li.open .open-this:before {
+.pure-menu-mobile .menu li.open > .open-this:before {
   transform: rotate(90deg);
 }
 .pure-menu-mobile .menu li.menu-item-has-children > a {

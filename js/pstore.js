@@ -87,24 +87,37 @@
 				$(window).bind('load scroll resize', function() {
 
 					var ABHeight = wpadminbar.innerHeight();
+					var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+					var windowHeight = $(window).outerHeight(true);
 
-					mobileMenu.css( 'top', function() {
+					mobileMenu.css({
 
-						if ( position.get( wpadminbar ) == 'absolute' ) {
+						top: function() {
 
-							var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+							if ( position.get( wpadminbar ) == 'absolute' ) {
 
-							if ( scrolled < ABHeight ) {
-								position.set( mobileMenu, 'absolute' );
-								return ABHeight + 'px';
+								if ( scrolled < ABHeight ) {
+									position.set( mobileMenu, 'absolute' );
+									return ABHeight + 'px';
+								}
+								position.set( mobileMenu, 'fixed' );
+								return '';
 							}
-
 							position.set( mobileMenu, 'fixed' );
-							return '0';
-						}
+							return ABHeight + 'px';
+						},
 
-						position.set( mobileMenu, 'fixed' );
-						return ABHeight + 'px';
+						height: function() {
+
+							if ( position.get( wpadminbar ) == 'absolute' ) {
+
+								if ( scrolled < ABHeight ) {
+									return windowHeight - ABHeight + scrolled + 'px';
+								}
+								return '';
+							}
+							return windowHeight - ABHeight + 'px';
+						}
 					});
 				});
 			}

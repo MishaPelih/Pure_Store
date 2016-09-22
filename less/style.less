@@ -3370,7 +3370,7 @@ footer.site-footer {
  * HEADER - #header.
  * ============================================ *
  * 
- */
+*/
 /* Base.
 ============================ */
 .header-wrapper {
@@ -3385,10 +3385,40 @@ footer.site-footer {
 	.sub-menu {
 		background-color: #f1f1f1;
 		border: 1px solid #ddd;
+		position: absolute;
 		.menu-item {
 			a {
 				padding: 6px 12px;
 				line-height: 1.2;
+			}
+		}
+		.sub-menu {
+			position: absolute;
+			right: 0;
+			transform: translateX( 100% );
+			opacity: 0;
+			visibility: hidden;
+			z-index: -1;
+			top: 0;
+		}
+		> .dropdown,
+		> .menu-parent-item,
+		> .menu-item-has-children {
+			> a {
+				&:after {
+					font-family: Material-Design-Iconic-Font;
+				    content: '\f301';
+				    margin-right: 20px;
+				    position: absolute;
+				    right: 0;
+				}
+			}
+			&:hover {
+				> .sub-menu {
+					opacity: 1;
+					visibility: visible;
+					z-index: 100;
+				}
 			}
 		}
 	}
@@ -3419,10 +3449,10 @@ footer.site-footer {
 		    top: 100%;
 		}
 		&:hover {
-			&:before {
+			> &:before {
 				display: block;
 			}
-			.sub-menu {
+			> .sub-menu {
 				opacity: 1;
 				visibility: visible;
 				z-index: 100;
@@ -3909,6 +3939,7 @@ header.fixed-header {
 	z-index: 20000;
 	background-color: #151515;
 	transform: translateX(-100%);
+	overflow-y: auto;
 	.trans( transform, .3s, ease-out );
 	.menu {
 		color: #fff;
@@ -3953,7 +3984,7 @@ header.fixed-header {
 				}
 			}
 			&.open {
-				.open-this {
+				> .open-this {
 					&:before {
 						transform: rotate( 90deg );
 					}

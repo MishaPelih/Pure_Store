@@ -11,6 +11,7 @@
 	z-index: 20000;
 	background-color: #151515;
 	transform: translateX(-100%);
+	overflow-y: auto;
 	.trans( transform, .3s, ease-out );
 	.menu {
 		color: #fff;
@@ -55,7 +56,7 @@
 				}
 			}
 			&.open {
-				.open-this {
+				> .open-this {
 					&:before {
 						transform: rotate( 90deg );
 					}
