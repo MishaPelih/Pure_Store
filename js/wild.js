@@ -1,13 +1,13 @@
 ;(function( $ ) {
 
-    'use strict';
-
 	/**
      * Wild Select - jQuery plugin.
      * @author Misha Pelykh
      * @version 1.3.0
      * =============================================== *
      */
+
+    'use strict';
 
 	$.fn.wildSelect = function( options ) {
 

@@ -2668,7 +2668,7 @@ table.cart td.product-remove {
 */
 /* Common sts.
 ============================ */
-.products {
+.products:not(.owl-carousel) {
   margin: 0 -15px;
 }
 .products:after {

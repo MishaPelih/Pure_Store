@@ -22,12 +22,8 @@ if ( !function_exists( 'pure_posts' ) ) {
             ), $attrs
         ));
 
-        if ( empty($per_page ) || !is_int( (int)$per_page ) ) {
+        if ( empty( $per_page ) || !is_int( (int)$per_page ) ) {
             $per_page = 4;
-        }
-
-        if ( empty( $columns ) || !is_int( (int)$columns ) ) {
-            $columns = 4;
         }
 
         $post_classes = array();
@@ -57,8 +53,8 @@ if ( !function_exists( 'pure_posts' ) ) {
         if ( $enable_carousel ): ?>
             <script>
                 jQuery(document).ready(function($) {
+
                     $( '#<?php echo $el_id_rand; ?>.<?php echo $el_class_rand; ?>' ).owlCarousel({
-                        items: <?php echo $columns; ?>,
                         loop: <?php echo $carousel_loop; ?>,
                         dots: false,
                         margin: 30,
@@ -68,10 +64,18 @@ if ( !function_exists( 'pure_posts' ) ) {
                         ],
                         responsive:{
                             0: { items: 1, nav: false },
-                            480: { items: 2, nav: false },
-                            620: { items: 3, nav: false },
-                            768: { items: 4, nav: false },
-                            768: { items: 4, nav: true }
+                            480: { 
+                                items: <?php echo $columns < 2 ? $columns : 2; ?>,
+                                nav: false 
+                            },
+                            768: { 
+                                items: <?php echo $columns < 3 ? $columns : 3; ?>, 
+                                nav: false 
+                            },
+                            1200: { 
+                                items: <?php echo $columns; ?>, 
+                                nav: true 
+                            }
                         }
                     });
                 });
@@ -135,11 +139,16 @@ if ( !function_exists( 'pure_posts_VC' ) ) {
                     'value' => 4,
                 ),
                 array(
-                    "type" => "textfield",
+                    "type" => "dropdown",
                     "holder" => "div",
                     "heading" => __( "Columns", "pure" ),
                     "param_name" => "columns",
-                    'value' => 4,
+                    "value" => array(
+                        '2' => 2,
+                        '3' => 3,
+                        '4' => 4
+                    ),
+                    'save_always' => true,
                 ),
                 array(
                     "type" => "dropdown",

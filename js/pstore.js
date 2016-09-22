@@ -1,5 +1,12 @@
 ;(function($) {
 
+	/**
+     * pstore.js - Theme main script.
+     * @author Misha Pelykh
+     * @version 1.0.0
+     * =============================================== *
+     */
+
 	"use strict";
 
 	var pureStore = {
@@ -204,7 +211,7 @@
 
 			var navIcons = ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>'];
 
-			$('.pure-owl-posts, .cross-sells').find('.products').owlCarousel({
+			$('.related-products, .upsells-products, .cross-sells').find('.products').owlCarousel({
 				loop: true,
 				dots: false,
 				margin: 30,
