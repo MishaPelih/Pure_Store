@@ -1,57 +1,10 @@
 /**
- * SHOP-DEFAULTS - #shop_defaults.
+ * WOOCOMMERCE-DEFAULTS - #woo_defaults.
  * ============================================ *
  * 
- */
-.product-quick-view {
-	.product-quick-view-wrap {
-		width: 1000px;
-		background-color: #fff;
-		margin-bottom: 20px;
-		margin-top: 20px;
-		overflow-y: auto;
-		border: 1px solid @borderColor;
-	}
-	.product-quick-view-content {
-		padding: 15px 0;
-	}
-	.mfp-close {
-		position: fixed;
-		left: 0;
-		top: 0;
-		color: #fff;
-		background-color: transparent;
-		&:hover {
-			color: @activeColor;
-		}
-	}
-	h1 {
-		a {
-			display: inline-block;
-			color: @darkColor;;
-		}
-	}
-	.summary {
-		.add_to_cart_button {
-			float: left;
-			margin-right: 10px;
-		}
-		.add_to_wishlist {
-			float: none;
-			margin: 0;
-			padding: 6px 10px 6px 10px;
-			&:before {
-				font-family: 'Material-Design-Iconic-Font';
-				content: '\f15e';
-				font-size: 22px;
-			}
-		}
-		.added_to_cart {
-			display: none !important;
-		}
-	}
-}
-
+*/
+/* Woocomerce messages.
+============================ */
 .woocommerce-message, .woocommerce-info {
     width: 100%;
     padding: 25px 30px;
@@ -74,6 +27,9 @@
 		color: @lightColor;
 	}
 }
+
+/* Woocomerce spin buttton.
+============================ */
 .quantity {
 	display: block;
 	.clear_after();
@@ -111,5 +67,47 @@
 		&:focus {
 			border-color: @borderColor;
 		}
+	}
+}
+
+/* Star Rating.
+============================ */
+.star-rating {
+	float: right;
+	overflow: hidden;
+	position: relative;
+	height: 1em;
+	line-height: 1;
+	font-size: 1em;
+	width: 5.4em;
+	font-size: 16px;
+	span {
+		overflow: hidden;
+		float: left;
+		top: 0;
+		left: 0;
+		position: absolute;
+		padding-top: 1.5em;
+		&:before{
+			content: "\f27d\f27d\f27d\f27d\f27d";
+			font-family: Material-Design-Iconic-Font;
+			top: 0;
+			position: absolute;
+			left: 0;
+			letter-spacing: 3px;
+			font-size: 16px;
+		}
+	}
+	&:before{
+		content: "\f27c\f27c\f27c\f27c\f27c";
+		color: #d3ced2 ;
+		font-family: Material-Design-Iconic-Font;
+		float: left;
+		top: 0;
+		left: 0;
+		position: absolute;
+		letter-spacing: 3px;
+		color: @lightColor;
+		font-size: 16px;
 	}
 }

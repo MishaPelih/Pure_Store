@@ -2,11 +2,10 @@
  * SINGLE-PRODUCT - #product_single.
  * ============================================ *
  * 
- */
+*/
+/* Global Styles.
+============================ */
 .single-product {
-
-	/* Global Styles.
-	============================ */
 	.product {
 		display: block;
 		margin-bottom: 30px;
@@ -24,9 +23,11 @@
 		float: none;
 		.clear_after();
 	}
-	
-	/* Images-wrap.
-	============================ */
+}
+
+/* Images-wrap.
+============================ */
+.single-product {
 	.images {
 		margin-bottom: 20px;
 		.woocommerce-main-image {
@@ -56,9 +57,11 @@
 			}
 		}
 	}
-	
-	/* Woocomerce Tabs.
-	============================ */
+}
+
+/* Woocomerce Tabs.
+============================ */
+.single-product {
 	.woocommerce-tabs {
 		padding: 30px;
 		border: 1px solid @borderColor;
@@ -319,10 +322,9 @@
 	}
 }
 
+/* Summary.
+============================ */
 .single-product, .product-quick-view {
-	
-	/* Summary.
-	============================ */
 	.summary {
 		label {
 			color: @darkColor;
@@ -521,24 +523,6 @@
 	}
 }
 
-.product-quick-view {
-	.actions {
-		.add_to_cart_button {
-			padding: 6px 13px;
-		}
-		.add_to_wishlist {
-			padding: 6px 10px 5px 10p
-		}
-	}
-	.mfp-close {
-		color: #fff;
-		&:hover {
-			color: #fff;
-		}
-	}
-}
-
-
 @media only screen and ( min-width: 1200px ) {
 	.single-product {
 		.images {
@@ -587,8 +571,4 @@
 	.product-quick-view table.variations tr {
 		padding: 15px 15px 0 15px;
 	}
-}
-
-@media only screen and ( max-width: 992px ) {
-	
 }
