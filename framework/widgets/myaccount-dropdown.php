@@ -7,7 +7,6 @@
  * @since 4.4.0
  * ============================================ *
 */
-
 class Pure_My_Account_Menu extends WP_Widget
 {
    /**
@@ -42,7 +41,6 @@ class Pure_My_Account_Menu extends WP_Widget
       <?php
    }
 
-
    /**
     * Process the widget's values.
     */
@@ -52,7 +50,6 @@ class Pure_My_Account_Menu extends WP_Widget
       $instance['title'] = strip_tags( $new_instance['title'] );
       return $instance;
    }
-
 
    /**
     * Output the contents of the widget.
