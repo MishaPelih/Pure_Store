@@ -6,11 +6,11 @@
  * ============================================ *
  */
 ?>
-		<?php do_action( 'pure_site_content_bottom' ); ?>
-	</div><!-- /.site-content -->
+      <?php do_action( 'pure_site_content_bottom' ); ?>
+   </div><!-- /.site-content -->
 
-	<?php pure_get_sidebar( 'footer' ); ?>
-	<?php pure_get_sidebar( 'copyright' ); ?>
+   <?php pure_get_sidebar( 'footer' ); ?>
+   <?php pure_get_sidebar( 'copyright' ); ?>
 
 </div><!-- /.site-wrap -->
 
