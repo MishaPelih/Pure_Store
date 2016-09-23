@@ -76,13 +76,22 @@
 			> a {
 				&:after {
 				    content: '\f301';
-				    margin-right: 20px;
+				    margin-right: 22px;
 				    position: absolute;
 				    right: 0;
+				    color: @lightColor !important;
+				    .trans( all, .2s );
 				}
 			}
 			&:before {
 				display: none !important;
+			}
+			&:hover {
+				> a {
+					&:after {
+					    margin-right: 18px;
+					}
+				}
 			}
 		}
 	}

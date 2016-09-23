@@ -21,13 +21,13 @@
 
 					$embed = VideoUrlParser::get_url_embed($video_src);
 
-			        if( !empty($embed) ) {
-			            ?>
-			                <iframe width="100%" height="" src="<?php echo $embed; ?>" frameborder="0" allowfullscreen></iframe>
-			            <?php
-			        } else {
-			        	echo do_shortcode( '[video src="'.$video_src.'"][/video]' );
-			        }
+					  if( !empty($embed) ) {
+							?>
+								 <iframe width="100%" height="" src="<?php echo $embed; ?>" frameborder="0" allowfullscreen></iframe>
+							<?php
+					  } else {
+						echo do_shortcode( '[video src="'.$video_src.'"][/video]' );
+					  }
 
 				else : ?>
 

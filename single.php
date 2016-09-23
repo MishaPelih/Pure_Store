@@ -34,6 +34,7 @@
 			</div><!-- /.main-content -->
 
 			<?php get_sidebar(); ?>
+			
 		</div><!-- /.row -->
 	</div><!-- /.page-container -->
 

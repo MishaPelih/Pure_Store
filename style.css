@@ -659,6 +659,11 @@ input[type='submit']:visited {
     margin-bottom: 34px;
   }
 }
+@media only screen and (max-width: 992px) {
+  .sidebar-enabled .content-page {
+    margin-bottom: 40px;
+  }
+}
 /**
  * CUSTOM-SCROLL LIB #custom_scroll_lib.
  * ============================================ *
@@ -3825,14 +3830,24 @@ footer.site-footer .widget-title {
 .header-wrapper .sub-menu > .menu-parent-item > a:after,
 .header-wrapper .sub-menu > .menu-item-has-children > a:after {
   content: '\f301';
-  margin-right: 20px;
+  margin-right: 22px;
   position: absolute;
   right: 0;
+  color: #606060 !important;
+  -webkit-transition: all 0.2s linear 0s;
+  -moz-transition: all 0.2s linear 0s;
+  -o-transition: all 0.2s linear 0s;
+  transition: all 0.2s linear 0s;
 }
 .header-wrapper .sub-menu > .dropdown:before,
 .header-wrapper .sub-menu > .menu-parent-item:before,
 .header-wrapper .sub-menu > .menu-item-has-children:before {
   display: none !important;
+}
+.header-wrapper .sub-menu > .dropdown:hover > a:after,
+.header-wrapper .sub-menu > .menu-parent-item:hover > a:after,
+.header-wrapper .sub-menu > .menu-item-has-children:hover > a:after {
+  margin-right: 18px;
 }
 /* Top-Bar.
 ============================ */

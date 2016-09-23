@@ -7,8 +7,26 @@
  */
 ?>
 <?php
+    /**
+     * Returns body classes.
+     */
+    if ( !function_exists( 'pure_get_body_classes' ) ) {
+        function pure_get_body_classes() {
+
+            $_classes = array();
+
+            if ( pure_enable_sidebar() ) array_push( $_classes, 'sidebar-enabled' );
+
+            return implode( ' ', $_classes );
+        }
+    }
+
+    /**
+     * Returns classes for heders.
+     */
     if ( !function_exists( 'pure_header_classes' ) ) {
         function pure_header_classes() {
+
             $_classes = array();
             $cmb_parent_option = 'header_options';
 
@@ -51,6 +69,9 @@
         }
     }
 
+    /**
+     * Returns classes for Top-bar.
+     */
     if ( !function_exists( 'pure_top_bar_classes' ) ) {
         function pure_top_bar_classes() {
             $_classes = array();
