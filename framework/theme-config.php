@@ -222,14 +222,12 @@ Redux::setSection( $opt_name, array(
             'type'     => 'media',
             'title'    => __( 'Logo image', 'pure' ),
             'desc'     => __( 'Upload image: png, jpg or gif file.', 'pure' ),
-            'default'  => ''
         ),
         array(
             'id'       => 'logo_header_fixed',
             'type'     => 'media',
             'title'    => __( 'Logo image for fixed header', 'pure' ),
             'desc'     => __( 'Upload image: png, jpg or gif file.', 'pure' ),
-            'default'  => ''
         ),
         array(
             'id'        => 'logo_width',

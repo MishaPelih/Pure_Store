@@ -50,3 +50,8 @@ get_template_part( 'framework/woocommerce/woo.template-tags' );
  */
 get_template_part( 'framework/libs/tgm-plugin-activation.class' );
 get_template_part( 'framework/libs/VideoUrlParser.class' );
+
+// $_url_rdx = pure_get_redux_option( 'logo_header_main', 'url' );
+// echo isset( $_url_rdx );
+// echo empty( $_url_rdx );
+// echo $_url_rdx;

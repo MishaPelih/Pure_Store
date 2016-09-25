@@ -31,6 +31,7 @@ if ( !function_exists( 'pure_header_classes' ) ) {
         # Header overlap.
         $overlap_rdx = pure_get_redux_option( 'header_overlap' );
         $overlap_cmb = pure_get_cmb2_option( 'header_overlap', $cmb_parent_option );
+
         if ( !$overlap_cmb || $overlap_cmb == 'default' ) {
             if ( $overlap_rdx && $overlap_rdx != false ) {
                 $overlap = true;
@@ -42,25 +43,23 @@ if ( !function_exists( 'pure_header_classes' ) ) {
         } elseif( $overlap_cmb == 'off' ) {
             $overlap = false;
         }
-        if ( $overlap && $overlap === true ) {
-            array_push( $_classes, 'header-overlap' );
-        }
+
+        if ( $overlap && $overlap === true ) array_push( $_classes, 'header-overlap' );
 
         # Header text color.
         $hdr_color_rdx = pure_get_redux_option( 'header_color' );
         $hdr_color_cmb = pure_get_cmb2_option( 'header_color', $cmb_parent_option );
+
         if ( $hdr_color_cmb && $hdr_color_cmb != 'default' ) {
             $hdr_color = $hdr_color_cmb;
         } else {
             $hdr_color = $hdr_color_rdx;
         }
-        if ( $hdr_color ) {
-            array_push( $_classes, 'header-' . $hdr_color );
-        }
 
-        if ( count( $_classes ) > 0 ) {
-            array_unshift( $_classes, '' );
-        }
+        if ( $hdr_color ) array_push( $_classes, 'header-' . $hdr_color );
+
+        if ( count( $_classes ) > 0 ) array_unshift( $_classes, '' );
+
         $_classes = implode( ' ', $_classes );
         
         echo $_classes;
@@ -79,18 +78,17 @@ if ( !function_exists( 'pure_top_bar_classes' ) ) {
         # Top-bar text color.
         $tb_color_rdx = pure_get_redux_option( 'top_bar_color' );
         $tb_color_cmb = pure_get_cmb2_option( 'top_bar_color', $cmb_parent_option );
+
         if ( $tb_color_cmb && $tb_color_cmb != 'default' ) {
             $tb_color = $tb_color_cmb;
         } else {
             $tb_color = $tb_color_rdx;
         }
-        if ( $tb_color ) {
-            array_push( $_classes, 'top-bar-' . $tb_color );
-        }
 
-        if ( count( $_classes ) > 0 ) {
-            array_unshift( $_classes, '' );
-        }
+        if ( $tb_color ) array_push( $_classes, 'top-bar-' . $tb_color );
+
+        if ( count( $_classes ) > 0 ) array_unshift( $_classes, '' );
+
         $_classes = implode( ' ', $_classes );
         
         echo $_classes;
@@ -102,9 +100,7 @@ if ( !function_exists( 'pure_top_bar_classes' ) ) {
  */
 if ( !function_exists( 'pure_get_permalink_without_dominian' ) ) {
     function pure_get_permalink_without_dominian() {
-
-        $permalink = get_permalink();
-        return str_replace( 'http://'.$_SERVER['HTTP_HOST'], "", $permalink );
+        return str_replace( 'http://'.$_SERVER['HTTP_HOST'], "", get_permalink() );
     }
 }
 
@@ -112,8 +108,8 @@ if ( !function_exists( 'pure_get_permalink_without_dominian' ) ) {
  * Get main content classes.
  */
 if ( !function_exists( 'pure_main_content_classes' ) ) {
-    function pure_main_content_classes( $option = 'blog' )
-    {
+    function pure_main_content_classes( $option = 'blog' ) {
+
         $classes = array();
 
         if ( pure_enable_sidebar( $option ) ) {
@@ -160,8 +156,8 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
  * Check if sidebar enabled.
  */
 if ( !function_exists( 'pure_enable_sidebar' ) ) {
-    function pure_enable_sidebar( $option = 'blog' )
-    {
+    function pure_enable_sidebar( $option = 'blog' ) {
+
         $cmb_option = pure_get_cmb2_option( 'sidebar_position', 'page_layout' );
         $redux_option = pure_get_redux_option( $option . '_sidebar_position' );
         $redux = false;
@@ -193,14 +189,13 @@ if ( !function_exists( 'pure_enable_sidebar' ) ) {
  * Get posts classes.
  */
 if ( !function_exists( 'pure_get_posts_classses' ) ) {
-    function pure_get_posts_classes( $plug_classes = null )
-    {
+    function pure_get_posts_classes( $plug_classes = null ) {
+
         $classes = array();
+
         array_push( $classes, 'posts' );
 
-        if ( $plug_classes ) {
-            $classes = array_merge( $classes, $plug_classes );
-        }
+        if ( $plug_classes ) $classes = array_merge( $classes, $plug_classes );
 
         if ( pure_get_redux_option( 'posts_per_row' ) ) {
             array_push( $classes, 'posts-grid' );
@@ -215,15 +210,15 @@ if ( !function_exists( 'pure_get_posts_classses' ) ) {
  * Get Product Loop Start classes.
  */
 if ( !function_exists( 'pure_get_products_classes' ) ) {
-    function pure_get_products_classes()
-    {
+    function pure_get_products_classes() {
+
         $classes = array();
+
         array_push( $classes, 'products' );
 
         $view_mode = null;
-        if ( isset( $_GET['view_mode'] ) ) {
-            $view_mode = $_GET['view_mode'];
-        }
+
+        if ( isset( $_GET['view_mode'] ) ) $view_mode = $_GET['view_mode'];
 
         if ( $_SERVER['REQUEST_METHOD'] === 'GET' && $view_mode && $view_mode == ( 'list' || 'grid' ) ) {
             array_push( $classes, 'products-' . $view_mode );
@@ -243,14 +238,11 @@ if ( !function_exists( 'pure_get_products_classes' ) ) {
  * Get redux option.
  */
 if ( !function_exists( 'pure_get_redux_option' ) ) {
-    function pure_get_redux_option( $id, $type = null )
-    {
+    function pure_get_redux_option( $id ) {
+
         global $redux_pure;
 
-        if ( !empty( $redux_pure ) && $redux_pure[$id] ) {
-            if ( $type && $redux_pure[$id][$type] ) {
-                return $redux_pure[$id][$type];
-            }
+        if ( isset( $redux_pure ) && !empty( $redux_pure ) && $redux_pure[$id] ) {
             return $redux_pure[$id];
         }
         return false;
@@ -261,8 +253,8 @@ if ( !function_exists( 'pure_get_redux_option' ) ) {
  * Get cmb2 option.
  */
 if ( !function_exists( 'pure_get_cmb2_option' ) ) {
-    function pure_get_cmb2_option( $option, $parent = null )
-    {
+    function pure_get_cmb2_option( $option, $parent = null ) {
+
         $id = get_the_ID();
 
         if ( pure_is_woo_exists() ) {
@@ -273,18 +265,17 @@ if ( !function_exists( 'pure_get_cmb2_option' ) ) {
                 $id = get_option( 'woocommerce_checkout_page_id' );
             }
         }
-        if ( pure_is_blog() ) {
-            $id = get_option( 'page_for_posts' );
-        }
-        if ( in_the_loop() ) {
-            $id = get_the_ID();
-        }
+
+        if ( pure_is_blog() ) $id = get_option( 'page_for_posts' );
+
+        if ( in_the_loop() ) $id = get_the_ID();
 
         if ( $parent && get_post_meta( $id, 'pure_' . $parent, true ) ) {
             @$cmb_option = get_post_meta( $id, 'pure_' . $parent, true )[0]['pure_' . $option];
         } else {
             @$cmb_option = get_post_meta( $id, 'pure_' . $option, true );
         }
+
         return $cmb_option;
     }
 }
@@ -293,11 +284,13 @@ if ( !function_exists( 'pure_get_cmb2_option' ) ) {
  * Check if current page is page for posts.
  */
 if ( !function_exists( 'pure_is_blog' ) ) {
-    function pure_is_blog ()
-    {
+    function pure_is_blog() {
+
         global $post;
+
         $posttype = get_post_type( $post );
-        return ( ( (is_archive() ) || ( is_author() ) || ( is_category() ) || ( is_home() ) || ( is_single() ) || ( is_tag() ) ) && ( $posttype == 'post' )  ) ? true : false ;
+
+        return ( ( ( is_archive() ) || ( is_author() ) || ( is_category() ) || ( is_home() ) || ( is_single() ) || ( is_tag() ) ) && ( $posttype == 'post' )  ) ? true : false ;
     }
 }
 
@@ -306,6 +299,7 @@ if ( !function_exists( 'pure_is_blog' ) ) {
  */
 if ( !function_exists( 'pure_get_relevant_header' ) ) {
     function pure_get_relevant_header() {
+
         $header_type_rdx = pure_get_redux_option('header_type');
         $header_type_cmb = pure_get_cmb2_option( 'header_type', 'header_options' );
 
@@ -316,6 +310,7 @@ if ( !function_exists( 'pure_get_relevant_header' ) ) {
         } else {
             $header_type = 'main';
         }
+
         get_template_part( 'headers/' . $header_type );
     }
 }
@@ -324,68 +319,75 @@ if ( !function_exists( 'pure_get_relevant_header' ) ) {
  * Get the logo URL.
  */
 if ( !function_exists( 'pure_get_logo_url' ) ) {
-    function pure_get_logo_url( $option = 'main' )
-    {
-        $_url_rdx = pure_get_redux_option( 'logo_header_' . $option, 'url' );
+    function pure_get_logo_url( $option = 'main' ) {
+
+        $_url_rdx = pure_get_redux_option( 'logo_header_' . $option );
         $_url_cmb = pure_get_cmb2_option( 'logo_header_' . $option, 'header_options' );
-        $_url = null;
+        $_url = false;
 
         if ( !$_url_cmb || empty( $_url_cmb ) ) {
-            if ( $_url_rdx && !empty( $_url_rdx ) ) {
-                $_url = $_url_rdx;
-            } else {
-                return false;
+            if ( isset( $_url_rdx['url'] ) && !empty( $_url_rdx['url'] ) ) {
+                $_url = esc_url( $_url_rdx );
             }
         } else {
-            $_url = $_url_cmb;
+            $_url = esc_url( $_url_cmb );
         }
-        return esc_url( $_url );
+        return $_url;
     }
 }
 
 /**
  * Post Views Counter.
  */
-function pure_update_post_views()
-{
-    if ( !isset( $_COOKIE['pure_post_view'] ) && is_single() ): ?>
+if ( !function_exists( 'pure_update_post_views' ) ) {
+    function pure_update_post_views() {
 
-        <?php $post_id = get_the_ID(); ?>
+        if ( !isset( $_COOKIE['pure_post_view'] ) && is_single() ): ?>
 
-        <script>
-            jQuery(document).ready(function($)
-            {
-                var cname = 'pure_post_view';
-                var cvalue = true;
-                if ( getCookie( 'pure_post_view' ) === false ) {
-                    var d = new Date();
-                    d.setTime(d.getTime() + (2*24*60*60*1000));
-                    var expires = "expires="+ d.toUTCString();
-                    document.cookie = cname + "=" + cvalue + "; " + expires;
-                }
+            <?php $post_id = get_the_ID(); ?>
 
-                function getCookie( name ) {
-                    var value = "; " + document.cookie;
-                    var parts = value.split("; " + name + "=");
-                    if (parts.length == 2) {
-                        return parts.pop().split(";").shift();
+            <script>
+                jQuery(document).ready(function($) {
+
+                    var cname = 'pure_post_view';
+                    var cvalue = true;
+
+                    if ( getCookie( 'pure_post_view' ) === false ) {
+
+                        var d = new Date();
+
+                        d.setTime( d.getTime() + (2*24*60*60*1000) );
+
+                        var expires = "expires=" + d.toUTCString();
+
+                        document.cookie = cname + "=" + cvalue + "; " + expires;
                     }
-                    return false;
-                }
-            });
-        </script>
 
-        <?php
-        $post_meta = get_post_meta( $post_id );
+                    function getCookie( name ) {
 
-        if ( !$post_meta['_post_views'] ) {
-            update_post_meta( $post_id, '_post_views', 1 );
-        } else {
-            $post_views = $post_meta['_post_views'][0];
-            (int)$post_views++;
-            update_post_meta( $post_id, '_post_views', $post_views );
-        }
-    endif;
+                        var value = "; " + document.cookie;
+                        var parts = value.split( "; " + name + "=" );
+
+                        if ( parts.length == 2 ) {
+                            return parts.pop().split(";").shift();
+                        }
+                        return false;
+                    }
+                });
+            </script>
+
+            <?php
+            $post_meta = get_post_meta( $post_id );
+
+            if ( !$post_meta['_post_views'] ) {
+                update_post_meta( $post_id, '_post_views', 1 );
+            } else {
+                $post_views = $post_meta['_post_views'][0];
+                (int)$post_views++;
+                update_post_meta( $post_id, '_post_views', $post_views );
+            }
+        endif;
+    }
 }
 
 /**
@@ -400,8 +402,7 @@ function pure_get_post_views() {
  * Check if Woocommerce plugin has been installed.
  */
 if ( !function_exists( 'pure_is_woo_exists' ) ) {
-    function pure_is_woo_exists()
-    {
+    function pure_is_woo_exists() {
         return is_plugin_active('woocommerce/woocommerce.php');
     }
 }
@@ -410,12 +411,12 @@ if ( !function_exists( 'pure_is_woo_exists' ) ) {
  * Get the breadcrumb.
  */
 if ( !function_exists( 'pure_get_breadcrumbs' ) ) {
-    function pure_get_breadcrumbs()
-    {
+    function pure_get_breadcrumbs() {
+
         // if it is any woocommerce page or not.
         if ( pure_is_woo_exists() && ( is_shop() || is_woocommerce() || is_cart() || is_checkout() || is_account_page() ) ) {
             woocommerce_breadcrumb();
-        } elseif( !is_front_page() ) {
+        } elseif ( !is_front_page() ) {
             pure_breadcrumbs();
         }
     }
@@ -441,14 +442,4 @@ if( !function_exists( 'pure_js2tring' ) ) {
 
         return $final_str;
     } 
-}
-
-if ( !function_exists( 'pure_cart_link' ) ){
-    function pure_cart_link() { ?>
-        <a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
-            <i class="zmdi zmdi-shopping-basket"></i>
-            <span class="cart-count"><?php echo WC()->cart->get_cart_contents_count();?></span>
-        </a>
-    <?php
-    }
 }

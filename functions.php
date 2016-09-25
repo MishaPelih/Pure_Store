@@ -10,7 +10,7 @@
  * Define constants.
  */
 define( 'PURE_THEMEROOT', get_stylesheet_directory_uri() );
-define( 'PURE_IMAGES_DIR', PURE_THEMEROOT . '/images' );
+define( 'PURE_IMAGES_DIR', PURE_THEMEROOT . '/images/' );
 define( 'PURE_SCRIPTS_DIR', PURE_THEMEROOT . '/js' );
 define( 'PURE_STYLES_DIR', PURE_THEMEROOT . '/css' );
 define( 'PURE_FRAMEWORK_DIR', get_template_directory() . '/framework' );
