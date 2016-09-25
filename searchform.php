@@ -1,7 +1,6 @@
 <?php
 /**
  * searcform.php
- *
  * Wordpress search form.
  * ============================================ *
  */

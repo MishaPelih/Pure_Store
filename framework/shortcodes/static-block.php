@@ -1,6 +1,7 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * framework/shortcodes/static-block.php
+ * Shortcode for displaying Stetic Blocks.
  * ============================================ *
 */ 
 

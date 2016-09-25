@@ -1,7 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * framework/post-types/static-block.php
- *
  * Register static posts type.
  * ============================================ *
 */

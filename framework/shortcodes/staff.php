@@ -1,7 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * framework/shortcodes/staff.php
- *
  * Shortcode for displaying Staff.
  * ============================================ *
 */

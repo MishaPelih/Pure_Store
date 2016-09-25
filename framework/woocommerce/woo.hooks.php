@@ -10,6 +10,7 @@
  * ============================================================= *
  * 
 */
+
 /**
  * Disable Woocommerce stylesheets.
  */
@@ -54,6 +55,7 @@ add_filter( 'loop_shop_per_page', 'pure_products_per_page_qty', 20 );
  * ============================================================= *
  * 
 */
+
 /**
  * Before Woocommerce Shop loop.
  */
@@ -173,6 +175,7 @@ add_action('wp_ajax_nopriv_pure_product_quick_view', 'pure_product_quick_view');
  * ============================================================= *
  * 
 */
+
 /**
  * Remove Sale flash.
  */
@@ -194,6 +197,7 @@ remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_d
  * ============================================================= *
  * 
 */
+
 /**
  * Remove Cross-Sells in cart collaterals..
  */

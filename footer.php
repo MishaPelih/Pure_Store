@@ -1,17 +1,17 @@
 <?php
 /**
  * footer.php
- *
  * The template for displaying the footer.
  * ============================================ *
- */
-?>
-      <?php do_action( 'pure_site_content_bottom' ); ?>
-   </div><!-- /.site-content -->
+*/
 
-   <?php pure_get_sidebar( 'footer' ); ?>
-   <?php pure_get_sidebar( 'copyright' ); ?>
+do_action( 'pure_site_content_bottom' );
 
-</div><!-- /.site-wrap -->
+echo '</div><!-- /.site-content -->';
 
-<?php wp_footer(); ?>
+pure_get_sidebar( 'footer' );
+pure_get_sidebar( 'copyright' );
+
+echo '</div><!-- /.site-wrap -->';
+
+wp_footer();

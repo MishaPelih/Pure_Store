@@ -1,7 +1,6 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * framework/template-tags.php
- *
  * Contains framework functions.
  * ============================================ *
 */

@@ -1,7 +1,6 @@
 <?php
 /**
  * framework/shortcodes/products-carousel.php
- *
  * Shortcode for displaying Products Carousel.
  * ============================================ *
 */

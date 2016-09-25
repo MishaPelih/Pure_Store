@@ -1,7 +1,6 @@
 <?php
 /**
  * 404.php
- *
  * The template for displaying 404 page.
  * ============================================ *
  */

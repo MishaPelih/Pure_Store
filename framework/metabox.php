@@ -1,10 +1,10 @@
 <?php if ( !defined('ABSPATH') ) exit('No direct script access allowed');
 /**
  * framework/metabox.php
- *
  * Contains tgm2 options.
  * ============================================ *
 */
+
 /**
  * Define the metabox and field configurations.
  */
