@@ -11,103 +11,103 @@
     margin: 0 0 2em;
     position: relative;
     background-color: #fff;
-	border: 1px solid @borderColor;
+    border: 1px solid @borderColor;
     color: @extraLightColor;
     font-size: 14px;
     letter-spacing: 1px;
     word-wrap: break-word;
     button,
     .button {
-    	color: #fff;
-    	&:hover, &:focus {
-    		color: #fff;
-    	}
+        color: #fff;
+        &:hover, &:focus {
+            color: #fff;
+        }
     }
-	a {
-		color: @lightColor;
-	}
+    a {
+        color: @lightColor;
+    }
 }
 
 /* Woocomerce spin buttton.
 ============================ */
 .quantity {
-	display: block;
-	.clear_after();
-	.quantity-content {
-		display: inline-flex;
-		border: 1px solid @borderColor;
-		background-color: #fff;
-	}
-	.qty-btn-wrap {
-		width: 28px;
-		text-align: center;
-	}
-	span.plus, span.minus {
-		display: table;
-		width: 100%;
-		height: 50%;
-		cursor: pointer;
-		-webkit-user-select: none;
-		.trans( all, .1s );
-		&:hover {
-			color: @activeColor;
-		}
-		i {
-			display: table-cell;
-			vertical-align: middle;
-		}
-	}
-	input {
-		height: 37px;
-		width: 55px;
-		padding: 0 10px;
-		text-align: center;
-		border: 0;
-		border-right: 1px solid @borderColor;
-		&:focus {
-			border-color: @borderColor;
-		}
-	}
+    display: block;
+    .clear_after();
+    .quantity-content {
+        display: inline-flex;
+        border: 1px solid @borderColor;
+        background-color: #fff;
+    }
+    .qty-btn-wrap {
+        width: 28px;
+        text-align: center;
+    }
+    span.plus, span.minus {
+        display: table;
+        width: 100%;
+        height: 50%;
+        cursor: pointer;
+        -webkit-user-select: none;
+        .trans( all, .1s );
+        &:hover {
+            color: @activeColor;
+        }
+        i {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    input {
+        height: 37px;
+        width: 55px;
+        padding: 0 10px;
+        text-align: center;
+        border: 0;
+        border-right: 1px solid @borderColor;
+        &:focus {
+            border-color: @borderColor;
+        }
+    }
 }
 
 /* Star Rating.
 ============================ */
 .star-rating {
-	float: right;
-	overflow: hidden;
-	position: relative;
-	height: 1em;
-	line-height: 1;
-	font-size: 1em;
-	width: 5.4em;
-	font-size: 16px;
-	span {
-		overflow: hidden;
-		float: left;
-		top: 0;
-		left: 0;
-		position: absolute;
-		padding-top: 1.5em;
-		&:before{
-			content: "\f27d\f27d\f27d\f27d\f27d";
-			font-family: Material-Design-Iconic-Font;
-			top: 0;
-			position: absolute;
-			left: 0;
-			letter-spacing: 3px;
-			font-size: 16px;
-		}
-	}
-	&:before{
-		content: "\f27c\f27c\f27c\f27c\f27c";
-		color: #d3ced2 ;
-		font-family: Material-Design-Iconic-Font;
-		float: left;
-		top: 0;
-		left: 0;
-		position: absolute;
-		letter-spacing: 3px;
-		color: @lightColor;
-		font-size: 16px;
-	}
+    float: right;
+    overflow: hidden;
+    position: relative;
+    height: 1em;
+    line-height: 1;
+    font-size: 1em;
+    width: 5.4em;
+    font-size: 16px;
+    span {
+        overflow: hidden;
+        float: left;
+        top: 0;
+        left: 0;
+        position: absolute;
+        padding-top: 1.5em;
+        &:before{
+            content: "\f27d\f27d\f27d\f27d\f27d";
+            font-family: Material-Design-Iconic-Font;
+            top: 0;
+            position: absolute;
+            left: 0;
+            letter-spacing: 3px;
+            font-size: 16px;
+        }
+    }
+    &:before{
+        content: "\f27c\f27c\f27c\f27c\f27c";
+        color: #d3ced2 ;
+        font-family: Material-Design-Iconic-Font;
+        float: left;
+        top: 0;
+        left: 0;
+        position: absolute;
+        letter-spacing: 3px;
+        color: @lightColor;
+        font-size: 16px;
+    }
 }

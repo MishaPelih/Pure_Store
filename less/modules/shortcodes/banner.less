@@ -4,150 +4,150 @@
  * 
  */
 .banner {
-	position: relative;
-	overflow: hidden;
-	cursor: default;
-	.mask {
-		position: absolute;
-		width: 100%;
-		top: 50%;
-		padding: 6% 9%;
-		transform: translateY( -50% );
-	}
-	> .banner-link {
-		display: block;
-		position: absolute;
-		top: 0; bottom: 0;
-		left: 0; right: 0;
-		z-index: 20;
-		background-color: transparent !important;
-	}
-	.button {
-		position: relative;
-		z-index: 30;
-	}
-	img {
-		display: block;
-	}
-	h2, .h2,
-	h3, .h3,
-	h4, .h4 {
-		font-weight: 500;
-		-webkit-user-select: none;
-		display: block;
-	}
-	h2, .h2 {
-		letter-spacing: 5px;
-		line-height: 1.3;
-	}
-	h3, .h3 {
-		letter-spacing: 5px;
-		line-height: 1.4;
-	}
-	p {
-		font-size: 14px;
-		font-weight: 300;
-		color: @lightColor;
-		line-height: 1.6;
-		margin-bottom: 25px;
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-	&.top {
-		.mask {
-			top: 0;
-		}
-	}
-	&.middle {
-		.mask {
-			top: 50%;
-			transform: translateY( -50% );
-		}
-	}
-	&.bottom {
-		.mask {
-			bottom: 0;
-		}
-	}
-	&.left {
-		.msak {
-			text-align: left;
-			left: 0;
-		}
-	}
-	&.right {
-		.mask {
-			text-align: right;
-			right: 0;
-		}
-	}
-	&.center {
-		.mask {
-			left: 50%;
-			transform: translateX(-50%);
-			text-align: center;
-		}
-	}
-	&.middle.center {
-		.mask {
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
-	}
-	&.white {
-		color: #fff !important;
-	}
-	&.black {
-		color: @darkColor !important;
-	}
-	&.with_mask {
-		.mask {
-			z-index: 10;
-		}
-		& .before {
-			content: '';
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			z-index: 1;
-		}
-	}
-	&.mask_animate {
-		.mask {
-			& .before {
-				content: '';
-				position: absolute;
-				left: 0;
-				top: 0;
-				bottom: 0;
-				right: 0;
-				background-color: transparent;
-				.trans( all, .3s );
-			}
-		}
-		&:hover {
-			.mask {
-				& .before {
-					background-color: #000;
-					opacity: 0.38;
-				}
-			}
-		}
-	}
-	&.bg_scale {
-		img {
-			.trans( all, .3s );
-			display: block;
-		}
-		&:hover {
-			img {
-				transform: scale( 1.1 );
-			}
-		}
-	}
-	.content {
-		position: relative;
-		z-index: 1;
-	}
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    .mask {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        padding: 6% 9%;
+        transform: translateY( -50% );
+    }
+    > .banner-link {
+        display: block;
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        z-index: 20;
+        background-color: transparent !important;
+    }
+    .button {
+        position: relative;
+        z-index: 30;
+    }
+    img {
+        display: block;
+    }
+    h2, .h2,
+    h3, .h3,
+    h4, .h4 {
+        font-weight: 500;
+        -webkit-user-select: none;
+        display: block;
+    }
+    h2, .h2 {
+        letter-spacing: 5px;
+        line-height: 1.3;
+    }
+    h3, .h3 {
+        letter-spacing: 5px;
+        line-height: 1.4;
+    }
+    p {
+        font-size: 14px;
+        font-weight: 300;
+        color: @lightColor;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &.top {
+        .mask {
+            top: 0;
+        }
+    }
+    &.middle {
+        .mask {
+            top: 50%;
+            transform: translateY( -50% );
+        }
+    }
+    &.bottom {
+        .mask {
+            bottom: 0;
+        }
+    }
+    &.left {
+        .msak {
+            text-align: left;
+            left: 0;
+        }
+    }
+    &.right {
+        .mask {
+            text-align: right;
+            right: 0;
+        }
+    }
+    &.center {
+        .mask {
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+        }
+    }
+    &.middle.center {
+        .mask {
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &.white {
+        color: #fff !important;
+    }
+    &.black {
+        color: @darkColor !important;
+    }
+    &.with_mask {
+        .mask {
+            z-index: 10;
+        }
+        & .before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+    &.mask_animate {
+        .mask {
+            & .before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                background-color: transparent;
+                .trans( all, .3s );
+            }
+        }
+        &:hover {
+            .mask {
+                & .before {
+                    background-color: #000;
+                    opacity: 0.38;
+                }
+            }
+        }
+    }
+    &.bg_scale {
+        img {
+            .trans( all, .3s );
+            display: block;
+        }
+        &:hover {
+            img {
+                transform: scale( 1.1 );
+            }
+        }
+    }
+    .content {
+        position: relative;
+        z-index: 1;
+    }
 }

@@ -1,56 +1,56 @@
 .trans( @prop: all, @time: 0.2s, @animation: linear, @delay: 0s ) {
-	-webkit-transition: @arguments;
-	-moz-transition: @arguments;
-	-o-transition: @arguments;
-	transition: @arguments;
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -o-transition: @arguments;
+    transition: @arguments;
 }
 .backface() {
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 .font_size_em( @foze ) {
-	font-size: ( @foze / @fontSize ) + 0em;
+    font-size: ( @foze / @fontSize ) + 0em;
 }
 .font_size_rem( @foze ) {
-	font-size: ( @foze / @fontSize ) + 0rem;
+    font-size: ( @foze / @fontSize ) + 0rem;
 }
 .clear() {
-	content: '';
-	display: block;
-	clear: both;
-	height: 0;
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
 }
 .clear_after() {
-	&:after {
-		content: '';
-		display: block;
-		clear: both;
-		height: 0;
-	}
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
+    }
 }
 .clear_before() {
-	&:before {
-		content: '';
-		display: block;
-		clear: both;
-		height: 0;
-	}
+    &:before {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
+    }
 }
 .disable_OutBox() {
-	&:hover, &:focus, &:active, &:visited {
-		outline: 0;
-		box-shadow: none;
-	}
+    &:hover, &:focus, &:active, &:visited {
+        outline: 0;
+        box-shadow: none;
+    }
 }
 .flex() {
-	display: -webkit-box;
+    display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     -js-display: flex;
     display: flex;
 }
 .flex_center() {
-	.flex();
+    .flex();
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -61,67 +61,67 @@
     align-items: center;
 }
 .flex_center_X() {
-	.flex();
+    .flex();
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
     justify-content: center;
 }
 .flex_center_Y() {
-	.flex();
+    .flex();
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
     align-items: center;
 }
 .simple_product_footer() {
-	.footer-product {
-		.add_to_cart_button {
-			padding: 0;
-			font-size: 0 !important;
-			width: 50%;
-			&:before {
-				content: '\f1c9';
-				font-family: 'Material-Design-Iconic-Font';
-				color: #fff;
-				position: absolute;
-				visibility: visible;
-				left: 0;
-				top: 0;
-				right: 0;
-				bottom: 0;
-				letter-spacing: 0;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				font-size: 24px;
-				.trans( background-color, .2s );
-			}
-			&:after {
-				content: '';
-				display: none !important;
-			}
-			&.loading {
-				&:before {
-					content: '\f3ec';
-					animation: fa-spin 1.5s infinite linear;
-					.trans( background-color, 0s );
-				}
-			}
-			&.added {
-				&:before {
-					content: '\f26b';
-				}
-			}
-			&.product_type_variable {
-				&:before {
-					content: '\f197';
-				}
-			}
-		}
-		.side-button {
-			padding: 4% 8%;
-			width: 25%;
-		}
-	}
+    .footer-product {
+        .add_to_cart_button {
+            padding: 0;
+            font-size: 0 !important;
+            width: 50%;
+            &:before {
+                content: '\f1c9';
+                font-family: 'Material-Design-Iconic-Font';
+                color: #fff;
+                position: absolute;
+                visibility: visible;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                letter-spacing: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                .trans( background-color, .2s );
+            }
+            &:after {
+                content: '';
+                display: none !important;
+            }
+            &.loading {
+                &:before {
+                    content: '\f3ec';
+                    animation: fa-spin 1.5s infinite linear;
+                    .trans( background-color, 0s );
+                }
+            }
+            &.added {
+                &:before {
+                    content: '\f26b';
+                }
+            }
+            &.product_type_variable {
+                &:before {
+                    content: '\f197';
+                }
+            }
+        }
+        .side-button {
+            padding: 4% 8%;
+            width: 25%;
+        }
+    }
 }

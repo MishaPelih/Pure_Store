@@ -4,67 +4,67 @@
  * 
  */
 .team-members {
-	margin-bottom: 130px;
+    margin-bottom: 130px;
 }
 .team-member {
-	.member-image {
-		position: relative;
-		&:before {
-			content: '';
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			.trans( all, .3s );
-		}
-		img {
-			display: block;
-		}
-	}
-	.member-content {
-		position: absolute;
-		top: 62%;
-		transform: translateY( -40% );
-		width: 100%;
-		text-align: center;
-		padding: 18px;
-		color: #fff;
-		opacity: 0;
-		visibility: hidden;
-		.trans( all, .3s );
-	}
-	&:hover {
-		.member-image {
-			&:before {
-				opacity: .6;
-			}
-		}
-		.member-content {
-			opacity: 1;
-			visibility: visible;
-			transform: translateY( -50% );
-		}
-	}
-	h4, h5 {
-		text-transform: uppercase;
-	}
-	h5 {
-		font-weight: 500;
-		margin-bottom: 6px;
-	}
-	h6 {
-		font-size: 14px;
-		margin-bottom: 14px;
-	}
-	p {
-		color: #f4d1d4;
-		font-weight: 300;
-		margin-bottom: 34px;
-	}
-	.social-icons {
-		a {
-			color: #fff;
-		}
-	}
+    .member-image {
+        position: relative;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            .trans( all, .3s );
+        }
+        img {
+            display: block;
+        }
+    }
+    .member-content {
+        position: absolute;
+        top: 62%;
+        transform: translateY( -40% );
+        width: 100%;
+        text-align: center;
+        padding: 18px;
+        color: #fff;
+        opacity: 0;
+        visibility: hidden;
+        .trans( all, .3s );
+    }
+    &:hover {
+        .member-image {
+            &:before {
+                opacity: .6;
+            }
+        }
+        .member-content {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY( -50% );
+        }
+    }
+    h4, h5 {
+        text-transform: uppercase;
+    }
+    h5 {
+        font-weight: 500;
+        margin-bottom: 6px;
+    }
+    h6 {
+        font-size: 14px;
+        margin-bottom: 14px;
+    }
+    p {
+        color: #f4d1d4;
+        font-weight: 300;
+        margin-bottom: 34px;
+    }
+    .social-icons {
+        a {
+            color: #fff;
+        }
+    }
 }
