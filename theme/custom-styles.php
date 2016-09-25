@@ -14,8 +14,8 @@ if ( !function_exists( 'pure_assets' ) ) {
 
         echo '<style type="text/css" class="pure-custom-style">';
         echo pure_js2tring( pure_custom_css(), true );
-        echo pure_js2tring( pure_active_color_style() );
-        echo pure_js2tring( pure_header_logo_style() );
+        echo pure_js2tring( pure_active_color_style(), true );
+        echo pure_js2tring( pure_header_logo_style(), true );
         echo '</style>' . "\r\n"; 
     }
 }
