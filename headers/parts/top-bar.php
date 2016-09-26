@@ -10,8 +10,8 @@
 
             <?php if ( pure_is_woo_exists() ): ?>
 
-                <div class="widget-cart-wrapper menu-parent-item top-bar-part">
-                    <div class="widget-cart">
+                <div class="widget-cart-wrapper top-bar-part">
+                    <div class="widget-cart menu-parent-item">
                         <a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
                             <i class="zmdi zmdi-shopping-basket"></i>
                             <span class="cart-count">

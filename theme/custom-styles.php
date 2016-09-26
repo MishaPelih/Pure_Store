@@ -211,7 +211,9 @@ if ( !function_exists( 'pure_active_color_style' ) ) {
             .products .footer-product .side-button.added,
             .products .add_to_cart_button,
             .pagination-wrap .page-numbers li span.current, 
-            .filter-wrap .page-numbers li span.current
+            .filter-wrap .page-numbers li span.current,
+            .top-bar .widget_shopping_cart_content .buttons a,
+            .top-bar .widget_shopping_cart_content .buttons .button
         ";
 
         $pure_selectors['border_color'] = "

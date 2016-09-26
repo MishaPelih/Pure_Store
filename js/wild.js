@@ -36,9 +36,9 @@
         wildWrapHTML = '<div class=\"wild-select wild-area';
         if ( typeof settings.wrapClass === 'string' ) {
             wildWrapHTML += ' ' + settings.wrapClass
-                .replace(/\s+/g, ' ')
-                .replace(/^\s|\s$/g, '')
-                .replace(/[&\/\\#,+()$~%.'":*?<>{}]/g,'');
+                .replace( /\s+/g, ' ' )
+                .replace( /^\s|\s$/g, '')
+                .replace( /[&\/\\#,+()$~%.'":*?<>{}]/g, '' );
         }
         wildWrapHTML += '\"></div>';
         allDefaultSelects.wrap(wildWrapHTML);

@@ -9,7 +9,7 @@
 
 <div class="container page-container">
     <div class="row">
-        <?php pure_enable_sidebar(); ?>
+
         <!-- ====| Main Content |==== -->
         <div class="content-page blog <?php echo pure_main_content_classes(); ?>" role="main">
             <div class="entry-content">

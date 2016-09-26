@@ -398,6 +398,7 @@
             perPageForm.find( '.wild-select .wild-options li' ).each(function(){
                 var option = $(this);
                 if ( option.attr( 'data-value' ) == pureStore.getCookie( perPageCookie ) ) {
+                    console.log('ISSET');
                     option.attr( 'selected', 'selected' );
                     option.parent().siblings( '.wild-trigger' ).find('.wild-caption').text( option.text() );
                 }
