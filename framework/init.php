@@ -6,19 +6,34 @@
 */
 
 /**
- * Load main frameworks .
+ * Load Theme functions.
  */
-get_template_part( 'framework/sidebars' );
 get_template_part( 'framework/theme-functions' );
+
+/**
+ * Load Theme templates.
+ */
 get_template_part( 'framework/template-tags' );
+
+/**
+ * Load Theme options config file.
+ */
 get_template_part( 'framework/theme-config' );
-get_template_part( 'framework/tgm-plugin-activation/class-tgm-plugin-activation' );
+
+/**
+ * Load Theme metaboxes.
+ */
 get_template_part( 'framework/metabox' );
 
 /**
  * Load Post Types.
  */
 get_template_part( 'framework/post-types/static-block' );
+
+/**
+ * Load Sidebars.
+ */
+get_template_part( 'framework/sidebars' );
 
 /**
  * Load Widgets.

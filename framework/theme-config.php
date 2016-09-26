@@ -355,7 +355,7 @@ Redux::setSection( $opt_name, array(
                 '5' => '5',
                 '6' => '6',
             ),
-            'default'  => '3'
+            'default'  => '1'
         ),
         array(
             'id'       => 'shop_sidebar_position',

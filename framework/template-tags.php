@@ -90,10 +90,12 @@ if ( !function_exists( 'pure_get_sidebar' ) ) {
     function pure_get_sidebar( $sr_type = 'blog' ) {
 
         if ( !$sr_type ) return;
+
         switch ( $sr_type ) {
 
             # Default sidebar.
             case 'blog':
+
                 if ( is_active_sidebar( 'sidebar-blog' ) ): ?>
                     <!-- ====| Sidebar |==== -->
                     <aside class="sidebar sidebar-blog col-md-3 col-sm-12 col-xs-12" role="complementary">
@@ -104,6 +106,7 @@ if ( !function_exists( 'pure_get_sidebar' ) ) {
 
             # Shop sidebar.
             case 'shop':
+
                 if ( is_active_sidebar( 'sidebar-shop' ) && is_shop() && pure_is_woo_exists() ): ?>
                     <!-- ====| Sidebar |==== -->
                     <aside class="sidebar sidebar-shop col-md-3 col-sm-12 col-xs-12" role="complementary">
@@ -114,7 +117,8 @@ if ( !function_exists( 'pure_get_sidebar' ) ) {
 
             # Footer widgetarea.
             case 'footer':
-                $wr_f = 'widgetarea-footer-';
+
+                $wr_f = 'sidebar-footer-';
                 if ( is_active_sidebar( $wr_f . '1' ) || is_active_sidebar( $wr_f . '2' ) || is_active_sidebar( $wr_f . '3' ) || is_active_sidebar( $wr_f . '4' ) ): ?>
                     <!-- *======#| Site-footer. |#======* -->
                     <footer class="site-footer">
@@ -122,8 +126,8 @@ if ( !function_exists( 'pure_get_sidebar' ) ) {
                             <aside class="sidebar-footer" role="complementary">
                                 <div class="row">
                                     <?php for ( $i=1; $i <= 4; $i++ ) {
-                                        if ( is_active_sidebar( 'widgetarea-footer-' . $i ) ) {
-                                            dynamic_sidebar( 'widgetarea-footer-' . $i );
+                                        if ( is_active_sidebar( 'sidebar-footer-' . $i ) ) {
+                                            dynamic_sidebar( 'sidebar-footer-' . $i );
                                         }
                                     } ?>
                                 </div>
@@ -134,42 +138,52 @@ if ( !function_exists( 'pure_get_sidebar' ) ) {
                 break;
 
             # Copyright widgetarea.
-            case 'copyright': ?>
-                <!-- *======#| Footer-bottom. |#======* -->
-                <div class="footer-bottom">
-                    <div class="container copyright">
-                        <div class="row"><?php
-                        $wr_c_left = 'widgetarea-copyright-left';
-                        $wr_c_right = 'widgetarea-copyright-right';
-                        
-                        if ( is_active_sidebar( $wr_c_left ) || is_active_sidebar( $wr_c_right ) ): ?>
-                            <?php if ( is_active_sidebar( $wr_c_left ) ):  ?>
-                                <div class="col-md-6 copyright-left">
-                                    <?php dynamic_sidebar( $wr_c_left ); ?>
-                                </div>
+            case 'copyright': 
+
+                $wr_c_left = 'sidebar-copyright-left';
+                $wr_c_right = 'sidebar-copyright-right';
+                if ( is_active_sidebar( $wr_c_left ) && is_active_sidebar( $wr_c_right ) ):
+                ?>
+                    <!-- *======#| Footer-bottom. |#======* -->
+                    <div class="footer-bottom">
+                        <div class="container copyright">
+                            <div class="row"><?php
+
+                            if ( is_active_sidebar( $wr_c_left ) || is_active_sidebar( $wr_c_right ) ): ?>
+                                <?php if ( is_active_sidebar( $wr_c_left ) ):  ?>
+                                    <div class="col-md-6 copyright-left">
+                                        <?php dynamic_sidebar( $wr_c_left ); ?>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ( is_active_sidebar( $wr_c_right ) ):  ?>
+                                    <div class="col-md-6 copyright-right">
+                                        <?php dynamic_sidebar( $wr_c_right ); ?>
+                                    </div>
+                                <?php endif; ?>
                             <?php endif; ?>
-                            <?php if ( is_active_sidebar( $wr_c_right ) ):  ?>
-                                <div class="col-md-6 copyright-right">
-                                    <?php dynamic_sidebar( $wr_c_right ); ?>
-                                </div>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                        </div><!-- /.row -->
-                    </div><!-- /.container -->
-                </div><!-- /.footer-bottom --><?php
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </div><!-- /.footer-bottom --><?php
+                endif;
                 break;
 
             # Left topbar.
             case 'topbar-left':
-                if ( is_active_sidebar( 'widgetarea-topbar-left' ) ) {
-                    dynamic_sidebar( 'widgetarea-topbar-left' );
+
+                if ( is_active_sidebar( 'sidebar-topbar-left' ) ) {
+                    echo '<div class="top-bar-left top-bar-part">';
+                    dynamic_sidebar( 'sidebar-topbar-left' );
+                    echo '</div><!-- /.top-bar-left -->';
                 }
                 break;
 
             # Right topbar.
             case 'topbar-right':
-                if ( is_active_sidebar( 'widgetarea-topbar-right' ) ) {
-                    dynamic_sidebar( 'widgetarea-topbar-right' );
+
+                if ( is_active_sidebar( 'sidebar-topbar-right' ) ) {
+                    echo '<div class="top-bar-right top-bar-part">';
+                    dynamic_sidebar( 'sidebar-topbar-right' );
+                    echo '</div><!-- /.top-bar-right -->';
                 }
                 break;
             

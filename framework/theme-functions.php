@@ -100,7 +100,7 @@ if ( !function_exists( 'pure_top_bar_classes' ) ) {
  */
 if ( !function_exists( 'pure_get_permalink_without_dominian' ) ) {
     function pure_get_permalink_without_dominian() {
-        return str_replace( 'http://'.$_SERVER['HTTP_HOST'], "", get_permalink() );
+        return str_replace( 'http://' . $_SERVER['HTTP_HOST'], '', get_permalink() );
     }
 }
 
@@ -112,13 +112,13 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
 
         $classes = array();
 
-        if ( pure_enable_sidebar( $option ) ) {
+        if ( pure_enable_sidebar( $option ) && is_active_sidebar( $option ) ) {
 
-            $cmb_option = pure_get_cmb2_option( 'sidebar_position' );
+            $cmb_option = pure_get_cmb2_option( 'sidebar_position', 'page_layout' );
             $redux_option = pure_get_redux_option( $option . '_sidebar_position' );
             $redux = false;
 
-            if ( $cmb_option ) {
+            if ( isset( $cmb_option ) ) {
                 if ( $cmb_option === 'left' ) {
                     array_push( $classes, 'pull-right' );
                 } elseif ( $cmb_option === 'right' ) {
@@ -130,7 +130,7 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
                 $redux = true;
             }
 
-            if ( $redux_option && $redux === true && !is_product() ) {
+            if ( $redux_option && $redux === true && ( pure_is_woo_exists() && !is_product() ) ) {
                 if ( $redux_option === 'left' ) {
                     array_push( $classes, 'pull-right' );
                 } elseif ( $redux_option === 'right' ) {
@@ -138,11 +138,7 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
                 }
             }
 
-            if ( is_single() ) {
-                array_push( $classes, 'col-md-12' );
-            } else {
-                array_push( $classes, 'col-md-9' );
-            }
+            array_push( $classes, 'col-md-9' );
 
         } else {
             array_push( $classes, 'col-md-12' );
@@ -162,7 +158,8 @@ if ( !function_exists( 'pure_enable_sidebar' ) ) {
         $redux_option = pure_get_redux_option( $option . '_sidebar_position' );
         $redux = false;
 
-        if ( $cmb_option ) {
+        if ( isset( $cmb_option ) && !empty( $cmb_option ) ) {
+
             if ( $cmb_option === 'disable' ) {
                 return false;
             } elseif ( $cmb_option === 'default' ) {
@@ -174,13 +171,14 @@ if ( !function_exists( 'pure_enable_sidebar' ) ) {
             $redux = true;
         }
 
-        if ( $redux_option && $redux === true ) {
+        if ( isset( $redux_option ) && !empty( $redux_option ) && $redux === true ) {
             if ( $redux_option === 'disable' ) {
                 return false;
             } else {
                 return true;
             }
         }
+
         return false;
     }
 }
@@ -242,7 +240,7 @@ if ( !function_exists( 'pure_get_redux_option' ) ) {
 
         global $redux_pure;
 
-        if ( isset( $redux_pure ) && !empty( $redux_pure ) && $redux_pure[$id] ) {
+        if ( isset( $redux_pure ) && !empty( $redux_pure ) && isset( $redux_pure[$id] ) ) {
             return $redux_pure[$id];
         }
         return false;
@@ -321,12 +319,12 @@ if ( !function_exists( 'pure_get_relevant_header' ) ) {
 if ( !function_exists( 'pure_get_logo_url' ) ) {
     function pure_get_logo_url( $option = 'main' ) {
 
-        $_url_rdx = pure_get_redux_option( 'logo_header_' . $option );
+        $_url_rdx = pure_get_redux_option( 'logo_header_' . $option )['url'];
         $_url_cmb = pure_get_cmb2_option( 'logo_header_' . $option, 'header_options' );
         $_url = false;
 
-        if ( !$_url_cmb || empty( $_url_cmb ) ) {
-            if ( isset( $_url_rdx['url'] ) && !empty( $_url_rdx['url'] ) ) {
+        if ( !isset( $_url_cmb ) || empty( $_url_cmb ) ) {
+            if ( isset( $_url_rdx ) && !empty( $_url_rdx ) ) {
                 $_url = esc_url( $_url_rdx );
             }
         } else {
@@ -379,7 +377,7 @@ if ( !function_exists( 'pure_update_post_views' ) ) {
             <?php
             $post_meta = get_post_meta( $post_id );
 
-            if ( !$post_meta['_post_views'] ) {
+            if ( !isset( $post_meta['_post_views'] ) ) {
                 update_post_meta( $post_id, '_post_views', 1 );
             } else {
                 $post_views = $post_meta['_post_views'][0];
@@ -394,8 +392,9 @@ if ( !function_exists( 'pure_update_post_views' ) ) {
  * Get post views count.
  */
 function pure_get_post_views() {
+
     $post_meta = get_post_meta( get_the_ID() );
-    return $post_meta['_post_views'][0] ? $post_meta['_post_views'][0] : 0;
+    return isset( $post_meta['_post_views'][0] ) ? $post_meta['_post_views'][0] : 0;
 }
 
 /**
@@ -403,7 +402,8 @@ function pure_get_post_views() {
  */
 if ( !function_exists( 'pure_is_woo_exists' ) ) {
     function pure_is_woo_exists() {
-        return is_plugin_active('woocommerce/woocommerce.php');
+
+        return class_exists( 'WooCommerce' ) ? true : false;
     }
 }
 

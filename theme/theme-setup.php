@@ -45,4 +45,5 @@ if ( !function_exists( 'pure_setup' ) ) {
     }
 
     add_action( 'after_setup_theme', 'pure_setup' );
+    // add_theme_support( 'woocommerce' );
 }

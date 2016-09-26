@@ -4,5 +4,4 @@
  * The primary sidebar.
  * ============================================ *
  */
-?>
-<?php pure_get_sidebar();
+pure_get_sidebar();
