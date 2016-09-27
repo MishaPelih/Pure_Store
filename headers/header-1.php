@@ -10,6 +10,9 @@
                 pure_logo_tpl(); 
                 pure_get_menu(); 
                 pure_search_tpl( 'site-search' );
+                if ( pure_is_woo_exists() ) {
+                    pure_widget_cart_tpl();
+                }
                 pure_mobile_menu_tpl( 'switcher' ); 
             ?>
             </div><!-- /.container-wrap -->

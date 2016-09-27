@@ -187,7 +187,7 @@ Redux::setSection( $opt_name, array(
                 'dark' => __( 'Dark', 'pure' ),
                 'white' => __( 'White', 'pure' ),
             ),
-            'default' => 'white'
+            'default' => 'dark'
         ),
         array(
             'id' => 'header_bg',
@@ -205,7 +205,8 @@ Redux::setSection( $opt_name, array(
             'id' => 'top_bar_bg',
             'type' => 'background',
             'title' => __( 'Top bar background', 'pure' ),
-            'output' => array('.header-wrapper:not(.header-type-transparent) .top-bar')
+            'output' => array('.header-wrapper:not(.header-type-transparent) .top-bar'),
+            'default' => '#414141'
         ),
         array(
             'id' => 'top_bar_color',

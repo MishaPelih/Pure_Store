@@ -3,29 +3,13 @@
 <div class="top-bar<?php pure_top_bar_classes(); ?>">
     <div class="container">
         <div class="top-bar-content">
-
-            <?php pure_get_sidebar( 'topbar-left' ); ?>
-
-            <?php pure_get_sidebar( 'topbar-right' ); ?>
-
-            <?php if ( pure_is_woo_exists() ): ?>
-
-                <div class="widget-cart-wrapper top-bar-part">
-                    <div class="widget-cart menu-parent-item">
-                        <a href="<?php echo WC()->cart->get_cart_url(); ?>" class="cart-contents within-inline cart-quantity">
-                            <i class="zmdi zmdi-shopping-basket"></i>
-                            <span class="cart-count">
-                                <?php echo WC()->cart->get_cart_contents_count(); ?>
-                            </span>
-                        </a>
-                    
-                        <?php if ( !is_cart() ): ?>
-                            <div class="widget_shopping_cart_content shopping-cart-content"></div>
-                        <?php endif; ?>
-                    </div>
-                </div><!-- /.site-header-cart -->
-            <?php endif; ?>
-
+        <?php
+            pure_get_sidebar( 'topbar-left' );
+            pure_get_sidebar( 'topbar-right' );
+            if ( pure_is_woo_exists() ) {
+                pure_widget_cart_tpl( 'top-bar-part' );
+            }
+        ?>
         </div><!-- /.top-bar-content -->
     </div><!-- /.container -->
 </div><!-- /.top-bar -->

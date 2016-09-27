@@ -55,7 +55,7 @@ if ( !function_exists( 'pure_custom_css' ) ) {
 
 if ( !function_exists( 'pure_header_logo_style' ) ) {
     function pure_header_logo_style() { 
-        echo 'header.site-header .header-logo { max-width: ' . pure_get_redux_option( 'logo_width' ) . 'px; }';
+        echo 'header.header .header-logo { max-width: ' . pure_get_redux_option( 'logo_width' ) . 'px; }';
     }
 }
 
@@ -198,7 +198,7 @@ if ( !function_exists( 'pure_active_color_style' ) ) {
             .footer-bottom input[type='submit']
             .banner.with_mask .before,
             .owl-controls .owl-dot.active span,
-            .top-bar .cart-count,
+            .cart-count,
             .team-member:hover .member-image:before,
             .contact-form-area form input[type='submit'],
             .widget.widget_mc4wp_form_widget input[type='submit'],
@@ -212,8 +212,8 @@ if ( !function_exists( 'pure_active_color_style' ) ) {
             .products .add_to_cart_button,
             .pagination-wrap .page-numbers li span.current, 
             .filter-wrap .page-numbers li span.current,
-            .top-bar .widget_shopping_cart_content .buttons a,
-            .top-bar .widget_shopping_cart_content .buttons .button
+            .widget_shopping_cart_content .buttons a,
+            .widget_shopping_cart_content .buttons .button
         ";
 
         $pure_selectors['border_color'] = "

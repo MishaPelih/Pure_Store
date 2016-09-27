@@ -9,22 +9,16 @@ input[type='submit'] {
     display: inline-block;
     text-decoration: none;
     border: 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 8px 28px 7px;
+    text-transform: uppercase;
+    opacity: 1;
     .trans( all, .2s );
     .disable_OutBox();
-}
-.site-content, .site-footer, .footer-bottom {
-    .button,
-    button,
-    input[type='submit'] {
+    &:hover, &:focus {
         color: #fff;
-        font-size: 14px;
-        letter-spacing: 1px;
-        padding: 8px 28px 7px;
-        text-transform: uppercase;
-        opacity: 1;
-        &:hover, &:focus {
-            color: #fff;
-            opacity: .85;
-        }
+        opacity: .85;
     }
 }

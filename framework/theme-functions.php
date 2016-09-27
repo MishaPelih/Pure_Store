@@ -14,7 +14,6 @@ if ( !function_exists( 'pure_get_body_classes' ) ) {
         $_classes = array();
 
         if ( pure_enable_sidebar() ) array_push( $_classes, 'sidebar-enabled' );
-
         return implode( ' ', $_classes );
     }
 }
@@ -27,8 +26,6 @@ if ( !function_exists( 'pure_header_classes' ) ) {
 
         $_classes = array();
         $cmb_parent_option = 'header_options';
-
-        # Header overlap.
         $overlap_rdx = pure_get_redux_option( 'header_overlap' );
         $overlap_cmb = pure_get_cmb2_option( 'header_overlap', $cmb_parent_option );
 
@@ -162,9 +159,11 @@ if ( !function_exists( 'pure_enable_sidebar' ) ) {
 
             if ( $cmb_option === 'disable' ) {
                 return false;
-            } elseif ( $cmb_option === 'default' ) {
+            } 
+            elseif ( $cmb_option === 'default' ) {
                 $redux = true;
-            } else {
+            } 
+            else {
                 return true;
             }
         } else {
@@ -287,7 +286,6 @@ if ( !function_exists( 'pure_is_blog' ) ) {
         global $post;
 
         $posttype = get_post_type( $post );
-
         return ( ( ( is_archive() ) || ( is_author() ) || ( is_category() ) || ( is_home() ) || ( is_single() ) || ( is_tag() ) ) && ( $posttype == 'post' )  ) ? true : false ;
     }
 }
@@ -319,17 +317,17 @@ if ( !function_exists( 'pure_get_relevant_header' ) ) {
 if ( !function_exists( 'pure_get_logo_url' ) ) {
     function pure_get_logo_url( $option = 'main' ) {
 
-        $_url_rdx = pure_get_redux_option( 'logo_header_' . $option )['url'];
+        $_url_rdx = pure_get_redux_option( 'logo_header_' . $option );
+        $_url_rdx = isset( $_url_rdx['url'] ) ? $_url_rdx['url'] : null;
         $_url_cmb = pure_get_cmb2_option( 'logo_header_' . $option, 'header_options' );
         $_url = false;
 
-        if ( !isset( $_url_cmb ) || empty( $_url_cmb ) ) {
-            if ( isset( $_url_rdx ) && !empty( $_url_rdx ) ) {
-                $_url = esc_url( $_url_rdx );
-            }
+        if ( !isset( $_url_cmb ) || empty( $_url_cmb ) && ( isset( $_url_rdx ) && !empty( $_url_rdx ) ) ) {
+            $_url = esc_url( $_url_rdx );
         } else {
             $_url = esc_url( $_url_cmb );
         }
+
         return $_url;
     }
 }
@@ -341,9 +339,7 @@ if ( !function_exists( 'pure_update_post_views' ) ) {
     function pure_update_post_views() {
 
         if ( !isset( $_COOKIE['pure_post_view'] ) && is_single() ): ?>
-
             <?php $post_id = get_the_ID(); ?>
-
             <script>
                 jQuery(document).ready(function($) {
 
@@ -353,11 +349,8 @@ if ( !function_exists( 'pure_update_post_views' ) ) {
                     if ( getCookie( 'pure_post_view' ) === false ) {
 
                         var d = new Date();
-
                         d.setTime( d.getTime() + (2*24*60*60*1000) );
-
                         var expires = "expires=" + d.toUTCString();
-
                         document.cookie = cname + "=" + cvalue + "; " + expires;
                     }
 
@@ -379,7 +372,8 @@ if ( !function_exists( 'pure_update_post_views' ) ) {
 
             if ( !isset( $post_meta['_post_views'] ) ) {
                 update_post_meta( $post_id, '_post_views', 1 );
-            } else {
+            } 
+            else {
                 $post_views = $post_meta['_post_views'][0];
                 (int)$post_views++;
                 update_post_meta( $post_id, '_post_views', $post_views );
@@ -402,7 +396,6 @@ function pure_get_post_views() {
  */
 if ( !function_exists( 'pure_is_woo_exists' ) ) {
     function pure_is_woo_exists() {
-
         return class_exists( 'WooCommerce' ) ? true : false;
     }
 }
@@ -418,6 +411,8 @@ if ( !function_exists( 'pure_get_breadcrumbs' ) ) {
             woocommerce_breadcrumb();
         } elseif ( !is_front_page() ) {
             pure_breadcrumbs();
+        } else {
+            return false;
         }
     }
 }
@@ -431,7 +426,7 @@ if ( !function_exists( 'pure_is_woo_exists' ) ) {
     }
 }
 
-if( !function_exists( 'pure_js2tring' ) ) {
+if ( !function_exists( 'pure_js2tring' ) ) {
     function pure_js2tring( $str = '', $remove_extra_whitespaces = false ) {
 
         $final_str = trim( preg_replace( "/('|\"|\t|\r?\n)/", '', $str ) );

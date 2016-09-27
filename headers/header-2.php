@@ -9,7 +9,10 @@
             <?php # Header Templates.
                 pure_site_search_tpl();
                 pure_get_menu();
-                pure_logo_tpl(); 
+                pure_logo_tpl();
+                if ( pure_is_woo_exists() ) {
+                    pure_widget_cart_tpl();
+                } 
                 pure_mobile_menu_tpl( 'switcher' ); 
             ?>
             </div><!-- /.container-wrap -->

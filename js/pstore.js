@@ -131,7 +131,7 @@
                 input.focusout(function(){ form.removeClass( 'focused' ); });
             });
 
-            mobileMenu.find('li.menu-item.menu-item-has-children').each(function(){
+            mobileMenu.find('li.menu-item-has-children').each(function(){
 
                 var menuItem = $(this);
 
