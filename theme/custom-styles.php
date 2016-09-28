@@ -213,7 +213,8 @@ if ( !function_exists( 'pure_active_color_style' ) ) {
             .pagination-wrap .page-numbers li span.current, 
             .filter-wrap .page-numbers li span.current,
             .widget_shopping_cart_content .buttons a,
-            .widget_shopping_cart_content .buttons .button
+            .widget_shopping_cart_content .buttons .button,
+            .top-bar form.login input[type='submit']
         ";
 
         $pure_selectors['border_color'] = "

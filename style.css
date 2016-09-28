@@ -595,6 +595,27 @@ body.home .site-content {
 .cbalink {
   display: none;
 }
+.flex-holder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -js-display: flex;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.right-flex-holder {
+  margin-left: auto;
+}
+.left-flex-holder {
+  margin-right: auto;
+}
+.center-flex-holder {
+  margin-left: auto;
+  margin-right: auto;
+}
 /* Mandatory classes for Themecheck.
 ============================ */
 .bypostauthor {
@@ -1708,6 +1729,35 @@ table.cart td.product-remove {
 }
 .return-to-shop {
   text-align: center;
+}
+@media only screen and (max-width: 1200px) {
+  table.cart th {
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 768px) {
+  table.cart th {
+    padding: 10px 10px;
+  }
+  table.cart th.product-thumbnail,
+  table.cart td.product-thumbnail {
+    display: none;
+  }
+  table.cart .product-quantity .qty-btn-wrap {
+    display: none;
+  }
+  table.cart .product-quantity input[type='number'] {
+    border: 0;
+    height: 30px;
+    width: 50px;
+    font-size: 12px;
+  }
+}
+@media only screen and (max-width: 540px) {
+  table.cart th.product-price,
+  table.cart td.product-price {
+    display: none;
+  }
 }
 /**
  * CHECKOUT - #checkout.
@@ -3803,9 +3853,8 @@ footer.site-footer .widget-title {
 }
 .header-wrapper .sub-menu .sub-menu {
   top: 0;
-  left: -1px;
   transform: translateX(100%);
-  border: 0;
+  left: -1px;
 }
 .header-wrapper .sub-menu > .dropdown > a:after,
 .header-wrapper .sub-menu > .menu-parent-item > a:after,
@@ -4125,9 +4174,6 @@ header.header .sub-menu .menu-item a {
 header.header .menu-mobile-switcher-wrap {
   margin-left: 30px;
 }
-header.header .widget-cart-wrapper {
-  margin-left: auto;
-}
 header.site-header {
   padding: 34px 0;
 }
@@ -4146,11 +4192,6 @@ header.fixed-header {
 }
 header.fixed-header.active {
   transform: translateY(0%);
-}
-header.fixed-header .menu-wrap,
-header.fixed-header .menu {
-  margin-right: auto;
-  margin-left: auto;
 }
 header.fixed-header .menu-wrap .menu-item a,
 header.fixed-header .menu .menu-item a {
@@ -4251,8 +4292,10 @@ header.fixed-header .menu .menu-item a {
   padding-right: 30px;
 }
 @media only screen and (min-width: 992px) {
-  .menu-mobile-switcher-wrap,
-  header.site-header .widget-cart-wrapper {
+  header.site-header .flex-holder {
+    display: none !important;
+  }
+  header.fixed-header .menu-mobile-switcher-wrap {
     display: none !important;
   }
 }
@@ -5182,7 +5225,7 @@ aside.sidebar .widget .widget-title {
 .widget.widget_pages .cat-item a,
 .widget.widget_categories .page_item a,
 .widget.widget_pages .page_item a {
-  padding: 10px 0;
+  padding: 8px 0;
   display: inline-block;
 }
 .widget.widget_categories .widget-title {
@@ -5223,12 +5266,8 @@ aside.sidebar .widget .widget-title {
   background-color: #000;
   color: #fff;
 }
-.widget.widget.widget_calendar .calendar_wrap {
-  margin: 0 -10px;
-}
 .widget.widget.widget_calendar caption {
   margin-bottom: 15px;
-  padding: 0 10px;
 }
 .widget.widget.widget_calendar table {
   width: 100%;
@@ -5241,6 +5280,12 @@ aside.sidebar .widget .widget-title {
 }
 .widget.widget.widget_calendar th {
   font-weight: 500;
+}
+.widget.widget.widget_calendar thead td,
+.widget.widget.widget_calendar tbody td,
+.widget.widget.widget_calendar thead th,
+.widget.widget.widget_calendar tbody th {
+  border: 1px solid;
 }
 .widget.widget_price_filter .ui-widget-content {
   background-color: #ddd;

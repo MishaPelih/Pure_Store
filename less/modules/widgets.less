@@ -176,7 +176,7 @@ aside.sidebar {
     &.widget_categories, &.widget_pages {
         .cat-item, .page_item {
             a {
-                padding: 10px 0;
+                padding: 8px 0;
                 display: inline-block;
             }
         }
@@ -235,12 +235,8 @@ aside.sidebar {
     }
 
     &.widget.widget_calendar {
-        .calendar_wrap {
-            margin: 0 -10px;
-        }
         caption {
             margin-bottom: 15px;
-            padding: 0 10px;
         }
         table {
             width: 100%;
@@ -252,6 +248,11 @@ aside.sidebar {
         }
         th {
             font-weight: 500;   
+        }
+        thead, tbody {
+            td, th {
+                border: 1px solid;
+            }
         }
     }
 

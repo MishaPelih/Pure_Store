@@ -10,10 +10,12 @@
                 pure_logo_tpl(); 
                 pure_get_menu(); 
                 pure_site_search_tpl(); 
+                echo '<div class="flex-holder right-flex-holder">';
                 if ( pure_is_woo_exists() ) {
                     pure_widget_cart_tpl();
                 }
                 pure_mobile_menu_tpl( 'switcher' ); 
+                echo '</div>'; 
             ?>
             </div><!-- /.container-wrap -->
         </div><!-- /.container -->

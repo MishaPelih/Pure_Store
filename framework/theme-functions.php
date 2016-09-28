@@ -109,7 +109,7 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
 
         $classes = array();
 
-        if ( pure_enable_sidebar( $option ) && is_active_sidebar( $option ) ) {
+        if ( pure_enable_sidebar( $option ) && is_active_sidebar( 'sidebar-' . $option ) ) {
 
             $cmb_option = pure_get_cmb2_option( 'sidebar_position', 'page_layout' );
             $redux_option = pure_get_redux_option( $option . '_sidebar_position' );

@@ -5,10 +5,12 @@
         <div class="top-bar-content">
         <?php
             pure_get_sidebar( 'topbar-left' );
+            echo '<div class="flex-holder">';
             pure_get_sidebar( 'topbar-right' );
             if ( pure_is_woo_exists() ) {
                 pure_widget_cart_tpl( 'top-bar-part' );
             }
+            echo '</div>';
         ?>
         </div><!-- /.top-bar-content -->
     </div><!-- /.container -->

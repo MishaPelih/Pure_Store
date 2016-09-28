@@ -19,6 +19,7 @@
             this.customScrollInit();
             this.spinButtons();
             this.sidebarDropdowns();
+            this.dropdownMenusOverflovDefender();
             if ( pureConfig.woocommerce ) {
                 this.woocommerceOrderingForm();
                 this.priceFilter();
@@ -317,6 +318,23 @@
 
         wishlistTfootRemove: function() { $('.wishlist_table').find('tfoot').remove(); },
 
+        dropdownMenusOverflovDefender: function() {
+
+            $(window).bind('load resize', function() {
+
+                var windowWidth = $(window).width();
+
+                if ( windowWidth >= 768 ) {
+                    $('header.header .sub-menu').find('.sub-menu').each(function(){
+                        var child = $(this);
+                        if ( child.offset().left + child.innerWidth() > windowWidth ) {
+                            child.css({ transform: 'translateX(-100%)'});
+                        }
+                    });
+                }
+            });
+        },
+
         sidebarDropdowns: function() {
 
             $('.product-categories .open-this').click(function(){
@@ -398,7 +416,6 @@
             perPageForm.find( '.wild-select .wild-options li' ).each(function(){
                 var option = $(this);
                 if ( option.attr( 'data-value' ) == pureStore.getCookie( perPageCookie ) ) {
-                    console.log('ISSET');
                     option.attr( 'selected', 'selected' );
                     option.parent().siblings( '.wild-trigger' ).find('.wild-caption').text( option.text() );
                 }
