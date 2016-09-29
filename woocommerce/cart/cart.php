@@ -145,15 +145,10 @@ do_action( 'woocommerce_before_cart' ); ?>
 
     <div class="actions row">
 
-        <?php if ( is_active_sidebar( 'widgetarea-cart' ) ): ?>
-            <!-- Widgetarea -->
-            <div class="col-md-4 action">
-                <?php dynamic_sidebar( 'widgetarea-cart' ); ?>
-            </div>
-        <?php endif; ?>
+        <?php pure_get_sidebar( 'cart' ); ?>
 
         <!-- Actions -->
-        <div class="col-md-<?php echo is_active_sidebar( 'widgetarea-cart' ) ? 4 : 6 ?> action coupon-wrap">
+        <div class="col-md-<?php echo is_active_sidebar( 'sidebar-cart' ) ? 4 : 6 ?> col-sm-6 col-xs-12 action coupon-wrap">
 
             <?php if ( wc_coupons_enabled() ) { ?>
                 <div class="coupon">
@@ -172,7 +167,7 @@ do_action( 'woocommerce_before_cart' ); ?>
         </div>
 
         <!-- Cart Collaterals -->
-        <div class="col-md-<?php echo is_active_sidebar( 'widgetarea-cart' ) ? 4 : 6 ?> action cart-collaterals">
+        <div class="col-md-<?php echo is_active_sidebar( 'sidebar-cart' ) ? 4 : 6 ?> col-sm-6 col-xs-12 action cart-collaterals">
             <?php do_action( 'woocommerce_cart_collaterals' ); ?>
         </div><!-- /.cart-collaterals -->
 
@@ -181,7 +176,7 @@ do_action( 'woocommerce_before_cart' ); ?>
     <div class="row cross-sells-row">
 
         <!-- Cross-sells products. -->
-        <div class="cart-collaterals col-md-12">
+        <div class="cart-collaterals col-md-12 col-sm-12 col-xs-12">
             <?php do_action( 'pure_cart_cross_sells' ); ?>
         </div><!-- /cross-sells -->
 

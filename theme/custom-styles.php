@@ -187,15 +187,15 @@ if ( !function_exists( 'pure_active_color_style' ) ) {
 
         $pure_selectors['bg_color'] = "
             .active-bg-color,
-            .site-content .button,
+            .button,
             .site-footer .button,
             .footer-bottom .button,
-            .site-content button,
+            button,
             .site-footer button,
             .footer-bottom button,
-            .site-content input[type='submit'],
-            .site-footer input[type='submit'],
-            .footer-bottom input[type='submit']
+            input[type='submit'],
+            input[type='submit'],
+            input[type='submit']
             .banner.with_mask .before,
             .owl-controls .owl-dot.active span,
             .cart-count,

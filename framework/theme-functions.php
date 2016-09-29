@@ -151,6 +151,8 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
 if ( !function_exists( 'pure_enable_sidebar' ) ) {
     function pure_enable_sidebar( $option = 'blog' ) {
 
+        if ( pure_is_woo_exists() && ( is_cart() || is_checkout() ) ) return false;
+
         $cmb_option = pure_get_cmb2_option( 'sidebar_position', 'page_layout' );
         $redux_option = pure_get_redux_option( $option . '_sidebar_position' );
         $redux = false;

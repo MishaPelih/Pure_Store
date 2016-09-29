@@ -210,6 +210,16 @@ if ( !function_exists( 'pure_get_sidebar' ) ) {
                 }
                 break;
             
+            # Cart sidebar.
+            case 'cart':
+
+                if ( is_active_sidebar( 'sidebar-cart' ) ) {
+                    echo '<div class="col-md-4 col-sm-12 col-xs-12 action">';
+                    dynamic_sidebar( 'sidebar-cart' );
+                    echo '</div>';
+                }
+                break;
+
             default:
                 return false;
                 break;
