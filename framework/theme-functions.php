@@ -117,9 +117,9 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
 
             if ( isset( $cmb_option ) ) {
                 if ( $cmb_option === 'left' ) {
-                    array_push( $classes, 'pull-right' );
+                    array_push( $classes, 'pull-lg-right' );
                 } elseif ( $cmb_option === 'right' ) {
-                    array_push( $classes, 'pull-left' );
+                    array_push( $classes, 'pull-lg-left' );
                 } else {
                     $redux = true;
                 }
@@ -129,9 +129,9 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
 
             if ( $redux_option && $redux === true && ( pure_is_woo_exists() && !is_product() ) ) {
                 if ( $redux_option === 'left' ) {
-                    array_push( $classes, 'pull-right' );
+                    array_push( $classes, 'pull-lg-right' );
                 } elseif ( $redux_option === 'right' ) {
-                    array_push( $classes, 'pull-left' );
+                    array_push( $classes, 'pull-lg-left' );
                 }
             }
 

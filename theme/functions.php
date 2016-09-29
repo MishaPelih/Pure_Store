@@ -63,7 +63,7 @@ if ( !function_exists( 'pure_theme_scripts' ) ) {
 if ( !function_exists( 'pure_theme_styles' ) ) {
     function pure_theme_styles() {
 
-        wp_enqueue_style( 'bootstrap', PURE_STYLES_DIR . '/bootstrap.min.css' );
+        wp_enqueue_style( 'bootstrap', PURE_STYLES_DIR . '/bootstrap.css' );
         wp_enqueue_style( 'material-design-iconic-font', PURE_STYLES_DIR . '/material-design-iconic-font.min.css' );
         wp_enqueue_style( 'owl-carousel', PURE_STYLES_DIR . '/owl.carousel.css' );
         wp_enqueue_style( 'magnific-popup', PURE_STYLES_DIR . '/magnific-popup.css' );

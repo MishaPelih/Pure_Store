@@ -1738,9 +1738,22 @@ table.cart {
 }
 
 @media only screen and ( max-width: 540px ) {
+    table.cart th {
+        width: initial !important;
+    }
+    table.cart td {
+        font-size: 13px;
+    }
+    table.cart th.product-number,
+    table.cart td.product-number {
+        display: none;
+    }
     table.cart th.product-price,
     table.cart td.product-price {
         display: none;
+    }
+    table.cart th.product-remove {
+        font-size: 0;
     }
 }
 
