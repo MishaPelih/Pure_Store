@@ -559,8 +559,10 @@ body.home {
 }
 
 @media only screen and ( max-width: 1200px ) {
-    .page-heading {
+    h2 {
         font-size: 32px;
+    }
+    .page-heading {
         margin-bottom: 34px;
     }
 }
@@ -568,6 +570,19 @@ body.home {
 @media only screen and ( max-width: 992px ) {
     .sidebar-enabled .content-page {
         margin-bottom: 40px;
+    }
+}
+@media only screen and ( max-width: 768px ) {
+    .page-heading, .cross-sells h2 {
+        font-size: 28px;
+        line-height: 1.3;
+    }
+}
+@media only screen and ( max-width: 480px ) {
+    .page-heading, .cross-sells h2 {
+        font-size: 25px;
+        padding-bottom: 10px;
+        line-height: 1.4;
     }
 }
 .trans( @prop: all, @time: 0.2s, @animation: linear, @delay: 0s ) {
@@ -1163,7 +1178,6 @@ body.home {
         }
     }
 }
-
 @media only screen and ( max-width: 480px ) {
     .pure-owl-posts .owl-nav .owl-next, .cross-sells .owl-nav .owl-next {
         margin-right: 3%;
@@ -1739,6 +1753,12 @@ table.cart {
             margin-bottom: 14px;
         }
     }
+    .cart_totals h2, .cart_totals h3, .cart_totals h4, .cart_totals h5
+    .cart_totals .shop_table td, .cart_totals .shop_table th,
+    .wc-proceed-to-checkout {
+        text-align: left;
+
+    }
 }
 
 @media only screen and ( max-width: 768px ) {
@@ -1801,6 +1821,14 @@ table.cart {
         width: 42px;
         font-size: 11px;
         padding: 0 5px;
+    }
+    .actions {
+        button,
+        .button,
+        input[type='submit'] {
+            width: 100%;
+            text-align: center;
+        }
     }
 }
 /**
@@ -3248,6 +3276,46 @@ table.cart {
     tfoot {
         display: none !important;
     }
+}
+
+@media only screen and ( max-width: 1200px ) {
+    .woocommerce .wishlist_table td.product-add-to-cart a {
+        font-size: 0;
+        text-align: center;
+        margin: 0;
+        display: inline-block !important;
+        padding: 10px;
+        border-radius: 3px;
+        &:before {
+            font-family: 'Material-Design-Iconic-Font';
+            content: '\f1c9';
+            font-size: 20px;
+            margin: auto;
+            line-height: 1;
+            display: block;
+        }
+        &.product_type_variable {
+            &:before {
+                content: '\f197';
+            }
+        }
+    }
+}
+
+@media only screen and ( max-width: 992px ) {
+    
+}
+
+@media only screen and ( max-width: 768px ) {
+    
+}
+
+@media only screen and ( max-width: 480px ) {
+    
+}
+
+@media only screen and ( max-width: 320px ) {
+    
 }
 /**
  * WOOCOMMERCE-DEFAULTS - #woo_defaults.

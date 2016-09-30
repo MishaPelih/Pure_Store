@@ -137,11 +137,14 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
 
             array_push( $classes, 'col-md-9' );
 
-        } else {
+        } elseif ( !pure_page_without_sidebar() ) {
             array_push( $classes, 'col-md-12' );
         }
 
-        return implode( ' ', $classes );
+        if ( !empty( $classes ) ) {
+            return ' ' . implode( ' ', $classes );
+        }
+        return false;
     }
 }
 
@@ -151,7 +154,7 @@ if ( !function_exists( 'pure_main_content_classes' ) ) {
 if ( !function_exists( 'pure_enable_sidebar' ) ) {
     function pure_enable_sidebar( $option = 'blog' ) {
 
-        if ( pure_is_woo_exists() && ( is_cart() || is_checkout() ) ) return false;
+        if ( pure_page_without_sidebar() ) return false;
 
         $cmb_option = pure_get_cmb2_option( 'sidebar_position', 'page_layout' );
         $redux_option = pure_get_redux_option( $option . '_sidebar_position' );
@@ -181,6 +184,27 @@ if ( !function_exists( 'pure_enable_sidebar' ) ) {
         }
 
         return false;
+    }
+}
+
+/**
+ * Check if it is page without sidebar.
+ */
+if ( !function_exists( 'pure_page_without_sidebar' ) ) {
+    function pure_page_without_sidebar() {
+        return ( pure_is_woo_exists() && ( is_cart() || is_checkout() || is_product() ) ) || ( class_exists( 'YITH_WCWL' ) && pure_is_wishlist_page() ) ? true : false;
+    }
+}
+
+/**
+ * Check if current page is wishlist.
+ */
+if ( !function_exists( 'pure_is_wishlist_page' ) ) {
+    function pure_is_wishlist_page() {
+
+        $wishlist_page_id = yith_wcwl_object_id( get_option( 'yith_wcwl_wishlist_page_id' ) );
+        if ( !$wishlist_page_id ) return false;
+        return is_page( $wishlist_page_id );
     }
 }
 

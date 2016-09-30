@@ -11,8 +11,8 @@
 if ( !function_exists( 'pure_before_main_content_wrap' ) ) {
     function pure_before_main_content_wrap() {
         if ( !is_product() ) echo '<div class="container page-container">';
-        echo '<div class="row">';
-        echo '<div class="content-page shop ' . pure_main_content_classes( 'shop' ) . '" role="main">';
+        if ( !pure_page_without_sidebar() ) echo '<div class="row">';
+        echo '<div class="content-page shop' . pure_main_content_classes( 'shop' ) . '" role="main">';
     }
 }
 
@@ -20,7 +20,7 @@ if ( !function_exists( 'pure_after_main_content_wrap' ) ) {
     function pure_after_main_content_wrap() {
         echo '</div><!-- /.content-page -->';
         pure_enable_sidebar( 'shop' ) ? get_sidebar( 'shop' ) : remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );;
-        echo '</div><!-- /.row -->';
+        if ( !pure_page_without_sidebar() ) echo '</div><!-- /.row -->';
         if ( !is_product() ) echo '</div><!-- /.page-container -->';
     }
 }

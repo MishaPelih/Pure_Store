@@ -226,7 +226,6 @@
             var navIcons = ['<i class="zmdi zmdi-chevron-left"></i>','<i class="zmdi zmdi-chevron-right"></i>'];
 
             $('.related-products, .upsells-products, .cross-sells').find('.products').owlCarousel({
-                loop: true,
                 dots: false,
                 margin: 30,
                 navText: navIcons,
@@ -241,7 +240,6 @@
 
             $( '.pure-carousel' ).owlCarousel({
                 items: 5,
-                loop: true,
                 nav: true,
                 dots: false,
                 margin: 60,
