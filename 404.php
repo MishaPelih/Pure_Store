@@ -4,8 +4,8 @@
  * The template for displaying 404 page.
  * ============================================ *
  */
-?>
-<?php get_header(); ?>
+
+get_header(); ?>
     
 <div class="page-404">
     <div class="container">
@@ -17,4 +17,4 @@
     </div>
 </div>
 
-<?php get_footer(); ?>
+<?php get_footer();
